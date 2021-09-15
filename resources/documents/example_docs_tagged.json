@@ -1,0 +1,569 @@
+[
+{
+ "id": 100,
+ "title": "Angela Merkel",
+ "abstract": "Merkel was born in Hamburg in then-West Germany, moving to East Germany as an infant when her father, a Lutheran clergyman, received a pastorate in Perleberg. She obtained a doctorate in quantum chemistry in 1986 and worked as a research scientist until 1989.[14] Merkel entered politics in the wake of the Revolutions of 1989, briefly serving as deputy spokesperson for the first democratically elected East German Government led by Lothar de Maiziere. Following German reunification in 1990, Merkel was elected to the Bundestag for the state of Mecklenburg-Vorpommern. As the protegee of Chancellor Helmut Kohl, Merkel was appointed as Minister for Women and Youth in 1991, later becoming Minister for the Environment, Nature Conservation and Nuclear Safety in 1994. After the CDU lost the 1998 federal election, Merkel was elected CDU General Secretary, before becoming the party's first female leader and the first female Leader of the Opposition two years later, in the aftermath of a donations scandal that toppled Wolfgang Schauble.Following the 2005 federal election, Merkel was appointed to succeed Gerhard Schroder as Chancellor of Germany, leading a grand coalition consisting of the CDU, its Bavarian sister party the Christian Social Union (CSU) and the Social Democratic Party (SPD). Merkel was the first woman to be elected as Chancellor, and the first Chancellor since German reunification to have been raised in the former East Germany. At the 2009 federal election, the CDU obtained the largest share of the vote, and Merkel was able to form a coalition government with the Free Democratic Party (FDP).[15] At the 2013 federal election, Merkel's CDU won a landslide victory with 41.5% of the vote and formed a second grand coalition with the SPD, after the FDP lost all of its representation in the Bundestag.[16] At the 2017 federal election, Merkel led the CDU to become the largest party for the fourth time, and was sworn in for a joint-record fourth term as Chancellor on 14 March 2018.",
+ "tags": [
+  {
+   "id": "Q2",
+   "mention": "merkel",
+   "start": 14,
+   "end": 20,
+   "type": "Person"
+  },
+  {
+   "id": "Q4",
+   "mention": "hamburg",
+   "start": 33,
+   "end": 40,
+   "type": "Location"
+  },
+  {
+   "id": "germany",
+   "mention": "germany",
+   "start": 78,
+   "end": 85,
+   "type": "GPE"
+  },
+  {
+   "id": "1986",
+   "mention": "1986",
+   "start": 222,
+   "end": 226,
+   "type": "DATE"
+  },
+  {
+   "id": "1989",
+   "mention": "1989",
+   "start": 268,
+   "end": 272,
+   "type": "DATE"
+  },
+  {
+   "id": "14",
+   "mention": "14",
+   "start": 274,
+   "end": 276,
+   "type": "DATE"
+  },
+  {
+   "id": "Q2",
+   "mention": "merkel",
+   "start": 278,
+   "end": 284,
+   "type": "Person"
+  },
+  {
+   "id": "1989",
+   "mention": "1989",
+   "start": 336,
+   "end": 340,
+   "type": "DATE"
+  },
+  {
+   "id": "lothar de maiziere",
+   "mention": "lothar de maiziere",
+   "start": 448,
+   "end": 466,
+   "type": "ORG"
+  },
+  {
+   "id": "1990",
+   "mention": "1990",
+   "start": 502,
+   "end": 506,
+   "type": "DATE"
+  },
+  {
+   "id": "Q2",
+   "mention": "merkel",
+   "start": 508,
+   "end": 514,
+   "type": "Person"
+  },
+  {
+   "id": "Q2",
+   "mention": "merkel",
+   "start": 628,
+   "end": 634,
+   "type": "Person"
+  },
+  {
+   "id": "1991",
+   "mention": "1991",
+   "start": 684,
+   "end": 688,
+   "type": "DATE"
+  },
+  {
+   "id": "1994",
+   "mention": "1994",
+   "start": 777,
+   "end": 781,
+   "type": "DATE"
+  },
+  {
+   "id": "1998",
+   "mention": "1998",
+   "start": 806,
+   "end": 810,
+   "type": "DATE"
+  },
+  {
+   "id": "Q2",
+   "mention": "merkel",
+   "start": 829,
+   "end": 835,
+   "type": "Person"
+  },
+  {
+   "id": "two years later",
+   "mention": "two years later",
+   "start": 965,
+   "end": 980,
+   "type": "DATE"
+  },
+  {
+   "id": "2005",
+   "mention": "2005",
+   "start": 1067,
+   "end": 1071,
+   "type": "DATE"
+  },
+  {
+   "id": "Q2",
+   "mention": "merkel",
+   "start": 1090,
+   "end": 1096,
+   "type": "Person"
+  },
+  {
+   "id": "gerhard",
+   "mention": "gerhard",
+   "start": 1122,
+   "end": 1129,
+   "type": "PERSON"
+  },
+  {
+   "id": "germany",
+   "mention": "germany",
+   "start": 1156,
+   "end": 1163,
+   "type": "GPE"
+  },
+  {
+   "id": "Q2",
+   "mention": "merkel",
+   "start": 1312,
+   "end": 1318,
+   "type": "Person"
+  },
+  {
+   "id": "merkel",
+   "mention": "merkel",
+   "start": 1312,
+   "end": 1318,
+   "type": "PERSON"
+  },
+  {
+   "id": "2009",
+   "mention": "2009",
+   "start": 1475,
+   "end": 1479,
+   "type": "DATE"
+  },
+  {
+   "id": "Q2",
+   "mention": "merkel",
+   "start": 1550,
+   "end": 1556,
+   "type": "Person"
+  },
+  {
+   "id": "merkel",
+   "mention": "merkel",
+   "start": 1550,
+   "end": 1556,
+   "type": "PERSON"
+  },
+  {
+   "id": "15",
+   "mention": "15",
+   "start": 1635,
+   "end": 1637,
+   "type": "CARDINAL"
+  },
+  {
+   "id": "2013",
+   "mention": "2013",
+   "start": 1646,
+   "end": 1650,
+   "type": "DATE"
+  },
+  {
+   "id": "16",
+   "mention": "16",
+   "start": 1842,
+   "end": 1844,
+   "type": "CARDINAL"
+  },
+  {
+   "id": "2017",
+   "mention": "2017",
+   "start": 1853,
+   "end": 1857,
+   "type": "DATE"
+  },
+  {
+   "id": "Q2",
+   "mention": "merkel",
+   "start": 1876,
+   "end": 1882,
+   "type": "Person"
+  },
+  {
+   "id": "14 march 2018",
+   "mention": "14 march 2018",
+   "start": 2009,
+   "end": 2022,
+   "type": "DATE"
+  }
+ ]
+},
+{
+ "id": 101,
+ "title": "Barack Obama",
+ "abstract": "Obama was born in Honolulu, Hawaii. After graduating from Columbia University in 1983, he worked as a community organizer in Chicago. In 1988, he enrolled in Harvard Law School, where he was the first black president of the Harvard Law Review. After graduating, he became a civil rights attorney and an academic, teaching constitutional law at the University of Chicago Law School from 1992 to 2004. Turning to elective politics, he represented the 13th district in the Illinois Senate from 1997 until 2004, when he ran for the U.S. Senate. Obama received national attention in 2004 with his March Senate primary win, his well-received July Democratic National Convention keynote address, and his landslide November election to the Senate. In 2008, a year after beginning his campaign, and after a close primary campaign against Hillary Clinton, he was nominated by the Democratic Party for president. Obama was elected over Republican nominee John McCain in the general election and was inaugurated alongside his running mate, Joe Biden, on January 20, 2009. Nine months later, he was named the 2009 Nobel Peace Prize laureate.Obama signed many landmark bills into law during his first two years in office. The main reforms include: the Affordable Care Act (ACA or \"Obamacare\"), although without a public health insurance option; the DoddFrank Wall Street Reform and Consumer Protection Act; and the Don't Ask, Don't Tell Repeal Act of 2010. The American Recovery and Reinvestment Act of 2009 and Tax Relief, Unemployment Insurance Reauthorization, and Job Creation Act of 2010 served as economic stimuli amidst the Great Recession. After a lengthy debate over the national debt limit, he signed the Budget Control and the American Taxpayer Relief Acts. In foreign policy, he increased U.S. troop levels in Afghanistan, reduced nuclear weapons with the United StatesRussia New START treaty, and ended military involvement in the Iraq War. He ordered military involvement in Libya for the implementation of the UN Security Council Resolution 1973, contributing to the overthrow of Muammar Gaddafi. He also ordered the military operation that resulted in the killing of Osama bin Laden.",
+ "tags": [
+  {
+   "id": "obama obama",
+   "mention": "obama obama",
+   "start": 7,
+   "end": 18,
+   "type": "PERSON"
+  },
+  {
+   "id": "Q1",
+   "mention": "obama",
+   "start": 13,
+   "end": 18,
+   "type": "Person"
+  },
+  {
+   "id": "Q3",
+   "mention": "honolulu",
+   "start": 31,
+   "end": 39,
+   "type": "Location"
+  },
+  {
+   "id": "1983",
+   "mention": "1983",
+   "start": 94,
+   "end": 98,
+   "type": "DATE"
+  },
+  {
+   "id": "1988",
+   "mention": "1988",
+   "start": 150,
+   "end": 154,
+   "type": "DATE"
+  },
+  {
+   "id": "1992 to 2004",
+   "mention": "1992 to 2004",
+   "start": 399,
+   "end": 411,
+   "type": "DATE"
+  },
+  {
+   "id": "the illinois senate",
+   "mention": "the illinois senate",
+   "start": 479,
+   "end": 498,
+   "type": "ORG"
+  },
+  {
+   "id": "1997",
+   "mention": "1997",
+   "start": 504,
+   "end": 508,
+   "type": "DATE"
+  },
+  {
+   "id": "2004",
+   "mention": "2004",
+   "start": 515,
+   "end": 519,
+   "type": "DATE"
+  },
+  {
+   "id": "Q1",
+   "mention": "obama",
+   "start": 554,
+   "end": 559,
+   "type": "Person"
+  },
+  {
+   "id": "obama",
+   "mention": "obama",
+   "start": 554,
+   "end": 559,
+   "type": "PERSON"
+  },
+  {
+   "id": "2004",
+   "mention": "2004",
+   "start": 591,
+   "end": 595,
+   "type": "DATE"
+  },
+  {
+   "id": "july",
+   "mention": "july",
+   "start": 649,
+   "end": 653,
+   "type": "DATE"
+  },
+  {
+   "id": "november",
+   "mention": "november",
+   "start": 720,
+   "end": 728,
+   "type": "DATE"
+  },
+  {
+   "id": "2008",
+   "mention": "2008",
+   "start": 756,
+   "end": 760,
+   "type": "DATE"
+  },
+  {
+   "id": "a year",
+   "mention": "a year",
+   "start": 762,
+   "end": 768,
+   "type": "DATE"
+  },
+  {
+   "id": "hillary clinton",
+   "mention": "hillary clinton",
+   "start": 842,
+   "end": 857,
+   "type": "PERSON"
+  },
+  {
+   "id": "Q1",
+   "mention": "obama",
+   "start": 915,
+   "end": 920,
+   "type": "Person"
+  },
+  {
+   "id": "obama",
+   "mention": "obama",
+   "start": 915,
+   "end": 920,
+   "type": "PERSON"
+  },
+  {
+   "id": "republican",
+   "mention": "republican",
+   "start": 938,
+   "end": 948,
+   "type": "NORP"
+  },
+  {
+   "id": "john mccain",
+   "mention": "john mccain",
+   "start": 957,
+   "end": 968,
+   "type": "PERSON"
+  },
+  {
+   "id": "joe biden",
+   "mention": "joe biden",
+   "start": 1041,
+   "end": 1050,
+   "type": "PERSON"
+  },
+  {
+   "id": "january 20, 2009",
+   "mention": "january 20, 2009",
+   "start": 1055,
+   "end": 1071,
+   "type": "DATE"
+  },
+  {
+   "id": "nine months later",
+   "mention": "nine months later",
+   "start": 1073,
+   "end": 1090,
+   "type": "DATE"
+  },
+  {
+   "id": "2009",
+   "mention": "2009",
+   "start": 1109,
+   "end": 1113,
+   "type": "DATE"
+  },
+  {
+   "id": "obama",
+   "mention": "obama",
+   "start": 1141,
+   "end": 1146,
+   "type": "PERSON"
+  },
+  {
+   "id": "his first two years",
+   "mention": "his first two years",
+   "start": 1190,
+   "end": 1209,
+   "type": "DATE"
+  },
+  {
+   "id": "2010",
+   "mention": "2010",
+   "start": 1450,
+   "end": 1454,
+   "type": "DATE"
+  },
+  {
+   "id": "2009",
+   "mention": "2009",
+   "start": 1502,
+   "end": 1506,
+   "type": "DATE"
+  },
+  {
+   "id": "2010",
+   "mention": "2010",
+   "start": 1587,
+   "end": 1591,
+   "type": "DATE"
+  },
+  {
+   "id": "u.s.",
+   "mention": "u.s.",
+   "start": 1800,
+   "end": 1804,
+   "type": "GPE"
+  },
+  {
+   "id": "afghanistan",
+   "mention": "afghanistan",
+   "start": 1821,
+   "end": 1832,
+   "type": "GPE"
+  },
+  {
+   "id": "the iraq war",
+   "mention": "the iraq war",
+   "start": 1939,
+   "end": 1951,
+   "type": "EVENT"
+  },
+  {
+   "id": "1973",
+   "mention": "1973",
+   "start": 2055,
+   "end": 2059,
+   "type": "DATE"
+  },
+  {
+   "id": "osama bin laden",
+   "mention": "osama bin laden",
+   "start": 2182,
+   "end": 2197,
+   "type": "PERSON"
+  }
+ ]
+},
+{
+ "id": 102,
+ "title": "Americas",
+ "abstract": "Along with their associated islands, the Americas cover 8% of Earth's total surface area and 28.4% of its land area. The topography is dominated by the American Cordillera, a long chain of mountains that runs the length of the west coast. The flatter eastern side of the Americas is dominated by large river basins, such as the Amazon, St. Lawrence RiverGreat Lakes basin, Mississippi, and La Plata. Since the Americas extend 14,000 km (8,700 mi) from north to south, the climate and ecology vary widely, from the arctic tundra of Northern Canada, Greenland, and Alaska, to the tropical rain forests in Central America and South America.Humans first settled the Americas from Asia between 42,000 and 17,000 years ago. A second migration of Na-Dene speakers followed later from Asia. The subsequent migration of the Inuit into the neoarctic around 3500 BCE completed what is generally regarded as the settlement by the indigenous peoples of the Americas.",
+ "tags": [
+  {
+   "id": "Q5",
+   "mention": "americas",
+   "start": 50,
+   "end": 58,
+   "type": "Location"
+  },
+  {
+   "id": "earth",
+   "mention": "earth",
+   "start": 71,
+   "end": 76,
+   "type": "LOC"
+  },
+  {
+   "id": "Q5",
+   "mention": "americas",
+   "start": 280,
+   "end": 288,
+   "type": "Location"
+  },
+  {
+   "id": "Q5",
+   "mention": "americas",
+   "start": 419,
+   "end": 427,
+   "type": "Location"
+  },
+  {
+   "id": "alaska",
+   "mention": "alaska",
+   "start": 572,
+   "end": 578,
+   "type": "GPE"
+  },
+  {
+   "id": "Q5",
+   "mention": "america",
+   "start": 620,
+   "end": 627,
+   "type": "Location"
+  },
+  {
+   "id": "america",
+   "mention": "america",
+   "start": 620,
+   "end": 627,
+   "type": "GPE"
+  },
+  {
+   "id": "america",
+   "mention": "america",
+   "start": 638,
+   "end": 645,
+   "type": "GPE"
+  },
+  {
+   "id": "Q5",
+   "mention": "americas",
+   "start": 671,
+   "end": 679,
+   "type": "Location"
+  },
+  {
+   "id": "between 42,000 and 17,000 years ago",
+   "mention": "between 42,000 and 17,000 years ago",
+   "start": 690,
+   "end": 725,
+   "type": "DATE"
+  },
+  {
+   "id": "Q5",
+   "mention": "americas",
+   "start": 953,
+   "end": 961,
+   "type": "Location"
+  }
+ ]
+}
+]

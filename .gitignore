@@ -1,0 +1,5 @@
+.idea/
+config/*
+!config/*.prod.json
+!config/*.example.json
+/tmp/

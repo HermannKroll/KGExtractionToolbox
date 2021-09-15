@@ -1,0 +1,8 @@
+{
+  "corenlp": ".../stanford-corenlp-4.1.0/",
+  "openie6": ".../openie6/",
+  "openie5.1": {
+    "port": 8085,
+    "jar": ".../OpenIE-standalone/openie-assembly-5.0-SNAPSHOT.jar"
+  }
+}

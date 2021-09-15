@@ -1,0 +1,10 @@
+{
+  "use_SQLite": false,
+  "SQLite_path": "sqlitebase.db",
+  "POSTGRES_DB": "example",
+  "POSTGRES_HOST": "127.0.0.1",
+  "POSTGRES_PORT": "5432",
+  "POSTGRES_USER": "user",
+  "POSTGRES_PW": "pw",
+  "POSTGRES_SCHEMA": "public"
+}
