@@ -78,7 +78,8 @@ def mark_document_as_processed_by_ie(document_ids: [int], document_collection: s
     for doc_id in document_ids:
         doc_inserts.append(dict(document_id=doc_id,
                                 document_collection=document_collection,
-                                extraction_type=extraction_type))
+                                extraction_type=extraction_type,
+                                date_inserted=datetime.now()))
     session = Session.get()
     DocProcessedByIE.bulk_insert_values_into_table(session, doc_inserts)
     logging.info(f'{len(doc_inserts)} document ids have been inserted')
