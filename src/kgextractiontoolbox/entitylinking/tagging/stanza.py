@@ -18,7 +18,7 @@ class StanzaTagger(BaseTagger):
         for in_doc in in_docs:
             pmid, title, abstact = in_doc.id, in_doc.title, in_doc.abstract
             content = title.strip() + " " + abstact.strip()
-            content = content.lower()
+            #content = content.lower()
             document_texts.append(content)
 
         stanza_texts = [stanza.Document([], text=text) for text in document_texts]
