@@ -3,7 +3,7 @@ import unicodedata
 from collections import namedtuple
 from datetime import datetime
 from io import StringIO
-from typing import List, Tuple
+from typing import List, Tuple, Set
 
 from sqlalchemy import Column, String, Integer, DateTime, ForeignKeyConstraint, PrimaryKeyConstraint, \
     BigInteger, UniqueConstraint, Float, func
@@ -68,18 +68,20 @@ def postgres_copy_insert(session, values: List[dict], table_name: str):
         memory_file.close()
 
 
-def bulk_insert_values_to_table(session, values: List[dict], table_class):
+def bulk_insert_values_to_table(session, values: List[dict], table_class, print_progress=False):
     """
     Performs a bulk insert to a database table
     :param session: the current session object
     :param values: a list of dictionary objects that correspond to the table
     :param table_class: the table class to insert into
+    :param print_progress: should the progress be printed?
     :return: None
     """
     task_size = 1 + int(len(values) / BULK_INSERT_AFTER_K)
     start_time = datetime.now()
     for idx, chunk_values in enumerate(chunks_list(values, BULK_INSERT_AFTER_K)):
-        print_progress_with_eta("Inserting values...", idx, task_size, start_time, print_every_k=1)
+        if print_progress:
+            print_progress_with_eta("Inserting values...", idx, task_size, start_time, print_every_k=1)
         session.bulk_insert_mappings(table_class, chunk_values)
         session.commit()
 
@@ -90,14 +92,14 @@ class DatabaseTable:
     """
 
     @classmethod
-    def bulk_insert_values_into_table(cls, session, values: List[dict], check_constraints=True):
-        if not values:
+    def bulk_insert_values_into_table(cls, session, values: List[dict], check_constraints=True, print_progress=False):
+        if not values or len(values) == 0:
             return
         logging.debug(f'Inserting values into {cls.__tablename__}...')
         if session.is_postgres and not check_constraints:
             postgres_copy_insert(session, values, cls.__tablename__)
         else:
-            bulk_insert_values_to_table(session, values, cls)
+            bulk_insert_values_to_table(session, values, cls, print_progress)
         logging.debug(f'{len(values)} values have been inserted')
 
 
@@ -125,8 +127,11 @@ class Document(Base, DatabaseTable):
 
     @staticmethod
     def create_pubtator(did, title: str, abstract: str):
-        title = unicodedata.normalize('NFD', title)
-        title = ILLEGAL_CHAR.sub("", title).strip()
+        if title:
+            title = unicodedata.normalize('NFD', title)
+            title = ILLEGAL_CHAR.sub("", title).strip()
+        else:
+            title = ""
         if abstract:
             abstract = unicodedata.normalize('NFD', abstract)
             abstract = ILLEGAL_CHAR.sub("", abstract).strip()
@@ -139,6 +144,14 @@ class Document(Base, DatabaseTable):
         to_sanitize = unicodedata.normalize('NFD', to_sanitize)
         to_sanitize = ILLEGAL_CHAR.sub("", to_sanitize)
         return to_sanitize
+
+    @staticmethod
+    def get_document_ids_for_collection(session, collection: str) -> Set[int]:
+        query = session.query(Document.id).filter(Document.collection == collection)
+        ids = set()
+        for r in query:
+            ids.add(int(r[0]))
+        return ids
 
 
 class Tagger(Base, DatabaseTable):
