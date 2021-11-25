@@ -8,7 +8,7 @@
   },
   "gnormPlus": {
     "root": "../GNormPlusJava",
-    "javaArgs": "-Xmx32G -Xms16G"
+    "javaArgs": "-Xmx16G -Xms10G"
   },
   "dict": {
     "max_words": 5,

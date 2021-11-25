@@ -161,7 +161,7 @@ Adjust the root path configurations for both taggers in `entity_linking.json:`
   },
   "gnormPlus": {
     "root": "<path to tools>/tools/GNormPlusJava", # GNormPlus path here
-    "javaArgs": "-Xmx100G -Xms30G"
+    "javaArgs": "-Xmx16G -Xms10G"
   },
   #...
 }
@@ -170,11 +170,20 @@ Adjust the root path configurations for both taggers in `entity_linking.json:`
 If TaggerOne gets stuck on a file, the process will be killed after `"timeout"` minutes without progress. The pipeline will then restart TaggerOne and will retry to process the file `"max_retries"` times. If no progress is made by then, the file will be ignored. 
 
 ## Runing the biomedical entity linking
-Below you can see a sample call for the pipeline.
+Below you can see a sample call for the pipeline. Run TaggerOne:
 ```
-python src/kgextractiontoolbox/entitylinking/biomedical_entity_linking.py test.json --collection test --tagger-one --gnormplus
+python src/kgextractiontoolbox/entitylinking/biomedical_entity_linking.py test.json --collection test --tagger-one
 ```
+
+Run GNormPlus:
+```
+python src/kgextractiontoolbox/entitylinking/biomedical_entity_linking.py test.json --collection test --gnormplus
+```
+
+
 The pipeline will read the input file `test.json` and will load the contained documents into the database in collection `test`. It will then invoke both taggerOne and GNormPlus, which generate tags as output. The tags will also be inserted into the database. 
+
+You must either select **--tagger-one** or **--gnormplus**. Both linkers must run separately.
 
 For more information and additional options, please see
 ```
