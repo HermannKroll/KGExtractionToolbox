@@ -54,7 +54,7 @@ class Oi5ServerController:
     def get_extraction(self, sentence: str) -> json:
         try:
             url = f"http://localhost:{self.port}/getExtraction"
-            response = self.session.post(url, sentence.encode("utf-8"))
+            response = self.session.post(url, sentence.encode("utf-8"), timeout=60)
             return json.loads(response.text) if response.text else []
         except Exception as inst:
             print(inst)
