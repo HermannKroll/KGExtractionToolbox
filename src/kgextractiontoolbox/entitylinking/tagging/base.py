@@ -1,12 +1,14 @@
 import logging
 import os
+
+import multiprocessing
 from sqlalchemy.dialects.postgresql import insert
 from threading import Thread
 from typing import List, Tuple, Dict, Set
 
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import Tag, DocTaggedBy
-from kgextractiontoolbox.document.document import TaggedDocument
+from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
 from kgextractiontoolbox.document.load_document import insert_taggers
 from kgextractiontoolbox.document.regex import TAG_LINE_NORMAL
 from kgextractiontoolbox.entitylinking.entity_linking_config import Config
@@ -44,21 +46,22 @@ class BaseTagger(Thread):
         self.log_dir: str = log_dir
         self.config: Config = config
         self.thread = None
-        self.logger = logger if logger else logging.getLogger("entitylinking")
+        self.logger = logger if logger else logging.getLogger("preprocessing")
         self.name = self.__class__.__name__
         self.files = set()
-        self.mapping_id_file: Dict[int, str] = mapping_id_file
-        self.mapping_file_id: Dict[str, int] = mapping_file_id
-        self.id_set: Set[int] = set()
+        self.partial_tag_inserts = list()
+        self.progress_value: multiprocessing.Value = None
+
+    def set_multiprocess_progress_value(self, progress_value):
+        self.progress_value = progress_value
 
     def get_types(self):
         return self.__class__.TYPES
 
-    def add_files(self, *files: str):
-        self.files.update(files)
-        self.id_set.update(self.mapping_file_id[fn] for fn in files)
+    def add_files(self, files: str):
+        self.files.update(set(files))
 
-    def prepare(self, resume=False):
+    def prepare(self):
         raise NotImplementedError
 
     def run(self):
@@ -162,6 +165,35 @@ class BaseTagger(Thread):
         tagger_name = self.__name__
         tagger_version = self.__version__
         insert_taggers((tagger_name, tagger_version))
+
+    def base_insert_tags_partial(self, tags: List[TaggedEntity]):
+        """
+        Stores tags to insert in a local list
+        Does not store the data in the database
+        You need to call bulk_insert_partial_tags to perform the inserting
+        :param tags: a list of tagged entities
+        :return: None
+        """
+        # Add tags
+        for tag in tags:
+            self.partial_tag_inserts.append(dict(
+                ent_type=tag.ent_type,
+                start=tag.start,
+                end=tag.end,
+                ent_id=tag.ent_id,
+                ent_str=tag.text,
+                document_id=tag.document,
+                document_collection=self.collection,
+            ))
+
+    def bulk_insert_partial_tags(self):
+        """
+        Insert all partially saved tags as a large bulk insert to the database
+        :return: None
+        """
+        session = Session.get()
+        Tag.bulk_insert_values_into_table(session, self.partial_tag_inserts)
+        self.partial_tag_inserts.clear()
 
     def base_insert_tags(self, doc: TaggedDocument, auto_commit=True):
         session = Session.get()
