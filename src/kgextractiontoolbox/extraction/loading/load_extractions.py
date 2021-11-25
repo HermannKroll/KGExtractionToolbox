@@ -151,7 +151,7 @@ def clean_predications(tuples_cleaned: List[PRED], collection, extraction_type):
     return predication_values, sentence_values
 
 
-def clean_and_load_predications_into_db(tuples_cleaned: List[PRED], collection, extraction_type, clean_genes=True):
+def clean_and_load_predications_into_db(tuples_cleaned: List[PRED], collection, extraction_type):
     """
      insert a list of cleaned tuples into the database (bulk insert)
      does not check for collisions
@@ -163,5 +163,5 @@ def clean_and_load_predications_into_db(tuples_cleaned: List[PRED], collection, 
     predication_values, sentence_values = clean_predications(tuples_cleaned, collection, extraction_type)
     logging.info(f'{len(predication_values)} predications and {len(sentence_values)} sentences to insert...')
     session = Session.get()
-    Sentence.bulk_insert_values_into_table(session, sentence_values)
-    Predication.bulk_insert_values_into_table(session, predication_values)
+    Sentence.bulk_insert_values_into_table(session, sentence_values, check_constraints=False)
+    Predication.bulk_insert_values_into_table(session, predication_values, check_constraints=False)

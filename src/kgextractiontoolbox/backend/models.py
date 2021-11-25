@@ -1,13 +1,13 @@
+import logging
 import unicodedata
 from collections import namedtuple
-
-import logging
 from datetime import datetime
 from io import StringIO
+from typing import List, Tuple
+
 from sqlalchemy import Column, String, Integer, DateTime, ForeignKeyConstraint, PrimaryKeyConstraint, \
     BigInteger, UniqueConstraint, Float, func
 from sqlalchemy.ext.declarative import declarative_base
-from typing import List, Tuple
 
 from kgextractiontoolbox.document.regex import ILLEGAL_CHAR
 from kgextractiontoolbox.progress import print_progress_with_eta
@@ -31,6 +31,15 @@ def chunks_list(lst, n):
         yield lst[i:i + n]
 
 
+def postgres_sanitize_str(string: str) -> str:
+    """
+    Sanitizes a string for a postgres COPY insert
+    :param string: a string
+    :return: the sanitized string
+    """
+    return string.replace('\\', '\\\\')
+
+
 def postgres_copy_insert(session, values: List[dict], table_name: str):
     """
     Performs a fast COPY INSERT operation for Postgres Databases
@@ -45,7 +54,7 @@ def postgres_copy_insert(session, values: List[dict], table_name: str):
         memory_file = StringIO()
         attribute_keys = list(values_chunk[0].keys())
         for idx, v in enumerate(values_chunk):
-            mem_str = '{}'.format('\t'.join([str(v[k]) for k in attribute_keys]))
+            mem_str = '{}'.format('\t'.join([postgres_sanitize_str(str(v[k])) for k in attribute_keys]))
             if idx == 0:
                 memory_file.write(mem_str)
             else:
@@ -81,7 +90,7 @@ class DatabaseTable:
     """
 
     @classmethod
-    def bulk_insert_values_into_table(cls, session, values: List[dict], check_constraints=False):
+    def bulk_insert_values_into_table(cls, session, values: List[dict], check_constraints=True):
         if not values:
             return
         logging.debug(f'Inserting values into {cls.__tablename__}...')
