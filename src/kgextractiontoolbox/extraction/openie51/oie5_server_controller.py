@@ -4,6 +4,8 @@ import io
 import json
 import logging
 import os
+import time
+
 import requests
 import signal
 import subprocess
@@ -21,6 +23,7 @@ class Oi5ServerController:
         self.port = conf["openie5.1"]["port"]
         self.proc: subprocess.Popen = None
         self.session = requests.session()
+        self.failed_sentences = 0
 
     @staticmethod
     def get():
@@ -29,7 +32,7 @@ class Oi5ServerController:
         return Oi5ServerController.instance
 
     def start_server(self):
-        self.proc = subprocess.Popen(['java', '-jar', self.jar, '--httpPort', str(self.port)], stdout=subprocess.PIPE,
+        self.proc = subprocess.Popen(['java', '-jar', self.jar, '--httpPort', str(self.port), ], stdout=subprocess.PIPE,
                                      cwd=os.path.dirname(self.jar))
         logging.info("Starting OpenIE5.1, this might take a while...")
 
@@ -38,8 +41,8 @@ class Oi5ServerController:
             if "OpenIE 5.1 is ready" in line:
                 return
 
-    def stop_server(self):
-        self.proc.send_signal(signal.SIGTERM)
+    def stop_server(self, kill=False):
+        self.proc.send_signal(signal.SIGKILL if kill else signal.SIGTERM)
         self.proc = None
 
     def is_up(self) -> bool:
@@ -52,10 +55,24 @@ class Oi5ServerController:
             return False
 
     def get_extraction(self, sentence: str) -> json:
-        try:
-            url = f"http://localhost:{self.port}/getExtraction"
-            response = self.session.post(url, sentence.encode("utf-8"), timeout=60)
-            return json.loads(response.text) if response.text else []
-        except Exception as inst:
-            print(inst)
-            return []
+        tries = 0
+        while tries < 3:
+            try:
+                url = f"http://localhost:{self.port}/getExtraction"
+                response = self.session.post(url, sentence.encode("utf-8"), timeout=60)
+                self.failed_sentences = 0
+                return json.loads(response.text) if response.text else []
+            except Exception as inst:
+                print(inst)
+                print(f"causing sentence: {sentence}")
+                tries += 1
+        logging.warning("No success after 3 tries")
+        if self.failed_sentences < 3:
+            self.failed_sentences += 1
+            return None
+        else:
+            self.stop_server(kill=True)
+            time.sleep(10)
+            self.start_server()
+            self.failed_sentences = 0
+            return None

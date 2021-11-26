@@ -64,7 +64,11 @@ def openie51_run(document_file, output, no_entity_filter=False):
                     prog.print_progress(n)
                     for sentence in sentences:
                         sentence = sentence.replace("\n", " ").replace("\t", " ").strip()
+                        if len(sentence) > 1000:
+                            continue
                         extractions = contr.get_extraction(sentence)
+                        if extractions is None:
+                            continue
                         for extraction in extractions:
                             conf = extraction["confidence"]
                             subj = extraction["extraction"]["arg1"]["text"]
@@ -89,7 +93,7 @@ def main():
 
     logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
                         datefmt='%Y-%m-%d:%H:%M:%S',
-                        level=logging.INFO)
+                        level=logging.DEBUG)
 
     openie51_run(args.input, args.output, args.no_entity_filter)
 
