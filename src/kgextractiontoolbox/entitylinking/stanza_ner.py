@@ -112,7 +112,7 @@ def main(arguments=None):
 
     def consume_task(out_docs: List[TaggedDocument]):
         docs_done.value += len(out_docs)
-        print_progress_with_eta("Tagging...", docs_done.value, docs_to_do.value, start, print_every_k=1000,
+        print_progress_with_eta("Tagging...", docs_done.value, docs_to_do.value, start, print_every_k=1,
                                 logger=logger)
         for out_doc in out_docs:
             if out_doc.tags:
@@ -126,6 +126,7 @@ def main(arguments=None):
 
     task_queue = multiprocessing.Queue()
     result_queue = multiprocessing.Queue()
+    #TODO: log does not work
     producer = ProducerWorker(task_queue, generate_tasks, 1)
     workers = [Worker(task_queue, result_queue, do_task, prepare=init_stanza)]
     consumer = ConsumerWorker(result_queue, consume_task, 1, shutdown=shutdown_consumer)

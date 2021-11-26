@@ -226,8 +226,11 @@ def clean_open_ie(doc_ids, openie_tuples: [OPENIE_TUPLE], collection,
         logging.info("No documents to check - stopping")
         return
 
-    logging.info("Retrieving tags from database for {} doc_ids...".format(len(doc_ids)))
-    doc2tags = load_tags_for_doc_ids(doc_ids, collection)
+    if entity_filter != OpenIEEntityFilterMode.NO_ENTITY_FILTER:
+        logging.info("Retrieving tags from database for {} doc_ids...".format(len(doc_ids)))
+        doc2tags = load_tags_for_doc_ids(doc_ids, collection)
+    else:
+        doc2tags = defaultdict()
 
     logging.info('Cleaning tuples...')
     i = 0
@@ -257,7 +260,7 @@ def clean_open_ie(doc_ids, openie_tuples: [OPENIE_TUPLE], collection,
                     tuples_with_ent.append(t)
                     already_included.add(key)
 
-        print_progress_with_eta("Cleaning (entity based)", i, len_tuples, start_time)
+        print_progress_with_eta(f"Applying filter {entity_filter} to tuples...", i, len_tuples, start_time)
         i += 1
 
     logging.info("{} facts remaining...".format(len(tuples_with_ent)))
@@ -316,7 +319,7 @@ def main():
     logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
                         datefmt='%Y-%m-%d:%H:%M:%S',
                         level=logging.INFO)
-    load_openie_tuples(args.input, args.collection, args.entity_filter, args.extraction_type)
+    load_openie_tuples(args.input, args.collection, OpenIEEntityFilterMode(args.entity_filter), args.extraction_type)
     logging.info('finished')
 
 
