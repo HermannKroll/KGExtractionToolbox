@@ -144,7 +144,7 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         else:
             self._index_from_source()
             blacklist_set = DictTagger.get_blacklist_set()
-            self.desc_by_term = {k: v for k, v in self.desc_by_term.items() if k.lower() not in blacklist_set}
+            self.desc_by_term = {k.lower().strip(): v for k, v in self.desc_by_term.items() if k.lower() not in blacklist_set}
             self._index_to_pickle()
         # Create output directory
         if self.out_dir:
