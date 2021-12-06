@@ -29,7 +29,11 @@ class GNormPlus(BaseTagger):
             content = f_log.read()
         processed_files = re.findall(r"/.*?\d+\.txt", content)
         if processed_files:
-            return processed_files[-1]
+            last_file = processed_files[-1]
+            if last_file[0] == '/':
+                return last_file[1:]
+            else:
+                return last_file
         else:
             return None
 
@@ -125,7 +129,8 @@ class GNormPlus(BaseTagger):
                 # Java Exception
                 last_file = self.get_exception_causing_file_from_log()
                 if last_file:
-                    last_id = get_document_id(last_file)
+                    last_file_path = os.path.join(self.input_dir, last_file)
+                    last_id = get_document_id(last_file_path)
                     skipped_files.append(last_file)
                     self.logger.debug("Exception in file {}".format(last_file))
                     try:
