@@ -1,12 +1,12 @@
-from collections import defaultdict
-
 import argparse
-import fasttext
 import logging
+from collections import defaultdict
 from datetime import datetime
+from typing import List, Tuple
+
+import fasttext
 from scipy.spatial.distance import cosine
 from sqlalchemy import update, and_
-from typing import List, Tuple
 
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import Predication
@@ -265,7 +265,7 @@ def main():
                         default=0.4)
     parser.add_argument('--min_predicate_threshold', required=False,
                         help='Minimum number of occurrences for predicates', default=0.0001)
-
+    parser.add_argument("-c", "--collection", default=None, help="The document collection of interest")
     args = parser.parse_args()
 
     logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
@@ -278,7 +278,8 @@ def main():
                                    output_distances=args.output_distances,
                                    relation_vocabulary=relation_vocab,
                                    min_distance_threshold=args.min_distance,
-                                   min_predicate_threshold=args.min_predicate_threshold)
+                                   min_predicate_threshold=args.min_predicate_threshold,
+                                   document_collection=args.collection)
 
 
 if __name__ == "__main__":
