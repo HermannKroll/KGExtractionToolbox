@@ -292,7 +292,7 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
 
     def _get_term(self, term):
         hits = self.desc_by_term.get(term)
-        return {hit for hit in hits if len(hit) >= self.config.dict_min_full_tag_len} if hits else set()
+        return hits if hits else set()
 
     @staticmethod
     def clean_abbreviation_tags(tags: List[TaggedEntity], minimum_tag_len=5):
