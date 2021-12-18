@@ -91,7 +91,7 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
             with open(self.index_cache, 'rb') as f:
                 index = pickle.load(f)
                 if not isinstance(index, DictIndex):
-                    self.logger.warning('Ignore index: expect index file to contain an DosageFormTaggerIndexObject: {}'
+                    self.logger.warning('Ignore index: expect index file to contain an IndexObject: {}'
                                         .format(self.index_cache))
                     return None
 
@@ -100,7 +100,9 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
                                         .format(index.tagger_version, self.version))
                     return None
 
-                if index.source_file != self.source_file:
+                source1 = os.path.basename(index.source_file)
+                source2 = os.path.basename(self.source_file)
+                if source1 != source2:
                     self.logger.warning('Ignore index: index created with another source file ({} index vs. {} tagger)'
                                         .format(index.source_file, self.source_file))
                     return None
@@ -128,7 +130,7 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
             blacklist = f.read().splitlines()
         blacklist_set = set()
         for s in blacklist:
-            s_lower = s.lower()
+            s_lower = s.lower().strip()
             blacklist_set.add(s_lower)
             blacklist_set.add('{}s'.format(s_lower))
             blacklist_set.add('{}e'.format(s_lower))
@@ -137,14 +139,14 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         return blacklist_set
 
     # TODO: synchronization
-    def prepare(self, resume=False):
+    def prepare(self):
         if self._index_from_pickle():
             self.logger.info(f'{self.long_name} initialized from cache '
                              f'({len(self.desc_by_term.keys())} term mappings) - ready to start')
         else:
             self._index_from_source()
             blacklist_set = DictTagger.get_blacklist_set()
-            self.desc_by_term = {k.lower().strip(): v for k, v in self.desc_by_term.items() if k.lower() not in blacklist_set}
+            self.desc_by_term = {k.lower().strip(): v for k, v in self.desc_by_term.items() if k.lower().strip() not in blacklist_set}
             self._index_to_pickle()
         # Create output directory
         if self.out_dir:
