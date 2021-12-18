@@ -1,8 +1,7 @@
-from collections import defaultdict
-from enum import Enum, auto
-
 import json
 import re
+from collections import defaultdict
+from enum import Enum, auto
 
 from kgextractiontoolbox import tools
 from kgextractiontoolbox.backend.models import Tag, Document
@@ -61,6 +60,11 @@ class TaggedEntity:
 
     def __hash__(self):
         return hash((self.start, self.end, self.text, self.ent_id))
+
+    def is_valid(self):
+        if not self.ent_id or not self.ent_type or not self.text or self.start is None or self.end is None:
+            return False
+        return True
 
 
 class Sentence:
@@ -207,14 +211,22 @@ class TaggedDocument:
     def clean_tags(self):
         clean_tags = self.tags.copy()
         for tag1 in self.tags:
-            if not tag1.document or not tag1.start or not tag1.end or not tag1.text or not tag1.ent_type or not tag1.ent_id:
+            if not tag1.is_valid():
                 clean_tags.remove(tag1)
             else:
                 for tag2 in self.tags:
                     if tag2.start <= tag1.start and tag2.end >= tag1.end and tag1.text.lower() != tag2.text.lower():
                         clean_tags.remove(tag1)
                         break
-        self.tags = sorted(clean_tags, key=lambda t: (t.start, t.end, t.ent_id))
+        self.tags = clean_tags
+        self.sort_tags()
+
+    def sort_tags(self):
+        """
+        Sort tags by their text location
+        :return:
+        """
+        self.tags = sorted(self.tags, key=lambda t: (t.start, t.end, t.ent_id))
 
     def _create_index(self, spacy_nlp):
         # self.mesh_by_entity_name = {t.text.lower(): t.mesh for t in self.tags if
