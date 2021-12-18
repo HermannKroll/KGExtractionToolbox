@@ -200,18 +200,11 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         tags = []
         for spaces in range(self.config.dict_max_words):
             for word_tuple in get_n_tuples(ind_words, spaces + 1):
-                words, indexes = zip(*word_tuple)
-                term = " ".join(words)
-                if not term:
-                    continue
-                start = indexes[0]
-                end = indexes[-1] + len(words[-1])
-                if start > len(title):
-                    start = start
-                hits = list(self.generate_tagged_entities(end, pmid, start, term))
+                hits = self.get_hits(word_tuple, pmid)
                 tags += hits
 
                 if self.config.custom_abbreviations and hits:
+                    words, indexes = zip(*word_tuple)
                     match = re.match(r" \(([^\(\)]*)\).*", content[indexes[-1] + len(words[-1]):])
                     if match:
                         # strip the abbreviation
@@ -221,8 +214,7 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         if abb_vocab:
             for spaces in range(self.config.dict_max_words):
                 for word_tuple in get_n_tuples(ind_words, spaces + 1):
-                    hits = self.get_hits(word_tuple, abb_vocab, pmid, title)
-                    tags += hits
+                    tags += self.get_hits(word_tuple, pmid, abb_vocab)
 
         if self.config.dict_check_abbreviation:
             tags = DictTagger.clean_abbreviation_tags(tags, self.config.dict_min_full_tag_len)
@@ -230,14 +222,14 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         out_doc.tags += tags
         return out_doc
 
-    def get_hits(self, word_tuple, abb_vocab, pmid, title):
+    def get_hits(self, word_tuple, pmid, abb_vocab=None):
         words, indexes = zip(*word_tuple)
         term = " ".join(words)
+        if not term:
+            return []
         start = indexes[0]
         end = indexes[-1] + len(words[-1])
-        if start > len(title):
-            start = start - 1
-        hits = list(self.generate_tagged_entities(end, pmid, start, term, abb_vocab))
+        hits = list(self.generate_tagged_entities(end, pmid, start, term, tmp_vocab=abb_vocab))
         return hits
 
     connector_words = {"and", "or"}
