@@ -262,9 +262,9 @@ def main():
     parser.add_argument("--output_distances", required=False, help='tsv export for mapping distances')
     parser.add_argument('--relation_vocab', required=True, help='Path to a relation vocabulary (json file)')
     parser.add_argument('--min_distance', required=False, help='Minimum distance in the vector space',
-                        default=0.4)
+                        default=0.4, type=float)
     parser.add_argument('--min_predicate_threshold', required=False,
-                        help='Minimum number of occurrences for predicates', default=0.0001)
+                        help='Minimum number of occurrences for predicates', default=0.0001, type=float)
     parser.add_argument("-c", "--collection", default=None, help="The document collection of interest")
     args = parser.parse_args()
 
