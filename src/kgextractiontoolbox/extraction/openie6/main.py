@@ -116,7 +116,12 @@ def openie6_invoke_toolkit(openie6_dir: str, input_file: str, output_file: str):
     """
     start = datetime.now()
     run_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "run.sh")
+
+    input_file = os.path.join(os.path.dirname(os.path.abspath(input_file)), os.path.basename(input_file))
+    output_file = os.path.join(os.path.dirname(os.path.abspath(input_file)), os.path.basename(output_file))
     sp_args = ["/bin/bash", "-c", "{} {} {} {}".format(run_script, openie6_dir, input_file, output_file)]
+    logging.info(f'Invoking OpenIE6 with: {sp_args}')
+
     process = subprocess.Popen(sp_args, cwd=openie6_dir)
     logging.info('Waiting for OpenIE6 to terminate...')
     while process.poll() is None:
@@ -151,7 +156,7 @@ def openie6_run(document_file, output, config=NLP_CONFIG, no_entity_filter=False
         for document_content in read_pubtator_documents(document_file):
             doc = TaggedDocument(from_str=document_content, spacy_nlp=spacy_nlp)
             if doc:
-                doc2sentences[doc.id] = [s.text for s in doc.sentence_by_id.values()]
+                doc2sentences[doc.id] = list([s.text for s in doc.sentence_by_id.values()])
     else:
         doc2sentences, doc2tags = filter_document_sentences_without_tags(doc_count, document_file, spacy_nlp)
         doc_count = len(doc2tags)
@@ -163,6 +168,8 @@ def openie6_run(document_file, output, config=NLP_CONFIG, no_entity_filter=False
     else:
         start = datetime.now()
         # Process output
+        no_sentences = sum([len(val) for k, val in doc2sentences.items()])
+        logging.info(f'Writing {no_sentences} sentences to {openie6_input_file}...')
         openie6_generate_openie6_input(doc2sentences, openie6_input_file)
         # invoke OpenIE 6
         openie6_invoke_toolkit(openie6_dir, openie6_input_file, openie6_raw_extractions)
