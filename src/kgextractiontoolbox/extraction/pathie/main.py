@@ -51,8 +51,10 @@ def pathie_run_corenlp(core_nlp_dir: str, out_corenlp_dir: str, filelist_fn: str
         num_files = len(f.read().split("\n"))
 
     run_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "run.sh")
+    filelist_fn = os.path.join(os.path.dirname(os.path.abspath(filelist_fn)), os.path.basename(filelist_fn))
     sp_args = ["/bin/bash", "-c", "{} {} {} {} {}".format(run_script, core_nlp_dir, out_corenlp_dir, filelist_fn,
                                                           worker_no)]
+    logging.info(f'Invoking Stanford CoreNLP with: {sp_args}')
     process = subprocess.Popen(sp_args, cwd=core_nlp_dir, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     start_time = datetime.now()
     print_progress_with_eta('CoreNLP running...', 0, num_files, start_time, print_every_k=1)

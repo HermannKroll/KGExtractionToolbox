@@ -7,8 +7,9 @@ import subprocess
 import sys
 import tempfile
 from datetime import datetime
-from spacy.lang.en import English
 from time import sleep
+
+from spacy.lang.en import English
 
 from kgextractiontoolbox.config import NLP_CONFIG
 from kgextractiontoolbox.document.count import count_documents
@@ -99,7 +100,11 @@ def openie_run(core_nlp_dir: str, out_fn: str, filelist_fn: str):
         num_files = len(f.read().split("\n"))
 
     run_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "run.sh")
+    out_fn = os.path.join(os.path.dirname(os.path.abspath(out_fn)), os.path.basename(out_fn))
+    filelist_fn = os.path.join(os.path.dirname(os.path.abspath(filelist_fn)), os.path.basename(filelist_fn))
     sp_args = ["/bin/bash", "-c", "{} {} {} {}".format(run_script, core_nlp_dir, out_fn, filelist_fn)]
+    logging.info(f'Invoking Stanford CoreNLP with: {sp_args}')
+
     process = subprocess.Popen(sp_args, cwd=core_nlp_dir, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     start_time = datetime.now()
     while process.poll() is None:
