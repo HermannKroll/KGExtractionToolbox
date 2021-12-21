@@ -5,8 +5,9 @@ import os
 import shutil
 import tempfile
 from datetime import datetime
-from spacy.lang.en import English
 from typing import Optional, Set
+
+from spacy.lang.en import English
 
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import DocProcessedByIE, Document
@@ -180,7 +181,8 @@ def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collect
             elif extraction_type == OPENIE6_EXTRACTION:
                 openie6_run(document_export_file, ie_output_file, no_entity_filter=no_entity_filter)
             logging.info((" done in {}".format(datetime.now() - start)))
-            load_openie_tuples(ie_output_file, document_collection, entity_filter=entity_filter)
+            load_openie_tuples(ie_output_file, document_collection, entity_filter=entity_filter,
+                               extraction_type=extraction_type)
 
     time_open_ie = datetime.now()
     # add document as processed to database
@@ -199,7 +201,8 @@ def main():
     parser.add_argument("-i", "--idfile", help="Document ID file (documents must be in database)")
     parser.add_argument("-et", "--extraction_type", required=True, help="the extraction method",
                         choices=list(
-                            [OPENIE_EXTRACTION, OPENIE51_EXTRACTION, OPENIE6_EXTRACTION, PATHIE_EXTRACTION, PATHIE_STANZA_EXTRACTION]))
+                            [OPENIE_EXTRACTION, OPENIE51_EXTRACTION, OPENIE6_EXTRACTION, PATHIE_EXTRACTION,
+                             PATHIE_STANZA_EXTRACTION]))
     parser.add_argument("-c", "--collection", required=True, help="Name of the given document collection")
     parser.add_argument("--config", help="OpenIE / PathIE Configuration file", default=NLP_CONFIG)
     parser.add_argument("-w", "--workers", help="number of parallel workers", default=1, type=int)
@@ -242,7 +245,7 @@ def main():
         logging.info('=' * 60)
         process_documents_ids_in_pipeline(batch_ids, args.collection, args.extraction_type, corenlp_config=args.config,
                                           workers=args.workers, relation_vocab=relation_vocab,
-                                          entity_filter=args.entity_filter)
+                                          entity_filter=OpenIEEntityFilterMode(args.entity_filter))
 
 
 if __name__ == "__main__":
