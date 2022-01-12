@@ -3,23 +3,54 @@ This GitHub project belongs to our JCDL2021 submission "A Toolbox for the Nearly
 The code is shared under the MIT license. Feel free to submit any problem or issue to this GitHub project.
 
 If you use our project in your own research, then please cite:
+
 ```
 @inproceedings{kroll2021toolbox,
-author = {Kroll, Hermann and Pirklbauer, Jan and Balke, Wolf-Tilo},
-title = {A Toolbox for the Nearly-Unsupervised Construction of Digital Library Knowledge Graphs},
-year = {2021},
-publisher = {Association for Computing Machinery},
-address = {New York, NY, USA},
-booktitle = {Proceedings of the ACM/IEEE Joint Conference on Digital Libraries in 2021},
-numpages = {10},
-keywords = {knowledge graph, information extraction, digital library},
-location = {Urbana-Champaign, IL, USA},
-series = {JCDL '21}
+  author = {H. Kroll and J. Pirklbauer and W. Balke},
+  booktitle = {2021 ACM/IEEE Joint Conference on Digital Libraries (JCDL)},
+  title = {A Toolbox for the Nearly-Unsupervised Construction of Digital Library Knowledge Graphs},
+  year = {2021},
+  volume = {},
+  issn = {},
+  pages = {21-30},
+  doi = {10.1109/JCDL52503.2021.00014},
+  url = {https://doi.ieeecomputersociety.org/10.1109/JCDL52503.2021.00014},
+  publisher = {IEEE Computer Society},
+  address = {Los Alamitos, CA, USA},
+  month = {sep}
 }
 ```
 
+   
+You can find our JCDL2021 conference talk here: [YouTube](https://youtu.be/G6ndS0GZBeg)
+
+We applied the toolbox to the pharmaceutical domain. 
+If you are interested in a possible application, watch our ICADL2021 talk: [YouTube](https://youtu.be/9N1XTXPEqfU)
+
+```
+@inproceedings{kroll2021narrativequerygraphs,
+  author="Kroll, Hermann and Pirklbauer, Jan and Kalo, Jan-Christoph and Kunz, Morris and Ruthmann, Johannes and Balke, Wolf-Tilo",
+  editor="Ke, Hao-Ren and Lee, Chei Sian and Sugiyama, Kazunari",
+  title="Narrative Query Graphs for Entity-Interaction-Aware Document Retrieval",
+  booktitle="Towards Open and Trustworthy Digital Societies",
+  year="2021",
+  publisher="Springer International Publishing",
+  address="Cham",
+  pages="80--95",
+  isbn="978-3-030-91669-5"
+}
+
+
+```
+
+
 # Toolbox Overview
 ![Toolbox](toolbox.png)
+
+The toolbox covers three central topics:
+- Entity Linking and Namend Entity Recognition
+- Information Extraction
+- Canonicalization and Cleaning
 
 # General Setup
 To use our toolbox, please follow the following setup procedure.
