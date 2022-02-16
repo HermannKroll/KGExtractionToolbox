@@ -5,9 +5,10 @@ import logging
 import os
 import subprocess
 from datetime import datetime
-from spacy.lang.en import English
 from time import sleep
 from typing import List
+
+from spacy.lang.en import English
 
 from kgextractiontoolbox.config import NLP_CONFIG
 from kgextractiontoolbox.document.count import count_documents
@@ -33,34 +34,38 @@ def openie6_read_extractions(openie6_output: str) -> List[OPENIE_TUPLE]:
     # open the input OpenIE6 file
     with open(openie6_output, 'r') as f:
         # read all lines for a single doc
-        doc_id, sentence_txt = 0, ""
+        document_id, sentence_txt = None, ""
         for line in f:
             try:
-                if not line or line == '\n':
+                if not line.strip():
                     continue
+
+                if line.startswith('This document id is '):
+                    # everything between is and '.' is a document id
+                    document_id = int(line.split('This document id is ')[1].split('.')[0].strip())
+
+                # if the line does not start with a confidence
                 if not line.startswith('0.') and not line.startswith('1.'):
-                    doc_id, sentence_txt = line.split('.', maxsplit=1)
-                    if doc_id == "0fake0":
-                        doc_id = None
-                        continue
-                    doc_id = int(doc_id)
-                    sentence_txt = sentence_txt.strip()
+                    sentence_txt = line.strip()
                 else:
-                    if not doc_id or not sentence_txt:
+                    if not document_id or not sentence_txt:
                         continue
+                    if sentence_txt.startswith('This document id is '):
+                        continue
+
                     confidence, extraction = line.strip().split(": (", maxsplit=1)
                     if extraction.count(';') < 2:
                         logging.info(f'Skip extraction because no object was found: {extraction}')
                     # split by ';'
                     subj_txt, pred_txt, obj_txt = extraction.split(';', maxsplit=2)
-                    obj_txt = obj_txt.strip()[:-1] # remove closing bracket
+                    obj_txt = obj_txt.strip()[:-1]  # remove closing bracket
                     pred_lemma = ' '.join([token.lemma_ for token in spacy_nlp(pred_txt)])
-                    ex_tuple = OPENIE_TUPLE(int(doc_id), subj_txt, pred_txt, pred_lemma, obj_txt, confidence,
+                    ex_tuple = OPENIE_TUPLE(int(document_id), subj_txt, pred_txt, pred_lemma, obj_txt, confidence,
                                             sentence_txt)
                     tuples.append(ex_tuple)
-                doc_ids.add(doc_id)
+                doc_ids.add(document_id)
             except ValueError:
-                logging.debug("Error during extraction")
+                logging.error(f"Error during extraction: {ValueError}")
     return tuples
 
 
@@ -98,10 +103,10 @@ def openie6_generate_openie6_input(doc2sentences: {int: List[str]}, openie6_inpu
     logging.info('Writing {} documents as OpenIE 6 input...'.format(doc_size))
     start_time = datetime.now()
     with open(openie6_input, 'wt') as f_out:
-        f_out.write("0fake0. This is a test.\n")
         for idx, (doc_id, sentences) in enumerate(doc2sentences.items()):
+            f_out.write(f'This document id is {doc_id}.\n')
             for sent in sentences:
-                f_out.write('{}. {}.\n'.format(doc_id, sent))
+                f_out.write('{}\n'.format(sent))
             print_progress_with_eta(f'Writing {doc_size} documents as OpenIE 6 input...', idx, doc_size, start_time)
     logging.info('Conversion finished')
 

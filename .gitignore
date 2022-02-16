@@ -4,3 +4,6 @@ config/*
 !config/*.example.json
 /tmp/
 *.pyc
+*.DS_Store
+/src/kgtests/
+/case_studies/

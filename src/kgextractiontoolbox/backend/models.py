@@ -244,6 +244,7 @@ class Predication(Base, DatabaseTable):
     subject_id = Column(String, nullable=False)
     subject_str = Column(String, nullable=False)
     subject_type = Column(String, nullable=False)
+    predicate_org = Column(String, nullable=True)
     predicate = Column(String, nullable=False, index=True)
     relation = Column(String, nullable=True)
     object_id = Column(String, nullable=False)
