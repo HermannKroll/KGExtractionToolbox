@@ -20,6 +20,7 @@ from kgextractiontoolbox.document.load_document import document_bulk_load
 from kgextractiontoolbox.document.sanitize import sanitize
 from kgextractiontoolbox.entitylinking.entity_linking_config import Config
 from kgextractiontoolbox.entitylinking.tagging.base import BaseTagger
+from kgextractiontoolbox.entitylinking.tagging.external_base import ExternalTaggerBase
 from kgextractiontoolbox.entitylinking.tagging.gnormplus import GNormPlus
 from kgextractiontoolbox.entitylinking.tagging.taggerone import TaggerOne
 from kgextractiontoolbox.entitylinking.utils import get_untagged_doc_ids_by_ent_type, init_preprocess_logger, \
@@ -103,7 +104,7 @@ def preprocess(files_to_process, collection, root_dir, input_dir, log_dir, logge
     # Init taggers
     kwargs = dict(collection=collection, root_dir=root_dir, input_dir=input_dir, logger=logger,
                   log_dir=log_dir, config=conf)
-    taggers: List[BaseTagger] = [tagger_cls(**kwargs) for tagger_cls in set(tagger_by_ent_type.values())]
+    taggers: List[ExternalTaggerBase] = [tagger_cls(**kwargs) for tagger_cls in set(tagger_by_ent_type.values())]
     if len(taggers) > 1:
         raise ValueError("We only support a single tagger for a process")
 
