@@ -3,15 +3,35 @@ import json
 import logging
 
 from kgextractiontoolbox.backend.database import Session
-from kgextractiontoolbox.backend.models import Document, Tag
+from kgextractiontoolbox.backend.models import Document, Tag, DocumentTranslation
 from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
 
 CONTENT_BUFFER_SIZE = 10000
 TAG_BUFFER_SIZE = 100000
 
 
+def write_doc(doc: TaggedDocument, export_format: str, f, first_doc: bool, export_content=True, export_tags=True):
+    """
+    Writes a document to a file
+    :param doc: the tagged document object
+    :param export_format: the given export format
+    :param f: the open file
+    :param first_doc: true if its the first document
+    :param export_content: content should be exported
+    :param export_tags: tags should be exported
+    :return: None
+    """
+    if export_format == "json":
+        if not first_doc:
+            f.write(",\n")
+        json.dump(doc.to_dict(export_content=export_content, export_tags=export_tags), f, indent=1)
+    elif export_format == "pubtator":
+        f.write(str(doc))
+
+
 def export(out_fn, export_tags=True, document_ids=None, collection=None, content=True, logger=logging,
-           content_buffer=CONTENT_BUFFER_SIZE, tag_buffer=TAG_BUFFER_SIZE, export_format="document"):
+           content_buffer=CONTENT_BUFFER_SIZE, tag_buffer=TAG_BUFFER_SIZE, export_format="pubtator",
+           write_doc=write_doc, translate_document_ids: bool = False):
     """
     Exports tagged documents in the database as a single PubTator file
     :param out_fn: path of file
@@ -22,6 +42,9 @@ def export(out_fn, export_tags=True, document_ids=None, collection=None, content
     :param logger: logging class
     :param content_buffer: buffer how much document contents should be retrieved from the database in one chunk
     :param tag_buffer: buffer how much tags should be retrieved from the database in one chunk
+    :param export_format: json or pubtator
+    :param write_doc: specify a export writing function
+    :param translate_document_ids: if true document translations (source ids) from DocumentTranslation are queried
     :return:
     """
     logger.info("Beginning export...")
@@ -31,11 +54,19 @@ def export(out_fn, export_tags=True, document_ids=None, collection=None, content
         logger.info('Using {} ids for a filter condition'.format(len(document_ids)))
 
     session = Session.get()
+    doc_id_2_source_id = {}
+    if translate_document_ids:
+        logger.info('Querying DocumentTranslation source ids...')
+        query = session.query(DocumentTranslation.document_id, DocumentTranslation.source_doc_id) \
+            .filter(DocumentTranslation.document_collection == collection)
+        for r in query:
+            doc_id_2_source_id[r[0]] = r[1]
+        logger.info(f'Found {len(doc_id_2_source_id)} id translations')
 
     if content:
         document_query = create_document_query(session, collection, document_ids, content_buffer)
     if export_tags:
-        tag_query = create_tag_query(session, collection, document_ids, tag_buffer)
+        tag_query = create_tag_query(session, collection, document_ids, tag_buffer=tag_buffer)
 
     if content and not export_tags:
         with open(out_fn, "w") as f:
@@ -44,12 +75,18 @@ def export(out_fn, export_tags=True, document_ids=None, collection=None, content
                 first_doc = True
                 for document in document_query:
                     doc = TaggedDocument(id=document.id, title=document.title, abstract=document.abstract)
+                    if translate_document_ids:
+                        doc.id = doc_id_2_source_id[doc.id]
+
                     write_doc(doc, export_format, f, first_doc, export_content=content, export_tags=export_tags)
                     first_doc = False
                 f.write("\n]\n")
             else:
                 for document in document_query:
-                    f.write(Document.create_pubtator(document.id, document.title, document.abstract) + "\n")
+                    doc_id = document.id
+                    if translate_document_ids:
+                        doc_id = doc_id_2_source_id[doc_id]
+                    f.write(Document.create_pubtator(doc_id, document.title, document.abstract) + "\n")
 
     elif not content and export_tags:
         with open(out_fn, "w") as f:
@@ -66,15 +103,29 @@ def export(out_fn, export_tags=True, document_ids=None, collection=None, content
                                       export_tags=export_tags)
                             first_doc = False
                         current_doc = TaggedDocument(id=tag.document_id)
+                        if translate_document_ids:
+                            current_doc.id = doc_id_2_source_id[current_doc.id]
 
-                    current_doc.tags.append(TaggedEntity(document=tag.document_id, start=tag.start, end=tag.end,
-                                                         text=tag.ent_str, ent_type=tag.ent_type, ent_id=tag.ent_id))
+                    if translate_document_ids:
+                        current_doc.tags.append(TaggedEntity(document=doc_id_2_source_id[tag.document_id],
+                                                             start=tag.start, end=tag.end,
+                                                             text=tag.ent_str, ent_type=tag.ent_type,
+                                                             ent_id=tag.ent_id))
+                    else:
+                        current_doc.tags.append(TaggedEntity(document=tag.document_id, start=tag.start, end=tag.end,
+                                                             text=tag.ent_str, ent_type=tag.ent_type,
+                                                             ent_id=tag.ent_id))
+
                 write_doc(current_doc, export_format, f, first_doc, export_content=content, export_tags=export_tags)
                 f.write("\n]\n")
             else:
                 for tag in tag_query:
-                    f.write(
-                        Tag.create_pubtator(tag.document_id, tag.start, tag.end, tag.ent_str, tag.ent_type, tag.ent_id))
+                    if translate_document_ids:
+                        f.write(Tag.create_pubtator(doc_id_2_source_id[tag.document_id], tag.start, tag.end,
+                                                    tag.ent_str, tag.ent_type, tag.ent_id))
+                    else:
+                        f.write(Tag.create_pubtator(tag.document_id, tag.start, tag.end,
+                                                    tag.ent_str, tag.ent_type, tag.ent_id))
 
     elif content and export_tags:
         content_iter = iter(document_query)
@@ -90,6 +141,8 @@ def export(out_fn, export_tags=True, document_ids=None, collection=None, content
                         tag.document_id == current_document.id
                         and tag.document_collection == current_document.collection):
                     if document_builder:
+                        if translate_document_ids:
+                            document_builder.id = doc_id_2_source_id[document_builder.id]
                         write_doc(document_builder, export_format, f, first_doc)
                         first_doc = False
                     current_document = next(content_iter)
@@ -104,30 +157,28 @@ def export(out_fn, export_tags=True, document_ids=None, collection=None, content
                                                           ent_id=tag.ent_id))
 
             if document_builder:
+                if translate_document_ids:
+                    document_builder.id = doc_id_2_source_id[document_builder.id]
+                    for t in document_builder.tags:
+                        t.document = document_builder.id
                 write_doc(document_builder, export_format, f, first_doc)
+                first_doc = False
 
             # Write tailing documents with no tags
             current_document = next(content_iter, None)
             while current_document:
-                write_doc(TaggedDocument(id=current_document.id,
-                                         title=current_document.title,
-                                         abstract=current_document.abstract),
-                          export_format, f, first_doc
-                          )
+                doc = TaggedDocument(id=current_document.id,
+                                     title=current_document.title,
+                                     abstract=current_document.abstract)
+                if translate_document_ids:
+                    doc.id = doc_id_2_source_id[doc.id]
+                write_doc(doc, export_format, f, first_doc)
+                first_doc = False
                 current_document = next(content_iter, None)
             # end export with a new line
 
             if export_format == "json":
                 f.write("\n]\n")
-
-
-def write_doc(document_builder, export_format, f, first_doc, export_content=True, export_tags=True):
-    if export_format == "json":
-        if not first_doc:
-            f.write(",\n")
-        json.dump(document_builder.to_dict(export_content=export_content, export_tags=export_tags), f, indent=1)
-    elif export_format == "document":
-        f.write(str(document_builder))
 
 
 def create_tag_query(session, collection=None, document_ids=None, tag_buffer=TAG_BUFFER_SIZE):
@@ -165,16 +216,15 @@ def main():
     parser.add_argument("--idfile", help='file containing document ids (one id per line)')
     parser.add_argument("-c", "--collection", help="Collection(s)", default=None)
     parser.add_argument("-d", "--document", action="store_true", help="Export content of document")
-    parser.add_argument("-t", "--tags", action="store_true", help="Export document tags")
+    parser.add_argument("-t", "--tag", action='store_true', help="export tags")
     parser.add_argument("--format", "-f", help='export format', choices=['json', 'pubtator'], default='json')
+    parser.add_argument("--translate_ids", help="force the translation of document ids via DocumentTranslation",
+                        required=False, action="store_true")
 
     parser.add_argument("--sqllog", action="store_true", help='logs sql commands')
     args = parser.parse_args()
 
-    # hack
-    args.format = "document" if args.format == 'pubtator' else args.format
-
-    if not (args.tags or args.document):
+    if not (args.tag or args.document):
         parser.error('No action requested, add -d or -t')
 
     if args.ids and args.idfile:
@@ -187,6 +237,8 @@ def main():
     if args.sqllog:
         logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
 
+    export_tags = args.tag
+
     if args.ids:
         document_ids = [int(x) for x in args.ids]
     elif args.idfile:
@@ -197,9 +249,9 @@ def main():
     else:
         document_ids = None
 
-    export(args.output, export_tags=args.tags, document_ids=document_ids, collection=args.collection,
-           content=args.document, logger=logger,
-           export_format=args.format)
+    export(args.output, export_tags=export_tags,
+           document_ids=document_ids, collection=args.collection, content=args.document,
+           logger=logging, export_format=args.format, translate_document_ids=args.translate_ids)
     logging.info('Finished')
 
 
