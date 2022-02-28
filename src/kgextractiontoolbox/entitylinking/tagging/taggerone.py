@@ -12,6 +12,7 @@ from typing import Set, Dict
 from kgextractiontoolbox.document.count import get_document_ids
 from kgextractiontoolbox.document.regex import DOCUMENT_ID
 from kgextractiontoolbox.entitylinking.tagging.base import BaseTagger
+from kgextractiontoolbox.entitylinking.tagging.external_base import ExternalTaggerBase
 from kgextractiontoolbox.progress import print_progress_with_eta
 
 
@@ -22,7 +23,7 @@ class NoRemainingDocumentError(Exception):
     pass
 
 
-class TaggerOne(BaseTagger):
+class TaggerOne(ExternalTaggerBase):
     """
     TaggerOne can tag chemicals and diseases.
     """

@@ -22,7 +22,7 @@ class MetaDicTagger(dt.DictTagger):
 
     def __init__(self, vocabulary=None, *args, **kwargs):
         super().__init__(short_name="meTa", long_name="meta dict tagger", version=None, tag_types=None,
-                         index_cache=None, source_file=None, *args, **kwargs)
+                         *args, **kwargs)
 
         self._sub_taggers: List[dt.DictTagger] = []
         self._vocabs = {}
@@ -30,7 +30,6 @@ class MetaDicTagger(dt.DictTagger):
             vocabulary.load_vocab()
             self._vocabs = vocabulary.vocabularies
         self.tag_types = set()
-        os.makedirs(self.out_dir)
 
     def add_tagger(self, tagger: dt.DictTagger):
         self._sub_taggers.append(tagger)
