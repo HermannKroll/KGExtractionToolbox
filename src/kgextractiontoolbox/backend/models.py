@@ -1,3 +1,4 @@
+import hashlib
 import logging
 import unicodedata
 from collections import namedtuple
@@ -142,7 +143,7 @@ class Document(Base, DatabaseTable):
     @staticmethod
     def sanitize(to_sanitize):
         to_sanitize = unicodedata.normalize('NFD', to_sanitize)
-        to_sanitize = ILLEGAL_CHAR.sub("", to_sanitize)
+        to_sanitize = ILLEGAL_CHAR.sub("", to_sanitize).strip()
         return to_sanitize
 
     @staticmethod
@@ -152,6 +153,17 @@ class Document(Base, DatabaseTable):
         for r in query:
             ids.add(int(r[0]))
         return ids
+
+    @staticmethod
+    def count_documents_in_collection(session, collection: str) -> int:
+        return session.query(Document).filter(Document.collection == collection).count()
+
+    @staticmethod
+    def iterate_over_documents_in_collection(session, collection: str):
+        doc_query = session.query(Document).filter(Document.collection == collection) \
+            .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
+        for res in doc_query:
+            yield res
 
 
 class Tagger(Base, DatabaseTable):
@@ -229,6 +241,48 @@ class DocumentTranslation(Base, DatabaseTable):
     date_inserted = Column(DateTime, nullable=False, default=datetime.now)
     source = Column(String)
 
+    @staticmethod
+    def text_to_md5_hash(text: str) -> str:
+        m = hashlib.md5()
+        m.update(text.encode())
+        return m.hexdigest()
+
+
+class DocumentClassification(Base, DatabaseTable):
+    __tablename__ = "document_classification"
+    __table_args__ = (
+        PrimaryKeyConstraint('document_id', 'document_collection', 'classification', sqlite_on_conflict='IGNORE'),
+        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'))
+    )
+    document_id = Column(BigInteger, index=True)
+    document_collection = Column(String, index=True)
+    classification = Column(String)
+    explanation = Column(String)
+
+    @staticmethod
+    def get_document_ids_for_class(session, document_collection: str, document_class: str) -> Set[int]:
+        query = session.query(DocumentClassification.document_id).filter(
+            DocumentClassification.classification == document_class).filter(
+            DocumentClassification.document_collection == document_collection
+        )
+        ids = set()
+        for r in query:
+            ids.add(int(r[0]))
+        return ids
+
+
+class DocumentSection(Base, DatabaseTable):
+    __tablename__ = "document_section"
+    __table_args__ = (
+        PrimaryKeyConstraint('document_id', 'document_collection', 'position', sqlite_on_conflict='IGNORE'),
+        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'))
+    )
+    document_id = Column(BigInteger)
+    document_collection = Column(String)
+    position = Column(Integer)
+    title = Column(String, nullable=False)
+    text = Column(String, nullable=False)
+
 
 class Predication(Base, DatabaseTable):
     __tablename__ = "predication"
@@ -239,8 +293,8 @@ class Predication(Base, DatabaseTable):
     )
 
     id = Column(BigInteger().with_variant(Integer, "sqlite"), autoincrement=True, primary_key=True)
-    document_id = Column(BigInteger, nullable=False)
-    document_collection = Column(String, nullable=False)
+    document_id = Column(BigInteger, nullable=False, index=True)
+    document_collection = Column(String, nullable=False, index=True)
     subject_id = Column(String, nullable=False)
     subject_str = Column(String, nullable=False)
     subject_type = Column(String, nullable=False)
