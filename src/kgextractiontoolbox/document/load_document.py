@@ -46,16 +46,16 @@ def insert_taggers(*tagger_list):
     :return:
     """
     session = Session.get()
+    insert_values = []
     for tagger in tagger_list:
-        insert_stmt = insert(Tagger).values(
+        insert_values.append(dict(
             name=tagger[0],
             version=tagger[1],
-        )
-        session.execute(insert_stmt)
-    session.commit()
+        ))
+    Tagger.bulk_insert_values_into_table(session, insert_values, check_constraints=True)
 
 
-def document_bulk_load(path, collection, tagger_mapping=None, logger=logging, ignore_tags=True):
+def document_bulk_load(path, collection, tagger_mapping=None, logger=logging, ignore_tags=False):
     """
     Bulk load a file in PubTator/JSON Format or a directory of PubTator/JSON files into the database.
     Iterate over PubTator/JSON documents and add Document, Tag and DocTaggedBy objects.
@@ -69,7 +69,7 @@ def document_bulk_load(path, collection, tagger_mapping=None, logger=logging, ig
     session = Session.get()
 
     if tagger_mapping is None:
-        logger.warning("No tagger mapping provided. Tags are ignored")
+        logger.info("No tagger mapping provided.")
 
     logger.info('Bulk loading documents into database...')
     sys.stdout.write("Counting documents ...")
@@ -95,7 +95,7 @@ def document_bulk_load(path, collection, tagger_mapping=None, logger=logging, ig
         doc = TaggedDocument(pubtator_content, ignore_tags=ignore_tags)
         tagged_ent_types = set()
         # Add document if its not already included
-        if doc.id not in db_doc_ids and (doc.title or doc.abstract):
+        if doc.id not in db_doc_ids and doc.has_content():
             db_doc_ids.add(doc.id)
             document_inserts.append(dict(
                 collection=collection,
@@ -134,10 +134,9 @@ def document_bulk_load(path, collection, tagger_mapping=None, logger=logging, ig
                 ))
 
         if (idx + 1) % BULK_LOAD_COMMIT_AFTER == 0:
-            session.bulk_insert_mappings(Document, document_inserts)
-            session.bulk_insert_mappings(Tag, tag_inserts)
-            session.bulk_insert_mappings(DocTaggedBy, doc_tagged_by_inserts)
-            session.commit()
+            Document.bulk_insert_values_into_table(session, document_inserts)
+            Tag.bulk_insert_values_into_table(session, tag_inserts)
+            DocTaggedBy.bulk_insert_values_into_table(session, doc_tagged_by_inserts)
 
             document_inserts = []
             tag_inserts = []
@@ -145,17 +144,15 @@ def document_bulk_load(path, collection, tagger_mapping=None, logger=logging, ig
 
         print_progress_with_eta("Adding documents", idx, n_docs, start_time, print_every_k=PRINT_ETA_EVERY_K_DOCUMENTS)
 
-    logger.info(f'inserting {len(document_inserts)}')
-    session.bulk_insert_mappings(Document, document_inserts)
-    session.bulk_insert_mappings(Tag, tag_inserts)
-    session.bulk_insert_mappings(DocTaggedBy, doc_tagged_by_inserts)
-    session.commit()
+    Document.bulk_insert_values_into_table(session, document_inserts)
+    Tag.bulk_insert_values_into_table(session, tag_inserts)
+    DocTaggedBy.bulk_insert_values_into_table(session, doc_tagged_by_inserts)
 
     sys.stdout.write("\rAdding documents ... done in {}\n".format(datetime.now() - start_time))
     logger.info("Added {} documents in {}".format(n_docs, datetime.now() - start_time))
 
 
-def main():
+def main(args=None):
     parser = argparse.ArgumentParser()
     parser.add_argument("input")
     parser.add_argument("-c", "--collection", required=True, help="Document collection name")
@@ -163,7 +160,7 @@ def main():
                                                    "to tuple with tagger name and tagger version")
     parser.add_argument("--ignore_tags", action="store_true", help="Will ignore all tags in this document")
     parser.add_argument("--logsql", action="store_true", help='logs sql statements')
-    args = parser.parse_args()
+    args = parser.parse_args(args)
 
     tagger_mapping = None
     if args.tagger_map:
@@ -182,8 +179,7 @@ def main():
                             datefmt='%Y-%m-%d:%H:%M:%S',
                             level=logging.INFO)
 
-    ignore_tags = True if args.ignore_tags else False
-    document_bulk_load(args.input, args.collection, tagger_mapping, ignore_tags=ignore_tags)
+    document_bulk_load(args.input, args.collection, tagger_mapping, ignore_tags=args.ignore_tags)
 
 
 if __name__ == "__main__":
