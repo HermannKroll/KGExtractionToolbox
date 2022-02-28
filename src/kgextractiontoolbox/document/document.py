@@ -1,4 +1,5 @@
 import json
+import logging
 import re
 from collections import defaultdict
 from enum import Enum, auto
@@ -34,7 +35,7 @@ def get_doc_format(filehandle=None, path=None) -> DocFormat:
 
 
 def is_doc_file(fn):
-    return not fn.startswith(".") and any([fn.endswith(ext) for ext in [".txt", ".document", "json"]])
+    return not fn.startswith(".") and any([fn.endswith(ext) for ext in [".txt", ".document", ".pubtator", "json"]])
 
 
 class TaggedEntity:
@@ -228,6 +229,28 @@ class TaggedDocument:
         """
         self.tags = sorted(self.tags, key=lambda t: (t.start, t.end, t.ent_id))
 
+    def check_and_repair_tag_integrity(self):
+        """
+        Checks and repairs tags in documents. If an entity is not correctly aligned to the content, the entity
+        is searched left (-30) and right (5) from the location. If the entity could be found, then its position
+        is upated. Otherwise nothing happens
+        :return:
+        """
+        text_content = self.get_text_content().lower()
+        for t in self.tags:
+            tag_text = t.text.lower()
+            text_text = text_content[t.start:t.end]
+            if tag_text != text_text:
+                repaired = False
+                # run backwards trough the document
+                for off in range(5, -30, -1):
+                    if tag_text == text_content[t.start + off:t.end + off]:
+                        t.start = t.start - off
+                        t.end = t.end - off
+                        repaired = True
+                if not repaired:
+                    logging.debug(f'Tag position does not match to string in text ({tag_text} vs {text_text})')
+
     def _create_index(self, spacy_nlp):
         # self.mesh_by_entity_name = {t.text.lower(): t.mesh for t in self.tags if
         #                            t.text.lower() not in self.mesh_by_entity_name}
@@ -282,9 +305,9 @@ class TaggedDocument:
                 "title": self.title,
                 "abstract": self.abstract
             })
+        out_dict["classification"] = self.classification
         if export_tags:
             out_dict.update({
-                # "classification": list(self.classification.keys()),
                 "tags": [
                     {
                         "id": tag.ent_id,
@@ -297,6 +320,9 @@ class TaggedDocument:
                 ],
             })
         return out_dict
+
+    def has_content(self):
+        return True if (self.title or self.abstract) else False
 
     def get_text_content(self):
         return f"{self.title} {self.abstract}"
