@@ -13,7 +13,7 @@ from sqlalchemy import select, func
 import kgextractiontoolbox.backend.database as db
 from kgextractiontoolbox.document.load_document import document_bulk_load
 from kgextractiontoolbox.backend.models import DocumentTranslation
-from narrant.progress import Progress
+from kgextractiontoolbox.progress import Progress
 from kgextractiontoolbox.document.document import TaggedDocument
 
 

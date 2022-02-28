@@ -102,7 +102,7 @@ class MultiProcessProgress(multiprocessing.Process):
             print_str.append(f"W{idx}: {percent:.1f}% ({progress.value}/{total.value})")
 
         if progress_sum == total_sum:
-            self.__shutdown = True
+            self.__shutdown.value = 0
         print_str.append(']')
 
         percent = 100 * progress_sum / total_sum
