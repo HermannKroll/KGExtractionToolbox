@@ -1,4 +1,5 @@
 import itertools as it
+import os.path
 import re
 from abc import ABCMeta
 from collections import defaultdict
@@ -62,28 +63,32 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
     __version__ = None
 
     def __init__(self, short_name, long_name, version, tag_types, logger,
-                 config, collection):
+                 config, collection, blacklist_file=DICT_TAGGER_BLACKLIST):
         super().__init__(config=config, collection=collection, logger=logger)
         self.tag_types = [tag_types, ]
         self.short_name, self.long_name, self.version = short_name, long_name, version
         self.desc_by_term = {}
+        self.blacklist_file = blacklist_file
 
     def get_types(self):
         return self.tag_types
 
-    @staticmethod
-    def get_blacklist_set():
-        with open(DICT_TAGGER_BLACKLIST) as f:
-            blacklist = f.read().splitlines()
-        blacklist_set = set()
-        for s in blacklist:
-            s_lower = s.lower().strip()
-            blacklist_set.add(s_lower)
-            blacklist_set.add('{}s'.format(s_lower))
-            blacklist_set.add('{}e'.format(s_lower))
-            if s_lower.endswith('s') or s_lower.endswith('e'):
-                blacklist_set.add(s_lower[0:-1])
-        return blacklist_set
+    def get_blacklist_set(self):
+        if os.path.isfile(self.blacklist_file):
+            with open(self.blacklist_file) as f:
+                blacklist = f.read().splitlines()
+            blacklist_set = set()
+            for s in blacklist:
+                s_lower = s.lower().strip()
+                blacklist_set.add(s_lower)
+                blacklist_set.add('{}s'.format(s_lower))
+                blacklist_set.add('{}e'.format(s_lower))
+                if s_lower.endswith('s') or s_lower.endswith('e'):
+                    blacklist_set.add(s_lower[0:-1])
+            return blacklist_set
+        else:
+            self.logger.info(f'No file of ignored words was fount at: {self.blacklist_file}')
+            return set()
 
     def tag_doc(self, in_doc: TaggedDocument) -> TaggedDocument:
         """
@@ -222,6 +227,6 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         return tags_cleaned
 
     def prepare(self):
-        blacklist_set = DictTagger.get_blacklist_set()
+        blacklist_set = self.get_blacklist_set()
         self.desc_by_term = {k.lower().strip(): v for k, v in self.desc_by_term.items() if
                              k.lower().strip() not in blacklist_set}
