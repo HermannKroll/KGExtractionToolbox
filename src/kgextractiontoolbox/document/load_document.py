@@ -55,7 +55,7 @@ def insert_taggers(*tagger_list):
     Tagger.bulk_insert_values_into_table(session, insert_values, check_constraints=True)
 
 
-def document_bulk_load(path, collection, tagger_mapping=None, logger=logging, ignore_tags=False):
+def document_bulk_load(path, collection, tagger_mapping=None, logger=logging, ignore_tags=True):
     """
     Bulk load a file in PubTator/JSON Format or a directory of PubTator/JSON files into the database.
     Iterate over PubTator/JSON documents and add Document, Tag and DocTaggedBy objects.
