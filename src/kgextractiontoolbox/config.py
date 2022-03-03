@@ -16,7 +16,6 @@ def search_config(start: Path, dirname: Path, filename: Path):
 
 GIT_ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../.."))
 
-DATA_DIR = os.path.join(GIT_ROOT_DIR, "data")
 RESOURCE_DIR = os.path.join(GIT_ROOT_DIR, "resources")
 CONFIG_DIR = os.path.join(GIT_ROOT_DIR, "config")
 TMP_DIR = os.path.join(GIT_ROOT_DIR, "tmp")
@@ -26,7 +25,7 @@ if not os.path.isdir(TMP_DIR):
 
 # Preprocessing
 
-ENTITY_LINKING_CONFIG = str(search_config(Path(CONFIG_DIR)/'..', Path('config'), Path('entity_linking.json')))
+ENTITY_LINKING_CONFIG = str(search_config(Path(CONFIG_DIR) / '..', Path('config'), Path('entity_linking.json')))
 
 # Backend for Tagging
 BACKEND_CONFIG = str(search_config(Path(CONFIG_DIR) / '..', Path('config'), Path('backend.json')))
