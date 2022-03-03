@@ -9,7 +9,7 @@
   "gnormPlus": {
     "root": "../GNormPlusJava",
     "javaArgs": "-Xmx16G -Xms10G",
-    "timeout": "600"
+    "timeout": 10
   },
   "dict": {
     "max_words": 5,
