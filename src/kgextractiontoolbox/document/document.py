@@ -370,6 +370,8 @@ class TaggedDocument:
         return f"{self.title} {self.abstract}"
 
     def __eq__(self, other):
+        if not isinstance(other, TaggedDocument):
+            return False
         return self.to_dict() == other.to_dict()
 
     def __str__(self):
