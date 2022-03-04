@@ -195,8 +195,6 @@ class TaggedDocument:
             ]
         if "classification" in doc_dict:
             self.classification = doc_dict["classification"]
-                                  #{k: v for k, v in
-                                  # zip(doc_dict["classification"], [""] * len(doc_dict["classification"]))}
 
         if "sections" in doc_dict:
             self.sections = [DocumentSection(position=sec["position"],
