@@ -3,11 +3,11 @@ import json
 import logging
 import sys
 from datetime import datetime
-from sqlalchemy.dialects.postgresql import insert
 from typing import Tuple, Dict
 
 from kgextractiontoolbox.backend.database import Session
-from kgextractiontoolbox.backend.models import Document, Tag, Tagger, DocTaggedBy
+from kgextractiontoolbox.backend.models import Document, Tag, Tagger, DocTaggedBy, DocumentSection, \
+    DocumentClassification
 from kgextractiontoolbox.document.count import count_documents
 from kgextractiontoolbox.document.document import TaggedDocument
 from kgextractiontoolbox.document.extract import read_pubtator_documents
@@ -88,6 +88,8 @@ def document_bulk_load(path, collection, tagger_mapping=None, logger=logging, ig
     start_time = datetime.now()
 
     document_inserts = []
+    document_classification = []
+    document_sections = []
     tag_inserts = []
 
     doc_tagged_by_inserts = []
@@ -107,6 +109,24 @@ def document_bulk_load(path, collection, tagger_mapping=None, logger=logging, ig
         if doc.id not in db_doc_ids:
             logger.warning(
                 "Document {} {} is not inserted into DB (no title and no abstract)".format(collection, doc.id))
+
+        if doc.classification:
+            # add document classifications
+            for d_class, d_explanation in doc.classification.items():
+                document_classification.append(dict(document_id=doc.id,
+                                                    document_collection=collection,
+                                                    classification=d_class,
+                                                    explanation=d_explanation))
+
+        if doc.sections:
+            # add document sections
+            for sec in doc.sections:
+                document_sections.append(dict(document_id=doc.id,
+                                              document_collection=collection,
+                                              position=sec.position,
+                                              title=sec.title,
+                                              text=sec.text))
+
         if doc.tags and not ignore_tags and doc.id in db_doc_ids:
             # Add tags
             for tag in doc.tags:
@@ -137,16 +157,22 @@ def document_bulk_load(path, collection, tagger_mapping=None, logger=logging, ig
             Document.bulk_insert_values_into_table(session, document_inserts)
             Tag.bulk_insert_values_into_table(session, tag_inserts)
             DocTaggedBy.bulk_insert_values_into_table(session, doc_tagged_by_inserts)
+            DocumentSection.bulk_insert_values_into_table(session, document_sections)
+            DocumentClassification.bulk_insert_values_into_table(session, document_classification)
 
             document_inserts = []
             tag_inserts = []
             doc_tagged_by_inserts = []
+            document_sections = []
+            document_classification = []
 
         print_progress_with_eta("Adding documents", idx, n_docs, start_time, print_every_k=PRINT_ETA_EVERY_K_DOCUMENTS)
 
     Document.bulk_insert_values_into_table(session, document_inserts)
     Tag.bulk_insert_values_into_table(session, tag_inserts)
     DocTaggedBy.bulk_insert_values_into_table(session, doc_tagged_by_inserts)
+    DocumentSection.bulk_insert_values_into_table(session, document_sections)
+    DocumentClassification.bulk_insert_values_into_table(session, document_classification)
 
     sys.stdout.write("\rAdding documents ... done in {}\n".format(datetime.now() - start_time))
     logger.info("Added {} documents in {}".format(n_docs, datetime.now() - start_time))
