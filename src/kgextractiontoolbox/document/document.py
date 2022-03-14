@@ -366,8 +366,12 @@ class TaggedDocument:
     def has_content(self):
         return True if (self.title or self.abstract) else False
 
-    def get_text_content(self):
-        return f"{self.title} {self.abstract}"
+    def get_text_content(self, sections=False):
+        if sections and self.sections:
+            fulltext = ' '.join([str(sec.title) + ' ' + str(sec.text) for sec in self.sections])
+            return f"{self.title} {self.abstract} " + fulltext
+        else:
+            return f"{self.title} {self.abstract}"
 
     def __eq__(self, other):
         if not isinstance(other, TaggedDocument):
