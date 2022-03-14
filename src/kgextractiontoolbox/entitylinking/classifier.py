@@ -16,8 +16,14 @@ class Classifier:
         else:
             raise ValueError("Either rules or rule_path must be given")
 
-    def classify_document(self, doc: TaggedDocument):
-        content = doc.get_text_content()
+    def classify_document(self, doc: TaggedDocument, consider_sections=False):
+        """
+        Classify whether a document text content matches on of the classifier rules
+        :param doc: the document to classify
+        :param consider_sections: should sections be considered?
+        :return:
+        """
+        content = doc.get_text_content(sections=consider_sections)
         matches = []
         for rule in self.rules:
             rule_match = []

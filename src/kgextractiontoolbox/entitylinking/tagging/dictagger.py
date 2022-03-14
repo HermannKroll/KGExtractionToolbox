@@ -90,19 +90,19 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
             self.logger.info(f'No file of ignored words was fount at: {self.blacklist_file}')
             return set()
 
-    def tag_doc(self, in_doc: TaggedDocument) -> TaggedDocument:
+    def tag_doc(self, in_doc: TaggedDocument, consider_sections=False) -> TaggedDocument:
         """
         Generate tags for a TaggedDocument
         :param in_doc: document containing title+abstract to tag. Is modified by adding tags
+        :param consider_sections: should fulltexts be considered?
         :return: the modified in_doc
         """
         and_check_range = 5
         connector_words = {"and", "or"}
         abb_vocab = dict()
         out_doc = in_doc
-        pmid, title, abstact = in_doc.id, in_doc.title, in_doc.abstract
-        content = title.strip() + " " + abstact.strip()
-        content = content.lower()
+        pmid = in_doc.id
+        content = in_doc.get_text_content(sections=consider_sections).lower()
 
         # split into indexed single words
         ind_words = split_indexed_words(content)
