@@ -4,8 +4,41 @@ from typing import List, Set
 from sqlalchemy import and_
 
 import kgextractiontoolbox.document.document
-from kgextractiontoolbox.backend.models import Document, DocumentClassification, Tag, DocumentSection
+from kgextractiontoolbox.backend.models import Document, DocumentClassification, Tag, DocumentSection, \
+    BULK_QUERY_CURSOR_COUNT_DEFAULT
 from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
+
+
+def iterate_over_documents_in_collection(session, collection: str, consider_sections=False):
+    if consider_sections:
+        doc_query = session.query(Document).filter(Document.collection == collection) \
+            .order_by(Document.id) \
+            .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
+
+        sec_query = session.query(DocumentSection).filter(DocumentSection.document_collection == collection) \
+            .order_by(Document.id) \
+            .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
+        sec_query = iter(sec_query)
+        current_sec = next(sec_query)
+
+        for res in doc_query:
+            t_doc = TaggedDocument(id=res.id, title=res.title,
+                                   abstract=res.abstract)
+            while t_doc.id == current_sec.id:
+                t_doc.sections.append(
+                    kgextractiontoolbox.document.document.DocumentSection(position=current_sec.position,
+                                                                          title=current_sec.title,
+                                                                          text=current_sec.text))
+                current_sec = next(sec_query)
+
+            yield t_doc
+
+    else:
+        doc_query = session.query(Document).filter(Document.collection == collection) \
+            .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
+        for res in doc_query:
+            yield TaggedDocument(id=res.id, title=res.title,
+                                 abstract=res.abstract)
 
 
 def retrieve_tagged_documents_from_database(session, document_ids: Set[int], document_collection: str) \

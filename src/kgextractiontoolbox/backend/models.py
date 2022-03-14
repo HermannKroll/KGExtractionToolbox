@@ -158,13 +158,6 @@ class Document(Base, DatabaseTable):
     def count_documents_in_collection(session, collection: str) -> int:
         return session.query(Document).filter(Document.collection == collection).count()
 
-    @staticmethod
-    def iterate_over_documents_in_collection(session, collection: str):
-        doc_query = session.query(Document).filter(Document.collection == collection) \
-            .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
-        for res in doc_query:
-            yield res
-
 
 class Tagger(Base, DatabaseTable):
     __tablename__ = "tagger"

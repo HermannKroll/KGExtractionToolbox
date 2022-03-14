@@ -91,7 +91,8 @@ def main(arguments=None):
                                 type=int)
     parser.add_argument("-y", "--yes_force", help="skip prompt for workdir deletion", action="store_true")
     parser.add_argument("-f", "--force", help="skip checking for already tagged documents", action="store_true")
-
+    parser.add_argument("--sections", action="store_true", default=False,
+                        help="Should the section texts be considered when tagging?")
     parser.add_argument("input", help="composite document file")
     args = parser.parse_args(arguments)
 
@@ -157,6 +158,9 @@ def main(arguments=None):
     logger.info(f'{len(document_ids_in_db)} found')
     session.remove()
 
+    consider_sections = args.sections
+    logger.info(f'Consider sections: {consider_sections}')
+
     def generate_tasks():
         for doc in read_pubtator_documents(in_file):
             t_doc = TaggedDocument(doc, ignore_tags=True)
@@ -164,7 +168,7 @@ def main(arguments=None):
 
     def do_task(in_doc: TaggedDocument):
         try:
-            tagged_doc = metatag.tag_doc(in_doc)
+            tagged_doc = metatag.tag_doc(in_doc, consider_sections=consider_sections)
             tagged_doc.clean_tags()
             return tagged_doc.tags
         except:

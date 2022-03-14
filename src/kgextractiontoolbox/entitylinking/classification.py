@@ -5,15 +5,16 @@ import tempfile
 from argparse import ArgumentParser
 
 from kgextractiontoolbox.backend.database import Session
-from kgextractiontoolbox.document.load_document import document_bulk_load
 from kgextractiontoolbox.backend.models import DocumentClassification, Document
-from kgextractiontoolbox.entitylinking.classifier import Classifier
-from kgextractiontoolbox.entitylinking.utils import init_preprocess_logger, init_sqlalchemy_logger
-from kgextractiontoolbox.progress import Progress
+from kgextractiontoolbox.backend.retrieve import iterate_over_documents_in_collection
 from kgextractiontoolbox.document import count
 from kgextractiontoolbox.document.document import TaggedDocument
 from kgextractiontoolbox.document.extract import read_pubtator_documents
+from kgextractiontoolbox.document.load_document import document_bulk_load
 from kgextractiontoolbox.document.sanitize import filter_and_sanitize
+from kgextractiontoolbox.entitylinking.classifier import Classifier
+from kgextractiontoolbox.entitylinking.utils import init_preprocess_logger, init_sqlalchemy_logger
+from kgextractiontoolbox.progress import Progress
 from kgextractiontoolbox.util.multiprocessing.ConsumerWorker import ConsumerWorker
 from kgextractiontoolbox.util.multiprocessing.ProducerWorker import ProducerWorker
 from kgextractiontoolbox.util.multiprocessing.Worker import Worker
@@ -37,6 +38,8 @@ def main(arguments=None):
     parser.add_argument("-y", "--yes_force", help="skip prompt for workdir deletion", action="store_true")
 
     parser.add_argument("-i", "--input", required=False, help="composite pubtator file", metavar="IN_DIR")
+    parser.add_argument("--sections", action="store_true", default=False,
+                        help="Should the section texts be considered when tagging?")
     args = parser.parse_args(arguments)
 
     # create directories
@@ -90,6 +93,9 @@ def main(arguments=None):
     classifier = Classifier(classification=args.cls, rule_path=args.ruleset)
     session = Session.get()
 
+    consider_sections = args.sections
+    logger.info(f'Consider sections: {consider_sections}')
+
     def generate_tasks():
         if input_file_given:
             for doc in read_pubtator_documents(in_file):
@@ -99,14 +105,14 @@ def main(arguments=None):
         else:
             db_session = Session.get()
             logger.info('Retrieving documents from database...')
-            for doc in Document.iterate_over_documents_in_collection(db_session, args.collection):
-                t_doc = TaggedDocument(id=doc.id, title=doc.title, abstract=doc.abstract)
+            for t_doc in iterate_over_documents_in_collection(db_session, args.collection,
+                                                              consider_sections=consider_sections):
                 if t_doc.has_content():
                     yield t_doc
             db_session.remove()
 
     def do_task(in_doc: TaggedDocument):
-        classifier.classify_document(in_doc)
+        classifier.classify_document(in_doc, consider_sections=consider_sections)
         return in_doc
 
     docs_done = multiprocessing.Value('i', 0)
