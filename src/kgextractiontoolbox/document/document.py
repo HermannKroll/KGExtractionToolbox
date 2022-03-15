@@ -305,8 +305,8 @@ class TaggedDocument:
         doc_nlp = spacy_nlp(content)
         for idx, sent in enumerate(doc_nlp.sents):
             sent_str = str(sent)
-            start_pos = content.index(sent_str)
-            end_pos = content.index(sent_str) + len(sent_str)
+            start_pos = sent.start_char
+            end_pos = sent.end_char
             if start_pos > len(self.title):
                 start_pos -= offset
                 end_pos -= offset
