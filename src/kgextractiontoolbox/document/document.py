@@ -143,15 +143,7 @@ class TaggedDocument:
 
         self.entity_names = {t.text.lower() for t in self.tags}
         if spacy_nlp:
-            if not self.title and not self.abstract:
-                raise ValueError(f'Cannot process document ({self.id}) without title or abstract')
-            # Indexes
-            # self.mesh_by_entity_name = {}  # Use to select mesh descriptor by given entity
-            self.sentence_by_id = {}  # Use to build mesh->sentence index
-            self.entities_by_ent_id = defaultdict(list)  # Use Mesh->TaggedEntity index to build Mesh->Sentence index
-            self.sentences_by_ent_id = defaultdict(set)  # Mesh->Sentence index
-            self.entities_by_sentence = defaultdict(set)  # Use for _query processing
-            self._create_index(spacy_nlp)
+            self._compute_nlp_indexes(spacy_nlp)
 
     def load_from_pubtator(self, pubtator_content: str, ignore_tags=False):
         """
@@ -290,9 +282,15 @@ class TaggedDocument:
                 if not repaired:
                     logging.debug(f'Tag position does not match to string in text ({tag_text} vs {text_text})')
 
-    def _create_index(self, spacy_nlp):
-        # self.mesh_by_entity_name = {t.text.lower(): t.mesh for t in self.tags if
-        #                            t.text.lower() not in self.mesh_by_entity_name}
+    def _compute_nlp_indexes(self, spacy_nlp):
+        if not self.has_content():
+            raise ValueError(f'Cannot process document ({self.id}) without title or abstract')
+            # Indexes
+        self.sentence_by_id = {}  # Use to build entity->sentence index
+        self.entities_by_ent_id = defaultdict(list)  # Use entity->TaggedEntity index to build Mesh->Sentence index
+        self.sentences_by_ent_id = defaultdict(set)  # entity->Sentence index
+        self.entities_by_sentence = defaultdict(set)  # sent->entities
+
         if self.title:
             if self.title[-1] == '.':
                 content = f'{self.title} {self.abstract}'
