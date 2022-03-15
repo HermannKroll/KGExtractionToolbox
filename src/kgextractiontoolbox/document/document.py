@@ -292,17 +292,16 @@ class TaggedDocument:
         self.sentences_by_ent_id = defaultdict(set)  # entity->Sentence index
         self.entities_by_sentence = defaultdict(set)  # sent->entities
 
-        running_offset = 0
         sentence_idx = 0
         # iterate over all text elements (title, abstract, sec1 title, sec1 text, sec2 title, ...)
-        for text_element in self.iterate_over_text_elements(sections=sections):
+        for text_element, offset in self.iterate_over_text_elements(sections=sections):
             doc_nlp = spacy_nlp(text_element)
 
             # iterate over sentences in each element
             for sent in doc_nlp.sents:
                 sent_str = str(sent)
-                start_pos = sent.start_char + running_offset
-                end_pos = sent.end_char + running_offset
+                start_pos = sent.start_char + offset
+                end_pos = sent.end_char + offset
 
                 self.sentence_by_id[sentence_idx] = Sentence(
                     sentence_idx,
@@ -311,9 +310,6 @@ class TaggedDocument:
                     end_pos
                 )
                 sentence_idx += 1
-
-            # we introduce a ' ' space between each element
-            running_offset += len(text_element) + 1
 
         for tag in self.tags:
             self.entities_by_ent_id[tag.ent_id].append(tag)
@@ -329,16 +325,22 @@ class TaggedDocument:
         """
         Iterate over all text elements in a document
         :param sections: should sections be considered?
-        :return: an iterator over strings
+        :return: an iterator over (string, int)
         """
+        running_offset = 0
         if self.title:
-            yield self.title
+            yield self.title, 0
+            running_offset += len(self.title) + 1
         if self.abstract:
-            yield self.abstract
+            yield self.abstract, running_offset
+            running_offset += len(self.abstract) + 1
+
         if sections and self.sections:
             for sec in self.sections:
-                yield sec.title
-                yield sec.text
+                yield sec.title, running_offset
+                running_offset += len(sec.title) + 1
+                yield sec.text, running_offset
+                running_offset += len(sec.text) + 1
 
     def to_dict(self, export_content=True, export_tags=True, export_sections=True):
         """
