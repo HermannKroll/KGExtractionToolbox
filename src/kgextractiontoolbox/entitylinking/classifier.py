@@ -23,19 +23,21 @@ class Classifier:
         :param consider_sections: should sections be considered?
         :return:
         """
-        content = doc.get_text_content(sections=consider_sections)
         matches = []
-        for rule in self.rules:
-            rule_match = []
-            for term in rule:
-                term_match = term.search(content)
-                if not term_match:
-                    break
+        for content, offset in doc.iterate_over_text_elements(sections=consider_sections):
+            for rule in self.rules:
+                rule_match = []
+                for term in rule:
+                    term_match = term.search(content)
+                    if not term_match:
+                        break
+                    else:
+                        pos = term_match.regs[0]
+                        pos = (pos[0] + offset, pos[1] + offset)
+                        rule_match.append(f"{term.pattern}:{term_match.group(0)}{pos}")
+                # else will be executed if loop does not encounter a break
                 else:
-                    rule_match.append(f"{term.pattern}:{term_match.group(0)}{term_match.regs[0]}")
-            # else will be executed if loop does not encounter a break
-            else:
-                matches.append(' AND '.join([rm for rm in rule_match]))
+                    matches.append(' AND '.join([rm for rm in rule_match]))
         # Execute all rules - if a rule matches then add classification
         if matches:
             doc.classification[self.classification] = ';'.join([m for m in matches])

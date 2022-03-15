@@ -102,32 +102,36 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         abb_vocab = dict()
         out_doc = in_doc
         pmid = in_doc.id
-        content = in_doc.get_text_content(sections=consider_sections).lower()
-
-        # split into indexed single words
-        ind_words = split_indexed_words(content)
-
         tags = []
-        for spaces in range(self.config.dict_max_words):
-            for word_tuple in get_n_tuples(ind_words, spaces + 1):
-                hits = self.get_hits(word_tuple, pmid)
-                tags += hits
+        for text_element, offset in in_doc.iterate_over_text_elements(sections=consider_sections):
+            content = text_element.lower()
+            # split into indexed single words
+            ind_words = split_indexed_words(content)
 
-                if self.config.custom_abbreviations and hits:
-                    words, indexes = zip(*word_tuple)
-                    # only learn abbreviations from full entity mentions
-                    term = " ".join(words)
-                    if len(term) >= self.config.dict_min_full_tag_len:
-                        match = re.match(r" \(([^\(\)]*)\).*", content[indexes[-1] + len(words[-1]):])
-                        if match:
-                            # strip the abbreviation
-                            abbreviation = match.groups()[0].strip()
-                            abb_vocab[abbreviation] = [(t.ent_type, t.ent_id) for t in hits]
-
-        if abb_vocab:
             for spaces in range(self.config.dict_max_words):
                 for word_tuple in get_n_tuples(ind_words, spaces + 1):
-                    tags += self.get_hits(word_tuple, pmid, abb_vocab)
+                    hits = self.get_hits(word_tuple, pmid, offset=offset)
+                    tags += hits
+
+                    if self.config.custom_abbreviations and hits:
+                        words, indexes = zip(*word_tuple)
+                        # only learn abbreviations from full entity mentions
+                        term = " ".join(words)
+                        if len(term) >= self.config.dict_min_full_tag_len:
+                            match = re.match(r" \(([^\(\)]*)\).*", content[indexes[-1] + len(words[-1]):])
+                            if match:
+                                # strip the abbreviation
+                                abbreviation = match.groups()[0].strip()
+                                abb_vocab[abbreviation] = [(t.ent_type, t.ent_id) for t in hits]
+
+        if abb_vocab:
+            for text_element, offset in in_doc.iterate_over_text_elements(sections=consider_sections):
+                content = text_element.lower()
+                # split into indexed single words
+                ind_words = split_indexed_words(content)
+                for spaces in range(self.config.dict_max_words):
+                    for word_tuple in get_n_tuples(ind_words, spaces + 1):
+                        tags += self.get_hits(word_tuple, pmid, abb_vocab, offset=offset)
 
         if self.config.dict_check_abbreviation:
             tags = DictTagger.clean_abbreviation_tags(tags, self.config.dict_min_full_tag_len)
@@ -135,13 +139,13 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         out_doc.tags += tags
         return out_doc
 
-    def get_hits(self, word_tuple, pmid, abb_vocab=None):
+    def get_hits(self, word_tuple, pmid, abb_vocab=None, offset=0):
         words, indexes = zip(*word_tuple)
         term = " ".join(words)
         if not term:
             return []
-        start = indexes[0]
-        end = indexes[-1] + len(words[-1])
+        start = indexes[0] + offset
+        end = indexes[-1] + len(words[-1]) + offset
         hits = list(self.generate_tagged_entities(end, pmid, start, term, tmp_vocab=abb_vocab))
         return hits
 
