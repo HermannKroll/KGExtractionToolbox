@@ -108,7 +108,8 @@ class DocumentSection:
 
 class TaggedDocument:
 
-    def __init__(self, from_str=None, spacy_nlp=None, ignore_tags=False, id=None, title=None, abstract=None):
+    def __init__(self, from_str=None, spacy_nlp=None, ignore_tags=False, id=None, title=None, abstract=None,
+                 sections=False):
         """
         initialize a document document
         :param from_str: content of a document file or a document filename
@@ -143,7 +144,7 @@ class TaggedDocument:
 
         self.entity_names = {t.text.lower() for t in self.tags}
         if spacy_nlp:
-            self._compute_nlp_indexes(spacy_nlp)
+            self._compute_nlp_indexes(spacy_nlp, sections=sections)
 
     def load_from_pubtator(self, pubtator_content: str, ignore_tags=False):
         """
@@ -282,7 +283,7 @@ class TaggedDocument:
                 if not repaired:
                     logging.debug(f'Tag position does not match to string in text ({tag_text} vs {text_text})')
 
-    def _compute_nlp_indexes(self, spacy_nlp):
+    def _compute_nlp_indexes(self, spacy_nlp, sections=False):
         if not self.has_content():
             raise ValueError(f'Cannot process document ({self.id}) without title or abstract')
             # Indexes
@@ -291,32 +292,28 @@ class TaggedDocument:
         self.sentences_by_ent_id = defaultdict(set)  # entity->Sentence index
         self.entities_by_sentence = defaultdict(set)  # sent->entities
 
-        if self.title:
-            if self.title[-1] == '.':
-                content = f'{self.title} {self.abstract}'
-                offset = 1
-            else:
-                content = f'{self.title}. {self.abstract}'
-                offset = 2
-        else:
-            content = f'{self.abstract}'
-            offset = 0
+        running_offset = 0
+        sentence_idx = 0
+        # iterate over all text elements (title, abstract, sec1 title, sec1 text, sec2 title, ...)
+        for text_element in self.iterate_over_text_elements(sections=sections):
+            doc_nlp = spacy_nlp(text_element)
 
-        doc_nlp = spacy_nlp(content)
-        for idx, sent in enumerate(doc_nlp.sents):
-            sent_str = str(sent)
-            start_pos = sent.start_char
-            end_pos = sent.end_char
-            if start_pos > len(self.title):
-                start_pos -= offset
-                end_pos -= offset
+            # iterate over sentences in each element
+            for sent in doc_nlp.sents:
+                sent_str = str(sent)
+                start_pos = sent.start_char + running_offset
+                end_pos = sent.end_char + running_offset
 
-            self.sentence_by_id[idx] = Sentence(
-                idx,
-                sent_str,
-                start_pos,
-                end_pos
-            )
+                self.sentence_by_id[sentence_idx] = Sentence(
+                    sentence_idx,
+                    sent_str,
+                    start_pos,
+                    end_pos
+                )
+                sentence_idx += 1
+
+            # we introduce a ' ' space between each element
+            running_offset += len(text_element) + 1
 
         for tag in self.tags:
             self.entities_by_ent_id[tag.ent_id].append(tag)
@@ -327,6 +324,21 @@ class TaggedDocument:
                     if sent.start <= entity.start <= sent.end:
                         self.sentences_by_ent_id[ent_id].add(sid)
                         self.entities_by_sentence[sid].add(entity)
+
+    def iterate_over_text_elements(self, sections=False):
+        """
+        Iterate over all text elements in a document
+        :param sections: should sections be considered?
+        :return: an iterator over strings
+        """
+        if self.title:
+            yield self.title
+        if self.abstract:
+            yield self.abstract
+        if sections and self.sections:
+            for sec in self.sections:
+                yield sec.title
+                yield sec.text
 
     def to_dict(self, export_content=True, export_tags=True, export_sections=True):
         """
