@@ -6,15 +6,11 @@ from kgextractiontoolbox.document.document import TaggedDocument
 
 
 class Classifier:
-    def __init__(self, classification, rule_path: Union[str, Path] = None, rules=None):
+    def __init__(self, classification, rule_path: Union[str, Path]):
         self.rules = []
+        self.explanations = []
         self.classification = classification
-        if rule_path:
-            self.rules = Classifier.read_ruleset(rule_path)
-        elif rules:
-            self.rules = rules
-        else:
-            raise ValueError("Either rules or rule_path must be given")
+        self.rules, self.rules_org_str = Classifier.read_ruleset(rule_path)
 
     def classify_document(self, doc: TaggedDocument, consider_sections=False):
         """
@@ -25,16 +21,18 @@ class Classifier:
         """
         matches = []
         for content, offset in doc.iterate_over_text_elements(sections=consider_sections):
-            for rule in self.rules:
+            for idx, rule in enumerate(self.rules):
                 rule_match = []
-                for term in rule:
+                for idx2, term in enumerate(rule):
+                    # the rules are split by a ' '
+                    rule_org_str = self.rules_org_str[idx][idx2]
                     term_match = term.search(content)
                     if not term_match:
                         break
                     else:
                         pos = term_match.regs[0]
-                        pos = (pos[0] + offset, pos[1] + offset)
-                        rule_match.append(f"{term.pattern}:{term_match.group(0)}{pos}")
+                        pos = str((pos[0] + offset, pos[1] + offset))
+                        rule_match.append(f"{rule_org_str}:{term_match.group(0)}{pos}")
                 # else will be executed if loop does not encounter a break
                 else:
                     matches.append(' AND '.join([rm for rm in rule_match]))
@@ -73,8 +71,11 @@ class Classifier:
     @staticmethod
     def read_ruleset(filepath: Union[str, Path]):
         ruleset = []
+        rule_org_str = []
         with open(filepath, "r") as f:
             for line in f:
-                terms = Classifier.compile_line_to_regex(line.strip())
+                rule_string = line.strip()
+                rule_org_str.append(rule_string.replace('AND ', '').split(' '))
+                terms = Classifier.compile_line_to_regex(rule_string)
                 ruleset.append(terms)
-        return ruleset
+        return ruleset, rule_org_str
