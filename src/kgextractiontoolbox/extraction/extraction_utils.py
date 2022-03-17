@@ -11,8 +11,6 @@ from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
 from kgextractiontoolbox.document.extract import read_pubtator_documents
 from kgextractiontoolbox.progress import print_progress_with_eta
 
-TAG_MIN_TEXT_LENGTH = 3
-
 
 def filter_document_content(pubtator_content: str, spacy_nlp, consider_sections=False):
     """
@@ -31,9 +29,9 @@ def filter_document_content(pubtator_content: str, spacy_nlp, consider_sections=
     sorted_sentences = sorted(tagged_doc.sentence_by_id.keys())
     for sent in sorted_sentences:
         tags = tagged_doc.entities_by_sentence[sent]
-        ent_ids = {t.ent_id for t in tags if len(t.text.strip()) >= TAG_MIN_TEXT_LENGTH}
+        ent_ids = {t.ent_id for t in tags}
         if len(ent_ids) > 1:  # at minimum two tags must be included in this sentence
-            sentence_str = tagged_doc.sentence_by_id[sent].text + '. ' # be sure and separate sentences
+            sentence_str = tagged_doc.sentence_by_id[sent].text + '. '  # be sure and separate sentences
             sentence_str_lower = sentence_str.lower()
             for t in tagged_doc.entities_by_sentence[sent]:
                 try:
