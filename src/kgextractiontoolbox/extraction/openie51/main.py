@@ -13,13 +13,14 @@ from kgextractiontoolbox.extraction.openie51.oie5_server_controller import Oi5Se
 from kgextractiontoolbox.progress import Progress
 
 
-def openie51_run(document_file, output, no_entity_filter=False):
+def openie51_run(document_file, output, no_entity_filter=False, consider_sections=False):
     """
     Initializes OpenIE6. Will generate the corresponding input file, reads the output and converts it to our
     internal OpenIE format
     :param document_file: input file with documents to generate
     :param output: the output file
     :param no_entity_filter: if true only sentences with two tags will be processed by OpenIE
+    :param consider_sections: Should document sections be considered for text generation?
     :return: None
     """
     # Prepare files
@@ -32,11 +33,12 @@ def openie51_run(document_file, output, no_entity_filter=False):
     doc2sentences = {}
     if no_entity_filter:
         for document_content in read_pubtator_documents(document_file):
-            doc = TaggedDocument(from_str=document_content, spacy_nlp=spacy_nlp)
+            doc = TaggedDocument(from_str=document_content, spacy_nlp=spacy_nlp, sections=consider_sections)
             if doc:
                 doc2sentences[doc.id] = [s.text for s in doc.sentence_by_id.values()]
     else:
-        doc2sentences, doc2tags = filter_document_sentences_without_tags(doc_count, document_file, spacy_nlp)
+        doc2sentences, doc2tags = filter_document_sentences_without_tags(doc_count, document_file, spacy_nlp,
+                                                                         consider_sections=consider_sections)
         doc_count = len(doc2tags)
 
     if doc_count == 0:
@@ -89,13 +91,15 @@ def main():
     parser.add_argument("output", help="OpenIE results will be stored here")
     parser.add_argument("--no_entity_filter", action="store_true",
                         default=False, required=False, help="Does not filter sentences by tags")
+    parser.add_argument("--sections", action="store_true", default=False,
+                        help="Should the section texts be considered in the extraction step?")
     args = parser.parse_args()
 
     logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
                         datefmt='%Y-%m-%d:%H:%M:%S',
                         level=logging.DEBUG)
 
-    openie51_run(args.input, args.output, args.no_entity_filter)
+    openie51_run(args.input, args.output, args.no_entity_filter, consider_sections=args.sections)
 
 
 if __name__ == "__main__":

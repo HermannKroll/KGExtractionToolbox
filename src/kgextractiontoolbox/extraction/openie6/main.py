@@ -134,7 +134,7 @@ def openie6_invoke_toolkit(openie6_dir: str, input_file: str, output_file: str):
     logging.info(f'Process finished in {datetime.now() - start}s')
 
 
-def openie6_run(document_file, output, config=NLP_CONFIG, no_entity_filter=False):
+def openie6_run(document_file, output, config=NLP_CONFIG, no_entity_filter=False, consider_sections=False):
     """
     Initializes OpenIE6. Will generate the corresponding input file, reads the output and converts it to our
     internal OpenIE format
@@ -142,6 +142,7 @@ def openie6_run(document_file, output, config=NLP_CONFIG, no_entity_filter=False
     :param output: the output file
     :param config: the nlp config
     :param no_entity_filter: if true only sentences with two tags will be processed by OpenIE
+    :param consider_sections: Should document sections be considered for text generation?
     :return: None
     """
     # Read config
@@ -159,11 +160,12 @@ def openie6_run(document_file, output, config=NLP_CONFIG, no_entity_filter=False
     doc2sentences = {}
     if no_entity_filter:
         for document_content in read_pubtator_documents(document_file):
-            doc = TaggedDocument(from_str=document_content, spacy_nlp=spacy_nlp)
+            doc = TaggedDocument(from_str=document_content, spacy_nlp=spacy_nlp, sections=consider_sections)
             if doc:
                 doc2sentences[doc.id] = list([s.text for s in doc.sentence_by_id.values()])
     else:
-        doc2sentences, doc2tags = filter_document_sentences_without_tags(doc_count, document_file, spacy_nlp)
+        doc2sentences, doc2tags = filter_document_sentences_without_tags(doc_count, document_file, spacy_nlp,
+                                                                         consider_sections=consider_sections)
         doc_count = len(doc2tags)
 
     openie6_input_file = f'{output}_pubtator'
@@ -193,6 +195,8 @@ def main():
     parser.add_argument("output", help="OpenIE results will be stored here")
     parser.add_argument("--no_entity_filter", action="store_true",
                         default=False, required=False, help="Does not filter sentences by tags")
+    parser.add_argument("--sections", action="store_true", default=False,
+                        help="Should the section texts be considered in the extraction step?")
     parser.add_argument("--config", default=NLP_CONFIG)
     args = parser.parse_args()
 
@@ -200,7 +204,7 @@ def main():
                         datefmt='%Y-%m-%d:%H:%M:%S',
                         level=logging.INFO)
 
-    openie6_run(args.input, args.output, args.config, args.no_entity_filter)
+    openie6_run(args.input, args.output, args.config, args.no_entity_filter, consider_sections=args.sections)
 
 
 if __name__ == "__main__":
