@@ -24,7 +24,7 @@ def iterate_over_documents_in_collection(session, collection: str, consider_sect
         for res in doc_query:
             t_doc = TaggedDocument(id=res.id, title=res.title,
                                    abstract=res.abstract)
-            while t_doc.id == current_sec.document_id:
+            while current_sec and t_doc.id == current_sec.document_id:
                 t_doc.sections.append(
                     kgextractiontoolbox.document.document.DocumentSection(position=current_sec.position,
                                                                           title=current_sec.title,
