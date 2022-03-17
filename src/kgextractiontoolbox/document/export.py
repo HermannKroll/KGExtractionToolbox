@@ -1,6 +1,7 @@
 import argparse
 import json
 import logging
+from typing import List
 
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import Document, Tag, DocumentTranslation
@@ -27,6 +28,24 @@ def write_doc(doc: TaggedDocument, export_format: str, f, first_doc: bool, expor
         json.dump(doc.to_dict(export_content=export_content, export_tags=export_tags), f, indent=1)
     elif export_format == "pubtator":
         f.write(str(doc))
+
+
+def write_docs_as_json(f_obj, documents: List[TaggedDocument], export_content=True, export_tags=True):
+    """
+    Writes a list of tagged documents to a json file
+    :param f_obj: open file pointer
+    :param documents: a list of tagged documents
+    :param export_content: should the content be exported
+    :param export_tags: should tags be exported
+    :return: None
+    """
+    f_obj.write('[\n')
+    first_doc = True
+    for doc in documents:
+        write_doc(doc, first_doc=first_doc, export_format="json", export_content=export_content,
+                  export_tags=export_tags, f=f_obj)
+        first_doc = False
+    f_obj.write('\n]')
 
 
 def export(out_fn, export_tags=True, document_ids=None, collection=None, content=True, logger=logging,
