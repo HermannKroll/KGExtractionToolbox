@@ -16,7 +16,7 @@ def iterate_over_documents_in_collection(session, collection: str, consider_sect
             .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
 
         sec_query = session.query(DocumentSection).filter(DocumentSection.document_collection == collection) \
-            .order_by(Document.id) \
+            .order_by(DocumentSection.document_id) \
             .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
         sec_query = iter(sec_query)
         current_sec = next(sec_query)
@@ -24,7 +24,7 @@ def iterate_over_documents_in_collection(session, collection: str, consider_sect
         for res in doc_query:
             t_doc = TaggedDocument(id=res.id, title=res.title,
                                    abstract=res.abstract)
-            while t_doc.id == current_sec.id:
+            while t_doc.id == current_sec.document_id:
                 t_doc.sections.append(
                     kgextractiontoolbox.document.document.DocumentSection(position=current_sec.position,
                                                                           title=current_sec.title,
