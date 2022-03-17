@@ -3,7 +3,7 @@ import logging
 
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import Tag, Document, DocTaggedBy, DocProcessedByIE, Predication, Sentence, \
-    DocumentTranslation, DocumentSection
+    DocumentTranslation, DocumentSection, DocumentClassification
 
 
 def delete_document_collection_from_database(document_collection: str):
@@ -30,6 +30,10 @@ def delete_document_collection_from_database(document_collection: str):
 
     logging.info('Deleting document section entries...')
     session.query(DocumentSection).filter(DocumentSection.document_collection == document_collection).delete()
+
+    logging.info('Deleting document classification entries...')
+    session.query(DocumentClassification).filter(
+        DocumentClassification.document_collection == document_collection).delete()
 
     logging.info('Deleting document entries...')
     session.query(Document).filter(Document.collection == document_collection).delete()
