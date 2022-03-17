@@ -31,7 +31,12 @@ def filter_document_content(pubtator_content: str, spacy_nlp, consider_sections=
         tags = tagged_doc.entities_by_sentence[sent]
         ent_ids = {t.ent_id for t in tags}
         if len(ent_ids) > 1:  # at minimum two tags must be included in this sentence
-            sentence_str = tagged_doc.sentence_by_id[sent].text + '. '  # be sure and separate sentences
+            sentence_str = tagged_doc.sentence_by_id[sent].text
+            # be sure and separate sentences
+            if sentence_str[-1] in ['.', '?', '!', ':', ';']:
+                sentence_str = sentence_str + ' '
+            else:
+                sentence_str = sentence_str + '. '
             sentence_str_lower = sentence_str.lower()
             for t in tagged_doc.entities_by_sentence[sent]:
                 try:
