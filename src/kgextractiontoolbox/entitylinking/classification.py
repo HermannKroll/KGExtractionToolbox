@@ -11,7 +11,6 @@ from kgextractiontoolbox.document import count
 from kgextractiontoolbox.document.document import TaggedDocument
 from kgextractiontoolbox.document.extract import read_pubtator_documents
 from kgextractiontoolbox.document.load_document import document_bulk_load
-from kgextractiontoolbox.document.sanitize import filter_and_sanitize
 from kgextractiontoolbox.entitylinking.classifier import Classifier
 from kgextractiontoolbox.entitylinking.utils import init_preprocess_logger, init_sqlalchemy_logger
 from kgextractiontoolbox.progress import Progress
@@ -45,7 +44,7 @@ def main(arguments=None):
     # create directories
     root_dir = os.path.abspath(args.workdir) if args.workdir else tempfile.mkdtemp()
     log_dir = os.path.abspath(os.path.join(root_dir, "log"))
-    ext_in_file = args.input
+    in_file = args.input
     in_file = os.path.abspath(os.path.join(root_dir, "in.pubtator"))
 
     if args.workdir and os.path.exists(root_dir):
@@ -70,8 +69,7 @@ def main(arguments=None):
     input_file_given = True
     if args.input:
         logger.info("Reading input file and counting document ids...")
-        in_ids = count.get_document_ids(ext_in_file)
-        filter_and_sanitize(ext_in_file, in_file, in_ids, logger)
+        in_ids = count.get_document_ids(in_file)
         number_of_docs = len(in_ids)
 
         if number_of_docs == 0:

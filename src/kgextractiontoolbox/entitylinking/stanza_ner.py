@@ -12,7 +12,6 @@ from kgextractiontoolbox.document import count
 from kgextractiontoolbox.document.document import TaggedDocument
 from kgextractiontoolbox.document.extract import read_pubtator_documents
 from kgextractiontoolbox.document.load_document import document_bulk_load
-from kgextractiontoolbox.document.sanitize import filter_and_sanitize
 from kgextractiontoolbox.entitylinking.biomedical_entity_linking import get_untagged_doc_ids_by_tagger
 from kgextractiontoolbox.entitylinking.entity_linking_config import Config
 from kgextractiontoolbox.entitylinking.tagging.stanza import StanzaTagger
@@ -44,8 +43,7 @@ def main(arguments=None):
     # create directories
     root_dir = root_dir = os.path.abspath(args.workdir) if args.workdir else tempfile.mkdtemp()
     log_dir = log_dir = os.path.abspath(os.path.join(root_dir, "log"))
-    ext_in_file = args.input
-    in_file = os.path.abspath(os.path.join(root_dir, "in.document"))
+    in_file = args.input
 
     if args.workdir and os.path.exists(root_dir):
         if not args.yes_force:
@@ -67,12 +65,11 @@ def main(arguments=None):
     logger.info(f"Project directory:{root_dir}")
 
     logger.info("Counting document ids...")
-    in_ids = count.get_document_ids(ext_in_file)
+    in_ids = count.get_document_ids(in_file)
     logger.info(f"{len(in_ids)} given, checking against database...")
-    todo_ids = set()
-    todo_ids |= get_untagged_doc_ids_by_tagger(args.collection, in_ids, StanzaTagger, logger)
-    filter_and_sanitize(ext_in_file, in_file, todo_ids, logger)
-    number_of_docs = len(todo_ids)
+    document_ids = set()
+    document_ids |= get_untagged_doc_ids_by_tagger(args.collection, in_ids, StanzaTagger, logger)
+    number_of_docs = len(document_ids)
 
     if not args.skip_load:
         document_bulk_load(in_file, args.collection, logger=logger)
@@ -89,7 +86,9 @@ def main(arguments=None):
     def generate_tasks():
         document_batch = []
         for doc in read_pubtator_documents(in_file):
-            document_batch.append(TaggedDocument(doc, ignore_tags=True))
+            t_doc = TaggedDocument(doc, ignore_tags=True)
+            if t_doc and t_doc.id in document_ids and t_doc.has_content():
+                document_batch.append(t_doc)
             if len(document_batch) > batch_size:
                 yield document_batch.copy()
                 document_batch.clear()
@@ -126,7 +125,7 @@ def main(arguments=None):
 
     task_queue = multiprocessing.Queue()
     result_queue = multiprocessing.Queue()
-    #TODO: log does not work
+    # TODO: log does not work
     producer = ProducerWorker(task_queue, generate_tasks, 1)
     workers = [Worker(task_queue, result_queue, do_task, prepare=init_stanza)]
     consumer = ConsumerWorker(result_queue, consume_task, 1, shutdown=shutdown_consumer)

@@ -12,9 +12,8 @@ from kgextractiontoolbox.backend.models import BULK_INSERT_AFTER_K, Document, Do
 from kgextractiontoolbox.config import ENTITY_LINKING_CONFIG
 from kgextractiontoolbox.document import count
 from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
-from kgextractiontoolbox.document.extract import read_pubtator_documents
+from kgextractiontoolbox.document.extract import read_tagged_documents
 from kgextractiontoolbox.document.load_document import document_bulk_load
-from kgextractiontoolbox.document.sanitize import filter_and_sanitize
 from kgextractiontoolbox.entitylinking.entity_linking_config import Config
 from kgextractiontoolbox.entitylinking.tagging.metadictagger import MetaDicTagger
 from kgextractiontoolbox.entitylinking.tagging.vocabulary import Vocabulary
@@ -26,8 +25,8 @@ from kgextractiontoolbox.util.multiprocessing.ProducerWorker import ProducerWork
 from kgextractiontoolbox.util.multiprocessing.Worker import Worker
 
 
-def prepare_input(in_file: str, out_file: str, logger: logging.Logger,
-                  collection: str, ent_types, skip_todo_check=False) -> Set[int]:
+def find_untagged_ids(in_file: str, logger: logging.Logger,
+                      collection: str, ent_types, skip_todo_check=False) -> Set[int]:
     if not os.path.exists(in_file):
         logger.error("Input file not found!")
         return {}
@@ -41,7 +40,6 @@ def prepare_input(in_file: str, out_file: str, logger: logging.Logger,
         logger.info(f"Checking against database...")
         for ent_type in ent_types:
             todo_ids |= get_untagged_doc_ids_by_ent_type(collection, in_ids, ent_type, MetaDicTagger, logger)
-    filter_and_sanitize(in_file, out_file, todo_ids, logger)
     return todo_ids
 
 
@@ -101,8 +99,7 @@ def main(arguments=None):
     # create directories
     root_dir = root_dir = os.path.abspath(args.workdir) if args.workdir else tempfile.mkdtemp()
     log_dir = log_dir = os.path.abspath(os.path.join(root_dir, "log"))
-    ext_in_file = args.input
-    in_file = os.path.abspath(os.path.join(root_dir, "in.document"))
+    in_file = args.input
 
     if args.workdir and os.path.exists(root_dir):
         if not args.yes_force:
@@ -131,7 +128,7 @@ def main(arguments=None):
     vocabs.load_vocab()
     ent_types = vocabs.get_ent_types()
 
-    document_ids = prepare_input(ext_in_file, in_file, logger, args.collection, ent_types, skip_todo_check=args.force)
+    document_ids = find_untagged_ids(in_file, logger, args.collection, ent_types, skip_todo_check=args.force)
     number_of_docs = len(document_ids)
     logger.info(f'{number_of_docs} of documents have to be processed...')
 
@@ -162,9 +159,9 @@ def main(arguments=None):
     logger.info(f'Consider sections: {consider_sections}')
 
     def generate_tasks():
-        for doc in read_pubtator_documents(in_file):
-            t_doc = TaggedDocument(doc, ignore_tags=True)
-            yield t_doc
+        for doc in read_tagged_documents(in_file):
+            if doc and doc.id in document_ids and doc.has_content():
+                yield doc
 
     def do_task(in_doc: TaggedDocument):
         try:
