@@ -45,7 +45,6 @@ def main(arguments=None):
     root_dir = os.path.abspath(args.workdir) if args.workdir else tempfile.mkdtemp()
     log_dir = os.path.abspath(os.path.join(root_dir, "log"))
     in_file = args.input
-    in_file = os.path.abspath(os.path.join(root_dir, "in.pubtator"))
 
     if args.workdir and os.path.exists(root_dir):
         if not args.yes_force:
