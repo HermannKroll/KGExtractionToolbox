@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 def search_config(start: Path, dirname: Path, filename: Path):
-    if not start.is_dir():
+    if not start.is_dir() or start.resolve() == Path('/'):
         return None
     if not (start / dirname).is_dir() or not (start / dirname / filename).is_file():
         return search_config(start / "..", dirname, filename)

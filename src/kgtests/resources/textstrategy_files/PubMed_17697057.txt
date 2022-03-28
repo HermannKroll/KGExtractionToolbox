@@ -1,0 +1,30 @@
+17697057|t| Effects of pioglitazone on lipid and lipoprotein metabolism.
+17697057|a| Type 2 diabetes is associated with an increased risk of cardiovascular disease (CVD). A major contributing factor to this risk is the abnormal lipid profile known as dyslipidaemia, which is characterized by low HDL cholesterol (HDL-C), raised triglycerides (TGs) and a predominance of small, dense LDL cholesterol (LDL-C) particles. Statins are now widely used first-line in patients with type 2 diabetes due to their proven efficacy in reducing LDL-C and cardiovascular risk. However, despite the use of statins, the absolute risk of CVD in patients remains elevated, highlighting the need to target all aspects of the diabetic lipid profile such as raised TGs or low HDL-C levels. Insulin resistance is thought to be central in the pathogenesis of diabetic dyslipidaemia; therefore, improving insulin sensitivity with a thiazolidinedione offers an attractive treatment option. Indeed, pioglitazone, a member of the peroxisome proliferator-activated receptor-gamma family, has been shown in clinical trials to improve both blood glucose levels and the lipid profile when used either as monotherapy or in combination with other oral antidiabetic agents. In the monotherapy setting, pioglitazone has been associated with greater decreases in TGs and increases in HDL-C when compared with glibenclamide or metformin. Studies investigating the effects of pioglitazone add-on therapy to either metformin or sulphonylurea treatments have shown sustained improvements in serum levels of TGs and HDL-C and favourable effects on LDL-C particle size. In comparison with rosiglitazone, pioglitazone has different and potentially favourable effects on plasma lipids. The recent PROspective pioglitAzone Clinical Trial In macroVascular Events study has given weight to the hypothesis that the beneficial metabolic effects of pioglitazone may be associated with reductions in cardiovascular risk in patients with type 2 diabetes.
+17697057	11	23	pioglitazone	Chemical	MESH:C060836
+17697057	276	287	cholesterol	Chemical	MESH:D002784
+17697057	304	317	triglycerides	Chemical	MESH:D014280
+17697057	363	374	cholesterol	Chemical	MESH:D002784
+17697057	394	401	Statins	Chemical	MESH:D019821
+17697057	566	573	statins	Chemical	MESH:D019821
+17697057	883	900	thiazolidinedione	Chemical	MESH:D045162
+17697057	948	960	pioglitazone	Chemical	MESH:C060836
+17697057	1091	1098	glucose	Chemical	MESH:D005947
+17697057	1243	1255	pioglitazone	Chemical	MESH:C060836
+17697057	1348	1361	glibenclamide	Chemical	MESH:D005905
+17697057	1365	1374	metformin	Chemical	MESH:D008687
+17697057	1413	1425	pioglitazone	Chemical	MESH:C060836
+17697057	1451	1460	metformin	Chemical	MESH:D008687
+17697057	1464	1477	sulphonylurea	Chemical	MESH:C041226
+17697057	1622	1635	rosiglitazone	Chemical	MESH:C089730
+17697057	1637	1649	pioglitazone	Chemical	MESH:C060836
+17697057	1874	1886	pioglitazone	Chemical	MESH:C060836
+17697057	61	76	Type 2 diabetes	Disease	MESH:D003924
+17697057	117	139	cardiovascular disease	Disease	MESH:D002318
+17697057	450	465	type 2 diabetes	Disease	MESH:D003924
+17697057	681	689	diabetic	Disease	MESH:D003920
+17697057	811	833	diabetic dyslipidaemia	Disease	MESH:D003920
+17697057	1968	1976	diabetes	Disease	MESH:D003920
+17697057	436	444	patients	Species	9606
+17697057	603	611	patients	Species	9606
+17697057	1947	1955	patients	Species	9606
+

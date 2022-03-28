@@ -1,0 +1,10 @@
+4297	399	426	intraventricular injection	DosageForm	MESH:D007276
+4297	416	426	injection	DosageForm	MESH:D007267
+4297	636	646	injection	DosageForm	MESH:D007267
+4297	343	351	glycine	Excipient	DB00145
+4297	498	505	lysine	Excipient	DB00123
+4297	657	665	glycine	Excipient	DB00145
+4297	743	751	glycine	Excipient	DB00145
+4297	343	351	glycine	PlantFamily	Glycine
+4297	657	665	glycine	PlantFamily	Glycine
+4297	743	751	glycine	PlantFamily	Glycine

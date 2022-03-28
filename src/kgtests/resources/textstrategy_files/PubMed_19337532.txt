@@ -1,0 +1,18 @@
+19337532|t| Alpha-glucosidase inhibitors in the early treatment of type 2 diabetes
+19337532|a| Alpha-glucosidase inhibitors (AGIs) are drugs that inhibit the absorption of carbohydrates from the gut and may be used in the treatment of patients with type 2 diabetes or impaired glucose tolerance. There is currently no evidence that AGIs are beneficial to prevent or delay mortality or micro- or macrovascular complications in type 2 diabetes. Its beneficial effects on glycated hemoglobin are comparable to metformin or thiazolidinediones, and probably slightly inferior to sulphonylurea. In view of the total body of evidence metformin seems to be superior to AGIs. More long-term studies are needed to study the effects of AGIs compared to other drugs. For patient with impaired glucose tolerance AGIs may prevent, delay or mask the occurrence of type 2 diabetes. A possible beneficial effect on cardiovascular events should be confirmed in new studies.
+19337532	148	161	carbohydrates	Chemical	MESH:D002241
+19337532	483	492	metformin	Chemical	MESH:D008687
+19337532	496	514	thiazolidinediones	Chemical	MESH:D045162
+19337532	550	563	sulphonylurea	Chemical	MESH:C041226
+19337532	603	612	metformin	Chemical	MESH:D008687
+19337532	62	70	diabetes	Disease	MESH:D003920
+19337532	225	240	type 2 diabetes	Disease	MESH:D003924
+19337532	244	270	impaired glucose tolerance	Disease	MESH:D018149
+19337532	409	417	diabetes	Disease	MESH:D003920
+19337532	748	779	impaired glucose tolerance AGIs	Disease	MESH:D018149
+19337532	832	840	diabetes	Disease	MESH:D003920
+19337532	0	17	Alpha-glucosidase	Gene	6476
+19337532	71	88	Alpha-glucosidase	Gene	6476
+19337532	211	219	patients	Species	9606
+19337532	735	742	patient	Species	9606
+

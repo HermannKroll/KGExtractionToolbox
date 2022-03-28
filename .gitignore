@@ -5,5 +5,4 @@ config/*
 /tmp/
 *.pyc
 *.DS_Store
-/src/kgtests/
 /case_studies/

@@ -1,0 +1,20 @@
+24729111|t|Amiodarone-induced myxoedema coma.
+24729111|a|A 62-year-old man was found to have bradycardia, hypothermia and respiratory failure 3 weeks after initiation of amiodarone therapy for atrial fibrillation. Thyroid-stimulating hormone was found to be 168 uIU/mL (nl. 0.3-5 uIU/mL) and free thyroxine (FT4) was <0.2 ng/dL (nl. 0.8-1.8 ng/dL). He received intravenous fluids, vasopressor therapy and stress dose steroids; he was intubated and admitted to the intensive care unit. He received 500 ug of intravenous levothyroxine in the first 18 h of therapy, and 150 ug intravenous daily thereafter. Haemodynamic improvement, along with complete recovery of mental status, occurred after 48 h. Twelve hours after the initiation of therapy, FT4 was 0.96 ng/dL. The patient was maintained on levothyroxine 175 (g POorally daily. A thyroid ultrasound showed diffuse heterogeneity. The 24 hour excretion of iodine was 3657 (mcg (25-756 ( mcg). The only two cases of amiodarone-induced myxoedema coma in the literature report patient death despite supportive therapy and thyroid hormone replacement. This case represents the most thoroughly investigated case of amiodarone-induced myxoedema coma with a history significant for subclinical thyroid disease.
+24729111	0	10	Amiodarone	Chemical
+24729111	19	33	myxoedema coma	Disease	D007037|D003128	myxoedema|coma
+24729111	71	82	bradycardia	Disease	D001919
+24729111	84	95	hypothermia	Disease	D007035
+24729111	100	119	respiratory failure	Disease	D012131
+24729111	148	158	amiodarone	Chemical	D000638
+24729111	171	190	atrial fibrillation	Disease	D001281
+24729111	275	284	thyroxine	Chemical	D013974
+24729111	395	403	steroids	Chemical	D013256
+24729111	497	510	levothyroxine	Chemical	D013974
+24729111	772	785	levothyroxine	Chemical	D013974
+24729111	885	891	iodine	Chemical	D007455
+24729111	944	954	amiodarone	Chemical	D000638
+24729111	963	977	myxoedema coma	Disease	D007037|D003128	myxoedema|coma
+24729111	1139	1149	amiodarone	Chemical	D000638
+24729111	1158	1172	myxoedema coma	Disease	D007037|D003128	myxoedema|coma
+24729111	1216	1231	thyroid disease	Disease	D013959
+

@@ -1,0 +1,11 @@
+document id	subject id	 subject str	subject type	predicate	predicate lemmatized	object id	object str	object type	confidence	sentence
+7121659	D058186	acute renal failure	Disease	induced	induce	D012293	rifampicin	Chemical	0.3999999999999999	5 patients with acute renal failure (3 with thrombopenia and hemolysis) induced by the reintroduction of rifampicin are described.
+7121659	D012293	rifampicin	Chemical	induced	induce	D013921	thrombopenia	Disease	0.3999999999999999	5 patients with acute renal failure (3 with thrombopenia and hemolysis) induced by the reintroduction of rifampicin are described.
+7121659	D012293	rifampicin	Chemical	induced	induce	D006461	hemolysis	Disease	0.3999999999999999	5 patients with acute renal failure (3 with thrombopenia and hemolysis) induced by the reintroduction of rifampicin are described.
+23952588	D010300	Parkinson's disease	Disease	induced	induce	D007980	levodopa	Chemical	0.19999999999999996	Risk factors and predictors of levodopa-induced dyskinesia among multiethnic Malaysians with Parkinson's disease.
+23952588	D007980	levodopa	Chemical	induced	induce	D004409	dyskinesia	Disease	1.0	Risk factors and predictors of levodopa-induced dyskinesia among multiethnic Malaysians with Parkinson's disease.
+23952588	D010300	Parkinson's disease	Disease	leads	lead	D004409	dyskinesia	Disease	0.3999999999999999	Chronic pulsatile levodopa therapy for Parkinson's disease (PD) leads to the development of motor fluctuations and dyskinesia.
+23952588	D004409	dyskinesia	Disease	leads	lead	D007980	levodopa	Chemical	0.5	Chronic pulsatile levodopa therapy for Parkinson's disease (PD) leads to the development of motor fluctuations and dyskinesia.
+23952588	D010300	PD	Disease	studied	study	D004409	dyskinesia	Disease	0.5	We studied the prevalence and predictors of levodopa-induced dyskinesia among multiethnic Malaysian patients with PD.
+23952588	D010300	PD	Disease	studied	study	D007980	levodopa	Chemical	0.29999999999999993	We studied the prevalence and predictors of levodopa-induced dyskinesia among multiethnic Malaysian patients with PD.
+23952588	D010300	PD	Disease	induced	induce	D007980	levodopa	Chemical	0.29999999999999993	We studied the prevalence and predictors of levodopa-induced dyskinesia among multiethnic Malaysian patients with PD.

@@ -1,0 +1,207 @@
+{
+    "id": 0,
+    "title": "Role of endothelin-1 in lung disease",
+    "abstract": "Endothelin-1 (ET-1) is a 21 amino acid peptide with diverse biological activity that has been implicated in numerous diseases. ET-1 is a potent mitogen regulator of smooth muscle tone, and inflammatory mediator that may play a key role in diseases of the airways, pulmonary circulation, and inflammatory lung diseases, both acute and chronic. This review will focus on the biology of ET-1 and its role in lung disease.",
+    "sections": [
+      {
+        "position": 0,
+        "title": "Introduction",
+        "text": "ET-1, ET-2, and ET-3 are members of a peptide family that has been the subject of much interest in the past decade. Our laboratory and that of Highsmith identified this peptide vasoconstrictor secreted from endothelial cells [1,2,3] that was subsequently isolated, sequenced, cloned, and named by Yanagisawa in 1988 [4]. The many diverse and overlapping functions of these peptides have since implicated endothelins in both homeostatic mechanisms as well as diseases of the lungs. This review will focus on the role of endothelins (particularly ET-1), emphasizing the need to better understand endothelin biology and function in a wide variety of disorders including diseases of the airways and pulmonary vasculature, lung tumors, the acute respiratory distress syndrome, and fibrotic diseases (Table 1)."
+      },
+      {
+        "position": 1,
+        "title": "Endothelin biochemistry",
+        "text": "The endothelins are a family of 21 amino acid peptides, of which there are three distinct isoforms (ET-1, ET-2, and ET-3). The isoforms ET-2 and ET-3 differ from ET-1 by two and six amino acids, respectively, and share significant homology, especially at the carboxy terminus with sarafotoxins a-e (Fig. 1). Endothelin-1 is the most abundant isoform and has been best characterized. The lung has the highest levels of ET-1 secreted by endothelium, smooth muscle, airway epithelium, and a variety of other cells (Table 2). ET-1 also circulates in the plasma. In the normal lung, ET-1 mainly localizes to vascular endothelium, airway and vascular smooth muscle cells and, to a lesser degree, the epithelium. ET-2 has similar biologic functions as ET-1 and is found in the myocardium, kidney and placental tissues. ET-3 also circulates in plasma and is found in the central nervous system, gastrointestinal tract, lung, and kidney although the cellular source is not clear. The gene for ET-1 is located on chromosome 6, that for ET-2 on chromosome 1, and the gene for ET-3 on chromosome 20 [5]."
+      },
+      {
+        "position": 2,
+        "title": "Endothelin biochemistry",
+        "text": "All three endothelins are synthesized as preprohormones and post-translationally processed to active peptides. ET-1 processing has been best characterized and begins with the 212 amino acid peptide (preproET-1), which is then proteolytically cleaved by endopeptidases to big ET-1 (proET-1). The 39 amino acid proET-1 has 1% of the biologic activity of ET-1, and is cleaved by the metalloendoprotease endothelin converting enzyme (ECE), resulting in the 21 amino acid protein with potent biologic functions [6,7] (Fig. 1). ECE is found in many cell types in the lung including endothelium, epithelium and alveolar macrophages [8]. ET-1 is not stored in the cell [9,10], but is processed and transported through the cell in vesicles, resulting in directional secretion (80%) of ET-1 toward the interstitium and smooth muscle and away from the luminal surface of the airway or vessel [11,12,13]. Directional secretion allows ET-1 to act in a paracrine or autocrine manner whereas secretion into the circulation allows ET-1 to act as a hormone."
+      },
+      {
+        "position": 3,
+        "title": "Endothelin biochemistry",
+        "text": "There are currently two distinct human endothelin receptors known, endothelin A (ETA) and endothelin B (ETB) receptors, which are members of the seven transmembrane, G protein-coupled rhodopsin superfamily [14,15]. The ETA and ETB receptor genes are located on chromosomes 4 and 13, respectively. ETA has a higher affinity for ET-1 and ET-2 than ET-3, but all three have equal affinity for ETB receptors. A third receptor subtype (endothelin C) with high affinity for ET-3 has been isolated and cloned from Xenopus laevis [16]. ETA receptors in normal lung are found in greatest abundance on vascular and airway smooth muscle, whereas ETB receptors are most often found on the endothelium. Clearance of ET-1 from the circulation is mediated by the ETB receptor primarily in the lung, but also in the kidney and liver [17]."
+      },
+      {
+        "position": 4,
+        "title": "Endothelin biochemistry",
+        "text": "Activation of both ETA and ETB receptors on smooth muscle cells leads to vasoconstriction whereas ETB receptor activation leads to bronchoconstriction. Activation of ETB receptors located on endothelial cells leads to vasodilation by increasing nitric oxide (NO) production. The mitogenic and inflammatory modulator functions of ET-1 are primarily mediated by ETA receptor activity. Binding of the ligand to its receptor results in coupling of cell-specific G proteins that activate or inhibit adenylate cyclase, stimulate phosphatidyl-inositol-specific phosholipase, open voltage gated calcium and potassium channels, and so on. The varied effects of ET-1 receptor activation thus depend on the G protein and signal transduction pathways active in the cell of interest [18]. A growing number of receptor antagonists exist with variable selectivity for one or both receptor subtypes."
+      },
+      {
+        "position": 5,
+        "title": "Endothelin biochemistry",
+        "text": "Regulation of ET-1 is at the level of transcription, with stimuli including shear stress, hypoxia, cytokines (IL-2, IL-1\u03b2, tumor necrosis factor \u03b1, IFN-\u03b2, etc), lipopolysaccharides, and many growth factors (transforming growth factor \u03b2, platelet-derived growth factor, epidermal growth factor, etc) inducing transcription of ET-1 mRNA and secretion of protein [18]. ET-1 acting in an autocrine fashion may also increase ET-1 expression [19]. ET-1 expression is decreased by NO [20]. Some stimuli may additionally enhance preproET-1 mRNA stability, leading to increased and sustained ET-1 expression. The number of ETA and ETB receptors is also cell specific and regulated by a variety of growth factors [18]. Because ET-1 and receptor expression is influenced by many diverse physical and biochemical mechanisms, the role of ET-1 in pathologic states has been difficult to define, and these are addressed in subsequent parts of this article."
+      },
+      {
+        "position": 6,
+        "title": "Airway diseases",
+        "text": "In the airway, ET-1 is localized primarily to the bronchial smooth muscle with low expression in the epithelium. Cellular subsets of the epithelium that secrete ET-1 include mucous cells, serous cells, and Clara cells [21]. ET binding sites are found on bronchial smooth muscle, alveolar septae, endothelial cells, and parasympathetic ganglia [22,23]. ET-1 expression in the airways, as previously noted, is regulated by inflammatory mediators. Eosinophilic airway inflammation, as may be seen in severe asthma, is associated with increased ET-1 levels in the lung [24]. ET-1 secretion may also act in an autocrine or paracrine fashion, via the ETA receptor, leading to increased transepithelial potential difference and ciliary beat frequency, and to exerting mitogenic effects on airway epithelium and smooth muscle cells [25,26,27,28]."
+      },
+      {
+        "position": 7,
+        "title": "Airway diseases",
+        "text": "All three endothelins cause bronchoconstriction in intact airways, with ET-1 being the most potent. Denuded bronchi constrict equally to all three endothelins, suggesting considerable modulation of ET-1 effects by the epithelium [29]. The vast majority of ET-1 binding sites on bronchial smooth muscle are ETB receptors, and bronchoconstriction in human bronchi is not inhibited by ETA antagonists but augmented by ETB receptor agonists [30,31,32]. Since cultured airway epithelium secretes equal amounts of ET-1 and ET-3, which have equivalent affinity for the ETB receptor, bronchoconstriction could be mediated by both endothelins [33]."
+      },
+      {
+        "position": 8,
+        "title": "Airway diseases",
+        "text": "While ET-1 stimulates release of multiple cytokines important in airway inflammation, it does not enhance secretion of histamine or leukotrienes. ET-1 does increase prostaglandin release [32]. Inhibition of cyclo-oxygenase, however, has no effect on bronchoconstriction suggesting that, despite the release of multiple mediators, ET-1 mediated bronchoconstriction is a direct effect of activation of the ETB receptor [32]. ETA mediated bronchoconstriction may also be important following ETB receptor desensitization or denudation of the airway epithelium, as may occur during airway inflammation and during the late, sustained airway response to inhaled antigens [31,34,35]. Interestingly, heterozygous ET-1 knockout mice, with a 50% reduction in ET-1 peptide, have airway hyperresponsiveness but not remodeling, suggesting the decrease in ET-1 modulates bronchoconstriction activity by a functional mechanism, possibly by decreasing basal NO production [36,37]."
+      },
+      {
+        "position": 9,
+        "title": "Airway diseases",
+        "text": "Asthma is also an inflammatory airway disease characterized by bronchoconstriction and hyperreactivity with influx of inflammatory cells, mucus production, edema, and airway thickening. ET-1 may have important roles in each of these processes. While ET-1 causes immediate bronchoconstriction [38], it also increases bronchial reactivity to inhaled antigens [35] as well as influx of inflammatory cells [39,40], increased cytokine production [40], airway edema [41], and airway remodeling [28,42,43]. Airway inflammation also leads to increased ET-1 synthesis, possibly perpetuating the inflammation and bronchoconstriction [44]. ET-1 release from cultured peripheral mononuclear and bronchial epithelial cells from asthmatics is also increased [45,46]. Inhibition of ETA or combined ETA and ETB receptors additionally leads to decreased airway inflammation in antigen-challenged animals, suggesting that the proinflammatory effects of ET-1 in the airway are mediated by ETA receptors [39,47]."
+      },
+      {
+        "position": 10,
+        "title": "Airway diseases",
+        "text": "Children with asthma have increased circulating levels of ET-1 [48]. Adult asthmatics have normal levels between attacks but, during acute attacks, have elevated serum ET-1 levels that correlate inversely with airflow measurements and decrease with treatment [49]. Bronchoalveolar lavage (BAL) ET-1 in asthmatics is similarly increased to concentrations that cause bronchoconstriction and inversely correlates with forced expiratory volume in 1 s (FEV1) [29,50,51]. As in cultured epithelial cells, ET-1 and ET-3 are found in equal amounts in BAL fluid from asthmatics [33,52]. There is also a relative increase in ETB versus ETA receptor expression in asthmatic patients, which may contribute to increased bronchoconstriction [53]. Not all asthmatics, however, have increased ET-1 as patients with nocturnal asthma have decreased BAL ET-1 levels [54]. Treatment of acute asthma exacerbations with steroids, beta-adrenergic agonists or phosphodiesterase inhibitors resulted in decreased BAL ET-1 [52,55]. Immunostaining and in situ hybridization for ET-1 in biopsy specimens from asthmatics have shown an increase in ET-1 in the bronchial epithelium that correlates with asthma symptoms [46,56]."
+      },
+      {
+        "position": 11,
+        "title": "Airway diseases",
+        "text": "Cigarette smoking leads to increased circulating ET-1 [57] but patients with chronic obstructive pulmonary disease, in the absence of pulmonary hypertension and hypoxemia, do not have increased plasma ET-1 [58,59,60]. Increases in urinary ET-1 instead correlate with decreases in oxygenation, possibly through hypoxic release of ET-1 from the kidney [61,62]. Smokers also have impaired ET-1 mediated vasodilation that correlates with bronchial hyperresponsiveness and may contribute to pulmonary hypertension [63,64]."
+      },
+      {
+        "position": 12,
+        "title": "Airway diseases",
+        "text": "ET-1 has been implicated in the pathogenesis of bronchiectasis by its ability to promote neutrophil chemotaxis, adherence, and activation [65,66,67,68,69]. Sputum ET-1 levels are increased in patients with cystic fibrosis [59], and sputum ET-1 correlated with Pseduomonas infection in noncystic fibrosis related bronchiectasis [70]."
+      },
+      {
+        "position": 13,
+        "title": "Airway diseases",
+        "text": "ET-1 has also been implicated in the pathogenesis of bronchiolitis obliterans (BO), which is characterized by injury to small conducting airways resulting in formation of proliferative, collagen rich tissue obliterating airway architecture. BO is the leading cause of late mortality from lung transplantation, and ET-1 is increased in lung allografts [71]. The pro-inflammatory and mitogenic properties of ET-1 in the airways has led to speculation that ET-1 may be involved in formation of the lesion [28]. This is further supported by the increase in BAL ET-1 in lung allografts [72,73]. The in vivo gene transfer of ET-1 to the airway epithelium using the hemagglutinating virus of Japan in rats recently resulted in pathologic changes in the distal airways identical to those seen in human BO specimens [74]. These changes were not due to nonspecific effects of the hemagglutinating virus of Japan itself, but could be attributed to the presence of the ET-1 gene, which was localized to the airway epithelium, hyperplastic lesions, and alveolar cells."
+      },
+      {
+        "position": 14,
+        "title": "Pulmonary vascular disease",
+        "text": "Pulmonary hypertension is a rare and progressive disease characterized by increases in normally low pulmonary vascular tone, pulmonary vascular remodeling, and progressive right heart failure. ET-1 has been implicated as a mediator in the changes seen in pulmonary hypertension. In the pulmonary vasculature, ET-1 is found primarily in endothelial cells and to a lesser extent in the vascular smooth muscle cells. The endothelium secretes ET-1 primarily to the basolateral surface of the cell. ET-1 secretion may be increased by a variety of stimuli including cytokines, catecholamines, and physical forces such as shear stress, and decreased by NO, prostaglandins, and oxidant stress [20,75,76,77,78]. Hypoxia has been reported to increase, have no effect, or decrease ET-1 release from endothelial cells [79,80,81,82,83]."
+      },
+      {
+        "position": 15,
+        "title": "Pulmonary vascular disease",
+        "text": "Activation of the receptors for ET-1 in the pulmonary vasculature leads to both vasodilation and vasoconstriction, and depends on both cell type and receptor. In the whole lung, ETA receptors are the most abundant and are localized to the medial layer of the arteries, decreasing in intensity in the peripheral circulation [84,85]. ETB receptors are also found in the media of the pulmonary vessels, increasing in intensity in the distal circulation, while intimal ETB receptors are localized in the larger elastic arteries [85]. This distribution of receptors has important implications in understanding ET-1 regulation of vascular tone. Vascular ET-1 receptors may be increased by several factors including angiotensin and hypoxia [80,85,86,87]."
+      },
+      {
+        "position": 16,
+        "title": "Pulmonary vascular disease",
+        "text": "ET-1 can act as both a vasodilator and vasoconstrictor in the pulmonary circulation. Generation of NO or opening of ATP-sensitive potassium channels leading to hyperpolarization results in vasodilation mediated by ETB receptors on pulmonary endothelium [88,89]. In hypertensive, chronically hypoxic lungs with increased ETB receptor expression, augmented vasodilation is due to increased ETB mediated NO release that is inhibited by hypoxic ventilation, while inhibition of NO synthesis leads to increased ET-1 mediated vasoconstriction [85,90,91,92]. Both ETA and ETB receptors, conversely, acting on vascular smooth muscle, mediate ET-1 induced vasoconstriction. In the normal lung, ET-1 causes vasoconstriction primarily by activation of the ETA receptors in the large, conducting vessels of the lung [93,94]. In the smaller, resistance vessels of the lung, ETB receptors in the media predominate and are responsible for the ET-1 induced vasoconstriction [93]. Interestingly, preconstriction of the pulmonary circulation resulted in a shift from primarily ETA mediated to ETB mediated vasoconstriction [94]."
+      },
+      {
+        "position": 17,
+        "title": "Pulmonary vascular disease",
+        "text": "The overall effect of ET-1 on vascular tone depends on both the dose and on the pre-existing tone in the lung. ET-1 administration during acute hypoxic vasoconstriction will result in transient pulmonary vasodilation [89]. This effect is dose dependent, with lower doses leading to vasodilation while higher or repetitive doses cause vasoconstriction following an initial, brief vasodilation [89]. The role of ET-1 in the acute hypoxic vasoconstriction in the lung is not certain. ETA receptor antagonism attenuates hypoxic pulmonary vasoconstriction in several species [95], and ET-1 may be implicated in the mechanism of acute hypoxic response by inhibition of K-ATP channels [96]."
+      },
+      {
+        "position": 18,
+        "title": "Pulmonary vascular disease",
+        "text": "Several lines of evidence have suggested the importance of ET-1 in chronic hypoxic pulmonary hypertension. ET-1 is increased in plasma and lungs of rats following exposure to hypoxia [80,97]. Treatment with either ETA or combined ETA and ETB receptor antagonists additionally attenuates the development of hypoxic pulmonary hypertension [98,99]. ET-1 has also been implicated in the vascular remodeling associated with chronic hypoxia through its mitogenic effects on vascular smooth muscle cells [98,100]."
+      },
+      {
+        "position": 19,
+        "title": "Pulmonary vascular disease",
+        "text": "ET-1 has also been implicated in other animal models of pulmonary hypertension. ET-1 is increased in fawn hooded rats that develop severe pulmonary hypertension when raised under conditions of mild hypoxia and in monocrotaline treated rats [101,102]. The increase in ET-1 in both of these forms of pulmonary hypertension may be contributing to increases in vascular tone as well as in vascular remodeling [103,104,105,106,114]. Interestingly, transgenic mice overexpressing the human preproET-1 gene, with modestly increased lung ET-1 levels (35-50%), do not develop pulmonary hypertension under normoxic conditions or an exaggerated response to chronic hypoxia [107]."
+      },
+      {
+        "position": 20,
+        "title": "Pulmonary vascular disease",
+        "text": "Human pulmonary hypertension is classified as primary, or unexplained, or secondary to other cardiopulmonary diseases or connective tissue diseases (ie scleroderma). Hallmarks of the disease include progressive increases in pulmonary vascular resistance and pulmonary vascular remodeling, with thickening of the medial layer small pulmonary arterioles and formation of the complex plexiform lesion [108]. Circulating ET-1 is increased in humans with pulmonary hypertension, either primary or due to other cardiopulmonary disease [109]. Levels are highest in patients with primary pulmonary hypertension. Since the lung is the major source for clearance of ET-1 from the circulation, increased arterio-venous ratios as seen in primary pulmonary hypertension suggest either decreased clearance or increased production in the lung [17,109]. ET-1 is also increased in lungs of patients with pulmonary hypertension, with the greatest increase seen in the small resistance arteries and the plexiform lesions [110], and may correlate with pulmonary vascular resistance [111]. Interestingly, treatment with continuous infusion of prostacyclin resulted in clinical improvement and a decrease in the arterio-venous ratio of ET-1 [112], possibly by decreasing ET-1 synthesis from endothelial cells [76]. Studies using ET-1 receptor antagonists in the treatment of primary pulmonary hypertension are underway and may offer hope to patients with this disease by inhibiting this pluripotent peptide's effects on vascular tone and remodeling."
+      },
+      {
+        "position": 21,
+        "title": "Lung transplantation and rejection",
+        "text": "Several lines of evidence suggest the importance of ET-1 in lung allograft survival and rejection. The peptide has been implicated as an important factor in ischemia-reperfusion injury at the time of transplant as well as in acute and chronic rejection of the allograft."
+      },
+      {
+        "position": 22,
+        "title": "Lung transplantation and rejection",
+        "text": "Circulating ET-1 is increased in humans undergoing lung transplant immediately following perfusion of the allograft. Plasma ET-1 increased threefold within minutes, remained high for 12 hours following transplantation, and declined to near normal levels within 24 hours [113]. This increase in ET-1 correlated with the increase in pulmonary vascular resistance occurring about 6 hours post-transplantation, suggesting that the release of ET-1 in the circulation may have mediated this event. ET-1 in BAL fluid from recipients of lung allografts is similarly increased several fold and remains elevated up to 2 years post-transplant [72,73]. In recipients of single lung transplants, ET-1 was increased 10-fold in BAL fluid from the transplanted lung compared with the native lung, suggesting that the increase in ET-1 was due to the graft and not the underlying disease requiring transplant [72]. ET-1 in BAL fluid did not, however, correlate with episodes of infection or rejection."
+      },
+      {
+        "position": 23,
+        "title": "Lung transplantation and rejection",
+        "text": "The cellular source of ET-1 in lung allografts is unknown. The expression of ET-1 in nontransplanted human lungs is low and found primarily in the vascular endothelium [114]. Transbronchial biopsy specimens obtained either for surveillance or for clinical suspicion of infection or rejection following transplantation revealed the presence of ET-1 in the airway epithelium and in alveolar macrophages [115]. ET-1 was occasionally seen in lymphocytes but not in the endothelium or pneumocytes. ET-1 localization was no different in surveillance specimens compared with infected or rejecting lungs, or changed over time from transplantation. This study suggests that the source of the increased BAL ET-1 in transplanted lungs is due to the increased number of alveolar inflammatory cells and de novo expression in the airway epithelium. The biologic importance of the ET-1 from inflammatory cells is supported by the observation that peripheral mononuclear cells from dogs with mild to moderate lung allograft rejection cause vasoconstriction in pulmonary arterial rings, which is attenuated by the ETA blocker BQ123 [116]."
+      },
+      {
+        "position": 24,
+        "title": "Lung transplantation and rejection",
+        "text": "Analysis of ET-1 binding activity in failed transplanted human lungs suggested that ET-1 binding activity was not different compared with normal lung in the lung parenchyma, bronchial smooth muscle, or perivascular infiltrates. ET-1 binding was, however, decreased in small muscular arteries (pulmonary arteries and bronchial arteries) in the failed transplants, suggesting a role for ET-1 in impaired vasoregulation of transplanted lungs [117]."
+      },
+      {
+        "position": 25,
+        "title": "Lung transplantation and rejection",
+        "text": "Ischemia-reperfusion injury is the leading cause of early post-operative graft failure and death. In its severest manifestation, increased pulmonary vascular resistance, hypoxia, and pulmonary edema lead to cor pulmonale and death [118]. ET-1 has been implicated as a mediator of these events. The increase in pulmonary vascular resistance observed in human recipients of lung allografts follows an increase in circulating ET-1 and falls with decreases in circulating ET-1 [113]. A similar pattern is seen in dogs subjected to allotransplantation [119]. Conscious dogs with left pulmonary allografts demonstrate an increase in both resting pulmonary perfusion pressure and acute pulmonary vasoconstrictor response to hypoxia [120]. Administration of ETA selective or combined ETA and ETB receptor blockers did not change the resting tone. ETB receptor mediated hypoxic pulmonary vasoconstriction appeared, however, to be increased in allograft recipients. In another study, administration of a mixed ETA and ETB receptor antagonist (SB209670) to dogs before reperfusion of the allograft resulted in a marked increase in oxygenation, decreases in pulmonary arterial pressures and improved survival compared with control animals [121]. In a model of ischemia reperfusion, inhibitors of ECE additionally attenuated the increase in circulating ET-1 and the severity of lung injury [122]. ET-1 receptor antagonists did not, however, completely eliminate the ischemia-reperfusion injury, suggesting that changes in other vasoactive mediators, such as an increase in thromboxane, a decrease in prostaglandins, or a decrease in NO, may also contribute to the increased pulmonary vascular resistance. Administration of NO donor (FK409) to both donor and recipient dogs before lung transplantation reduced pulmonary arterial pressure, lung edema, and inflammation, and improved survival. This suggests that reductions in NO following transplantation may be partly responsible for early graft failure [123]. Treatment with NO donor was also associated with a decrease in plasma ET-1 levels."
+      },
+      {
+        "position": 26,
+        "title": "Lung transplantation and rejection",
+        "text": "Acute rejection is manifested by diffuse infiltrates, hypoxia, and airflow limitation, and may lead to respiratory insufficiency and death. BAL ET-1 was increased in dogs during episodes of acute rejection that decreased with immunosuppressive treatment [124]. Acute episodes of rejection in humans, however, are not associated with further increases in BAL ET-1 [72]. Chronic rejection of allografts, manifested as BO, is the major cause of morbidity and mortality in long-term lung transplant survivors [71]. The etiology of BO following transplant is unclear but may be related to repeated episodes of acute rejection, chronic low-grade rejection, or organizing pneumonia [125]. As discussed earlier, a chronic increase in ET-1, as seen in lung allografts, may contribute to bronchospasm and proliferative bronchiolitis obliterans due to the bronchoconstrictor and smooth muscle mitogenic effects of ET-1 [28,126]. This is further supported by the increase of BAL ET-1 in the transplanted lung, which is susceptible to BO, but not the native lung in recipients of single lung transplants [72]."
+      },
+      {
+        "position": 27,
+        "title": "Pulmonary malignancies",
+        "text": "The mitogenic effects of ET-1 may play a role in the development of pulmonary malignancy as well as metastasis to the lung. Many human tumor cell lines, including prostate, breast, gastric, ovary, colon, etc, produce ET-1. The importance of the ET-1 may lie in its mitogenic effects on tumor growth and survival. This has been suggested by blockade of ETA receptors resulting in a decrease in mitogenic effects of ET-1 in a prostate cancer and colorectal cell lines [127,128]. ET-1 receptors in tumor cells may also be altered with increases in the ETA receptor and downregulation of ETB receptors [129]. Other tumors may have an increase in ETB receptors, however, and blockade of ETB results in a decrease in tumor growth [130,131]. Tumor cells may, as a result of this altered balance, lose the ability to respond to regulatory signals from their environment. ET-1 may additionally protect against Fas-ligand mediated apoptosis [132]."
+      },
+      {
+        "position": 28,
+        "title": "Pulmonary malignancies",
+        "text": "ET-1 has been detected using immunohistochemistry and in situ hybridization in pulmonary adenocarcinomas and squamous cell tumors and, to a lesser extent, small cell and carcinoid tumors [133]. In situ hybridization also demonstrated a similar pattern of ET-1 mRNA expression in non-neuroendocrine tumors. ET-1 receptors have also been found in a variety of pulmonary tumor cell lines. ETA receptors were found in small cell tumors, adenocarcinomas and large cell tumors, while ETB receptors were expressed primarily in adenocarcinomas and small cell tumors [134]. ECE, which converts big ET-1 to ET-1, the committed step in ET-1 biosynthesis, was also found in human lung tumors but not in adjacent normal lung [135]. These findings, combined with the presence of ET-1 in lung tumors, suggest a possible autocrine loop that sustains and supports the growth of lung tumors. A recent study, however, suggested that, while ETA and ECE-1 were detectable in lung tumors, these genes were downregulated compared with normal bronchial epithelial cell lines [136]. It was proposed that the role of ET-1 in lung tumors is not that of an autocrine factor, but that of a paracrine growth factor to the stroma and vasculature surrounding the tumor allowing angiogenesis."
+      },
+      {
+        "position": 29,
+        "title": "Pulmonary malignancies",
+        "text": "Tumor angiogenesis is necessary for continued growth of the tumor beyond the limits of oxygen diffusion. The growth of vessels into the tumor is also important to metastatic potential of the tumor. ET-1 may play an important role in angiogenesis and tumor growth and survival through induction of vascular endothelial growth factor expression and sprouting of new vessels into the tumor and surrounding tissue [137,138]. ET-1 binding activity was found in blood vessels and vascular stroma surrounding lung tumors at the time of resection, most markedly surrounding squamous cell tumors [139]. ET-1 production may be further augmented by the hypoxic environment found within large solid tumors [140]. Since metastasis is dependent on neovascularization, ET-1 may also be an important mediator of this phenomenon. ET-1 receptor antagonists may have a useful role in the treatment of neoplastic disease by inhibiting growth as well as metastatic potential of human tumors."
+      },
+      {
+        "position": 30,
+        "title": "Acute respiratory distress syndrome",
+        "text": "Experimental lung injury of many different types results in increased circulating ET-1, BAL ET-1, and lung tissue ET-1 [18]. ET-1 levels in humans are also increased in sepsis, burns, disseminated intravascular coagulation, acute lung injury, and acute respiratory distress syndrome (ARDS) [141,142,143,144,145,146,147]. ET-1 increases also correlate with a poorer outcome with multiple organ failure, increased pulmonary arterial pressure, increased airway pressure and decreased PiO2/FiO2, while clinical improvement correlates with decreased ET-1 levels [144,145,147]. The arterio-venous ratio for ET-1 is increased in patients with ARDS but it is not clear whether this is due to increased secretion of ET-1 in the lungs or decreased clearance [142,144]. In patients who succumbed to ARDS, there was also a marked increase in tissue ET-1 immunostaining in vascular endothelium, alveolar macrophages, smooth muscle, and airway epithelium compared with lungs of patients who died without ARDS. Interestingly, these same patients also had a decrease in immunostaining for both endothelial nitric oxide synthase and inducible nitric oxide synthase in the lung [148]."
+      },
+      {
+        "position": 31,
+        "title": "Acute respiratory distress syndrome",
+        "text": "ARDS is also characterized by the presence of inflammatory cells in the lung. Since ET-1 may act as an immune modulator, an increase in ET-1 may contribute to lung injury by inducing expression of cytokines including tumor necrosis factor and IL-6 and IL-8 [149]. These cytokines may in turn stimulate the production of many inflammatory mediators, leading to lung injury. ET-1 additionally activated neutrophils, and increased neutrophil migration and trapping in the lung [65,66,67,68,69]."
+      },
+      {
+        "position": 32,
+        "title": "Acute respiratory distress syndrome",
+        "text": "Another hallmark of ARDS is disruption and dysfunction of the pulmonary vascular endothelium leading to accumulation of lung water. The role of endothelin in formation of pulmonary edema is uncertain. Infusion of ET-1 raises pulmonary vascular pressure, but it is uncertain whether ET-1 by itself increased pulmonary protein or fluid transport in the lung [150,151,152]. ET-1 may rather be acting synergistically with other mediators to lead to pulmonary edema [153,154]."
+      },
+      {
+        "position": 33,
+        "title": "Pulmonary fibrosis",
+        "text": "Pulmonary fibrosis is the final outcome for a variety of injurious processes involving the lung parenchyma. The final common pathway in response to injury to the alveolar wall involves recruitment of inflammatory cells, release of inflammatory mediators, and resolution. The reparative phase occasionally becomes disordered, resulting in progressive fibrosis."
+      },
+      {
+        "position": 34,
+        "title": "Pulmonary fibrosis",
+        "text": "ET-1 in the lung may be important in the initial events in lung injury by activating neutrophils to aggregate and release elastase and oxygen radicals, increasing neutrophil adherence, activating mast cells, and inducing cytokine production from monocytes [65,66,67,68,69,149,155]. Among the many cytokines induced by ET-1 that are important in mediating pulmonary fibrosis are transforming growth factor-\u03b2 and tumor necrosis factor \u03b1 [156,157]. ET-1 is also profibrotic by stimulating fibroblast replication, migration, contraction, and collagen synthesis and secretion while decreasing collagen degradation [158,159,160,161,162]. ET-1 additionally enhances the conversion of fibroblasts into contractile myelofibroblasts [43,163]. ET-1 also increases fibronectin production by bronchial epithelial cells [164]. Finally, ET-1 has mitogenic effects on vascular and airway smooth muscle [126,28]. ET-1 may thus play an important role in the initial injury and eventual fibrotic reparative process of many inflammatory events in the lung."
+      },
+      {
+        "position": 35,
+        "title": "Pulmonary fibrosis",
+        "text": "Several lines of evidence regarding the importance of ET-1 in pulmonary fibrosis are available. Plasma and BAL ET-1 levels are increased in idiopathic pulmonary fibrosis [50,165]. Lung biopsies from patients with idiopathic pulmonary fibrosis have additionally increased ET-1 immunostaining in airway epithelial cells and type II pneumocytes, which correlates with disease activity [166]. Scleroderma is commonly associated with pulmonary hypertension and pulmonary fibrosis. Plasma and BAL ET-1 is increased in these patients [160,167,168], but it is unclear whether the presence of either pulmonary hypertension or pulmonary fibrosis increases these levels further [167]. BAL fluid from patients with scleroderma increased proliferation of cultured lung fibroblasts, which was inhibited by ETA receptor antagonist. This suggests that the ET-1 in the airspace may be contributing significantly to the fibrotic response [160]. An increase in ET-1 binding has also been reported in lung tissue from patients with scleroderma associated pulmonary fibrosis [169]. Pulmonary inflammatory cells also appear to be primed for ET-1 production because cultured alveolar macrophages from patients with scleroderma and lung involvement secrete increased amounts of ET-1 in response to stimulation with lipopolysaccharide [170]. These observations collectively suggest that augmented ET-1 release may contribute to and perpetuate the inflammatory process."
+      },
+      {
+        "position": 36,
+        "title": "Pulmonary fibrosis",
+        "text": "Bleomycin-induced pulmonary fibrosis in animals is associated with increased ET-1 expression in alveolar macrophages and epithelium [171]. The increase in ET-1 proceeds the development of pulmonary fibrosis. The use of ET-1 receptor antagonists has produced mixed results in limiting the development of bleomycin-induced fibrosis. A decrease in fibroblast replication and secretion of extracellular matrix proteins in vitro but not a decrease in lung collagen content in vivo has been shown using ETA or combined ETA and ETB receptor antagonists after bleomycin [172]. Another group did, however, observe a decrease in fibrotic area in lungs of rats following bleomycin that were treated with a mixed ETA and ETB receptor antagonist [173]."
+      },
+      {
+        "position": 37,
+        "title": "Pulmonary fibrosis",
+        "text": "While ET-1 seems to correlate with pulmonary fibrosis, it remains uncertain whether the increase in ET-1 is a cause or consequence of the lung disease. Pulmonary fibrosis was recently reported in mice that constitutively overexpress human ET-1 [107]. These mice were known to develop progressive nephrosclerosis in the absence of systemic hypertension [174]. The transgene was localized throughout the lung, with the strongest expression in the bronchial wall. In the lung, the mice developed age-dependent accumulation of collagen and accumulation of CD4+ lymphocytes in the perivascular space. This observation suggests that an increase in lung ET-1 alone may play a causative role in the development of pulmonary fibrosis [107,175]."
+      },
+      {
+        "position": 38,
+        "title": "Conclusion",
+        "text": "Since its discovery 12 years ago, much evidence has accumulated regarding the biologic activity and potential role of ET-1 in a variety of diseases of the respiratory track. As compelling as much of this evidence is, the causal relationship between ET-1 activity and disease is not complete. The increasing use of ECE and endothelin receptor antagonists in experimental and human respiratory disorders will help to clarify the role of this pluripotent peptide in health and disease."
+      },
+      {
+        "position": 39,
+        "title": "Abbreviations",
+        "text": "ARDS = acute respiratory distress syndrome; BAL = bronchoalveolar lavage; BO = bronchiolitis obliterans; ECE = endothelin converting enzyme; ETA = endothelin A; ETB = endothelin B; ET-1 = endothelin-1; FEV1 = forced expiratory volume in 1s; NO = nitric oxide."
+      }
+    ]
+}

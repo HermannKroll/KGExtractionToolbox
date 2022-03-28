@@ -1,0 +1,9 @@
+2|t|012345
+2|a| stuff stuffs stuffe holy grail quest holy-grail-quest holygrailquest
+2	13	19	stuffs	Exp	E2
+2	61	75	holygrailquest	Exp	E1
+2	7	12	stuff	Exp	E2
+2	27	43	holy grail quest	Exp	E1
+2	20	26	stuffe	Exp	E2
+2	44	60	holy-grail-quest	Exp	E1
+

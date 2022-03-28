@@ -1,0 +1,15 @@
+29990880|t| Smart spectrophotometric methods based on normalized spectra for simultaneous determination of alogliptin and metformin in their combined tablets.
+29990880|a| Alogliptin (ALO) and metformin (MET) are coformulated for the treatment of type II diabetes mellitus. ALO is estimated at its lambdamax 277 nm (0D), while MET was determined accurately by four spectrophotometric methods with minimum manipulation steps based on normalized division spectrum namely; ratio difference, advanced amplitude modulation, first derivative ratio (1DD) and mean centering of the ratio spectra spectrophotometric methods. Linearity was acceptable over the concentration ranges of 5-40 and 2-16 mug/mL for ALO and MET, respectively. Accuracy and precision of the suggested methods were found to be within the acceptable limit. The specificity was inspected by analyzing laboratory prepared mixtures of the above drugs and their pharmaceutical preparation. The results of proposed and reported methods were statistically compared showing no significant difference regarding accuracy and precision. The developed methods could be applied for routine analysis of the cited drugs in quality control laboratories.
+29990880	95	105	alogliptin	Chemical	MESH:C520853
+29990880	110	119	metformin	Chemical	MESH:D008687
+29990880	147	157	Alogliptin	Chemical	MESH:C520853
+29990880	159	162	ALO	Chemical	MESH:C520853
+29990880	168	177	metformin	Chemical	MESH:D008687
+29990880	179	182	MET	Chemical	MESH:D008687
+29990880	249	252	ALO	Chemical	MESH:C520853
+29990880	302	305	MET	Chemical	MESH:D008687
+29990880	674	677	ALO	Chemical	MESH:C520853
+29990880	682	685	MET	Chemical	MESH:D008687
+29990880	222	247	type II diabetes mellitus	Disease	MESH:D003924
+29990880	138	145	tablets	DosageForm	MESH:D013607
+

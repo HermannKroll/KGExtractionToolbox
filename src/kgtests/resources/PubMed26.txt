@@ -1,0 +1,14 @@
+26|t|SStudies on the action of an anticholinergic agent in combination with a tranquilizer on gastric juice secretion in mann.
+26|a|A double-blind study with intra-individual comparisons was carried out to investigate the effects of 15 mg of (8r)-3alpha-hydroxy-8-isopropyl-1alphaH-tropanium bromide(+/-)-tropate (Sch 1000), 15 mg Sch 1000 + 10 mg oxazepam, 10 mg oxazepam and placebo with oral administration in randomized sequence on gastric juice volume, amount of acid, concentration and pH values in 12 healthy volunteers. The secretion parameters were measured during a 1-h basal period and a 2-h stimulation period. The gastric juice was obtained in 15 min portions via stomach tube. Stimulation was effected by 1 mug/kg/h pentagastrin via drip infusion. The Friedman test was used for the comparative statistical evaluation, and individual comparisons were carried out by means of the Wilcoxon test (pair-differences rank). The results show that Sch 1000 and Sch 1000 + oxazepam were equal in effect on basal and stimulated secretion volume. As compared with placebo, it was not possible to establish an effect on secretion volume for oxazepam alone. Sch 1000 and Sch 1000 + oxazepam were found to be equipotent in reducing the amount of basal acid, while oxazepam reduced this quantity only during the first 30 min of basal secretion. None of the three active preparations was capable of inhibiting the stimulated acid, although both Sch 1000 preparations produced a clear trend towards lowered mean values. During the basal secretion period, all three test preparations had an inhibiting action on acid concentration, but none of them had a significant effect during the stimulation period. The pH value was savely increased only by Sch 1000 and Sch 1000 + oxazepam, and this even only during the basal period. The results are discussed.
+26	379	399	oral administration	DosageForm	MESH:D000284
+26	379	384	oral	DosageForm	MESH:D000284
+26	736	750	drip infusion	DosageForm	MESH:D007262
+26	337	346	oxazepam	Drug	DB00842
+26	353	362	oxazepam	Drug	DB00842
+26	719	732	pentagastrin	Drug	DB00183
+26	967	976	oxazepam	Drug	DB00842
+26	1132	1141	oxazepam	Drug	DB00842
+26	1172	1181	oxazepam	Drug	DB00842
+26	1253	1262	oxazepam	Drug	DB00842
+26	1756	1765	oxazepam	Drug	DB00842
+
