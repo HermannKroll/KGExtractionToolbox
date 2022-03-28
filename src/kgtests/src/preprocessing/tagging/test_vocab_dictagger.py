@@ -20,8 +20,10 @@ class TestVocabDictagger(unittest.TestCase):
         util.clear_database()
 
     def test_custom_abbreviations_and_synonyms(self):
+        util.clear_database()
         testfile = util.resource_rel_path('infiles/test_vocab_dictpreprocess/abbreviation_test_allowed.txt')
         self.tagfile_test(testfile)
 
     def test_vocab_expansion(self):
+        util.clear_database()
         self.tagfile_test(util.resource_rel_path('infiles/test_vocab_dictpreprocess/expansion_test.txt'))
