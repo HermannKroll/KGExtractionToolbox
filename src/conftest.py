@@ -2,8 +2,8 @@ import os
 import shutil
 
 from kgextractiontoolbox import config as config3
-from narraint import config as config2
-from narraint.backend.database import SessionExtended
+from kgextractiontoolbox import config as config2
+from kgextractiontoolbox.backend.database import Session
 from narrant import config
 from nitests.util import tmp_rel_path
 
@@ -66,4 +66,4 @@ def pytest_sessionstart(session):
     config3.ENTITY_LINKING_CONFIG = el_config
 
     print(f"backend_config: {backend_config}")
-    sql_session = SessionExtended.get(backend_config)
+    sql_session = Session.get(backend_config)
