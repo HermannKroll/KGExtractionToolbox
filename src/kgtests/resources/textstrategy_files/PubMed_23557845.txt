@@ -1,0 +1,26 @@
+23557845|t| HbA1c targets in type 2 diabetes: guidelines and evidence.
+23557845|a| Type 2 diabetes is defined by chronic hyperglycaemia, decreased insulin secretion and increased insulin resistance and is often associated with overweight or obesity, hypertension and dyslipidaemia.(1) Aims of treatment include minimising long-term complications (e.g. cardiovascular disease, blindness, chronic kidney disease, premature mortality) and avoiding unwanted effects of treatment (e.g. severe hypoglycaemia, weight gain).(1) Publication of the United Kingdom Prospective Diabetes Study (UKPDS) 33 study in 1998 suggested that 'intensive blood glucose control' to lower the glycated haemoglobin (HbA1c) in people with type 2 diabetes reduced microvascular disease but not macrovascular complications.(2) The UKPDS 34 study in overweight patients found that metformin produced less of a reduction in HbA1c but reduced cardiovascular complications and death.(3) More recently, further trials have examined the impact of intensive glycaemic control and have produced conflicting results.(1,4-11) Here we examine the evidence and guideline recommendations for HbA1c targets; glycaemic control for acutely unwell patients and targets in pregnancy will not be covered.
+23557845	614	621	glucose	Chemical	MESH:D005947
+23557845	827	836	metformin	Chemical	MESH:D008687
+23557845	24	32	diabetes	Disease	MESH:D003920
+23557845	59	74	Type 2 diabetes	Disease	MESH:D003924
+23557845	113	140	decreased insulin secretion	Disease	MESH:D007333
+23557845	203	213	overweight	Disease	MESH:D050177
+23557845	217	224	obesity	Disease	MESH:D009765
+23557845	226	256	hypertension and dyslipidaemia	Disease	MESH:D006973
+23557845	328	350	cardiovascular disease	Disease	MESH:D002318
+23557845	352	361	blindness	Disease	MESH:D001766
+23557845	363	385	chronic kidney disease	Disease	MESH:D051436
+23557845	479	490	weight gain	Disease	MESH:D015430
+23557845	542	550	Diabetes	Disease	MESH:D003920
+23557845	695	733	diabetes reduced microvascular disease	Disease	OMIM:603933
+23557845	778	783	UKPDS	Disease	MESH:D003920
+23557845	796	806	overweight	Disease	MESH:D050177
+23557845	887	915	cardiovascular complications	Disease	MESH:D002318
+23557845	920	925	death	Disease	MESH:D003643
+23557845	0	4	HbA1	Gene	3039
+23557845	155	162	insulin	Gene	3630
+23557845	676	682	people	Species	9606
+23557845	807	815	patients	Species	9606
+23557845	1178	1186	patients	Species	9606
+

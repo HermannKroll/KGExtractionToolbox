@@ -1,0 +1,10 @@
+{
+  "treats": {
+    "subjects": [
+      "Chemical",
+      "Drug",
+      "Excipient",
+      "PlantFamily/Genus"
+    ]
+  }
+}

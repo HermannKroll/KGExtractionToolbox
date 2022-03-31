@@ -1,0 +1,26 @@
+30583483|t| Metformin: A Candidate Drug for Renal Diseases
+30583483|a| Over the past decades metformin has been the optimal first-line treatment for type 2 diabetes mellitus (T2DM). Only in the last few years, it has become increasingly clear that metformin exerts benign pleiotropic actions beyond its prescribed use and ongoing investigations focus on a putative beneficial impact of metformin on the kidney. Both acute kidney injury (AKI) and chronic kidney disease (CKD), two major renal health issues, often result in the need for renal replacement therapy (dialysis or transplantation) with a high socio-economic impact for the patients. Unfortunately, to date, effective treatment directly targeting the kidney is lacking. Metformin has been shown to exert beneficial effects on the kidney in various clinical trials and experimental studies performed in divergent rodent models representing different types of renal diseases going from AKI to CKD. Despite growing evidence on metformin as a candidate drug for renal diseases, in-depth research is imperative to unravel the molecular signaling pathways responsible for metformin's renoprotective actions. This review will discuss the current state-of-the-art literature on clinical and preclinical data, and put forward potential cellular mechanisms and molecular pathways by which metformin ameliorates AKI/CKD.
+30583483	0	9	Metformin	Chemical	MESH:D008687
+30583483	69	78	metformin	Chemical	MESH:D008687
+30583483	224	233	metformin	Chemical	MESH:D008687
+30583483	362	371	metformin	Chemical	MESH:D008687
+30583483	706	715	Metformin	Chemical	MESH:D008687
+30583483	960	969	metformin	Chemical	MESH:D008687
+30583483	1102	1111	metformin	Chemical	MESH:D008687
+30583483	1315	1324	metformin	Chemical	MESH:D008687
+30583483	23	46	Drug for Renal Diseases	Disease	MESH:D007674
+30583483	125	149	type 2 diabetes mellitus	Disease	MESH:D003924
+30583483	151	155	T2DM	Disease	MESH:D003924
+30583483	392	411	acute kidney injury	Disease	MESH:D058186
+30583483	413	416	AKI	Disease	MESH:D058186
+30583483	422	444	chronic kidney disease	Disease	MESH:D051436
+30583483	446	449	CKD	Disease	MESH:D051436
+30583483	894	908	renal diseases	Disease	MESH:D007674
+30583483	920	923	AKI	Disease	MESH:D058186
+30583483	927	930	CKD	Disease	MESH:D051436
+30583483	994	1008	renal diseases	Disease	MESH:D007674
+30583483	1337	1340	AKI	Disease	MESH:D058186
+30583483	1341	1344	CKD	Disease	MESH:D051436
+30583483	610	618	patients	Species	9606
+30583483	848	854	rodent	Species	10116
+

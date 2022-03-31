@@ -1,0 +1,32 @@
+20413862|t| Type 2 diabetes, related conditions, in relation and dementia: an opportunity for prevention?
+20413862|a| This manuscript provides a comprehensive review of the epidemiologic evidence linking type 2 diabetes (T2D) and its precursor conditions, elevated adiposity and hyperinsulinemia, to dementia. The mechanisms relating these conditions to dementia may be vascular and non-vascular. Elevated adiposity in middle age is related to a higher risk of dementia but the data on this association in old age is conflicting. Several studies have shown that hyperinsulinemia, a consequence of higher adiposity and insulin resistance, is also related to a higher risk of dementia, including late onset Alzheimer's disease (LOAD). Studies have consistently shown a relation of T2D with higher dementia risk, but the associations are stronger for vascular dementia compared to LOAD. A large proportion of the world population may be at increased risk of dementia given the trends for increasing prevalence of overweight, obesity, hyperinsulinemia, and T2D. However, these associations may present a unique opportunity for prevention and treatment of dementia. There are several known modalities that are effective in the prevention and T2D and the reduction of hyperinsulinemia including lifestyle interventions, metformin, thiazolideniodones, and acarbose. Several studies in the prevention and treatment of T2D are currently measuring cognitive outcomes and will provide information on whether T2D treatment and prevention can prevent cognitive decline and dementia.
+20413862	1290	1299	metformin	Chemical	MESH:D008687
+20413862	1325	1333	acarbose	Chemical	MESH:D020909
+20413862	0	15	Type 2 diabetes	Disease	MESH:D003924
+20413862	53	61	dementia	Disease	MESH:D003704
+20413862	180	195	type 2 diabetes	Disease	MESH:D003924
+20413862	197	200	T2D	Disease	MESH:D003924
+20413862	255	271	hyperinsulinemia	Disease	MESH:D006946
+20413862	276	284	dementia	Disease	MESH:D003704
+20413862	330	338	dementia	Disease	MESH:D003704
+20413862	437	445	dementia	Disease	MESH:D003704
+20413862	538	554	hyperinsulinemia	Disease	MESH:D006946
+20413862	650	658	dementia	Disease	MESH:D003704
+20413862	681	700	Alzheimer's disease	Disease	MESH:D000544
+20413862	702	706	LOAD	Disease	MESH:D000544
+20413862	755	758	T2D	Disease	MESH:D003924
+20413862	771	779	dementia	Disease	MESH:D003704
+20413862	824	841	vascular dementia	Disease	MESH:D015140
+20413862	931	939	dementia	Disease	MESH:D003704
+20413862	998	1005	obesity	Disease	MESH:D009765
+20413862	1007	1023	hyperinsulinemia	Disease	MESH:D006946
+20413862	1029	1032	T2D	Disease	MESH:D003924
+20413862	1127	1135	dementia	Disease	MESH:D003704
+20413862	1213	1216	T2D	Disease	MESH:D003924
+20413862	1225	1254	reduction of hyperinsulinemia	Disease	MESH:D006946
+20413862	1386	1389	T2D	Disease	MESH:D003924
+20413862	1473	1476	T2D	Disease	MESH:D003924
+20413862	1514	1531	cognitive decline	Disease	MESH:D003072
+20413862	1536	1544	dementia	Disease	MESH:D003704
+20413862	594	601	insulin	Gene	3630
+

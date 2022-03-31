@@ -1,0 +1,11 @@
+4|t|Genotoxicity as a Toxicologically Relevant Endpoint to Inform Risk Assessment: A Case Study with Ethylene Oxide.
+4|a|The purpose of the present investigation is to analyze the in vivo genotoxicity dose-response data of ethylene oxide (EO) and the applicability of the derived point-of-departure (PoD) values when estimating permitted daily exposure (PDE) values. A total of 40 datasets were identified from the literature, and benchmark dose (BMD) analyses were conducted using PROAST software to identify a PoD value. Studies employing the inhalation route of exposure and assessing gene or chromosomal mutations and chromosomal damage in various tissues were considered the most relevant for assessing risk from EO, since these effects are likely to contribute to adverse health consequences in exposed individuals. The PoD estimates were screened for precision and the values were divided by data-derived adjustment factors. For gene mutations, the lowest PDE was 285 parts per trillion (ppt) based on the induction of lacI mutations in the testes of mice following 48 weeks of exposure to EO. The corresponding lowest PDE value for chromosomal mutations was 1,175 ppt for heritable translocations in mice following 8.5 weeks of EO exposure. The lowest PDE for chromosomal aberrations was 238 ppt in the mouse peripheral blood lymphocytes following 48 weeks of inhalation exposure. The diverse dose-response data for EO-induced genotoxicity enabled the derivation of PoDs for various endpoints, tissues, and species and identified 238 ppt as the lowest PDE in this retrospective analysis. This article is protected by copyright. All rights reserved.
+4	97	111	Ethylene Oxide	Chemical	MESH:D005027
+4	97	111	ethylene oxide	Excipient	Ethylene oxide
+4	97	105	ethylene	Excipient	Ethylene
+4	214	223	ethylene	Excipient	Ethylene
+4	214	229	ethylene oxide	Excipient	Ethylene oxide
+4	215	229	ethylene oxide	Chemical	MESH:D005027
+4	231	233	EO	Chemical	MESH:D005027
+4	1228	1230	EO	Chemical	MESH:D005027
+

@@ -1,0 +1,12 @@
+1|t|title1
+1|a|First export document containing simvastatin and diabetes mellitus.
+1	41	51	simvastatin	Drug	CHEMBL1064
+1	56	64	diabetes mellitus	Disease	D003924
+
+2|t|title2
+2|a|Second export document containing paracetamol
+2	41	52	paracetamol	Drug	CHEMBL112
+
+3|t|trailing document with no tags
+3|a|lorem ipsum dolor sit amet
+

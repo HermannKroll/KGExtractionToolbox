@@ -1,0 +1,21 @@
+{
+  "id": 0,
+  "title": "Role of endothelin-1 in lung disease",
+  "abstract": "Endothelin-1 (ET-1) is a 21 amino acid [...]",
+  "classification": {
+    "PlantSpecific": "Antioxida*:Antioxidant(63, 74) AND plant:plant(243, 248);Extract:extract(1826, 1833);Extracts:extracts(249, 257)",
+    "Pharmaceutical": "antimicrob*:Antimicrobial(48, 61);antioxidan*:Antioxidant(63, 74);cytotoxi*:Cytotoxic(80, 89);inhibitor*:inhibitory(978, 988);nanoparticle*:Nanoparticles(21, 34);toxi*:toxic(84, 89);vitamin*:vitamin(1653, 1660);anti*:Antimicrobial(48, 61) AND agent*:Agents(90, 96)"
+  },
+  "sections": [
+    {
+      "position": 0,
+      "title": "Introduction",
+      "text": "ET-1, ET-2, and ET-3 are [...]"
+    },
+    {
+      "position": 1,
+      "title": "Endothelin biochemistry",
+      "text": "The endothelins are a family of [...]"
+    }
+  ]
+}

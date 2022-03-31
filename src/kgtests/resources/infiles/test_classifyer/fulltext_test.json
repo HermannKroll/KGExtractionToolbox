@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "title": "a cute hamster",
+    "abstract": "nothing about animals"
+  },
+  {
+    "id": 2,
+    "title": "nothing about animals",
+    "abstract": "nothing about animals",
+    "sections": [
+      {
+        "position": 0,
+        "title": "a cute hamster",
+        "text": ""
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "nothing about animals",
+    "abstract": "nothing about animals",
+    "sections": [
+      {
+        "position": 0,
+        "title": "nothing about animals",
+        "text": "a cute hamster"
+      }
+    ]
+  }
+]

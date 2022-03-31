@@ -1,0 +1,31 @@
+20663465|t| Influence of oral antidiabetic drugs on hyperglycemic response to foods in persons with type 2 diabetes mellitus as assessed by continuous glucose monitoring system: a pilot study.
+20663465|a| BACKGROUND: The purpose of this prospective open-label trial was (1) to assess the influence of oral antidiabetic drugs (OAD) on the glycemic index (GI), glucose response curves (GRCs), daily mean plasma glucose (MPG) and (2) to compare the GI of foods in persons with OAD-treated type 2 diabetes mellitus (T2DM) with the respective GI in healthy persons (HP). METHODS: Tested foods containing 50 g of carbohydrates were eaten for breakfast and dinner after 10 and 4 h of fasting, respectively. Glycemic index, GRC, and MPG were obtained using the CGMS System Gold (CGMS). In T2DM patients [n = 16; age (mean +/- standard error) 56.0 +/- 2.25 years], foods were tested four times: tests 1, 2, and 3 were performed within one week in which placebo was introduced on day 2, and test 4 was carried out five weeks after reintroduction of OAD. Glycemic indexes, GRC, and MPG from tests 1, 2, 3, and 4 were compared. In a control group of 20 HP (age 24.4 +/- 0.71 years), the mean GIs were calculated as the mean from 20 subject-related GIs. RESULTS: In T2DM patients, subject-related assessment of GIs, GRC, and MPG distinguished persons with and without OAD effect. Nevertheless, the group-related GIs and the MPG on days 2, 8, and 39 showed no significant difference. There was no significant difference between the GIs in OAD-treated T2DM patients (test 4) versus HP (except in apple baby food). Glucose response curves were significantly larger in T2DM patients (test 4) versus HP. CONCLUSIONS: Determination of GRC and subject-related GI using the CGMS appears to be a potential means for the evaluation of efficacy of OAD treatment. Further studies are underway.
+20663465	139	146	glucose	Chemical	MESH:D005947
+20663465	335	342	glucose	Chemical	MESH:D005947
+20663465	385	392	glucose	Chemical	MESH:D005947
+20663465	394	397	MPG	Chemical	MESH:D005947
+20663465	583	596	carbohydrates	Chemical	MESH:D002241
+20663465	701	704	MPG	Chemical	MESH:D005947
+20663465	1047	1050	MPG	Chemical	MESH:D005947
+20663465	1288	1291	MPG	Chemical	MESH:D005947
+20663465	1387	1390	MPG	Chemical	MESH:D005947
+20663465	1575	1582	Glucose	Chemical	MESH:D005947
+20663465	88	112	type 2 diabetes mellitus	Disease	MESH:D003924
+20663465	302	305	OAD	Disease	MESH:D009069
+20663465	450	486	OAD-treated type 2 diabetes mellitus	Disease	MESH:D003924
+20663465	488	492	T2DM	Disease	MESH:D003924
+20663465	757	761	T2DM	Disease	MESH:D003924
+20663465	1229	1233	T2DM	Disease	MESH:D003924
+20663465	1331	1334	OAD	Disease	MESH:D009069
+20663465	1513	1517	T2DM	Disease	MESH:D003924
+20663465	1628	1632	T2DM	Disease	MESH:D003924
+20663465	75	82	persons	Species	9606
+20663465	437	444	persons	Species	9606
+20663465	528	535	persons	Species	9606
+20663465	762	770	patients	Species	9606
+20663465	1234	1242	patients	Species	9606
+20663465	1306	1313	persons	Species	9606
+20663465	1518	1526	patients	Species	9606
+20663465	1557	1562	apple	Species	3750
+20663465	1633	1641	patients	Species	9606
+

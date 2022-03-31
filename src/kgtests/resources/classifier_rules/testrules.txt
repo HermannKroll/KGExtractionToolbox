@@ -1,0 +1,4 @@
+kitten*
+dog*
+hamster
+animal AND house
