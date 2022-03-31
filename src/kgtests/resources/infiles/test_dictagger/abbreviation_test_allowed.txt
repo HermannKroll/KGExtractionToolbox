@@ -1,3 +1,0 @@
-1234|t|This is a small test
-1234|a|Aspirin (ASA) is a known drug. ASA treats pain and headaches.
-

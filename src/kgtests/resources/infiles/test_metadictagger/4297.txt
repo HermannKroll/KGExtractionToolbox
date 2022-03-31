@@ -1,4 +1,0 @@
-4297|t|The effects of neurally active amino acids on prolactin secretion.
-4297|a|Several neurally active amino acids were injected into the third ventricle of anesthetized male rats. Two or eight mumole of GABA produced significant increases in the plasma concentrations of prolactin (PRL), indicating increased PRL release from the pituitary. Two mumole of glycine was also effective in elevating PRL levels. The intraventricular injection of the lowest dose of GABA (1.0 mumole), glutamate (0.4 or 2.3 mumole), lysine (0.2 or 2.0 mumole), or 0.9% NaCl did not alter PRL levels significantly. Plasma PRL concentrations did not increase following the injection of GABA or glycine directly into the anterior pituitary gland. The results suggest that GABA and glycine may play a role in the neural regulation of PRL secretion.
-
-
