@@ -1,11 +1,11 @@
 import os
 import shutil
 
-from kgextractiontoolbox import config as config3
-from kgextractiontoolbox import config as config2
+
 from kgextractiontoolbox.backend.database import Session
-from narrant import config
-from nitests.util import tmp_rel_path
+from kgextractiontoolbox import config
+from kgtests.util import tmp_rel_path
+
 
 ENTITY_TEST_CONFIG_CONTENT = """
 {
@@ -55,15 +55,15 @@ def pytest_sessionstart(session):
         f.write(config_content)
 
     config.BACKEND_CONFIG = backend_config
-    config2.BACKEND_CONFIG = config.BACKEND_CONFIG
-    config3.BACKEND_CONFIG = config.BACKEND_CONFIG
+
 
     el_config = tmp_rel_path("entity_linking.json")
     with open(el_config, 'wt') as f:
         f.write(ENTITY_TEST_CONFIG_CONTENT)
 
-    config.PREPROCESS_CONFIG = el_config
-    config3.ENTITY_LINKING_CONFIG = el_config
+
+    config.ENTITY_LINKING_CONFIG = el_config
+
 
     print(f"backend_config: {backend_config}")
     sql_session = Session.get(backend_config)
