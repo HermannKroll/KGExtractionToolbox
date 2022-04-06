@@ -9,6 +9,62 @@ from kgextractiontoolbox.backend.models import Document, DocumentClassification,
 from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
 
 
+def iterate_over_all_documents_in_collection(session, collection: str, consider_tag=False, consider_sections=False, consider_classification=False):
+    doc_query = session.query(Document).filter(Document.collection == collection) \
+        .order_by(Document.id) \
+        .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
+
+    if consider_tag:
+        tag_query = session.query(Tag).filter(Tag.document_collection == collection) \
+            .order_by(Tag.document_id) \
+            .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
+        tag_query = iter(tag_query)
+        current_tag = next(tag_query, None)
+
+    if consider_classification:
+        class_query = session.query(DocumentClassification).filter(DocumentClassification.document_collection == collection) \
+            .order_by(DocumentClassification.document_id) \
+            .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
+        class_query = iter(class_query)
+        current_class = next(class_query, None)
+
+    if consider_sections:
+        sec_query = session.query(DocumentSection).filter(DocumentSection.document_collection == collection) \
+            .order_by(DocumentSection.document_id) \
+            .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
+        sec_query = iter(sec_query)
+        current_sec = next(sec_query, None)
+
+    for res in doc_query:
+        t_doc = TaggedDocument(id=res.id, title=res.title,
+                               abstract=res.abstract)
+
+        if consider_tag:
+            while current_tag and t_doc.id == current_tag.document_id:
+                t_doc.tags.append(TaggedEntity(document=current_tag.document_id,
+                                               start=current_tag.start,
+                                               end=current_tag.end,
+                                               ent_id=current_tag.ent_id,
+                                               ent_type=current_tag.ent_type,
+                                               text=current_tag.ent_str))
+                current_tag = next(tag_query, None)
+
+        if consider_classification:
+            while current_class and t_doc.id == current_class.document_id:
+                t_doc.classification.update({current_class.classification: current_class.explanation})
+                current_class = next(class_query, None)
+
+        if consider_sections:
+            while current_sec and t_doc.id == current_sec.document_id:
+                t_doc.sections.append(
+                    kgextractiontoolbox.document.document.DocumentSection(position=current_sec.position,
+                                                                          title=current_sec.title,
+                                                                          text=current_sec.text))
+                current_sec = next(sec_query, None)
+
+        yield t_doc
+
+
 def iterate_over_documents_in_collection(session, collection: str, consider_sections=False):
     if consider_sections:
         doc_query = session.query(Document).filter(Document.collection == collection) \
