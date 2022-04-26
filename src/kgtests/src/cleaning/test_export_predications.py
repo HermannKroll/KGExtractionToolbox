@@ -16,8 +16,8 @@ class ExportPredicationsTest(unittest.TestCase):
                      dict(id=2, collection="Test_Export", title="DEF", abstract="")]
         Document.bulk_insert_values_into_table(session, documents)
 
-        sentences = [dict(id=11, document_id=1, document_collection="Test_Export", text="Hello", md5hash="1"),
-                     dict(id=12, document_id=1, document_collection="Test_Export", text="World. Nice", md5hash="2")]
+        sentences = [dict(id=11, document_collection="Test_Export", text="Hello", md5hash="1"),
+                     dict(id=12, document_collection="Test_Export", text="World. Nice", md5hash="2")]
         Sentence.bulk_insert_values_into_table(session, sentences)
 
         predications = [dict(id=11,

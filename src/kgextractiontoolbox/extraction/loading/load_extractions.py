@@ -138,7 +138,6 @@ def clean_predications(tuples_cleaned: List[PRED], collection, extraction_type):
             inserted_sentence_ids.add(sentence_id)
             sentence_values.append((dict(
                 id=sentence_id,
-                document_id=p.doc_id,
                 document_collection=collection,
                 text=clean_sentence_str(sentence_txt),
                 md5hash=sent_hash)))

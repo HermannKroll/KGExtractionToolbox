@@ -15,8 +15,8 @@ class RelationTypeConstraintChecking(unittest.TestCase):
                      dict(id=2, collection="Test_Type_Checking", title="DEF", abstract="")]
         Document.bulk_insert_values_into_table(session, documents)
 
-        sentences = [dict(id=1, document_id=1, document_collection="Test_Type_Checking", text="Hello", md5hash="1"),
-                     dict(id=2, document_id=1, document_collection="Test_Type_Checking", text="World", md5hash="2")]
+        sentences = [dict(id=1, document_collection="Test_Type_Checking", text="Hello", md5hash="1"),
+                     dict(id=2, document_collection="Test_Type_Checking", text="World", md5hash="2")]
         Sentence.bulk_insert_values_into_table(session, sentences)
 
         predications = [dict(id=31,

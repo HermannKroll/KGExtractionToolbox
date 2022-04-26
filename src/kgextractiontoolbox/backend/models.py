@@ -411,12 +411,10 @@ class PredicationToDelete(Base, DatabaseTable):
 class Sentence(Base, DatabaseTable):
     __tablename__ = "sentence"
     __table_args__ = (
-        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection')),
-        PrimaryKeyConstraint('id', sqlite_on_conflict='IGNORE')
+        PrimaryKeyConstraint('id', sqlite_on_conflict='IGNORE'),
     )
 
     id = Column(BigInteger)
-    document_id = Column(BigInteger, nullable=False, index=True)
     document_collection = Column(String, nullable=False, index=True)
     text = Column(String, nullable=False)
     md5hash = Column(String, nullable=False)
