@@ -156,6 +156,20 @@ class CanonicalizePredicateTestCase(unittest.TestCase):
         self.assertEqual("induces",
                          session.query(Predication.relation).filter(Predication.id == 9).first()[0])
 
+    def test_canonicalize_document_collection(self):
+        vocab = RelationVocabulary()
+        vocab.load_from_json(util.get_test_resource_filepath('cleaning/pharm_relation_vocab.json'))
+        session = Session.get()
+        session.execute(update(Predication).values(relation=None)
+                        .where(Predication.document_collection == "Test_Canonicalize"))
+        session.commit()
+
+        canonicalize_predication_table(relation_vocabulary=vocab, document_collection="Test_Canonicalize_Bla",
+                                       min_predicate_threshold=0.3)
+
+        for res in session.query(Predication).filter(Predication.document_collection == "Test_Canonicalize"):
+            self.assertIsNone(res.relation)
+
     def test_canonicalize_without_word2vec_model_output_file(self):
         vocab = RelationVocabulary()
         vocab.load_from_json(util.get_test_resource_filepath('cleaning/pharm_relation_vocab.json'))

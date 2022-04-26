@@ -184,12 +184,14 @@ def compute_mapping_plan(predicates: [str], vocab_predicates: {str: [str]}, outp
     return best_matches
 
 
-def canonicalize_predicates(best_matches: {str: (str, float)}, min_distance_threshold: float, document_collection: str):
+def canonicalize_predicates(best_matches: {str: (str, float)}, min_distance_threshold: float, document_collection: str,
+                            predication_id_minimum: int = None):
     """
     Canonicalizes Predicates by resolving synonymous predicates. This procedure updates the database
     :param best_matches: dictionary which maps a predicate to a canonicalized predicate and a distance score
     :param min_distance_threshold: all predicates that have a match with a distance blow minimum threshold distance are canonicalized
     :param document_collection: the document collection to canonicalize
+    :param predication_id_minimum: only predication ids above this will be updated
     :return: None
     """
     session = Session.get()
@@ -204,19 +206,14 @@ def canonicalize_predicates(best_matches: {str: (str, float)}, min_distance_thre
 
     logging.info(f'Execute {len(pred_can2preds)} update jobs...')
     task_size = len(pred_can2preds)
-    i = 0
-    for pred_canonicalized, preds in pred_can2preds.items():
-        if document_collection:
-            stmt = update(Predication).where(and_(Predication.predicate.in_(preds),
-                                                  Predication.document_collection == document_collection)). \
-                values(relation=pred_canonicalized)
-        else:
-            stmt = update(Predication).where(Predication.predicate.in_(preds)). \
-                values(relation=pred_canonicalized)
-        session.execute(stmt)
+    for i, (pred_canonicalized, preds) in enumerate(pred_can2preds.items()):
         print_progress_with_eta('updating...', i, task_size, start_time, print_every_k=1)
-        i += 1
-
+        stmt = update(Predication).where(Predication.predicate.in_(preds))
+        if document_collection:
+            stmt = stmt.where(Predication.document_collection == document_collection)
+        stmt = stmt.values(relation=pred_canonicalized)
+        session.execute(stmt)
+  
     logging.info('Committing updates...')
     session.commit()
 
