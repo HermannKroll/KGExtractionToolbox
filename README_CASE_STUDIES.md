@@ -1,7 +1,15 @@
 # Disclaimer
 This repository belongs to our JCDL2022 submission. 
 ```
-A Library Perspective on Nearly-Unsupervised Information Extraction Workflows in Digital Libraries
+@inproceedings{kroll2022jcdl,
+	title = {A Library Perspective on Nearly-Unsupervised Information Extraction Workflows in Digital Libraries},
+	booktitle = {ACM/IEEE Joint Conference on Digital Libraries (JCDL '22)},
+	year = {2022},
+	month = {06},
+	address = {Cologne, Germany},
+	doi={10.1145/3529372.3530924},
+	author = {Hermann Kroll and Jan Pirklbauer and Florian Plötzky and Wolf-Tilo Balke}
+}
 ```
 
 # Content
@@ -57,7 +65,7 @@ You can find the data in the corresponding subfolders.
 The file names should be self-explaining.
 
 # Code Changes:
-We implemented:
+We implemented to improve our toolbox:
 - a subject entity filter ([Code](src/kgextractiontoolbox/extraction/loading/load_openie_extractions.py))
 - enhanced verb phrase filter options ([Code](src/kgextractiontoolbox/extraction/loading/load_openie_extractions.py))
 - improved Open IE6 handling ([Code](src/kgextractiontoolbox/extraction/openie6/main.py))
