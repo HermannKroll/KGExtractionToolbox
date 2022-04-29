@@ -21,8 +21,10 @@ If you use our project in your own research, then please cite:
 }
 ```
 
-   
 You can find our JCDL2021 conference talk here: [YouTube](https://youtu.be/G6ndS0GZBeg)
+We evaluated our toolbox in three different collections: Wikipedia, Pharmacy (PubMed) and Political Sciences.
+See the [Case Study Readme](README_CASE_STUDIES.md) for more details.
+
 
 We applied the toolbox to the pharmaceutical domain. 
 If you are interested in a possible application, watch our ICADL2021 talk: [YouTube](https://youtu.be/9N1XTXPEqfU)
@@ -39,8 +41,6 @@ If you are interested in a possible application, watch our ICADL2021 talk: [YouT
   pages="80--95",
   isbn="978-3-030-91669-5"
 }
-
-
 ```
 
 
