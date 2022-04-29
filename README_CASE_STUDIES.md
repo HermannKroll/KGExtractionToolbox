@@ -3,8 +3,6 @@ This repository belongs to our JCDL2022 submission.
 ```
 A Library Perspective on Nearly-Unsupervised Information Extraction Workflows in Digital Libraries
 ```
-Due to the double-blind review process, we can't publish our case studies as a pull request to GitHub. 
-If the paper is accepted, we will make all data publicly available at GitHub.
 
 # Content
 We performed case studies in three domains:
@@ -18,7 +16,10 @@ We provide the following data for each case study:
 - Used entity vocabularies
 - Used relation vocabularies
 
-Note that each scientist must have an Wikipedia page and Wikidata entry.
+Note that we selected scientists that must have an Wikipedia page and Wikidata entry.
+We zipped the data directory to reduce the GitHub repository size.
+So unzip [it](case_studies/data.zip) first.
+
 
 This repository contains:
 - Bash scripts to reproduce our findings
