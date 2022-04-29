@@ -45,19 +45,25 @@ The entity linker requires:
 
 The entity linker will automatically insert documents that are not in the database yet.
 ```
-python src/kgextractiontoolbox/entitylinking/vocab_entity_linking.py DOCUMENT -c COLLECTION -v VOCAB_FILE
+python src/kgextractiontoolbox/entitylinking/vocab_entity_linking.py -i DOCUMENT -c COLLECTION -v VOCAB_FILE
+```
+
+You may want to link a whole collection. 
+Leave out the input parameter:
+```
+python src/kgextractiontoolbox/entitylinking/vocab_entity_linking.py  -c COLLECTION -v VOCAB_FILE
 ```
 
 You can also parallelize the entity linking by adding the *--workers* argument and specify a number of workers.
 ```
-python src/kgextractiontoolbox/entitylinking/vocab_entity_linking.py DOCUMENT -c COLLECTION -v VOCAB_FILE --workers 10
+python src/kgextractiontoolbox/entitylinking/vocab_entity_linking.py -i DOCUMENT -c COLLECTION -v VOCAB_FILE --workers 10
 ```
 
 By default, the entity linker writes its logs in a temporary directory and deletes this directory by completion.
 You can specify a logging directory that will not be deleted:
 You can also parallelize the entity linking by adding the *--workers* argument and specify a number of workers.
 ```
-python src/kgextractiontoolbox/entitylinking/vocab_entity_linking.py DOCUMENT -c COLLECTION -v VOCAB_FILE --workdir test/
+python src/kgextractiontoolbox/entitylinking/vocab_entity_linking.py -i DOCUMENT -c COLLECTION -v VOCAB_FILE --workdir test/
 ```
 
 
@@ -67,7 +73,7 @@ If your document content has changed, please delete the old table contents (docu
 
 If your entity vocabulary has changed, you can use the **--force** argument to enforce linking all documents again.
 ```
-python src/kgextractiontoolbox/entitylinking/vocab_entity_linking.py DOCUMENT -c COLLECTION -v VOCAB_FILE --force
+python src/kgextractiontoolbox/entitylinking/vocab_entity_linking.py -i DOCUMENT -c COLLECTION -v VOCAB_FILE --force
 ```
 
 
@@ -99,12 +105,14 @@ This may take a while.
 Next, Stanza can be used to detect Named Entities in documents. 
 Note that Stanza does not produce entity ids. Thus, we will use the entity mention string as the entity id.
 ```
-python src/kgextractiontoolbox/entitylinking/stanza_ner.py DOCUMENT -c COLLECTION
+python src/kgextractiontoolbox/entitylinking/stanza_ner.py -i DOCUMENT -c COLLECTION
 ```
+
+Again, the input **-i** is optional. You may want to leave it out.
 
 Stanza will by default run on your GPU. If no GPU is available, you can specificy the CPU flag which will cause a long runtime.
 ```
-python src/kgextractiontoolbox/entitylinking/stanza_ner.py DOCUMENT -c COLLECTION --CPU
+python src/kgextractiontoolbox/entitylinking/stanza_ner.py -i DOCUMENT -c COLLECTION --CPU
 ```
 Note that our toolbox won't annotate the same document twice. 
 This will be checked automatically.
