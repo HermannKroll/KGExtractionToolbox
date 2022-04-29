@@ -1,0 +1,501 @@
+"ent_str","ent_id","ent_type","count"
+"university","http://www.wikidata.org/entity/Q917874","Language",4131
+"school","http://www.wikidata.org/entity/Q98399111","Language",2059
+"professor","http://www.wikidata.org/entity/Q37226","Profession",1958
+"doctor","http://www.wikidata.org/entity/Q96633923","Award",1880
+"member","http://www.wikidata.org/entity/Q59820617","Award",1385
+"director","http://www.wikidata.org/entity/Q5280518","Profession",1077
+"director","http://www.wikidata.org/entity/Q1162163","Profession",1077
+"director","http://www.wikidata.org/entity/Q3387717","Profession",1077
+"director","http://www.wikidata.org/entity/Q2824523","Profession",1077
+"director","http://www.wikidata.org/entity/Q2526255","Profession",1077
+"director","http://www.wikidata.org/entity/Q3455803","Profession",1077
+"director","http://www.wikidata.org/entity/Q2493761","Profession",1077
+"president","http://www.wikidata.org/entity/Q4376769","Award",1056
+"president","http://www.wikidata.org/entity/Q61061","Award",1056
+"fellow","http://www.wikidata.org/entity/Q10519151","Award",808
+"fellow","http://www.wikidata.org/entity/Q1404101","Award",808
+"award","http://www.wikidata.org/entity/Q66744316","Award",775
+"scientist","http://www.wikidata.org/entity/Q901","Profession",702
+"the doctor","http://www.wikidata.org/entity/Q34358","Person",618
+"march","http://www.wikidata.org/entity/Q611694","Award",609
+"the united states","http://www.wikidata.org/entity/Q30","Country",571
+"degree","http://www.wikidata.org/entity/Q189533","Award",518
+"degree","http://www.wikidata.org/entity/Q6008527","Award",518
+"position","http://www.wikidata.org/entity/Q11488158","Award",517
+"position","http://www.wikidata.org/entity/Q7810129","Award",517
+"position","http://www.wikidata.org/entity/Q11488158","Profession",517
+"russian","http://www.wikidata.org/entity/Q7737","Language",514
+"academic","http://www.wikidata.org/entity/Q3400985","Profession",456
+"author","http://www.wikidata.org/entity/Q36180","Profession",400
+"doctor","http://www.wikidata.org/entity/Q4618975","Profession",376
+"doctor","http://www.wikidata.org/entity/Q34358","Person",376
+"doctor","http://www.wikidata.org/entity/Q4618975","Award",376
+"spider-man","http://www.wikidata.org/entity/Q79037","Person",368
+"spider-man","http://www.wikidata.org/entity/Q2343504","Person",368
+"computer","http://www.wikidata.org/entity/Q11202952","Profession",362
+"change","http://www.wikidata.org/entity/Q5071694","Language",360
+"scientists","http://www.wikidata.org/entity/Q901","Profession",355
+"chief","http://www.wikidata.org/entity/Q20920693","Profession",351
+"chief","http://www.wikidata.org/entity/Q1162163","Profession",351
+"academy of sciences","http://www.wikidata.org/entity/Q414147","Scientific Society",349
+"academy of sciences","http://www.wikidata.org/entity/Q414147","Professional Society",349
+"office","http://www.wikidata.org/entity/Q7810129","Award",334
+"medal","http://www.wikidata.org/entity/Q131647","Award",331
+"medal","http://www.wikidata.org/entity/Q38593919","Award",331
+"german","http://www.wikidata.org/entity/Q188","Language",322
+"members","http://www.wikidata.org/entity/Q59820617","Award",320
+"captain","http://www.wikidata.org/entity/Q849424","Profession",303
+"india","http://www.wikidata.org/entity/Q668","Country",300
+"america","http://www.wikidata.org/entity/Q30","Country",293
+"central","http://www.wikidata.org/entity/Q7895252","Language",292
+"washington","http://www.wikidata.org/entity/Q777403","Language",291
+"model","http://www.wikidata.org/entity/Q1630100","Profession",278
+"model","http://www.wikidata.org/entity/Q4610556","Profession",278
+"union","http://www.wikidata.org/entity/Q7885779","Language",278
+"fellowship","http://www.wikidata.org/entity/Q20006438","Award",276
+"french","http://www.wikidata.org/entity/Q150","Language",271
+"english","http://www.wikidata.org/entity/Q1860","Language",269
+"australia","http://www.wikidata.org/entity/Q408","Country",269
+"master","http://www.wikidata.org/entity/Q3297843","Award",268
+"master","http://www.wikidata.org/entity/Q183816","Award",268
+"master","http://www.wikidata.org/entity/Q96678236","Award",268
+"master","http://www.wikidata.org/entity/Q1459149","Profession",268
+"master","http://www.wikidata.org/entity/Q1641418","Profession",268
+"new zealand","http://www.wikidata.org/entity/Q664","Country",263
+"researcher","http://www.wikidata.org/entity/Q1650915","Profession",258
+"secretary","http://www.wikidata.org/entity/Q80687","Profession",255
+"secretary","http://www.wikidata.org/entity/Q5155576","Profession",255
+"secretary","http://www.wikidata.org/entity/Q5131856","Profession",255
+"fellowship","http://www.wikidata.org/entity/Q1404101","Award",252
+"awards","http://www.wikidata.org/entity/Q66744316","Award",250
+"germany","http://www.wikidata.org/entity/Q41304","Country",242
+"germany","http://www.wikidata.org/entity/Q183","Country",242
+"leader","http://www.wikidata.org/entity/Q978044","Profession",241
+"comics","http://www.wikidata.org/entity/Q245068","Profession",240
+"einstein","http://www.wikidata.org/entity/Q937","Person",236
+"the state","http://www.wikidata.org/entity/Q30","Country",232
+"france","http://www.wikidata.org/entity/Q142","Country",230
+"philosophy","http://www.wikidata.org/entity/Q48957376","Belief",228
+"batman","http://www.wikidata.org/entity/Q6484612","Profession",227
+"executive","http://www.wikidata.org/entity/Q978044","Profession",224
+"russia","http://www.wikidata.org/entity/Q159","Country",219
+"editor","http://www.wikidata.org/entity/Q23016178","Profession",218
+"editor","http://www.wikidata.org/entity/Q7042855","Profession",218
+"editor","http://www.wikidata.org/entity/Q1607826","Profession",218
+"scholar","http://www.wikidata.org/entity/Q2248623","Profession",217
+"physician","http://www.wikidata.org/entity/Q15924224","Profession",217
+"phoenix","http://www.wikidata.org/entity/Q108366195","Person",212
+"engineer","http://www.wikidata.org/entity/Q81096","Profession",211
+"associate professor","http://www.wikidata.org/entity/Q19973878","Award",208
+"associate professor","http://www.wikidata.org/entity/Q1914832","Profession",208
+"title","http://www.wikidata.org/entity/Q3562482","Award",208
+"title","http://www.wikidata.org/entity/Q4121104","Award",208
+"captain","http://www.wikidata.org/entity/Q1146304","Profession",204
+"the use","http://www.wikidata.org/entity/Q30","Country",203
+"deputy","http://www.wikidata.org/entity/Q1055894","Profession",203
+"class","http://www.wikidata.org/entity/Q5059741","Language",202
+"comic","http://www.wikidata.org/entity/Q245068","Profession",200
+"responsible","http://www.wikidata.org/entity/Q3933467","Profession",200
+"founder","http://www.wikidata.org/entity/Q19435686","Profession",195
+"range","http://www.wikidata.org/entity/Q3913345","Language",192
+"institute of technology","http://www.wikidata.org/entity/Q1371037","Language",192
+"professional","http://www.wikidata.org/entity/Q1391344","Profession",191
+"writer","http://www.wikidata.org/entity/Q36180","Profession",189
+"lecturer","http://www.wikidata.org/entity/Q1569495","Profession",188
+"lecturer","http://www.wikidata.org/entity/Q9379869","Profession",188
+"lecturer","http://www.wikidata.org/entity/Q1553123","Profession",188
+"lecturer","http://www.wikidata.org/entity/Q1569495","Award",188
+"assistant professor","http://www.wikidata.org/entity/Q5669847","Profession",188
+"lecturer","http://www.wikidata.org/entity/Q24708213","Profession",188
+"university of california","http://www.wikidata.org/entity/Q1061104","Language",187
+"language","http://www.wikidata.org/entity/Q11252539","Language",185
+"language","http://www.wikidata.org/entity/Q3181238","Language",185
+"language","http://www.wikidata.org/entity/Q36848","Language",185
+"schools","http://www.wikidata.org/entity/Q98399111","Language",183
+"island","http://www.wikidata.org/entity/Q189","Country",183
+"marine","http://www.wikidata.org/entity/Q2962165","Language",181
+"steel","http://www.wikidata.org/entity/Q2005691","Person",180
+"the us","http://www.wikidata.org/entity/Q738258","Language",178
+"the us","http://www.wikidata.org/entity/Q30","Country",178
+"western","http://www.wikidata.org/entity/Q3551358","Language",177
+"western","http://www.wikidata.org/entity/Q1939221","Language",177
+"western","http://www.wikidata.org/entity/Q1552113","Language",177
+"scholarship","http://www.wikidata.org/entity/Q63390091","Award",175
+"scholarship","http://www.wikidata.org/entity/Q4813771","Award",175
+"smith","http://www.wikidata.org/entity/Q838566","Profession",173
+"positions","http://www.wikidata.org/entity/Q11488158","Profession",172
+"positions","http://www.wikidata.org/entity/Q11488158","Award",172
+"positions","http://www.wikidata.org/entity/Q7810129","Award",172
+"doctorate","http://www.wikidata.org/entity/Q849697","Award",168
+"doctorate","http://www.wikidata.org/entity/Q3033549","Award",168
+"advisor","http://www.wikidata.org/entity/Q2994387","Profession",168
+"advisor","http://www.wikidata.org/entity/Q109554786","Profession",168
+"doctorate","http://www.wikidata.org/entity/Q3033549","Doctoral Degree",168
+"officer","http://www.wikidata.org/entity/Q384593","Profession",166
+"officer","http://www.wikidata.org/entity/Q61022630","Profession",166
+"jewish","http://www.wikidata.org/entity/Q9268","Belief",165
+"basis","http://www.wikidata.org/entity/Q13202","Language",161
+"swamp thing","http://www.wikidata.org/entity/Q54422296","Person",161
+"mechanics","http://www.wikidata.org/entity/Q327029","Profession",161
+"official","http://www.wikidata.org/entity/Q716711","Profession",159
+"official","http://www.wikidata.org/entity/Q3502546","Profession",159
+"official","http://www.wikidata.org/entity/Q1757103","Profession",159
+"galileo","http://www.wikidata.org/entity/Q307","Person",159
+"canada","http://www.wikidata.org/entity/Q16","Country",159
+"official","http://www.wikidata.org/entity/Q7079487","Profession",159
+"universities","http://www.wikidata.org/entity/Q917874","Language",154
+"researchers","http://www.wikidata.org/entity/Q1650915","Profession",147
+"teacher","http://www.wikidata.org/entity/Q37226","Profession",146
+"teacher","http://www.wikidata.org/entity/Q974144","Profession",146
+"asimov","http://www.wikidata.org/entity/Q34981","Person",145
+"spanish","http://www.wikidata.org/entity/Q1321","Language",144
+"companion","http://www.wikidata.org/entity/Q5155473","Profession",141
+"industrial","http://www.wikidata.org/entity/Q6606110","Profession",139
+"consultant","http://www.wikidata.org/entity/Q15978655","Profession",138
+"consultant","http://www.wikidata.org/entity/Q5164591","Profession",138
+"consultant","http://www.wikidata.org/entity/Q2994387","Profession",138
+"physicist","http://www.wikidata.org/entity/Q169470","Profession",137
+"thatcher","http://www.wikidata.org/entity/Q20600868","Profession",136
+"china","http://www.wikidata.org/entity/Q148","Country",134
+"inventor","http://www.wikidata.org/entity/Q205375","Profession",132
+"models","http://www.wikidata.org/entity/Q4610556","Profession",131
+"models","http://www.wikidata.org/entity/Q1630100","Profession",131
+"mexico","http://www.wikidata.org/entity/Q96","Country",131
+"the hulk","http://www.wikidata.org/entity/Q188760","Person",127
+"the academy","http://www.wikidata.org/entity/Q3233780","Academia of Science",126
+"pioneer","http://www.wikidata.org/entity/Q13393921","Profession",125
+"master's degree","http://www.wikidata.org/entity/Q183816","Award",123
+"doctor who","http://www.wikidata.org/entity/Q34358","Person",120
+"medical research","http://www.wikidata.org/entity/Q2752427","Profession",120
+"engineers","http://www.wikidata.org/entity/Q81096","Profession",119
+"bachelor's degree","http://www.wikidata.org/entity/Q6008527","Award",118
+"bachelor's degree","http://www.wikidata.org/entity/Q163727","Award",118
+"academy of sciences","http://www.wikidata.org/entity/Q965731","Academia of Science",117
+"eight","http://www.wikidata.org/entity/Q4530108","Person",115
+"queen","http://www.wikidata.org/entity/Q16511993","Profession",115
+"standard","http://www.wikidata.org/entity/Q399495","Language",115
+"baker","http://www.wikidata.org/entity/Q160131","Profession",115
+"queen","http://www.wikidata.org/entity/Q1760438","Language",114
+"languages","http://www.wikidata.org/entity/Q36848","Language",114
+"queen","http://www.wikidata.org/entity/Q7270829","Language",114
+"languages","http://www.wikidata.org/entity/Q11252539","Language",114
+"languages","http://www.wikidata.org/entity/Q3181238","Language",114
+"investigator","http://www.wikidata.org/entity/Q1971388","Profession",113
+"investigator","http://www.wikidata.org/entity/Q30093123","Profession",113
+"investigator","http://www.wikidata.org/entity/Q1650915","Profession",113
+"israel","http://www.wikidata.org/entity/Q801","Country",113
+"atomic","http://www.wikidata.org/entity/Q652","Language",112
+"lawrence","http://www.wikidata.org/entity/Q1809286","Language",112
+"royal society","http://www.wikidata.org/entity/Q123885","Academia of Science",110
+"massachusetts","http://www.wikidata.org/entity/Q56519","Language",110
+"avicenna","http://www.wikidata.org/entity/Q8011","Person",110
+"actor","http://www.wikidata.org/entity/Q10798782","Profession",109
+"actor","http://www.wikidata.org/entity/Q33999","Profession",109
+"governor","http://www.wikidata.org/entity/Q132050","Profession",108
+"atoms","http://www.wikidata.org/entity/Q1607053","Person",108
+"atoms","http://www.wikidata.org/entity/Q5685120","Person",108
+"atoms","http://www.wikidata.org/entity/Q4817193","Person",108
+"cases","http://www.wikidata.org/entity/Q1047060","Language",107
+"baker","http://www.wikidata.org/entity/Q4849228","Language",106
+"georgia","http://www.wikidata.org/entity/Q230","Country",105
+"fellow of the royal society","http://www.wikidata.org/entity/Q15631401","Award",105
+"peace","http://www.wikidata.org/entity/Q8016704","Language",104
+"spain","http://www.wikidata.org/entity/Q29","Country",104
+"chemist","http://www.wikidata.org/entity/Q593644","Profession",104
+"scholars","http://www.wikidata.org/entity/Q2248623","Profession",103
+"national academy of sciences","http://www.wikidata.org/entity/Q270794","Academia of Science",102
+"specialist","http://www.wikidata.org/entity/Q1391344","Profession",102
+"specialist","http://www.wikidata.org/entity/Q2376292","Award",102
+"doctors","http://www.wikidata.org/entity/Q96633923","Award",101
+"northern","http://www.wikidata.org/entity/Q1683585","Language",101
+"greek","http://www.wikidata.org/entity/Q41","Country",101
+"greek","http://www.wikidata.org/entity/Q9129","Language",101
+"victor","http://www.wikidata.org/entity/Q18560095","Award",100
+"physicians","http://www.wikidata.org/entity/Q15924224","Profession",100
+"maria","http://www.wikidata.org/entity/Q27602","Language",99
+"maria","http://www.wikidata.org/entity/Q3448673","Language",99
+"captain britain","http://www.wikidata.org/entity/Q2405949","Person",98
+"candidate","http://www.wikidata.org/entity/Q2383393","Award",98
+"latin","http://www.wikidata.org/entity/Q397","Language",97
+"research fellow","http://www.wikidata.org/entity/Q1706722","Profession",96
+"stars","http://www.wikidata.org/entity/Q15982595","Profession",95
+"brazil","http://www.wikidata.org/entity/Q155","Country",95
+"britain","http://www.wikidata.org/entity/Q145","Country",95
+"mayor","http://www.wikidata.org/entity/Q1339249","Profession",95
+"azerbaijan","http://www.wikidata.org/entity/Q227","Country",94
+"italian","http://www.wikidata.org/entity/Q652","Language",94
+"nobel prize","http://www.wikidata.org/entity/Q7191","Award",93
+"commander","http://www.wikidata.org/entity/Q524980","Award",92
+"commander","http://www.wikidata.org/entity/Q5152182","Profession",92
+"polish","http://www.wikidata.org/entity/Q809","Language",92
+"johns hopkins","http://www.wikidata.org/entity/Q193727","Language",92
+"candidate","http://www.wikidata.org/entity/Q2878144","Award",91
+"commercial","http://www.wikidata.org/entity/Q2986261","Profession",91
+"pilot","http://www.wikidata.org/entity/Q2095549","Profession",90
+"pilot","http://www.wikidata.org/entity/Q475604","Profession",90
+"islands","http://www.wikidata.org/entity/Q189","Country",90
+"factors","http://www.wikidata.org/entity/Q56599002","Profession",89
+"factors","http://www.wikidata.org/entity/Q323336","Profession",89
+"factors","http://www.wikidata.org/entity/Q104483142","Profession",89
+"united kingdom","http://www.wikidata.org/entity/Q145","Country",88
+"stanford university","http://www.wikidata.org/entity/Q41506","Language",88
+"italy","http://www.wikidata.org/entity/Q38","Country",87
+"companions","http://www.wikidata.org/entity/Q5155473","Profession",87
+"style","http://www.wikidata.org/entity/Q5767753","Award",87
+"dutch","http://www.wikidata.org/entity/Q7411","Language",87
+"new york","http://www.wikidata.org/entity/Q1475413","Language",86
+"directors","http://www.wikidata.org/entity/Q2824523","Profession",86
+"directors","http://www.wikidata.org/entity/Q2493761","Profession",86
+"directors","http://www.wikidata.org/entity/Q3387717","Profession",86
+"directors","http://www.wikidata.org/entity/Q1162163","Profession",86
+"directors","http://www.wikidata.org/entity/Q5280518","Profession",86
+"intellectual","http://www.wikidata.org/entity/Q58968","Profession",86
+"directors","http://www.wikidata.org/entity/Q2526255","Profession",86
+"directors","http://www.wikidata.org/entity/Q3455803","Profession",86
+"visiting professor","http://www.wikidata.org/entity/Q28692568","Profession",85
+"miller","http://www.wikidata.org/entity/Q694116","Profession",84
+"armstrong","http://www.wikidata.org/entity/Q4793919","Language",83
+"high evolutionary","http://www.wikidata.org/entity/Q2568013","Person",83
+"united states","http://www.wikidata.org/entity/Q30","Country",83
+"doctors","http://www.wikidata.org/entity/Q34358","Person",82
+"doctors","http://www.wikidata.org/entity/Q4618975","Profession",82
+"bumblebees","http://www.wikidata.org/entity/Q2893593","Person",82
+"professor emeritus","http://www.wikidata.org/entity/Q30878990","Award",82
+"doctors","http://www.wikidata.org/entity/Q4618975","Award",82
+"degrees","http://www.wikidata.org/entity/Q189533","Award",81
+"japan","http://www.wikidata.org/entity/Q17","Country",81
+"eastern","http://www.wikidata.org/entity/Q1278206","Language",81
+"eastern","http://www.wikidata.org/entity/Q1278152","Language",81
+"degrees","http://www.wikidata.org/entity/Q6008527","Award",81
+"literary","http://www.wikidata.org/entity/Q6673651","Profession",78
+"man-bat","http://www.wikidata.org/entity/Q1471053","Person",78
+"nobel","http://www.wikidata.org/entity/Q7191","Award",77
+"teachers","http://www.wikidata.org/entity/Q37226","Profession",77
+"teachers","http://www.wikidata.org/entity/Q974144","Profession",77
+"switzerland","http://www.wikidata.org/entity/Q39","Country",77
+"motor","http://www.wikidata.org/entity/Q36453","Language",76
+"resident","http://www.wikidata.org/entity/Q19973930","Profession",76
+"knight","http://www.wikidata.org/entity/Q102083","Profession",76
+"jean grey","http://www.wikidata.org/entity/Q108366195","Person",74
+"bishop","http://www.wikidata.org/entity/Q683731","Profession",74
+"standards","http://www.wikidata.org/entity/Q399495","Language",73
+"steele","http://www.wikidata.org/entity/Q2005691","Person",73
+"instructor","http://www.wikidata.org/entity/Q16358610","Profession",73
+"colorado","http://www.wikidata.org/entity/Q2567055","Language",72
+"the philippines","http://www.wikidata.org/entity/Q928","Country",71
+"andrew","http://www.wikidata.org/entity/Q109176","Language",70
+"invasion","http://www.wikidata.org/entity/Q467011","Award",69
+"thompson","http://www.wikidata.org/entity/Q1755054","Language",69
+"massachusetts institute of technology","http://www.wikidata.org/entity/Q49108","Language",69
+"faith","http://www.wikidata.org/entity/Q109335991","Belief",68
+"wilson","http://www.wikidata.org/entity/Q817749","Person",68
+"computers","http://www.wikidata.org/entity/Q11202952","Profession",68
+"historian","http://www.wikidata.org/entity/Q201788","Profession",67
+"norman","http://www.wikidata.org/entity/Q33850","Language",67
+"bishop","http://www.wikidata.org/entity/Q311358","Person",67
+"writers","http://www.wikidata.org/entity/Q36180","Profession",66
+"leaders","http://www.wikidata.org/entity/Q978044","Profession",66
+"griffin","http://www.wikidata.org/entity/Q1423956","Person",65
+"academy of arts","http://www.wikidata.org/entity/Q2822225","Language",65
+"master of science","http://www.wikidata.org/entity/Q950900","Award",65
+"mathematician","http://www.wikidata.org/entity/Q170790","Profession",65
+"medical college","http://www.wikidata.org/entity/Q10729872","Professional Society",65
+"medical college","http://www.wikidata.org/entity/Q10729872","Scientific Society",65
+"minor","http://www.wikidata.org/entity/Q28028610","Person",64
+"guide","http://www.wikidata.org/entity/Q2314719","Profession",63
+"guide","http://www.wikidata.org/entity/Q1039099","Profession",63
+"guide","http://www.wikidata.org/entity/Q14290559","Profession",63
+"guide","http://www.wikidata.org/entity/Q10556315","Profession",63
+"aware","http://www.wikidata.org/entity/Q56876","Language",63
+"magnet","http://www.wikidata.org/entity/Q6731415","Person",62
+"ireland","http://www.wikidata.org/entity/Q27","Country",62
+"ukraine","http://www.wikidata.org/entity/Q212","Country",62
+"magnets","http://www.wikidata.org/entity/Q6731415","Person",61
+"factor","http://www.wikidata.org/entity/Q104483142","Profession",61
+"pacific","http://www.wikidata.org/entity/Q5929270","Language",61
+"educator","http://www.wikidata.org/entity/Q974144","Profession",61
+"factor","http://www.wikidata.org/entity/Q56599002","Profession",61
+"factor","http://www.wikidata.org/entity/Q323336","Profession",61
+"professors","http://www.wikidata.org/entity/Q37226","Profession",61
+"pacific","http://www.wikidata.org/entity/Q630226","Language",61
+"educator","http://www.wikidata.org/entity/Q37226","Profession",61
+"politician","http://www.wikidata.org/entity/Q82955","Profession",60
+"poland","http://www.wikidata.org/entity/Q36","Country",60
+"adviser","http://www.wikidata.org/entity/Q2994387","Profession",60
+"stanford","http://www.wikidata.org/entity/Q41506","Language",60
+"research associate","http://www.wikidata.org/entity/Q3151032","Profession",60
+"nefarious","http://www.wikidata.org/entity/Q15903252","Person",59
+"graduate studies","http://www.wikidata.org/entity/Q141212","Award",59
+"bachelor of arts","http://www.wikidata.org/entity/Q1765120","Award",59
+"synthesis","http://www.wikidata.org/entity/Q48612","Language",59
+"diploma","http://www.wikidata.org/entity/Q189533","Award",58
+"diploma","http://www.wikidata.org/entity/Q5978719","Award",58
+"manager","http://www.wikidata.org/entity/Q1320883","Profession",58
+"manager","http://www.wikidata.org/entity/Q2462658","Profession",58
+"manager","http://www.wikidata.org/entity/Q6746710","Profession",58
+"johns hopkins university","http://www.wikidata.org/entity/Q193727","Language",58
+"agent","http://www.wikidata.org/entity/Q392651","Profession",58
+"manager","http://www.wikidata.org/entity/Q721834","Profession",58
+"diploma","http://www.wikidata.org/entity/Q217577","Award",58
+"estate","http://www.wikidata.org/entity/Q1339396","Language",58
+"manager","http://www.wikidata.org/entity/Q1240788","Profession",58
+"portuguese","http://www.wikidata.org/entity/Q5146","Language",58
+"manager","http://www.wikidata.org/entity/Q1186921","Profession",58
+"swiss","http://www.wikidata.org/entity/Q39","Country",58
+"diploma","http://www.wikidata.org/entity/Q13579013","Award",58
+"agent","http://www.wikidata.org/entity/Q323336","Profession",58
+"manager","http://www.wikidata.org/entity/Q41583","Profession",58
+"manager","http://www.wikidata.org/entity/Q3246315","Profession",58
+"manager","http://www.wikidata.org/entity/Q628099","Profession",58
+"armenia","http://www.wikidata.org/entity/Q399","Country",57
+"agent","http://www.wikidata.org/entity/Q109555060","Profession",57
+"the netherlands","http://www.wikidata.org/entity/Q29999","Country",57
+"authors","http://www.wikidata.org/entity/Q36180","Profession",57
+"japanese","http://www.wikidata.org/entity/Q5287","Language",56
+"jackal","http://www.wikidata.org/entity/Q2343504","Person",56
+"atomic","http://www.wikidata.org/entity/Q38","Country",56
+"jackal","http://www.wikidata.org/entity/Q2584005","Person",56
+"quantum","http://www.wikidata.org/entity/Q2866218","Language",56
+"journalist","http://www.wikidata.org/entity/Q1930187","Profession",56
+"founders","http://www.wikidata.org/entity/Q19435686","Profession",56
+"quantum","http://www.wikidata.org/entity/Q29401","Language",56
+"danish","http://www.wikidata.org/entity/Q24204852","Language",55
+"danish","http://www.wikidata.org/entity/Q9035","Language",55
+"astronaut","http://www.wikidata.org/entity/Q2868586","Profession",55
+"research scientist","http://www.wikidata.org/entity/Q105574528","Profession",55
+"south africa","http://www.wikidata.org/entity/Q258","Country",55
+"egypt","http://www.wikidata.org/entity/Q79","Country",55
+"astronaut","http://www.wikidata.org/entity/Q11631","Profession",55
+"judge","http://www.wikidata.org/entity/Q52008310","Profession",54
+"chancellor","http://www.wikidata.org/entity/Q61061","Award",54
+"university of pennsylvania","http://www.wikidata.org/entity/Q49117","Language",54
+"judge","http://www.wikidata.org/entity/Q52008306","Profession",54
+"university of london","http://www.wikidata.org/entity/Q170027","Language",54
+"geologist","http://www.wikidata.org/entity/Q520549","Profession",54
+"doctor manhattan","http://www.wikidata.org/entity/Q2519257","Person",53
+"bachelor of science","http://www.wikidata.org/entity/Q787674","Award",53
+"doctor doom","http://www.wikidata.org/entity/Q430178","Person",52
+"denmark","http://www.wikidata.org/entity/Q35","Country",52
+"steven","http://www.wikidata.org/entity/Q657222","Language",52
+"producer","http://www.wikidata.org/entity/Q13235160","Profession",52
+"producer","http://www.wikidata.org/entity/Q1759246","Profession",52
+"producer","http://www.wikidata.org/entity/Q578109","Profession",52
+"producer","http://www.wikidata.org/entity/Q3922505","Profession",52
+"doctor doom","http://www.wikidata.org/entity/Q3336797","Person",52
+"producer","http://www.wikidata.org/entity/Q47541952","Profession",52
+"producer","http://www.wikidata.org/entity/Q19826506","Profession",52
+"creative","http://www.wikidata.org/entity/Q667982","Profession",51
+"islam","http://www.wikidata.org/entity/Q432","Belief",51
+"irish","http://www.wikidata.org/entity/Q9142","Language",51
+"ambassador","http://www.wikidata.org/entity/Q121998","Profession",51
+"lawyer","http://www.wikidata.org/entity/Q40348","Profession",51
+"jor-el","http://www.wikidata.org/entity/Q2068759","Person",51
+"arabic","http://www.wikidata.org/entity/Q13955","Language",51
+"gwen stacy","http://www.wikidata.org/entity/Q98454800","Person",50
+"bumblebee","http://www.wikidata.org/entity/Q2893593","Person",50
+"marie","http://www.wikidata.org/entity/Q973685","Language",50
+"peter parker","http://www.wikidata.org/entity/Q2343504","Person",50
+"persian","http://www.wikidata.org/entity/Q9168","Language",50
+"peter parker","http://www.wikidata.org/entity/Q79037","Person",50
+"marie","http://www.wikidata.org/entity/Q6760942","Language",50
+"marie","http://www.wikidata.org/entity/Q6760941","Language",50
+"roger","http://www.wikidata.org/entity/Q277766","Person",49
+"carter","http://www.wikidata.org/entity/Q1473046","Profession",49
+"giganta","http://www.wikidata.org/entity/Q2318454","Person",48
+"pages","http://www.wikidata.org/entity/Q855855","Award",48
+"philosopher","http://www.wikidata.org/entity/Q4964182","Profession",48
+"eighth doctor","http://www.wikidata.org/entity/Q945808","Person",48
+"units","http://www.wikidata.org/entity/Q10387877","Language",48
+"gold medal","http://www.wikidata.org/entity/Q15243387","Award",48
+"pages","http://www.wikidata.org/entity/Q60741299","Award",48
+"masters","http://www.wikidata.org/entity/Q96678236","Award",47
+"wings","http://www.wikidata.org/entity/Q4698575","Award",47
+"finland","http://www.wikidata.org/entity/Q33","Country",47
+"baron","http://www.wikidata.org/entity/Q57979447","Award",47
+"masters","http://www.wikidata.org/entity/Q1459149","Profession",47
+"masters","http://www.wikidata.org/entity/Q1641418","Profession",47
+"masters","http://www.wikidata.org/entity/Q183816","Award",47
+"baron","http://www.wikidata.org/entity/Q165503","Award",47
+"czech","http://www.wikidata.org/entity/Q9056","Language",47
+"kazakhstan","http://www.wikidata.org/entity/Q232","Country",47
+"masters","http://www.wikidata.org/entity/Q3297843","Award",47
+"physicists","http://www.wikidata.org/entity/Q169470","Profession",46
+"sweden","http://www.wikidata.org/entity/Q34","Country",46
+"psychologist","http://www.wikidata.org/entity/Q212980","Profession",46
+"astronomer","http://www.wikidata.org/entity/Q11063","Profession",46
+"academy of science","http://www.wikidata.org/entity/Q414147","Professional Society",45
+"canon","http://www.wikidata.org/entity/Q1486543","Profession",45
+"grade","http://www.wikidata.org/entity/Q17018626","Profession",45
+"editor-in-chief","http://www.wikidata.org/entity/Q589298","Profession",45
+"the tenth doctor","http://www.wikidata.org/entity/Q2656347","Person",45
+"academy of science","http://www.wikidata.org/entity/Q414147","Scientific Society",45
+"mr freeze","http://www.wikidata.org/entity/Q557584","Person",45
+"braddock","http://www.wikidata.org/entity/Q2405949","Person",45
+"canon","http://www.wikidata.org/entity/Q1237385","Award",45
+"board member","http://www.wikidata.org/entity/Q2824523","Profession",44
+"actors","http://www.wikidata.org/entity/Q10798782","Profession",44
+"davis","http://www.wikidata.org/entity/Q129421","Language",44
+"actors","http://www.wikidata.org/entity/Q33999","Profession",44
+"comes","http://www.wikidata.org/entity/Q1071047","Award",44
+"tradition","http://www.wikidata.org/entity/Q109335991","Belief",44
+"reader","http://www.wikidata.org/entity/Q3445082","Profession",43
+"faber","http://www.wikidata.org/entity/Q11921456","Profession",43
+"reader","http://www.wikidata.org/entity/Q1553123","Profession",43
+"wright","http://www.wikidata.org/entity/Q21062253","Person",43
+"doctor of philosophy","http://www.wikidata.org/entity/Q752297","Award",43
+"hunter","http://www.wikidata.org/entity/Q1714828","Profession",43
+"preparation","http://www.wikidata.org/entity/Q1640478","Profession",43
+"bachelor of science degree","http://www.wikidata.org/entity/Q787674","Award",43
+"doctor of philosophy","http://www.wikidata.org/entity/Q752297","Doctoral Degree",43
+"member of the board","http://www.wikidata.org/entity/Q2824523","Profession",42
+"economist","http://www.wikidata.org/entity/Q188094","Profession",42
+"internship","http://www.wikidata.org/entity/Q5422064","Profession",42
+"economist","http://www.wikidata.org/entity/Q1227195","Profession",42
+"wonder woman","http://www.wikidata.org/entity/Q978044","Profession",42
+"hebrew","http://www.wikidata.org/entity/Q9288","Language",42
+"titles","http://www.wikidata.org/entity/Q4121104","Award",42
+"speaker","http://www.wikidata.org/entity/Q12859263","Profession",42
+"trustee","http://www.wikidata.org/entity/Q67378402","Profession",42
+"polar","http://www.wikidata.org/entity/Q105094268","Award",42
+"swedish","http://www.wikidata.org/entity/Q9027","Language",42
+"russian federation","http://www.wikidata.org/entity/Q159","Country",42
+"entrepreneur","http://www.wikidata.org/entity/Q10501288","Profession",42
+"trustee","http://www.wikidata.org/entity/Q2047357","Profession",42
+"medical degree","http://www.wikidata.org/entity/Q6806503","Award",42
+"titles","http://www.wikidata.org/entity/Q3562482","Award",42
+"entrepreneur","http://www.wikidata.org/entity/Q131524","Profession",42
+"painter","http://www.wikidata.org/entity/Q288728","Profession",42
+"mexican","http://www.wikidata.org/entity/Q96","Country",41
+"anthony","http://www.wikidata.org/entity/Q572811","Award",41
+"mexican","http://www.wikidata.org/entity/Q13300","Language",41
+"taiwan","http://www.wikidata.org/entity/Q865","Country",40
+"delegate","http://www.wikidata.org/entity/Q994779","Profession",40
+"critics","http://www.wikidata.org/entity/Q6430706","Profession",40
+"argentina","http://www.wikidata.org/entity/Q414","Country",40
+"designer","http://www.wikidata.org/entity/Q5322166","Profession",40
+"zor-el","http://www.wikidata.org/entity/Q9291384","Person",40
+"medical officer","http://www.wikidata.org/entity/Q10855616","Profession",40
+"designer","http://www.wikidata.org/entity/Q62091180","Profession",40
+"candidates","http://www.wikidata.org/entity/Q2383393","Award",40
+"washington university","http://www.wikidata.org/entity/Q777403","Language",40
+"guardian","http://www.wikidata.org/entity/Q2519927","Award",40
+"plankton","http://www.wikidata.org/entity/Q57312855","Person",40
+"candidates","http://www.wikidata.org/entity/Q2878144","Award",40
+"priest","http://www.wikidata.org/entity/Q106914679","Award",39
+"trustees","http://www.wikidata.org/entity/Q67378402","Profession",39
+"undergraduate degree","http://www.wikidata.org/entity/Q6008527","Award",39
+"merchant","http://www.wikidata.org/entity/Q3704253","Profession",39
+"priest","http://www.wikidata.org/entity/Q106983414","Award",39
+"merchant","http://www.wikidata.org/entity/Q215536","Profession",39
+"priest","http://www.wikidata.org/entity/Q96236305","Profession",39
+"professor x","http://www.wikidata.org/entity/Q838076","Person",39
+"professor x","http://www.wikidata.org/entity/Q105350971","Person",39
+"attorney","http://www.wikidata.org/entity/Q40348","Profession",39
+"doctoral degree","http://www.wikidata.org/entity/Q849697","Award",39
+"trustees","http://www.wikidata.org/entity/Q2047357","Profession",39
+"businessman","http://www.wikidata.org/entity/Q43845","Profession",38
+"publisher","http://www.wikidata.org/entity/Q2516866","Profession",38
+"publisher","http://www.wikidata.org/entity/Q175151","Profession",38
+"intelligent design","http://www.wikidata.org/entity/Q9240","Language",38
+"portugal","http://www.wikidata.org/entity/Q45","Country",38

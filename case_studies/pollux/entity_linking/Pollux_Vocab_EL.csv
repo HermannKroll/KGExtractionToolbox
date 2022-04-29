@@ -1,0 +1,501 @@
+"ent_str","ent_id","ent_type","count"
+"conflict","Q185407","War",811
+"conditions","Q4230506","Coup",679
+"conflicts","Q185407","War",286
+"condition","Q4230506","Coup",131
+"the cold war","Q8683","War",122
+"civil war","Q188972","War",73
+"civil war","Q8465","War",73
+"civil war","Q8676","War",73
+"world war ii","Q362","War",47
+"cold war","Q8683","War",34
+"cold war","Q1936011","War",34
+"war on terror","Q185729","War",32
+"presidential election","Q858439","Election",30
+"presidential elections","Q858439","Election",26
+"civil wars","Q8676","War",23
+"civil wars","Q8465","War",23
+"civil wars","Q188972","War",23
+"arab spring","Q33761","War",21
+"the second world war","Q362","War",20
+"the civil war","Q8676","War",19
+"general election","Q6542936","Election",18
+"general election","Q30173038","Election",18
+"general election","Q918503","Election",18
+"general election","Q3586935","Election",18
+"general election","Q428598","Election",18
+"general election","Q1076105","Election",18
+"general election","Q590740","Election",18
+"general election","Q25052149","Election",18
+"general election","Q215622","Election",18
+"world war i","Q361","War",15
+"war of","Q26013","War",14
+"vietnam war","Q8740","War",11
+"reelection","Q481394","Election",11
+"iraq war","Q545449","War",10
+"world war","Q103495","War",10
+"world war","Q361","War",10
+"iraq war","Q37643","War",10
+"korean war","Q8663","War",10
+"total war","Q154605","War",9
+"gulf war","Q82664","War",8
+"parliamentary election","Q3558599","Election",8
+"war on terrorism","Q185729","War",8
+"gulf war","Q37643","War",8
+"the first world war","Q361","War",8
+"military intervention","Q5919191","War",8
+"free elections","Q16837727","Election",6
+"local elections","Q15966540","Election",6
+"free elections","Q9252355","Election",6
+"world wars","Q361","War",6
+"free elections","Q16837740","Election",6
+"free elections","Q9252351","Election",6
+"military coup","Q10290447","Coup",6
+"global war","Q103495","War",6
+"p&c","Q185407","War",6
+"re-election","Q481394","Election",6
+"free elections","Q16837743","Election",6
+"free elections","Q16837735","Election",6
+"free elections","Q11696542","Election",6
+"world wars","Q103495","War",6
+"free elections","Q16837722","Election",6
+"synonym","id","type",5
+"the spanish civil war","Q10859","War",5
+"heading","id","type",5
+"la violencia","Q185407","War",5
+"war in iraq","Q545449","War",5
+"general elections","Q30173038","Election",4
+"general elections","Q25052149","Election",4
+"general elections","Q6542936","Election",4
+"general elections","Q1076105","Election",4
+"parliamentary elections","Q3558599","Election",4
+"military interventions","Q5919191","War",4
+"general elections","Q215622","Election",4
+"general elections","Q428598","Election",4
+"ogaden war","Q318250","War",4
+"early elections","Q1333366","Election",4
+"general elections","Q3586935","Election",4
+"midterm elections","Q13256577","Election",4
+"general elections","Q918503","Election",4
+"drug war","Q77597785","War",4
+"state elections","Q107394355","Election",4
+"general elections","Q590740","Election",4
+"british general election","Q4971351","Election",3
+"european parliament elections","Q60528229","Election",3
+"british general election","Q4971353","Election",3
+"european parliament elections","Q61355665","Election",3
+"british general election","Q4971362","Election",3
+"european parliament elections","Q61522535","Election",3
+"invasion of iraq","Q107802","War",3
+"municipal election","Q15966540","Election",3
+"municipal election","Q16968582","Election",3
+"wwi","Q361","War",3
+"european parliament elections","Q60863510","Election",3
+"british general election","Q4971357","Election",3
+"british general election","Q4971350","Election",3
+"gubernatorial elections","Q15261477","Election",3
+"six-day war","Q49077","War",3
+"british general election","Q4971369","Election",3
+"european parliament elections","Q55119918","Election",3
+"municipal election","Q24190679","Election",3
+"european parliament elections","Q596633","Election",3
+"british general election","Q4971358","Election",3
+"the great war","Q361","War",3
+"european parliament elections","Q15427735","Election",3
+"british general election","Q4971367","Election",3
+"european parliament elections","Q58853228","Election",3
+"invasion of iraq","Q545449","War",3
+"british general election","Q4971349","Election",3
+"british general election","Q4971360","Election",3
+"european parliament elections","Q70253009","Election",3
+"syrian civil war","Q178810","War",3
+"headings","id","type",3
+"british general election","Q10854279","Election",3
+"persian gulf war","Q37643","War",3
+"suez crisis","Q49101","War",3
+"european parliament elections","Q56192519","Election",3
+"direct election","Q1196727","Election",3
+"european parliament elections","Q1451109","Election",3
+"spectre","Q2583092","War",3
+"european parliament elections","Q61360276","Election",3
+"british general election","Q4971370","Election",3
+"european parliament elections","Q15057715","Election",3
+"british general election","Q4971371","Election",3
+"european parliament elections","Q61121995","Election",3
+"british general election","Q4971361","Election",3
+"european parliament elections","Q60965483","Election",3
+"british general election","Q4971359","Election",3
+"2010 general election","Q215622","Election",3
+"british general election","Q4971364","Election",3
+"british general election","Q4971368","Election",3
+"putsch","Q3449092","Coup",3
+"svac","Q185407","War",2
+"canadian federal elections","Q909860","Election",2
+"first crusade","Q51649","War",2
+"local election","Q15966540","Election",2
+"military coups","Q10290447","Coup",2
+"us elections","Q279283","Election",2
+"canadian federal elections","Q1723529","Election",2
+"the yugoslav wars","Q242352","War",2
+"canadian federal elections","Q787147","Election",2
+"canadian federal elections","Q374646","Election",2
+"franco-prussian war","Q46083","War",2
+"retention elections","Q3563181","Election",2
+"kosovo war","Q190029","War",2
+"asymmetric wars","Q752673","War",2
+"municipal elections","Q16968582","Election",2
+"municipal elections","Q15966540","Election",2
+"land warfare","Q1190472","War",2
+"canadian federal elections","Q951012","Election",2
+"canadian federal elections","Q909839","Election",2
+"canadian federal elections","Q937472","Election",2
+"canadian federal elections","Q1723528","Election",2
+"2007 french presidential election","Q245238","Election",2
+"canadian federal elections","Q73837865","Election",2
+"canadian federal elections","Q3586269","Election",2
+"direct elections","Q1196727","Election",2
+"canadian federal elections","Q909849","Election",2
+"canadian federal elections","Q1723532","Election",2
+"canadian federal elections","Q1723524","Election",2
+"canadian federal elections","Q954886","Election",2
+"canadian federal elections","Q1717224","Election",2
+"canadian federal elections","Q909878","Election",2
+"canadian federal elections","Q951046","Election",2
+"us elections","Q7892465","Election",2
+"canadian federal elections","Q954802","Election",2
+"world war two","Q362","War",2
+"italian municipal elections","Q3722186","Election",2
+"canadian federal elections","Q108803782","Election",2
+"war of attrition","Q322607","War",2
+"municipal elections","Q24190679","Election",2
+"canadian federal elections","Q1723544","Election",2
+"canadian federal elections","Q1637432","Election",2
+"canadian federal elections","Q595982","Election",2
+"war in chechnya","Q29269","War",2
+"canadian federal elections","Q1723526","Election",2
+"canadian federal elections","Q374258","Election",2
+"2009 iranian presidential election","Q143304","Election",2
+"canadian federal elections","Q912416","Election",2
+"canadian federal elections","Q1723530","Election",2
+"ercs","Q185407","War",2
+"canadian federal elections","Q1616009","Election",2
+"canadian federal elections","Q1126013","Election",2
+"canadian federal elections","Q780004","Election",2
+"anglo-dutch wars","Q755170","War",2
+"elections in the czech republic","Q4115021","Election",2
+"elections in taiwan","Q5354906","Election",2
+"canadian federal elections","Q909868","Election",2
+"mexican war","Q6683","War",2
+"gulf wars","Q82664","War",2
+"russo-japanese war","Q159950","War",2
+"canadian federal elections","Q909888","Election",2
+"canadian federal elections","Q1723531","Election",2
+"canadian federal elections","Q937416","Election",2
+"canadian federal elections","Q1466815","Election",2
+"canadian federal elections","Q1493320","Election",2
+"canadian federal elections","Q1125968","Election",2
+"us elections","Q7892468","Election",2
+"canadian federal elections","Q3586271","Election",2
+"canadian federal elections","Q913758","Election",2
+"canadian federal elections","Q1666164","Election",2
+"canadian federal elections","Q1355905","Election",2
+"canadian federal elections","Q952341","Election",2
+"canadian federal elections","Q936847","Election",2
+"operation iraqi freedom","Q545449","War",2
+"canadian federal elections","Q1448629","Election",2
+"gulf wars","Q37643","War",2
+"canadian federal elections","Q41302","Election",2
+"united states elections","Q19605165","Election",1
+"1991","Q37643","War",1
+"united states elections","Q7892429","Election",1
+"2004 european parliament election","Q1331918","Election",1
+"united states elections","Q18356906","Election",1
+"united states elections","Q7892442","Election",1
+"united states elections","Q7892457","Election",1
+"united states elections","Q18356930","Election",1
+"united states elections","Q18356891","Election",1
+"alberta general election","Q3586284","Election",1
+"german federal election","Q555931","Election",1
+"united states elections","Q18357027","Election",1
+"united states elections","Q7892452","Election",1
+"alberta general election","Q3586279","Election",1
+"wwii","Q362","War",1
+"alberta general election","Q3586299","Election",1
+"alberta general election","Q3586291","Election",1
+"united states elections","Q18395024","Election",1
+"united states elections","Q18356804","Election",1
+"conflict in afghanistan","Q1519107","War",1
+"yugoslavian wars","Q242352","War",1
+"195462","Q200790","War",1
+"israeli election","Q64159775","Election",1
+"united states elections","Q7892466","Election",1
+"united states elections","Q18357001","Election",1
+"border wars","Q2615472","War",1
+"1991","Q221382","Coup",1
+"united states elections","Q7892422","Election",1
+"iraq invasion","Q545449","War",1
+"alberta general election","Q3586282","Election",1
+"brazilian legislative elections","Q56351812","Election",1
+"national revolution","Q732219","Coup",1
+"undeclared war","Q7883019","War",1
+"peninsular war","Q152499","War",1
+"spanish war","Q10859","War",1
+"colombian presidential elections","Q13445771","Election",1
+"1981-1995","Q8683","War",1
+"united states elections","Q7892420","Election",1
+"united states elections","Q18356758","Election",1
+"united states elections","Q7892440","Election",1
+"2007 irish general election","Q581784","Election",1
+"long war","Q690361","War",1
+"brazilian legislative elections","Q4958852","Election",1
+"iraqi freedom","Q545449","War",1
+"united states elections","Q7892424","Election",1
+"ph 3.5","Q4230506","Coup",1
+"german federal election","Q28887","Election",1
+"united states elections","Q7892416","Election",1
+"united states elections","Q18356912","Election",1
+"somali civil war","Q243620","War",1
+"2003 louisiana gubernatorial election","Q6689398","Election",1
+"2011 danish general election","Q865914","Election",1
+"united states elections","Q18356795","Election",1
+"indopakistani war of 1965","Q233583","War",1
+"united states elections","Q1895188","Election",1
+"colombian presidential elections","Q5828691","Election",1
+"united states elections","Q7892437","Election",1
+"united states elections","Q7892455","Election",1
+"nigerian civil war","Q829875","War",1
+"united states elections","Q7892462","Election",1
+"and problems","Q185407","War",1
+"united states elections","Q7892425","Election",1
+"eighteenth brumaire","Q620965","Coup",1
+"colombian presidential elections","Q5828670","Election",1
+"1914-1918","Q361","War",1
+"colombian presidential elections","Q21044219","Election",1
+"brazilian legislative elections","Q10271558","Election",1
+"attempted coup","Q25906438","Coup",1
+"early election","Q1333366","Election",1
+"german federal election","Q698540","Election",1
+"war between the states","Q8676","War",1
+"second world wars","Q362","War",1
+"russo polish war","Q631991","War",1
+"united states elections","Q18395040","Election",1
+"colombian presidential elections","Q5828660","Election",1
+"united states elections","Q18356958","Election",1
+"the yugoslav war","Q242352","War",1
+"elections in sweden","Q3735285","Election",1
+"colombian presidential elections","Q19869719","Election",1
+"1996 new zealand general elections","Q17055270","Election",1
+"colombian presidential elections","Q3586524","Election",1
+"elections in italy","Q3650619","Election",1
+"afghanistan war","Q1519107","War",1
+"uk election","Q918346","Election",1
+"united states elections","Q7892435","Election",1
+"alberta general election","Q3586287","Election",1
+"deluge","Q631163","War",1
+"united states elections","Q18357023","Election",1
+"alberta general election","Q23074035","Election",1
+"1944-1999","Q8465","War",1
+"second gulf war","Q545449","War",1
+"alberta general election","Q3586295","Election",1
+"revolutionary war","Q40949","War",1
+"russian campaign","Q189266","War",1
+"united states elections","Q18356852","Election",1
+"colombian presidential elections","Q1777858","Election",1
+"iraniraq war","Q82664","War",1
+"jewish wars","Q4205368","War",1
+"colombian presidential elections","Q3586525","Election",1
+"united states elections","Q18356864","Election",1
+"united states elections","Q18356840","Election",1
+"algerian war of independence","Q200790","War",1
+"german federal election","Q157869","Election",1
+"rainfall","Q4230506","Coup",1
+"united states elections","Q7892423","Election",1
+"united states elections","Q18395014","Election",1
+"united states elections","Q18356899","Election",1
+"1936-1939","Q10859","War",1
+"brazilian legislative elections","Q4958846","Election",1
+"first chechen war","Q29269","War",1
+"russian campaign","Q179250","War",1
+"united states elections","Q7892441","Election",1
+"elections in japan","Q1376777","Election",1
+"2005 general election","Q428598","Election",1
+"war of 1812","Q26013","War",1
+"united states elections","Q18356794","Election",1
+"brazilian legislative elections","Q16953490","Election",1
+"presidential elections in chile","Q28152015","Election",1
+"colombian presidential elections","Q2046123","Election",1
+"alberta general election","Q3586280","Election",1
+"iraq wars","Q37643","War",1
+"brazilian legislative elections","Q4958849","Election",1
+"19892009","Q185407","War",1
+"irregular warfare","Q6073630","War",1
+"united states elections","Q7892434","Election",1
+"colombian presidential elections","Q1637737","Election",1
+"occupation of iraq","Q545449","War",1
+"united states elections","Q1351781","Election",1
+"united states elections","Q22019872","Election",1
+"1991","Q82664","War",1
+"global war on terrorism","Q185729","War",1
+"united states elections","Q7892447","Election",1
+"brazilian legislative elections","Q10271561","Election",1
+"alberta general election","Q3586292","Election",1
+"united states elections","Q18356920","Election",1
+"drug wars","Q77597785","War",1
+"united states elections","Q18356754","Election",1
+"colombian presidential elections","Q1998713","Election",1
+"colombian presidential elections","Q428063","Election",1
+"alberta general election","Q3586290","Election",1
+"german federal election","Q29333","Election",1
+"united states elections","Q7892431","Election",1
+"special elections","Q7892166","Election",1
+"united states elections","Q18356878","Election",1
+"alberta general election","Q4632914","Election",1
+"united states elections","Q7892428","Election",1
+"united states elections","Q18357038","Election",1
+"proxy wars","Q864113","War",1
+"nakba","Q49092","War",1
+"united states elections","Q18356783","Election",1
+"colombian presidential elections","Q3586526","Election",1
+"united states elections","Q7892446","Election",1
+"kachin conflict","Q2652686","War",1
+"united states elections","Q18356988","Election",1
+"german federal election","Q267012","Election",1
+"1944-1999","Q188972","War",1
+"united states elections","Q18395042","Election",1
+"synonyms","id","type",1
+"colombian presidential elections","Q21044218","Election",1
+"united states elections","Q28368897","Election",1
+"united states elections","Q18356959","Election",1
+"alberta general election","Q65059632","Election",1
+"united states elections","Q18357014","Election",1
+"intrastate war","Q8465","War",1
+"the deluge","Q631163","War",1
+"united states elections","Q7892418","Election",1
+"united states elections","Q18356973","Election",1
+"united states elections","Q3722403","Election",1
+"alberta general election","Q253252","Election",1
+"colombian presidential elections","Q3586522","Election",1
+"colombian presidential elections","Q5828674","Election",1
+"german federal election","Q18324613","Election",1
+"united states elections","Q16152729","Election",1
+"united states elections","Q19605164","Election",1
+"german federal election","Q165999","Election",1
+"united states elections","Q18356962","Election",1
+"german federal election","Q28890","Election",1
+"united states elections","Q18356854","Election",1
+"united states elections","Q18395045","Election",1
+"colombian presidential elections","Q5828688","Election",1
+"2003 finnish parliamentary elections","Q1659687","Election",1
+"indian wars","Q849680","War",1
+"united states elections","Q18356851","Election",1
+"alberta general election","Q3586296","Election",1
+"united states elections","Q18395018","Election",1
+"united states elections","Q18395021","Election",1
+"colombian presidential elections","Q24960542","Election",1
+"united states elections","Q18395029","Election",1
+"united states elections","Q7892464","Election",1
+"show election","Q139060","Election",1
+"united states elections","Q18357032","Election",1
+"united states elections","Q18395016","Election",1
+"german federal election","Q878743","Election",1
+"united states elections","Q7892444","Election",1
+"first gulf war","Q37643","War",1
+"1967 arab-israeli war","Q49077","War",1
+"brazilian legislative elections","Q4958841","Election",1
+"alberta general election","Q3586281","Election",1
+"opium wars","Q220984","War",1
+"german federal election","Q689220","Election",1
+"alberta general election","Q3586298","Election",1
+"german federal election","Q702170","Election",1
+"united states elections","Q7892467","Election",1
+"united states elections","Q18356994","Election",1
+"war in afghanistan","Q18920712","War",1
+"united states elections","Q18356828","Election",1
+"united states elections","Q18356781","Election",1
+"united states elections","Q7892445","Election",1
+"basque conflict","Q1021158","War",1
+"elections in slovenia","Q377889","Election",1
+"united states elections","Q18356872","Election",1
+"irish election","Q6071480","Election",1
+"brazilian legislative elections","Q4958851","Election",1
+"brazilian legislative elections","Q4958850","Election",1
+"united states elections","Q7892456","Election",1
+"dirty war","Q11682254","War",1
+"brazilian legislative elections","Q4958845","Election",1
+"german federal election","Q373422","Election",1
+"coup attempt","Q25906438","Coup",1
+"united states elections","Q18357004","Election",1
+"united states elections","Q7892436","Election",1
+"dirty war","Q3151731","War",1
+"united states elections","Q7892459","Election",1
+"alberta general election","Q3586283","Election",1
+"primary election","Q669262","Election",1
+"colombian presidential elections","Q2115187","Election",1
+"alberta general election","Q3586300","Election",1
+"sub-topic a","Q185407","War",1
+"2","Q154605","War",1
+"colombian presidential elections","Q5828700","Election",1
+"united states elections","Q18164676","Election",1
+"united states elections","Q18356746","Election",1
+"colombian presidential elections","Q19869721","Election",1
+"united states elections","Q7892461","Election",1
+"united states elections","Q1751449","Election",1
+"election 2016","Q7892465","Election",1
+"alberta general election","Q3586301","Election",1
+"colombian presidential elections","Q19869711","Election",1
+"power grab","Q4460509","Coup",1
+"war in afghanistan","Q1519107","War",1
+"alberta general election","Q3586297","Election",1
+"alberta general election","Q3586303","Election",1
+"alberta general election","Q3586302","Election",1
+"united states elections","Q18356948","Election",1
+"colombian presidential elections","Q5828672","Election",1
+"united states elections","Q7892448","Election",1
+"united states elections","Q18356975","Election",1
+"alberta general election","Q3586288","Election",1
+"colombian presidential elections","Q5828683","Election",1
+"united states elections","Q1695396","Election",1
+"united states elections","Q7892463","Election",1
+"united states elections","Q18356902","Election",1
+"pacific war","Q184425","War",1
+"elections in ukraine","Q1292614","Election",1
+"mexican revolution","Q214426","War",1
+"united states elections","Q7892426","Election",1
+"united states elections","Q2035725","Election",1
+"coup attempts","Q25906438","Coup",1
+"united states elections","Q18356759","Election",1
+"united states elections","Q7892443","Election",1
+"united states elections","Q18356944","Election",1
+"united states elections","Q7892468","Election",1
+"united states elections","Q7892430","Election",1
+"united states elections","Q7892454","Election",1
+"alberta general election","Q3586304","Election",1
+"gulf war i","Q37643","War",1
+"algerian war","Q200790","War",1
+"colombian presidential elections","Q5828685","Election",1
+"united states elections","Q18357028","Election",1
+"colombian presidential elections","Q5828677","Election",1
+"land war","Q1545405","War",1
+"colombian presidential elections","Q5147970","Election",1
+"united states elections","Q18356805","Election",1
+"western designs","Q2564895","War",1
+"united states elections","Q16191983","Election",1
+"elections in canada","Q277924","Election",1
+"alberta general election","Q3586293","Election",1
+"colombian presidential elections","Q2890773","Election",1
+"german federal election","Q15062956","Election",1
+"united states elections","Q18356768","Election",1
+"elections in germany","Q327765","Election",1
+"united states elections","Q7892438","Election",1
+"1999 finnish parliamentary elections","Q1362533","Election",1
+"alberta general election","Q3586305","Election",1
+"world war 1","Q361","War",1
+"tripartite aggression","Q49101","War",1
+"iraq wars","Q545449","War",1
+"1","Q154605","War",1
+"united states elections","Q7892432","Election",1
+"united states elections","Q18356812","Election",1
+"united states elections","Q60527703","Election",1
+"united states elections","Q18356934","Election",1
+"united states elections","Q18357009","Election",1
+"augustputsch","Q221382","Coup",1

@@ -1,0 +1,501 @@
+"ent_str","ent_id","ent_type","count"
+"two","two","CARDINAL",1366
+"three","three","CARDINAL",800
+"US","US","GPE",792
+"one","one","CARDINAL",788
+"China","China","GPE",761
+"1","1","CARDINAL",722
+"EU","EU","ORG",698
+"2","2","CARDINAL",625
+"European","European","NORP",556
+"the United States","the United States","GPE",498
+"American","American","NORP",450
+"Europe","Europe","LOC",424
+"3","3","CARDINAL",418
+"U.S.","U.S.","GPE",333
+"India","India","GPE",326
+"four","four","CARDINAL",321
+"Chinese","Chinese","NORP",309
+"Africa","Africa","LOC",290
+"Russia","Russia","GPE",281
+"British","British","NORP",261
+"Germany","Germany","GPE",260
+"4","4","CARDINAL",257
+"today","today","DATE",238
+"Japan","Japan","GPE",236
+"German","German","NORP",233
+"Soviet","Soviet","NORP",224
+"One","One","CARDINAL",206
+"African","African","NORP",199
+"UK","UK","GPE",188
+"France","France","GPE",180
+"Israel","Israel","GPE",178
+"Canada","Canada","GPE",175
+"Congress","Congress","ORG",166
+"Indian","Indian","NORP",164
+"Australia","Australia","GPE",161
+"Western","Western","NORP",159
+"five","five","CARDINAL",158
+"the European Union","the European Union","ORG",156
+"Iraq","Iraq","GPE",155
+"America","America","GPE",152
+"Russian","Russian","NORP",148
+"Turkey","Turkey","GPE",146
+"5","5","CARDINAL",143
+"Brazil","Brazil","GPE",138
+"Asia","Asia","LOC",136
+"South Africa","South Africa","GPE",134
+"Sweden","Sweden","GPE",132
+"Two","Two","CARDINAL",130
+"2008","2008","DATE",127
+"Islamic","Islamic","NORP",124
+"UN","UN","ORG",123
+"Japanese","Japanese","NORP",123
+"2004","2004","DATE",122
+"Mexico","Mexico","GPE",120
+"Latin America","Latin America","LOC",119
+"Iran","Iran","GPE",118
+"the Middle East","the Middle East","LOC",118
+"NATO","NATO","ORG",117
+"English","English","LANGUAGE",116
+"French","French","NORP",116
+"Indonesia","Indonesia","GPE",115
+"2006","2006","DATE",112
+"six","six","CARDINAL",110
+"Taiwan","Taiwan","GPE",105
+"2010","2010","DATE",105
+"Muslim","Muslim","NORP",103
+"2005","2005","DATE",102
+"Asian","Asian","NORP",102
+"2009","2009","DATE",102
+"2000","2000","DATE",102
+"Arab","Arab","NORP",101
+"the Cold War","the Cold War","EVENT",100
+"Italy","Italy","GPE",99
+"6","6","CARDINAL",99
+"2003","2003","DATE",98
+"Canadian","Canadian","NORP",97
+"Pakistan","Pakistan","GPE",97
+"House of Representatives","House of Representatives","ORG",96
+"recent years","recent years","DATE",95
+"Australian","Australian","NORP",94
+"2002","2002","DATE",91
+"the 1990s","the 1990s","DATE",91
+"Poland","Poland","GPE",88
+"Swedish","Swedish","NORP",87
+"Washington","Washington","GPE",87
+"10","10","CARDINAL",82
+"Three","Three","CARDINAL",81
+"1999","1999","DATE",81
+"Spain","Spain","GPE",80
+"Italian","Italian","NORP",80
+"Israeli","Israeli","NORP",79
+"2011","2011","DATE",78
+"Nigeria","Nigeria","GPE",78
+"Britain","Britain","GPE",77
+"2007","2007","DATE",76
+"West","West","LOC",76
+"Ukraine","Ukraine","GPE",76
+"Jewish","Jewish","NORP",75
+"Netherlands","Netherlands","GPE",75
+"Christian","Christian","NORP",74
+"Bangladesh","Bangladesh","GPE",74
+"1990","1990","DATE",74
+"Americans","Americans","NORP",74
+"USA","USA","GPE",73
+"Egypt","Egypt","GPE",73
+"Palestinian","Palestinian","NORP",71
+"Turkish","Turkish","NORP",71
+"2001","2001","DATE",71
+"8","8","CARDINAL",70
+"1996","1996","DATE",69
+"Afghanistan","Afghanistan","GPE",68
+"OECD","OECD","ORG",65
+"the 1980s","the 1980s","DATE",65
+"New York","New York","GPE",65
+"House","House","ORG",64
+"ASEAN","ASEAN","ORG",64
+"Vietnam","Vietnam","GPE",63
+"Kosovo","Kosovo","GPE",63
+"2012","2012","DATE",62
+"WTO","WTO","ORG",62
+"seven","seven","CARDINAL",62
+"Latin American","Latin American","NORP",61
+"Syria","Syria","GPE",61
+"Singapore","Singapore","GPE",61
+"years","years","DATE",61
+"12","12","CARDINAL",61
+"Muslims","Muslims","NORP",61
+"IMF","IMF","ORG",60
+"Senate","Senate","ORG",60
+"7","7","CARDINAL",60
+"annual","annual","DATE",60
+"the United States Government","the United States Government","ORG",60
+"Bush","Bush","PERSON",59
+"New Zealand","New Zealand","GPE",59
+"Eastern Europe","Eastern Europe","LOC",59
+"North Korea","North Korea","GPE",58
+"20","20","CARDINAL",58
+"1994","1994","DATE",58
+"Brazilian","Brazilian","NORP",58
+"Spanish","Spanish","NORP",58
+"USSR","USSR","GPE",57
+"the Soviet Union","the Soviet Union","GPE",57
+"Argentina","Argentina","GPE",57
+"Sage Publications Inc.","Sage Publications Inc.","ORG",57
+"1997","1997","DATE",56
+"London","London","GPE",56
+"Sage Publications Ltd.","Sage Publications Ltd.","ORG",56
+"World War II","World War II","EVENT",55
+"United States","United States","GPE",55
+"1989","1989","DATE",55
+"1998","1998","DATE",55
+"Commission","Commission","ORG",55
+"Cold War","Cold War","EVENT",55
+"15","15","CARDINAL",55
+"2014","2014","DATE",54
+"the United Kingdom","the United Kingdom","GPE",54
+"Lebanon","Lebanon","GPE",54
+"2013","2013","DATE",54
+"Democratic","Democratic","NORP",53
+"11","11","CARDINAL",53
+"Ireland","Ireland","GPE",53
+"Hong Kong","Hong Kong","GPE",52
+"Mexican","Mexican","NORP",52
+"England","England","GPE",52
+"18","18","CARDINAL",52
+"Dutch","Dutch","NORP",52
+"Islam","Islam","NORP",52
+"Republican","Republican","NORP",51
+"State","State","ORG",51
+"1991","1991","DATE",50
+"South African","South African","NORP",49
+"Southeast Asia","Southeast Asia","LOC",49
+"United States Senate","United States Senate","ORG",49
+"Egyptian","Egyptian","NORP",49
+"Hungary","Hungary","GPE",49
+"16","16","CARDINAL",49
+"Kenya","Kenya","GPE",49
+"14","14","CARDINAL",49
+"Yugoslavia","Yugoslavia","GPE",48
+"Chile","Chile","GPE",48
+"Court","Court","ORG",48
+"9","9","CARDINAL",47
+"1995","1995","DATE",47
+"Thailand","Thailand","GPE",47
+"Polish","Polish","NORP",47
+"European Union","European Union","ORG",47
+"Colombia","Colombia","GPE",47
+"13","13","CARDINAL",47
+"Beijing","Beijing","GPE",46
+"Switzerland","Switzerland","GPE",46
+"Malaysia","Malaysia","GPE",45
+"California","California","GPE",45
+"Uganda","Uganda","GPE",45
+"Irish","Irish","NORP",45
+"Romania","Romania","GPE",45
+"Berlin","Berlin","GPE",45
+"Democrats","Democrats","NORP",44
+"Ghana","Ghana","GPE",44
+"South","South","LOC",44
+"Denmark","Denmark","GPE",44
+"Philippines","Philippines","GPE",44
+"Arctic","Arctic","LOC",44
+"Cuba","Cuba","GPE",43
+"21","21","CARDINAL",43
+"Bulgaria","Bulgaria","GPE",43
+"Greece","Greece","GPE",43
+"1992","1992","DATE",43
+"Islam","Islam","ORG",43
+"Moscow","Moscow","GPE",43
+"Today","Today","DATE",43
+"zero","zero","CARDINAL",42
+"Western Europe","Western Europe","LOC",42
+"17","17","CARDINAL",42
+"eight","eight","CARDINAL",41
+"19","19","CARDINAL",41
+"1993","1993","DATE",41
+"Myanmar","Myanmar","GPE",41
+"South Asia","South Asia","LOC",40
+"Four","Four","CARDINAL",40
+"the 1960s","the 1960s","DATE",40
+"Hungarian","Hungarian","NORP",40
+"Jews","Jews","NORP",39
+"North America","North America","LOC",39
+"Islamist","Islamist","NORP",39
+"Slovenia","Slovenia","GPE",39
+"the European Parliament","the European Parliament","ORG",39
+"Finland","Finland","GPE",38
+"daily","daily","DATE",38
+"the European Commission","the European Commission","ORG",38
+"Parliament","Parliament","ORG",38
+"the United Nations","the United Nations","ORG",37
+"nine","nine","CARDINAL",37
+"Korea","Korea","GPE",37
+"ICRC","ICRC","ORG",36
+"Norway","Norway","GPE",36
+"Christianity","Christianity","NORP",36
+"decades","decades","DATE",36
+"J. Lindroth","J. Lindroth","PERSON",36
+"Pacific","Pacific","LOC",36
+"24","24","CARDINAL",35
+"Portuguese","Portuguese","NORP",35
+"Gulf","Gulf","LOC",35
+"Kant","Kant","PERSON",35
+"Indonesian","Indonesian","NORP",35
+"Palestinians","Palestinians","NORP",35
+"23","23","CARDINAL",34
+"22","22","CARDINAL",34
+"Austria","Austria","GPE",34
+"Belgium","Belgium","GPE",34
+"Latino","Latino","NORP",34
+"1980","1980","DATE",33
+"Danish","Danish","NORP",33
+"1945","1945","DATE",33
+"Saudi Arabia","Saudi Arabia","GPE",33
+"Tanzania","Tanzania","GPE",33
+"United Nations","United Nations","ORG",33
+"Marx","Marx","PERSON",33
+"the 1970s","the 1970s","DATE",32
+"40","40","CARDINAL",32
+"millions","millions","CARDINAL",32
+"Communist","Communist","NORP",32
+"Kazakhstan","Kazakhstan","GPE",32
+"30","30","CARDINAL",32
+"Earth","Earth","LOC",32
+"25","25","CARDINAL",32
+"2015","2015","DATE",31
+"recent decades","recent decades","DATE",31
+"Atlantic","Atlantic","LOC",31
+"Middle East","Middle East","LOC",31
+"Protestant","Protestant","NORP",31
+"Portugal","Portugal","GPE",31
+"Nordic","Nordic","NORP",31
+"Syrian","Syrian","NORP",31
+"Cambodia","Cambodia","GPE",31
+"Atlanta","Atlanta","GPE",31
+"Palestine","Palestine","GPE",31
+"East Asia","East Asia","LOC",31
+"Sudan","Sudan","GPE",31
+"Obama","Obama","PERSON",31
+"Iranian","Iranian","NORP",31
+"2016","2016","DATE",30
+"Korean","Korean","NORP",30
+"the twenty-first century","the twenty-first century","DATE",30
+"North Korean","North Korean","NORP",30
+"Marxist","Marxist","NORP",30
+"Cuban","Cuban","NORP",30
+"Labour","Labour","ORG",30
+"Croatia","Croatia","GPE",30
+"J. W. Parker","J. W. Parker","PERSON",30
+"Swiss","Swiss","NORP",30
+"50","50","CARDINAL",30
+"Lithuania","Lithuania","GPE",30
+"the twentieth century","the twentieth century","DATE",30
+"1988","1988","DATE",29
+"1986","1986","DATE",29
+"1985","1985","DATE",29
+"100","100","CARDINAL",29
+"Somalia","Somalia","GPE",29
+"Mediterranean","Mediterranean","LOC",29
+"half","half","CARDINAL",29
+"Habermas","Habermas","PERSON",29
+"Libya","Libya","GPE",29
+"Zimbabwe","Zimbabwe","GPE",28
+"Bayesian","Bayesian","NORP",28
+"the years","the years","DATE",28
+"Great Britain","Great Britain","GPE",28
+"the nineteenth century","the nineteenth century","DATE",28
+"Rwanda","Rwanda","GPE",28
+"Georgia","Georgia","GPE",28
+"thousands","thousands","CARDINAL",28
+"Sri Lanka","Sri Lanka","GPE",28
+"Government","Government","ORG",28
+"the 21st century","the 21st century","DATE",27
+"the early 1990s","the early 1990s","DATE",27
+"Aboriginal","Aboriginal","NORP",27
+"Texas","Texas","GPE",27
+"1979","1979","DATE",27
+"1968","1968","DATE",27
+"Ethiopia","Ethiopia","GPE",27
+"ten","ten","CARDINAL",27
+"0.05","0.05","CARDINAL",27
+"the last decade","the last decade","DATE",27
+"Stalin","Stalin","PERSON",27
+"States","States","GPE",27
+"Bolivia","Bolivia","GPE",27
+"28","28","CARDINAL",27
+"Americas","Americas","LOC",27
+"26","26","CARDINAL",27
+"Kurdish","Kurdish","NORP",26
+"the World Bank","the World Bank","ORG",26
+"monthly","monthly","DATE",26
+"Czech","Czech","NORP",26
+"Taylor","Taylor","PERSON",26
+"Trump","Trump","PERSON",26
+"Jordan","Jordan","GPE",26
+"Arabs","Arabs","NORP",26
+"Bosnia","Bosnia","GPE",26
+"Finnish","Finnish","NORP",25
+"Belgian","Belgian","NORP",25
+"1987","1987","DATE",25
+"Hindu","Hindu","NORP",25
+"Peru","Peru","GPE",25
+"Tibet","Tibet","GPE",25
+"the past decade","the past decade","DATE",25
+"Nazi","Nazi","NORP",25
+"Constitution","Constitution","LAW",25
+"31","31","CARDINAL",25
+"Mongolian","Mongolian","NORP",24
+"Western European","Western European","NORP",24
+"Quebec","Quebec","GPE",24
+"9/11","9/11","CARDINAL",24
+"Estonia","Estonia","GPE",24
+"1980s","1980s","DATE",24
+"South Korea","South Korea","GPE",24
+"Cyprus","Cyprus","GPE",24
+"Nicaragua","Nicaragua","GPE",24
+"Council","Council","ORG",24
+"Ninety","Ninety","CARDINAL",24
+"48","48","CARDINAL",24
+"PCI","PCI","ORG",24
+"the last two decades","the last two decades","DATE",24
+"CIR","CIR","ORG",24
+"Florida","Florida","GPE",23
+"ADL","ADL","ORG",23
+"1983","1983","DATE",23
+"EPA","EPA","ORG",23
+"PRC","PRC","GPE",23
+"Scotland","Scotland","GPE",23
+"Latvia","Latvia","GPE",23
+"Serbia","Serbia","GPE",23
+"33","33","CARDINAL",23
+"34","34","CARDINAL",23
+"East Asian","East Asian","NORP",23
+"Germans","Germans","NORP",23
+"East","East","LOC",23
+"EC","EC","ORG",23
+"Central Asia","Central Asia","LOC",22
+"Balkans","Balkans","LOC",22
+"Northern Ireland","Northern Ireland","GPE",22
+"Austrian","Austrian","NORP",22
+"The United States","The United States","GPE",22
+"1965","1965","DATE",22
+"Ottoman","Ottoman","NORP",22
+"CA","CA","GPE",22
+"J. Zendejas","J. Zendejas","PERSON",22
+"Latinos","Latinos","NORP",22
+"Taiwanese","Taiwanese","NORP",22
+"Ukrainian","Ukrainian","NORP",22
+"Clinton","Clinton","PERSON",22
+"Iraqi","Iraqi","NORP",22
+"the 20th century","the 20th century","DATE",21
+"the 1950s","the 1950s","DATE",21
+"Kerala","Kerala","GPE",21
+"AA","AA","ORG",21
+"North","North","LOC",21
+"Catholic","Catholic","NORP",21
+"North Africa","North Africa","LOC",21
+"1973","1973","DATE",21
+"Malay","Malay","NORP",21
+"EMU","EMU","ORG",21
+"Greek","Greek","NORP",21
+"the Supreme Court","the Supreme Court","ORG",21
+"Paris","Paris","GPE",21
+"the General Assembly","the General Assembly","ORG",21
+"35","35","CARDINAL",21
+"29","29","CARDINAL",21
+"the Committee on Foreign Affairs","the Committee on Foreign Affairs","ORG",20
+"republican","republican","NORP",20
+"South Carolina","South Carolina","GPE",20
+"Norwegian","Norwegian","NORP",20
+"Labor","Labor","ORG",20
+"Zambia","Zambia","GPE",20
+"African American","African American","NORP",20
+"Republicans","Republicans","NORP",20
+"North American","North American","NORP",20
+"1977","1977","DATE",20
+"Indigenous","Indigenous","NORP",20
+"Putin","Putin","PERSON",20
+"Hispanic","Hispanic","NORP",20
+"1962","1962","DATE",20
+"1960s","1960s","DATE",20
+"Hamas","Hamas","ORG",20
+"Philippine","Philippine","NORP",20
+"the Second World War","the Second World War","EVENT",20
+"Conservative","Conservative","NORP",20
+"Union","Union","ORG",20
+"38","38","CARDINAL",20
+"Colorado","Colorado","GPE",20
+"Barcelona","Barcelona","GPE",19
+"0.001","0.001","CARDINAL",19
+"K. Hyatt Stewart","K. Hyatt Stewart","PERSON",19
+"Caribbean","Caribbean","LOC",19
+"CSR","CSR","ORG",19
+"1949","1949","DATE",19
+"Guatemala","Guatemala","GPE",19
+"communist","communist","NORP",19
+"Angola","Angola","GPE",19
+"32","32","CARDINAL",19
+"Third World","Third World","LOC",19
+"Morocco","Morocco","GPE",19
+"Mozambique","Mozambique","GPE",19
+"IC","IC","ORG",18
+"D. Edelman","D. Edelman","PERSON",18
+"1990s","1990s","DATE",18
+"West Germany","West Germany","GPE",18
+"Tunisia","Tunisia","GPE",18
+"1978","1978","DATE",18
+"1974","1974","DATE",18
+"1970","1970","DATE",18
+"many years","many years","DATE",18
+"1967","1967","DATE",18
+"1948","1948","DATE",18
+"El Salvador","El Salvador","GPE",18
+"Cambridge","Cambridge","GPE",18
+"Serbian","Serbian","NORP",18
+"New York City","New York City","GPE",18
+"Copyright Elsevier Ltd","Copyright Elsevier Ltd","ORG",18
+"Argentine","Argentine","NORP",18
+"Eastern European","Eastern European","NORP",18
+"GM","GM","ORG",18
+"27","27","CARDINAL",18
+"Anglo","Anglo","NORP",18
+"EP","EP","ORG",18
+"International Relations","International Relations","ORG",18
+"Register","Register","ORG",17
+"the University of California","the University of California","ORG",17
+"Chilean","Chilean","NORP",17
+"Albania","Albania","GPE",17
+"Five","Five","CARDINAL",17
+"Indians","Indians","NORP",17
+"the Czech Republic","the Czech Republic","GPE",17
+"Facebook","Facebook","ORG",17
+"Belarus","Belarus","GPE",17
+"Wood","Wood","PERSON",17
+"Carter","Carter","PERSON",17
+"Rawls","Rawls","PERSON",17
+"1960","1960","DATE",17
+"Elsevier Ltd","Elsevier Ltd","ORG",17
+"Seven","Seven","CARDINAL",17
+"at least one","at least one","CARDINAL",17
+"Hayek","Hayek","PERSON",17
+"Peer","Peer","PERSON",17
+"Bundestag","Bundestag","ORG",17
+"Haiti","Haiti","GPE",17
+"58","58","CARDINAL",17
+"Plato","Plato","PERSON",17
+"Navy","Navy","ORG",17
+"the People's Republic of China","the People's Republic of China","GPE",17
+"East European","East European","NORP",17
+"Russians","Russians","NORP",17
+"Sub-Saharan Africa","Sub-Saharan Africa","GPE",17
+"the late 1990s","the late 1990s","DATE",17
+"Namibia","Namibia","GPE",17
+"Ford","Ford","ORG",16
+"Foucault","Foucault","PERSON",16
+"the 1930s","the 1930s","DATE",16
+"Central Europe","Central Europe","LOC",16
+"Africans","Africans","NORP",16
+"African Americans","African Americans","NORP",16
+"twentieth-century","twentieth-century","DATE",16
