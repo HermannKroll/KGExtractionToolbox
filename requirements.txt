@@ -1,5 +1,5 @@
 SQLAlchemy==1.4.23
-nltk==3.6.2
+nltk==3.6.6
 networkx==2.6.2
 lxml==4.6.5
 psycopg2-binary==2.9.1

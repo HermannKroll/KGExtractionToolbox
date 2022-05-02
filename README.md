@@ -71,6 +71,12 @@ This procedure must be repeated every time you create a new shell. You can add t
 export PYTHONPATH="$PYTHONPATH;/home/USER/KGExtractionToolbox/src/"
 ```
 
+### Configuring NLTK
+Please run the following script to configure NLTK:
+```
+python src/kgextractiontoolbox/setup_nltk.py
+```
+
 ## Database configuration
 The toolbox stores all produced data in a relational database. 
 Setup the database configuration in the project
