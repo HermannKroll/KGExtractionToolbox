@@ -3,3 +3,5 @@ config/*
 !config/*.prod.json
 !config/*.example.json
 /tmp/
+*.pyc
+*.DS_Store

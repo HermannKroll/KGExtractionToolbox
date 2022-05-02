@@ -68,13 +68,14 @@ class Session:
             # print(self.sqlite_path)
             if not self.sqlite_path:
                 raise ValueError("use_SQLite is true, but SQLite_path is not set!")
-        self.config = dict(
-            POSTGRES_USER=environ.get("NI_POSTGRES_USER", config["POSTGRES_USER"]),
-            POSTGRES_PW=environ.get("NI_POSTGRES_PW", config["POSTGRES_PW"]),
-            POSTGRES_HOST=environ.get("NI_POSTGRES_HOST", config["POSTGRES_HOST"]),
-            POSTGRES_PORT=environ.get("NI_POSTGRES_PORT", config["POSTGRES_PORT"]),
-            POSTGRES_DB=environ.get("NI_POSTGRES_DB", config["POSTGRES_DB"]),
-        )
+        else:
+            self.config = dict(
+                POSTGRES_USER=environ.get("NI_POSTGRES_USER", config["POSTGRES_USER"]),
+                POSTGRES_PW=environ.get("NI_POSTGRES_PW", config["POSTGRES_PW"]),
+                POSTGRES_HOST=environ.get("NI_POSTGRES_HOST", config["POSTGRES_HOST"]),
+                POSTGRES_PORT=environ.get("NI_POSTGRES_PORT", config["POSTGRES_PORT"]),
+                POSTGRES_DB=environ.get("NI_POSTGRES_DB", config["POSTGRES_DB"]),
+            )
 
     def __init__(self, connection_config, declarative_base):
         if not self._instance:

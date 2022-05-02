@@ -1,7 +1,6 @@
-from collections import namedtuple
-
 import hashlib
 import logging
+from collections import namedtuple
 from datetime import datetime
 from typing import List
 
@@ -10,11 +9,10 @@ from kgextractiontoolbox.backend.models import Predication, Sentence
 from kgextractiontoolbox.progress import print_progress_with_eta
 
 MAX_SENTENCE_LENGTH = 1000
-MIN_SUBJECT_OR_OBJECT_LEN = 3
 
 # A list of words to ignore in OpenIE extractions
 TOKENS_TO_IGNORE = {'with', 'by', 'of', 'from', 'to', 'than', 'as', 'on', 'at', 'may', 'in', 'can', 'more', 'less',
-                    'into', 'be', 'have', 'well', 'for'}
+                    'into', 'well', 'for'}
 
 PRED = namedtuple('Predication', ['doc_id', 'subj', 'pred', 'pred_cleaned', 'obj', 'conf', 'sent', 's_id', 's_str',
                                   's_type', 'o_id', 'o_str', 'o_type'])
@@ -97,9 +95,6 @@ def clean_predications(tuples_cleaned: List[PRED], collection, extraction_type):
     sentence_values = []
     for i, p in enumerate(tuples_cleaned):
         sentence_txt = p.sent.replace('\n', '')
-        # Todo: Very dirty fix here
-        # if len(p.s_str) < MIN_SUBJECT_OR_OBJECT_LEN or len(p.o_str) < MIN_SUBJECT_OR_OBJECT_LEN:
-        #    continue
         # Todo: dirty fix here empty id or ner id
         if p.s_id == '-' or p.o_id == '-' or not p.s_id.strip() or not p.o_id.strip():
             continue
@@ -128,6 +123,7 @@ def clean_predications(tuples_cleaned: List[PRED], collection, extraction_type):
             subject_id=p.s_id,
             subject_str=clean_sentence_str(p.s_str),
             subject_type=p.s_type,
+            predicate_org=p.pred.strip(),
             predicate=p.pred_cleaned,
             object_id=p.o_id,
             object_str=clean_sentence_str(p.o_str),
@@ -142,7 +138,6 @@ def clean_predications(tuples_cleaned: List[PRED], collection, extraction_type):
             inserted_sentence_ids.add(sentence_id)
             sentence_values.append((dict(
                 id=sentence_id,
-                document_id=p.doc_id,
                 document_collection=collection,
                 text=clean_sentence_str(sentence_txt),
                 md5hash=sent_hash)))
@@ -151,7 +146,7 @@ def clean_predications(tuples_cleaned: List[PRED], collection, extraction_type):
     return predication_values, sentence_values
 
 
-def clean_and_load_predications_into_db(tuples_cleaned: List[PRED], collection, extraction_type, clean_genes=True):
+def clean_and_load_predications_into_db(tuples_cleaned: List[PRED], collection, extraction_type):
     """
      insert a list of cleaned tuples into the database (bulk insert)
      does not check for collisions
@@ -163,5 +158,5 @@ def clean_and_load_predications_into_db(tuples_cleaned: List[PRED], collection, 
     predication_values, sentence_values = clean_predications(tuples_cleaned, collection, extraction_type)
     logging.info(f'{len(predication_values)} predications and {len(sentence_values)} sentences to insert...')
     session = Session.get()
-    Sentence.bulk_insert_values_into_table(session, sentence_values)
-    Predication.bulk_insert_values_into_table(session, predication_values)
+    Sentence.bulk_insert_values_into_table(session, sentence_values, check_constraints=False)
+    Predication.bulk_insert_values_into_table(session, predication_values, check_constraints=False)

@@ -1,0 +1,3 @@
+2|t|title2
+2|a|Second export document containing paracetamol
+2	41	52	paracetamol	Drug	CHEMBL112

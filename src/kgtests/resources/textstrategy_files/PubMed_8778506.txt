@@ -1,0 +1,24 @@
+8778506|t| Effect of Luffa aegyptiaca (seeds) and Carissa edulis (leaves) extracts on blood glucose level of normal and streptozotocin diabetic rats.
+8778506|a| The present study investigates the effect of oral administration of the ethanolic extracts of Luffa aegyptiaca (seeds) and Carissa edulis (leaves) on blood glucose levels both in normal and streptozotocin (STZ) diabetic rats. Treatment with both extracts significantly reduced the blood glucose level in STZ diabetic rats during the first three hours of treatment. L. aegyptiaca extract decreased blood glucose level with a potency similar to that of the biguanide, metformin. The total glycaemic areas were 589.61 +/- 45.62 mg/dl/3 h and 660.38 +/- 64.44 mg/dl/3 h for L. aegyptiaca and metformin, respectively, vs. 816.73 +/- 43.21 mg/dl/3 h for the control (P < 0.05). On the other hand, in normal rats, both treatments produced insignificant changes in blood glucose levels compared to glibenclamide treatment.
+8778506	81	88	glucose	Chemical	MESH:D005947
+8778506	109	123	streptozotocin	Chemical	MESH:D013311
+8778506	295	302	glucose	Chemical	MESH:D005947
+8778506	329	343	streptozotocin	Chemical	MESH:D013311
+8778506	345	348	STZ	Chemical	MESH:D013311
+8778506	426	433	glucose	Chemical	MESH:D005947
+8778506	443	446	STZ	Chemical	MESH:D013311
+8778506	594	603	biguanide	Chemical	MESH:D001645
+8778506	605	614	metformin	Chemical	MESH:D008687
+8778506	727	736	metformin	Chemical	MESH:D008687
+8778506	902	909	glucose	Chemical	MESH:D005947
+8778506	929	942	glibenclamide	Chemical	MESH:D005905
+8778506	124	132	diabetic	Disease	MESH:D003920
+8778506	350	358	diabetic	Disease	MESH:D003920
+8778506	447	455	diabetic	Disease	MESH:D003920
+8778506	507	549	aegyptiaca extract decreased blood glucose	Disease	MESH:D007022
+8778506	184	203	oral administration	DosageForm	MESH:D000284
+8778506	133	137	rats	Species	10116
+8778506	359	363	rats	Species	10116
+8778506	456	460	rats	Species	10116
+8778506	840	844	rats	Species	10116
+

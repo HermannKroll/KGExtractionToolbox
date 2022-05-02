@@ -1,4 +1,3 @@
-import os
 from typing import List
 
 import kgextractiontoolbox.entitylinking.tagging.dictagger as dt
@@ -22,7 +21,7 @@ class MetaDicTagger(dt.DictTagger):
 
     def __init__(self, vocabulary=None, *args, **kwargs):
         super().__init__(short_name="meTa", long_name="meta dict tagger", version=None, tag_types=None,
-                         index_cache=None, source_file=None, *args, **kwargs)
+                         *args, **kwargs)
 
         self._sub_taggers: List[dt.DictTagger] = []
         self._vocabs = {}
@@ -30,7 +29,6 @@ class MetaDicTagger(dt.DictTagger):
             vocabulary.load_vocab()
             self._vocabs = vocabulary.vocabularies
         self.tag_types = set()
-        os.makedirs(self.out_dir)
 
     def add_tagger(self, tagger: dt.DictTagger):
         self._sub_taggers.append(tagger)
@@ -41,25 +39,25 @@ class MetaDicTagger(dt.DictTagger):
             tagger.prepare()
             self._vocabs[tagger.tag_types[0]] = tagger.desc_by_term
 
-    def generate_tag_lines(self, end, pmid, start, term):
+    def generate_tag_lines(self, end, doc_id, start, term):
         for entType, vocab in self._vocabs.items():
             hits = vocab.get(term)
             if hits:
                 for desc in hits:
-                    yield pmid, start, end, term, entType, desc
+                    yield doc_id, start, end, term, entType, desc
 
-    def generate_tagged_entities(self, end, pmid, start, term, tmp_vocab=None):
+    def generate_tagged_entities(self, end, doc_id, start, term, tmp_vocab=None):
         if tmp_vocab:
             tmp_hit = tmp_vocab.get(term)
             if tmp_hit:
                 for entType, hit in tmp_hit:
-                    yield TaggedEntity(None, pmid, start, end, term, entType, hit)
+                    yield TaggedEntity(None, doc_id, start, end, term, entType, hit)
         else:
             for entType, vocab in self._vocabs.items():
                 hits = vocab.get(term)
                 if hits:
                     for desc in hits:
-                        yield TaggedEntity((pmid, start, end, term, entType, desc))
+                        yield TaggedEntity((doc_id, start, end, term, entType, desc))
 
     def get_types(self):
         return self.tag_types

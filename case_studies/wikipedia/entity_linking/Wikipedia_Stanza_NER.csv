@@ -1,0 +1,501 @@
+"ent_str","ent_id","ent_type","count"
+"American","American","NORP",747
+"Earth","Earth","LOC",470
+"the United States","the United States","GPE",409
+"Xavier","Xavier","PERSON",403
+"Ph.D.","Ph.D.","WORK_OF_ART",396
+"British","British","NORP",359
+"London","London","GPE",354
+"Russian","Russian","NORP",322
+"Einstein","Einstein","PERSON",321
+"Doctor","Doctor","PERSON",307
+"German","German","NORP",283
+"New York","New York","GPE",276
+"Soviet","Soviet","NORP",270
+"Peter","Peter","PERSON",250
+"English","English","LANGUAGE",250
+"India","India","GPE",238
+"Germany","Germany","GPE",236
+"Australia","Australia","GPE",230
+"Russia","Russia","GPE",228
+"England","England","GPE",226
+"France","France","GPE",221
+"Asimov","Asimov","PERSON",218
+"Moscow","Moscow","GPE",210
+"Paris","Paris","GPE",206
+"Batman","Batman","PERSON",200
+"Galileo","Galileo","PERSON",197
+"Cambridge","Cambridge","GPE",195
+"New Zealand","New Zealand","GPE",194
+"Thatcher","Thatcher","PERSON",190
+"French","French","NORP",189
+"Britain","Britain","GPE",182
+"California","California","GPE",170
+"World War II","World War II","EVENT",168
+"Europe","Europe","LOC",164
+"Richardson","Richardson","PERSON",164
+"Clarke","Clarke","PERSON",153
+"Humboldt","Humboldt","PERSON",149
+"Jewish","Jewish","NORP",138
+"China","China","GPE",137
+"Canada","Canada","GPE",134
+"Indian","Indian","NORP",133
+"New York City","New York City","GPE",133
+"Korolev","Korolev","PERSON",131
+"Australian","Australian","NORP",130
+"Spider-Man","Spider-Man","WORK_OF_ART",127
+"Avicenna","Avicenna","PERSON",123
+"Summers","Summers","PERSON",122
+"Magneto","Magneto","PERSON",121
+"Washington","Washington","GPE",119
+"Harvard University","Harvard University","ORG",118
+"Harvard","Harvard","ORG",118
+"Superman","Superman","PERSON",118
+"Columbia University","Columbia University","ORG",112
+"today","today","DATE",110
+"the Soviet Union","the Soviet Union","GPE",109
+"Keely","Keely","PERSON",109
+"Fuller","Fuller","PERSON",108
+"Brazil","Brazil","GPE",108
+"Oxford","Oxford","GPE",105
+"European","European","NORP",105
+"Chicago","Chicago","GPE",104
+"Banner","Banner","PERSON",104
+"Israel","Israel","GPE",104
+"Spanish","Spanish","NORP",101
+"Berlin","Berlin","GPE",100
+"two years","two years","DATE",100
+"Ivins","Ivins","PERSON",98
+"Spider-Man","Spider-Man","PERSON",98
+"Phoenix","Phoenix","GPE",97
+"United States","United States","GPE",97
+"Synod","Synod","ORG",95
+"Clynes","Clynes","PERSON",94
+"Thawne","Thawne","PERSON",94
+"the University of Cambridge","the University of Cambridge","ORG",94
+"Chinese","Chinese","NORP",94
+"Italy","Italy","GPE",94
+"Freeze","Freeze","PERSON",93
+"Smith","Smith","PERSON",91
+"America","America","GPE",91
+"Massachusetts","Massachusetts","GPE",89
+"Texas","Texas","GPE",89
+"Spain","Spain","GPE",89
+"New Jersey","New Jersey","GPE",88
+"Pennsylvania","Pennsylvania","GPE",88
+"Manhattan","Manhattan","GPE",87
+"the United Kingdom","the United Kingdom","GPE",86
+"Lehrer","Lehrer","PERSON",85
+"Islamic","Islamic","NORP",84
+"Boston","Boston","GPE",84
+"Brian","Brian","PERSON",83
+"seven","seven","CARDINAL",83
+"Japan","Japan","GPE",82
+"Stanford University","Stanford University","ORG",82
+"Brown","Brown","PERSON",81
+"Dirac","Dirac","PERSON",81
+"Switzerland","Switzerland","GPE",80
+"Cornell University","Cornell University","ORG",80
+"University","University","ORG",79
+"Young","Young","PERSON",79
+"the same year","the same year","DATE",78
+"Lawrence","Lawrence","PERSON",78
+"Italian","Italian","NORP",77
+"Christian","Christian","NORP",76
+"Dickinson","Dickinson","PERSON",76
+"Wolverine","Wolverine","PERSON",75
+"Dutch","Dutch","NORP",74
+"Jean Grey","Jean Grey","PERSON",73
+"the National Academy of Sciences","the National Academy of Sciences","ORG",73
+"Greek","Greek","NORP",73
+"Armstrong","Armstrong","PERSON",71
+"a year","a year","DATE",71
+"eight","eight","CARDINAL",71
+"Philadelphia","Philadelphia","GPE",71
+"the Royal Society","the Royal Society","ORG",70
+"Mexico","Mexico","GPE",70
+"Sivana","Sivana","PERSON",70
+"Capaldi","Capaldi","PERSON",70
+"African","African","NORP",70
+"Sexton","Sexton","PERSON",69
+"many years","many years","DATE",69
+"Maestlin","Maestlin","PERSON",69
+"Cyclops","Cyclops","PERSON",68
+"Espejo","Espejo","PERSON",68
+"Brazilian","Brazilian","NORP",67
+"Africa","Africa","LOC",67
+"the University of Chicago","the University of Chicago","ORG",67
+"the American Association for the Advancement of Science","the American Association for the Advancement of Science","ORG",66
+"Debye","Debye","PERSON",66
+"Parliament","Parliament","ORG",66
+"Humboldt","Humboldt","ORG",66
+"Florida","Florida","GPE",66
+"Barry","Barry","PERSON",65
+"Baker","Baker","PERSON",65
+"Rossello","Rossello","PERSON",65
+"Canadian","Canadian","NORP",65
+"Thompson","Thompson","PERSON",65
+"Netherlands","Netherlands","GPE",65
+"Los Angeles","Los Angeles","GPE",64
+"Marvel","Marvel","ORG",64
+"three years","three years","DATE",64
+"Baltimore","Baltimore","GPE",63
+"World War I","World War I","EVENT",63
+"Charles","Charles","PERSON",63
+"Princeton University","Princeton University","ORG",63
+"South Africa","South Africa","GPE",62
+"Giganta","Giganta","PERSON",62
+"Meyer","Meyer","PERSON",62
+"Harvard Medical School","Harvard Medical School","ORG",62
+"Luzhkov","Luzhkov","PERSON",61
+"Virginia","Virginia","GPE",61
+"Ter-Petrosyan","Ter-Petrosyan","PERSON",61
+"Malthus","Malthus","PERSON",60
+"Reilly","Reilly","PERSON",60
+"Philippines","Philippines","GPE",60
+"Scotland","Scotland","GPE",60
+"Puerto Rico","Puerto Rico","GPE",59
+"Poland","Poland","GPE",59
+"Presbytery","Presbytery","ORG",59
+"Sydney","Sydney","GPE",59
+"Catholic","Catholic","NORP",59
+"Polish","Polish","NORP",59
+"Parker","Parker","PERSON",59
+"years","years","DATE",59
+"Richards","Richards","PERSON",59
+"Sweden","Sweden","GPE",58
+"Maryland","Maryland","GPE",58
+"the 1970s","the 1970s","DATE",57
+"several years","several years","DATE",57
+"Miller","Miller","PERSON",57
+"Israeli","Israeli","NORP",57
+"Japanese","Japanese","NORP",57
+"Armenia","Armenia","GPE",56
+"the Swamp Thing","the Swamp Thing","WORK_OF_ART",56
+"Muller","Muller","PERSON",55
+"the University of Michigan","the University of Michigan","ORG",55
+"the Phoenix Force","the Phoenix Force","ORG",55
+"Denmark","Denmark","GPE",55
+"Latin","Latin","LANGUAGE",55
+"Congress","Congress","ORG",54
+"Alberti","Alberti","PERSON",54
+"Marconi","Marconi","PERSON",53
+"Yale University","Yale University","ORG",53
+"Americans","Americans","NORP",52
+"Vienna","Vienna","GPE",52
+"the University of California, Berkeley","the University of California, Berkeley","ORG",52
+"Gallifrey","Gallifrey","PERSON",52
+"Doctor Manhattan","Doctor Manhattan","PERSON",52
+"Humboldt","Humboldt","LOC",52
+"Johns Hopkins University","Johns Hopkins University","ORG",52
+"Elliott","Elliott","PERSON",52
+"DC Comics","DC Comics","ORG",51
+"Georgia","Georgia","GPE",51
+"Steele","Steele","PERSON",51
+"Jones","Jones","PERSON",51
+"Gwen Stacy","Gwen Stacy","PERSON",51
+"Melbourne","Melbourne","GPE",51
+"Florence","Florence","GPE",50
+"the following year","the following year","DATE",50
+"""Doctor Who""","""Doctor Who""","WORK_OF_ART",50
+"Rodchenkov","Rodchenkov","PERSON",50
+"Snyder","Snyder","PERSON",49
+"the University of Illinois","the University of Illinois","ORG",49
+"the 1950s","the 1950s","DATE",49
+"Yaalon","Yaalon","PERSON",49
+"Nefarious","Nefarious","PERSON",49
+"the X-Men","the X-Men","ORG",48
+"Darwin","Darwin","PERSON",48
+"TARDIS","TARDIS","PRODUCT",48
+"Jor-El","Jor-El","PERSON",48
+"Peter Parker","Peter Parker","PERSON",48
+"Armenian","Armenian","NORP",48
+"the 1980s","the 1980s","DATE",48
+"Williams","Williams","PERSON",48
+"Eccleston","Eccleston","PERSON",48
+"Muslim","Muslim","NORP",47
+"the Second World War","the Second World War","EVENT",47
+"annual","annual","DATE",47
+"Ukraine","Ukraine","GPE",47
+"Russian","Russian","LANGUAGE",47
+"Brundle","Brundle","PERSON",47
+"Quito","Quito","GPE",47
+"French","French","LANGUAGE",47
+"Taiwan","Taiwan","GPE",47
+"Egypt","Egypt","GPE",46
+"Roberts","Roberts","PERSON",46
+"Azerbaijan","Azerbaijan","GPE",46
+"Mandelbrot","Mandelbrot","PERSON",46
+"Michigan","Michigan","GPE",46
+"Aquaman","Aquaman","PERSON",46
+"Howard","Howard","PERSON",46
+"Geneva","Geneva","GPE",45
+"Doctor Doom","Doctor Doom","PERSON",45
+"Jerusalem","Jerusalem","GPE",45
+"Jenner","Jenner","PERSON",45
+"San Francisco","San Francisco","GPE",45
+"Thorn","Thorn","PERSON",44
+"Henson","Henson","PERSON",44
+"Jackal","Jackal","PERSON",44
+"the American Academy of Arts and Sciences","the American Academy of Arts and Sciences","ORG",44
+"the University of Pennsylvania","the University of Pennsylvania","ORG",44
+"the 1960s","the 1960s","DATE",44
+"Humboldt","Humboldt","GPE",44
+"Scottish","Scottish","NORP",44
+"Cortex","Cortex","PERSON",44
+"Lynch","Lynch","PERSON",43
+"Danish","Danish","NORP",43
+"Hebrew","Hebrew","LANGUAGE",43
+"Edinburgh","Edinburgh","GPE",43
+"the Massachusetts Institute of Technology","the Massachusetts Institute of Technology","ORG",43
+"Austria","Austria","GPE",43
+"the Academy of Sciences","the Academy of Sciences","ORG",43
+"Labour","Labour","ORG",43
+"Becker","Becker","PERSON",43
+"Zurich","Zurich","GPE",42
+"Finland","Finland","GPE",42
+"South America","South America","LOC",42
+"Institute","Institute","ORG",42
+"Illinois","Illinois","GPE",42
+"Church","Church","ORG",42
+"Dewey","Dewey","PERSON",42
+"Dracula","Dracula","PERSON",42
+"Argentina","Argentina","GPE",42
+"Antarctic","Antarctic","LOC",41
+"Filipino","Filipino","NORP",41
+"Portugal","Portugal","GPE",41
+"the University of California","the University of California","ORG",41
+"Victor","Victor","PERSON",41
+"Tennant","Tennant","PERSON",41
+"a bachelor's degree","a bachelor's degree","WORK_OF_ART",41
+"Vulko","Vulko","PERSON",40
+"thousands","thousands","CARDINAL",40
+"Anderson","Anderson","PERSON",40
+"a master's degree","a master's degree","WORK_OF_ART",40
+"the University of Washington","the University of Washington","ORG",40
+"Ireland","Ireland","GPE",40
+"Indiana","Indiana","GPE",40
+"Seattle","Seattle","GPE",40
+"Faber","Faber","PERSON",40
+"Massey","Massey","PERSON",39
+"Prague","Prague","GPE",39
+"the Year","the Year","DATE",39
+"Joteyko","Joteyko","PERSON",39
+"Maric","Maric","PERSON",39
+"Frink","Frink","PERSON",39
+"the Swamp Thing","the Swamp Thing","EVENT",39
+"five years","five years","DATE",38
+"the day","the day","DATE",38
+"Smythe","Smythe","PERSON",38
+"Marvel","Marvel","PERSON",38
+"Colorado","Colorado","GPE",38
+"the University of Oxford","the University of Oxford","ORG",38
+"Alaska","Alaska","GPE",38
+"St. Louis","St. Louis","GPE",38
+"State","State","ORG",38
+"Kepler","Kepler","PERSON",38
+"Houston","Houston","GPE",38
+"Theremin","Theremin","PERSON",38
+"Beast","Beast","PERSON",38
+"Logan","Logan","PERSON",37
+"the National Institutes of Health","the National Institutes of Health","ORG",37
+"Portuguese","Portuguese","NORP",37
+"Irish","Irish","NORP",37
+"Persian","Persian","NORP",37
+"hundreds","hundreds","CARDINAL",37
+"Klingberg","Klingberg","PERSON",37
+"Czech","Czech","NORP",37
+"Turkey","Turkey","GPE",37
+"Palestinian","Palestinian","NORP",37
+"Kellaway","Kellaway","PERSON",37
+"Wisconsin","Wisconsin","GPE",37
+"Connecticut","Connecticut","GPE",36
+"Antarctica","Antarctica","LOC",36
+"d'Auvergne","d'Auvergne","PERSON",36
+"Swedish","Swedish","NORP",36
+"Swiss","Swiss","NORP",36
+"the years","the years","DATE",36
+"Norway","Norway","GPE",36
+"Kaine","Kaine","PERSON",36
+"African American","African American","NORP",36
+"the University of Texas","the University of Texas","ORG",36
+"Paine","Paine","PERSON",36
+"Schmitt","Schmitt","PERSON",36
+"Arabic","Arabic","LANGUAGE",36
+"Purdue University","Purdue University","ORG",36
+"University College London","University College London","ORG",36
+"Nobel","Nobel","WORK_OF_ART",35
+"Kassabian","Kassabian","PERSON",35
+"the year","the year","DATE",35
+"Doctor Psycho","Doctor Psycho","PERSON",35
+"Moore","Moore","PERSON",35
+"Imperial College London","Imperial College London","ORG",35
+"Cyclops","Cyclops","PRODUCT",35
+"Granado","Granado","PERSON",35
+"Killer Frost","Killer Frost","PERSON",35
+"Destiny","Destiny","PERSON",35
+"Bruce","Bruce","PERSON",35
+"Belgium","Belgium","GPE",35
+"Spengler","Spengler","PERSON",35
+"Henderson","Henderson","PERSON",34
+"The following year","The following year","DATE",34
+"Princeton","Princeton","GPE",34
+"Zor-El","Zor-El","PERSON",34
+"Rio de Janeiro","Rio de Janeiro","GPE",34
+"Wonder Woman","Wonder Woman","WORK_OF_ART",34
+"Senate","Senate","ORG",34
+"that year","that year","DATE",34
+"1970s","1970s","DATE",34
+"Cornell","Cornell","ORG",34
+"Palestine","Palestine","GPE",34
+"Simpson","Simpson","PERSON",34
+"Santos Dumont","Santos Dumont","PERSON",34
+"Clara","Clara","PERSON",34
+"Quatermass","Quatermass","PERSON",34
+"McGill University","McGill University","ORG",33
+"Hawaii","Hawaii","GPE",33
+"North America","North America","LOC",33
+"Marvel Comics","Marvel Comics","ORG",33
+"the National Science Foundation","the National Science Foundation","ORG",33
+"the 1930s","the 1930s","DATE",33
+"Djerassi","Djerassi","PERSON",33
+"Marconi","Marconi","ORG",33
+"Arago","Arago","PERSON",33
+"one year","one year","DATE",32
+"Early years","Early years","DATE",32
+"the British Empire","the British Empire","ORG",32
+"Salinger","Salinger","PERSON",32
+"the University of London","the University of London","ORG",32
+"Dallas","Dallas","GPE",32
+"Pupin","Pupin","PERSON",32
+"the 1990s","the 1990s","DATE",32
+"Van Helsing","Van Helsing","PERSON",32
+"Kroenen","Kroenen","PERSON",32
+"Great Britain","Great Britain","GPE",32
+"Stanford","Stanford","ORG",32
+"Sri Lanka","Sri Lanka","GPE",32
+"St. Petersburg","St. Petersburg","GPE",32
+"Kirby","Kirby","PERSON",32
+"Sao Paulo","Sao Paulo","GPE",32
+"Mexican","Mexican","NORP",32
+"Grinsell","Grinsell","PERSON",32
+"the University of Toronto","the University of Toronto","ORG",32
+"Western","Western","NORP",32
+"Olivier","Olivier","PERSON",31
+"Egyptian","Egyptian","NORP",31
+"the University of Edinburgh","the University of Edinburgh","ORG",31
+"Massachusetts Institute of Technology","Massachusetts Institute of Technology","ORG",31
+"Leningrad","Leningrad","GPE",31
+"Levinson","Levinson","PERSON",31
+"Roman","Roman","NORP",31
+"Harvey","Harvey","PERSON",31
+"German","German","LANGUAGE",31
+"Ichazo","Ichazo","PERSON",31
+"New South Wales","New South Wales","GPE",31
+"Rittmeister","Rittmeister","PERSON",31
+"the University of Sydney","the University of Sydney","ORG",31
+"New Mexico","New Mexico","GPE",31
+"Council","Council","ORG",31
+"Abulafia","Abulafia","PERSON",31
+"Arctic","Arctic","LOC",31
+"Raimi","Raimi","PERSON",31
+"Nature","Nature","WORK_OF_ART",31
+"Frankenstein","Frankenstein","PERSON",31
+"Ghostbusters","Ghostbusters","ORG",30
+"Dumont","Dumont","PERSON",30
+"New York University","New York University","ORG",30
+"Caltech","Caltech","ORG",30
+"Singapore","Singapore","GPE",30
+"Society","Society","ORG",30
+"X-Men","X-Men","ORG",30
+"Atlanta","Atlanta","GPE",30
+"Knight","Knight","PERSON",30
+"New Year Honours","New Year Honours","EVENT",30
+"Peale","Peale","PERSON",30
+"Reisman","Reisman","PERSON",30
+"Aristotle","Aristotle","PERSON",30
+"1960s","1960s","DATE",30
+"Republican","Republican","NORP",30
+"Hong Kong","Hong Kong","GPE",30
+"Hoernle","Hoernle","PERSON",30
+"Stan Lee","Stan Lee","PERSON",30
+"Copenhagen","Copenhagen","GPE",30
+"Tom Baker","Tom Baker","PERSON",30
+"Braddock","Braddock","PERSON",29
+"Ontario","Ontario","GPE",29
+"Venus","Venus","LOC",29
+"Veronica","Veronica","PERSON",29
+"UNESCO","UNESCO","ORG",29
+"Serruys","Serruys","PERSON",29
+"African-American","African-American","NORP",29
+"Chile","Chile","GPE",29
+"Berkeley","Berkeley","GPE",29
+"Cortex","Cortex","ORG",29
+"Spider-Man's","Spider-Man's","PERSON",29
+"Jersey","Jersey","GPE",29
+"Brown University","Brown University","ORG",29
+"Osborn","Osborn","PERSON",29
+"Electrical Engineering","Electrical Engineering","ORG",29
+"weekly","weekly","DATE",29
+"Jenkins","Jenkins","PERSON",29
+"Scott","Scott","PERSON",29
+"Louisiana","Louisiana","GPE",28
+"Delaware","Delaware","GPE",28
+"Takahashi","Takahashi","PERSON",28
+"Louis","Louis","PERSON",28
+"the Middle East","the Middle East","LOC",28
+"Finnish","Finnish","NORP",28
+"Columbia","Columbia","GPE",28
+"Somerville","Somerville","PERSON",28
+"Islam","Islam","ORG",28
+"Munich","Munich","GPE",28
+"Farber","Farber","PERSON",28
+"Dorothy","Dorothy","PERSON",28
+"Cohen","Cohen","PERSON",28
+"the 20th century","the 20th century","DATE",28
+"Austin","Austin","GPE",28
+"Byrne","Byrne","PERSON",28
+"Stockholm","Stockholm","GPE",28
+"Whittaker","Whittaker","PERSON",28
+"Psimon","Psimon","PERSON",27
+"Foote","Foote","PERSON",27
+"the National Academy of Engineering","the National Academy of Engineering","ORG",27
+"Lisbon","Lisbon","GPE",27
+"the California Institute of Technology","the California Institute of Technology","ORG",27
+"David","David","PERSON",27
+"Darkman","Darkman","PERSON",27
+"Marshall","Marshall","PERSON",27
+"Hamburg","Hamburg","GPE",27
+"Mary Jane","Mary Jane","PERSON",27
+"Avengers","Avengers","PRODUCT",27
+"the University of Manchester","the University of Manchester","ORG",27
+"daily","daily","DATE",27
+"Gastev","Gastev","PERSON",27
+"the American Physical Society","the American Physical Society","ORG",27
+"the Time Lords","the Time Lords","ORG",27
+"the World Health Organization","the World Health Organization","ORG",27
+"Albert Einstein","Albert Einstein","PERSON",27
+"Bible","Bible","WORK_OF_ART",27
+"Missouri","Missouri","GPE",27
+"the Russian Federation","the Russian Federation","ORG",27
+"Asian","Asian","NORP",27
+"Kitov","Kitov","PERSON",27
+"Man-Bat","Man-Bat","PERSON",27
+"the University of Melbourne","the University of Melbourne","ORG",27
+"Trinity College","Trinity College","ORG",27
+"Gomez","Gomez","PERSON",27
+"Javier","Javier","PERSON",27
+"Galileo","Galileo","PRODUCT",27
+"four years","four years","DATE",27
+"Mello","Mello","PERSON",27
+"the University of Minnesota","the University of Minnesota","ORG",27
+"Constantine","Constantine","PERSON",27
+"Emma Frost","Emma Frost","PERSON",27
+"James","James","PERSON",26
+"Obama","Obama","PERSON",26
+"Helsinki","Helsinki","GPE",26
+"Jameson","Jameson","PERSON",26
+"Northwestern University","Northwestern University","ORG",26
+"Norman Osborn","Norman Osborn","PERSON",26
+"Wales","Wales","GPE",26
+"Leibel","Leibel","PERSON",26

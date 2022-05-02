@@ -46,6 +46,10 @@ class Config:
         return self.config["gnormPlus"]["javaArgs"].split()
 
     @property
+    def gnormplus_timeout(self):
+        return self.config["gnormPlus"]["timeout"]
+
+    @property
     def gnorm_setup(self):
         return os.path.join(self.gnorm_root, "setup.txt")
 

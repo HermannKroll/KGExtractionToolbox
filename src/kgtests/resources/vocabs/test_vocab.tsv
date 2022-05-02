@@ -1,0 +1,65 @@
+id	enttype	heading	synonyms
+D000075162	DosageForm	abuse-proof dosage form	abuse-proof dosage forms;Tamper-resistant dosage form;Tamper-resistant dosage forms;Tamper resistant dosage form;Tamper resistant dosage forms;Tamper-proof dosage form;Tamper-proof dosage forms;Tamper proof dosage form;Tamper proof dosage forms
+D000335	DosageForm	Propellant gas	
+D059587	DosageForm	Calcifying Nano particles	Calcifying Nano particle;Calcifying Nano-particle;Calcifying Nano-particles;Nanobacteria;Nano-bacteria
+D002214	DosageForm	Encapsulation	Microcapsules;Microcapsule;Micro capsule;Micro capsules;Micro-capsule;Micro-capsules;capsule;medicament capsules;medicament capsule;medicine capsule;medicine capsules;drug capsule;drug capsules;hard capsules;soft capsules;micro capsules;wafer capsules;enteric capsules;hard gelatine capsules;soft gelatine capsules;push-in capsules;plug-in capsules;plug-in units;cachet;coated capsules;modified release capsules
+D003102	DosageForm	Colloidal drug	Hydro-colloid;Hydro-colloids;Hydro colloid;Hydro colloids;colloidal dosage form
+D059985	DosageForm	Cryo gels	Cryo gel;Cryo-gels;Cryo-gel
+D003692	DosageForm	Controlled Release	Delayed Release;Sustained Release;Controlled Drug;Sustained Drug;Sustained-Release;modified-release;modified release, Delayed-Release;Timed-Release;Timed Release;Sustained-Release;Prolonged-release;prolonged release;extended-release;extended release;repeat release;repeat-release;repeat action;repeat-action
+D004304	DosageForm	delivery form	delivery forms;pharmaceutical form;pharmaceutical forms
+D004337	DosageForm	pharmaceutical carrier	active substance carrier
+D016503	DosageForm	Targeted Drug Delivery	Molecularly Targeted Therapy;drug release system
+D004343	DosageForm	Parenteral depot drug form	Parenteral depot form;Depot drug form;Parenteral depositary form;Subcutaneous implant;Biodegradable implants;In-situ implants;In-situ microparticles;In situ microparticles
+D000079522	DosageForm	e-cigarette vaporizer	e cigarette vaporizer
+D004655	DosageForm	Microemulsions	Nanoemulsions;Micro emulsions;Nano emulsions;Micro-emulsions;Nano-emulsions
+D005782	DosageForm	nasal gel	jellies;jelly
+D007332	DosageForm	insulin pump	Programmable implantable insulin pump
+D008081	DosageForm	liposomal	immunoliposome;Stealth Liposome
+D058185	DosageForm	Magnetite Nano particles	Magnetite Nano particle;Nano particle, Magnetite;Nano particles, Magnetite;Magnetite Nano-particles;Magnetite Nano-particle;Nano-particle, Magnetite;Nano-particles, Magnetite
+D053768	DosageForm	Metal Nano particles	Metal Nano particle;Nano particle, Metal;Nano particles, Metal;Metallic Nano particles;Metallic Nano particle;Nano particle, Metallic;Nano particles, Metallic;Metal Nano crystals;Metal Nano crystal;Nano crystal, Metal;Nano crystals, Metal;Metallic Nano crystals;Metallic Nano crystal;Metal Nano-particles;Metal Nano-particle;Nano-particle, Metal;Nano-particles, Metal;Metallic Nano-particles;Metallic Nano-particle;Nano-particle, Metallic;Nano-particles, Metallic;Metal Nano-crystals;Metal Nano-crystal;Nano-crystal, Metal;Nano-crystals, Metal;Metallic Nano-crystals;Metallic Nano-crystal;Nano-crystal, Metallic
+D008823	DosageForm	micellar	
+D000080386	DosageForm	Micro gels	Micro gel;Micro-gels;Micro-gel
+D000080873	DosageForm	Multifunctional Nano particles	Multifunctional Nano particle;Nano particle, Multifunctional;Nano particles, Multifunctional;Two-Faced Nano particles;Two Faced Nano particles;Two-Faced Nano particle;Janus Nano particles;Multifunctional Nano-particles;Multifunctional Nano-particle;Nano-particle, Multifunctional;Nano-particles, Multifunctional;Two-Faced Nano-particles;Two Faced Nano-particles;Two-Faced Nano-particle;Janus Nano-particles
+D053769	DosageForm	Nano-capsules	Nano-capsule;Nano capsules;Nano capsule
+D058726	DosageForm	Nano conjugates	Nano conjugate;Nano-conjugates;Nano-conjugate;nanoparticle conjugate;nano particle conjugate;nano-particle conjugate
+D058612	DosageForm	Nano diamonds	Nano diamond;Nano-diamonds;Nano-diamond
+D000080385	DosageForm	Nano gels	Nano composite Gels;Gel, Nano composite;Nano composite Gel;Nano composite Hydrogels;Hydrogel, Nano composite;Nano composite Hydrogel;Nano-gels;Nano-composite Gels;Gel, Nano-composite;Nano-composite Gel;Nano-composite Hydrogels;Hydrogel, Nano-composite;Nano-composite Hydrogel
+D053758	DosageForm	nanoparticular	Nano particles;Nano particle;Nano crystalline Materials;Material, Nano crystalline;Materials, Nano crystalline;Nano crystalline Material;Nano crystals;Nano crystal;Nano-particles;Nano-particle;Nano-crystalline Materials;Material, Nano-crystalline;Materials, Nano-crystalline;Nano-crystalline Material;Nano-crystals;Nano-crystal
+D057145	DosageForm	Nano shells	Nano shell;Metal Nano shells;Metal Nano shell;Nano shell, Metal;Nano shells, Metal;Nano-shells;Nano-shell;Metal Nano-shells;Metal Nano-shell;Nano-shell, Metal;Nano-shells, Metal
+D054118	DosageForm	nanospherical	Nano spheres;Nano sphere;Nano-spheres;Nano-sphere
+D043942	DosageForm	Nano tubes	Nano tube;Nano rods;Nano rod;Nano-tubes;Nano-tube;Nano-rods;Nano-rod
+D037742	DosageForm	Nano tubes, Carbon	Carbon Nano tube;Nano tube, Carbon;Carbon Nano tubes;Buckytubes;Buckytube;Nano ribbons;Nano ribbon;Nano-tubes, Carbon;Carbon Nano-tube;Nano-tube, Carbon;Carbon Nano-tubes;Buckytubes;Buckytube;Nano-ribbons;Nano-ribbon
+D045333	DosageForm	Nano tubes, Peptide	Nano tube, Peptide;Peptide Nano tube;Peptide Nano tubes;Nano-tubes, Peptide;Nano-tube, Peptide;Peptide Nano-tube;Peptide Nano-tubes
+D053770	DosageForm	Nano wires	Nano wire;Nano-wires;Nano-wire
+D059085	DosageForm	Nose Spray	
+D009824	DosageForm	nasal ointment	
+D058993	DosageForm	mouth spray	
+D014677	DosageForm	drug vehicle	vehicle of drug action;vehicle of drug substance;Excipients;Suspending Agents;Agents, Suspending;Stabilizing Agents;Agents, Stabilizing;carrier substance;carrier material
+D011208	DosageForm	multi-dose powder	single dose powder;nasal powder
+D045663	DosageForm	Semiconductor Nano particles	Nano particle, Semiconductor;Nano particles, Semiconductor;Semiconductor Nano particle;Semiconductor Nano crystals;Nano crystal, Semiconductor;Semiconductor Nano crystal;Nano crystals, Semiconductor;Fluorescence nano crystals;Semiconductor Nano-particles;Nano-particle, Semiconductor;Nano-particles, Semiconductor;Semiconductor Nano-particle;Semiconductor Nano-crystals;Nano-crystal, Semiconductor;Semiconductor Nano-crystal;Nano-crystals, Semiconductor;Fluorescence nano-crystals
+D058428	DosageForm	silicic acid gel	
+D013488	DosageForm	Suppository, Ovula	Ovules;insert;pessary;pessaries;vaginal inserts;vaginal Suppositories;vaginal Suppository;vaginal pessaries;vaginal pessary;bougies;inserts;vaginal tablet;vaginal pill
+D013607	DosageForm	Tablet core	tablet cores;pastilles;molded tablet;tablet triturates
+D013608	DosageForm	enteric tablet	Gastro-resistant tablet;Gastro resistant tablet
+D000284	DosageForm	oral application	orally;oral;buccal application;buccal;buccally;Sublingual;Sublingual application;Sublingually;peroral;per oral;perorally;per-oral;perorally;per orally;per-orally
+D000287	DosageForm	topical application	topically;topical
+D000279	DosageForm	cutaneous application	cutaneously;cutaneous
+D000282	DosageForm	Intra-vaginal Administration	Intra vaginal Administration;vaginal application;vaginal;vaginally;Intra-vaginal application;Intra vaginal application
+D000283	DosageForm	Intra vesical Drug Administration	Intra-vesical Drug Administration;Intravesical Drug application;Intra vesical Drug application; Intra-vesical Drug application;Intravesical;Intra vesical;Intra-vesical;Intravesically;Intra-vesically;Bladder Drug application
+D058956	DosageForm	mucosal	trans-mucosal;trans mucosal;mucosally;trans-mucosally;trans mucosally;transmucosally;mucosal application
+D000281	DosageForm	nasal	nasally;intranasal;intra nasal;intra-nasal;intranasally;intra nasally;intra-nasally;nasal application
+D000285	DosageForm	rectal	rectally;anal;anal application;rectal application
+D060433	DosageForm	Ophthalmic	Ophthalmic application;eye related;eye-related
+D000280	DosageForm	Inhalation	
+D008863	DosageForm	Micro sphere	Micro-sphere;Micro bead;Micro-bead
+D063465	DosageForm	Cream	Lotion;Gel-cream;gel cream
+D019999	DosageForm	oil solution	mouth wash solution;gargles;ear drops;Nasal drops;enema;washes;ear washes;nasal washes
+D005217	DosageForm	Intra venous Fat Emulsions	Intra-venous Fat Emulsions
+D057968	DosageForm	trans-dermal patch	trans dermal patch;trans-dermal;trans dermal
+D007276	DosageForm	intraventricular injection
+A1	Latin	vitro	glass
+A2	Latin	vivo	life
+aspirin	Drug	aspirin	acetylsalicylacid
+E1	Exp	holy-grail-quest
+E2	Exp	stuff
+

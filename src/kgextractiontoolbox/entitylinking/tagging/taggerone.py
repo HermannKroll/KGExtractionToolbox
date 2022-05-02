@@ -7,10 +7,12 @@ import uuid
 from datetime import datetime
 from shutil import copyfile
 from time import sleep
+from typing import Set, Dict
 
 from kgextractiontoolbox.document.count import get_document_ids
 from kgextractiontoolbox.document.regex import DOCUMENT_ID
 from kgextractiontoolbox.entitylinking.tagging.base import BaseTagger
+from kgextractiontoolbox.entitylinking.tagging.external_base import ExternalTaggerBase
 from kgextractiontoolbox.progress import print_progress_with_eta
 
 
@@ -21,7 +23,7 @@ class NoRemainingDocumentError(Exception):
     pass
 
 
-class TaggerOne(BaseTagger):
+class TaggerOne(ExternalTaggerBase):
     """
     TaggerOne can tag chemicals and diseases.
     """
@@ -38,7 +40,6 @@ class TaggerOne(BaseTagger):
         self.finished_ids = set()
         self.successful_ids = set()
         self.batch_ids = set()
-        self.in_dir = os.path.join(self.root_dir, "taggerone_in")
         self.out_dir = os.path.join(self.root_dir, "taggerone_out")
         self.batch_dir = os.path.join(self.root_dir, "taggerone_batches")
         self.log_file = os.path.join(self.log_dir, "taggerone.log")
@@ -46,24 +47,23 @@ class TaggerOne(BaseTagger):
         self.skipped_file_ids = set()
         self.current_retry = 0
         self.start_time = datetime.now()
+        self.mapping_id_file: Dict[int, str] = {}
+        self.id_set: Set[int] = set()
+        self.__last_print_by_x_percent = 0
 
-    def prepare(self, resume=False):
+    def prepare(self):
         """
-        Copy files into the input directory, because we delete them if they cause TaggerOne to fail.
-        :param resume: Flag whether to resume the tagging
+        Creates temporary directories and computes the id 2 file mapping
         """
-        if not resume:
-            os.mkdir(self.in_dir)
-            new_files = set()
-            for fn in self.files:
-                target = os.path.join(self.in_dir, fn.split("/")[-1])
-                new_files.add(target)
-                shutil.copy(fn, target)
-            self.files = new_files
-            os.mkdir(self.out_dir)
-            os.mkdir(self.batch_dir)
-        else:
-            raise NotImplementedError("Resuming TaggerOne is not implemented.")
+        os.mkdir(self.out_dir)
+        os.mkdir(self.batch_dir)
+
+        # compute mapping from id to file
+        for file in self.files:
+            file_name = os.path.basename(file)
+            file_id = int(file_name.split('.')[0])
+            self.mapping_id_file[file_id] = file
+            self.id_set.add(file_id)
 
     def get_successful_ids(self):
         """
@@ -112,10 +112,9 @@ class TaggerOne(BaseTagger):
             batch_id = uuid.uuid1()
             batch_file = self.get_batch_file(batch_id)
             # Write batch
-            for fn in batch:
-                filename = os.path.join(self.in_dir, fn)
-                with open(filename) as f_doc:
-                    with open(batch_file, "a+") as f_batch:
+            with open(batch_file, "wt") as f_batch:
+                for fn in batch:
+                    with open(fn) as f_doc:
                         f_batch.write(f_doc.read())
 
             self.logger.debug("Created batch ({}, {} files)".format(batch_id, len(batch)))
@@ -149,25 +148,26 @@ class TaggerOne(BaseTagger):
             # Wait until finished
             old_progress = 0
             last_progress_timestamp = datetime.now()
-            start_time = datetime.now()
-            while self.get_progress() == 0:
-                sleep(0.1)
-            self.logger.info(f"Taggerone: First Progress after {datetime.now() - start_time}")
-            while self.get_progress() < 100:
-                sleep(0.1)
-            self.logger.info(f"first 100 documents in {datetime.now() - start_time}")
             while process.poll() is None:
                 sleep(self.OUTPUT_INTERVAL)
                 new_progress = self.get_progress()
+                self.progress_value.value = new_progress
                 if new_progress > old_progress:
                     last_progress_timestamp = datetime.now()
                     old_progress = new_progress
                 elif (datetime.now() - last_progress_timestamp).total_seconds() > 60 * self.config.tagger_one_timeout:
                     os.kill(process.pid, signal.SIGKILL)
                     return self.NO_PROGRESS_SIGNAL
-                print_progress_with_eta("TaggerOne tagging", self.get_progress(), len(self.files), self.start_time,
-                                        print_every_k=1, logger=self.logger)
+                # print every 10%
+                if new_progress / len(self.files) > self.__last_print_by_x_percent:
+                    print_progress_with_eta("TaggerOne tagging", new_progress, len(self.files), self.start_time,
+                                            print_every_k=1, logger=self.logger)
+                    self.__last_print_by_x_percent += 0.1
             self.logger.debug("TaggerOne thread for {} exited with code {}".format(batch_file, process.poll()))
+
+        # print at the end of the tagging process
+        print_progress_with_eta("TaggerOne tagging", self.get_progress(), len(self.files), self.start_time,
+                                print_every_k=1, logger=self.logger)
         return process.poll()
 
     def _ignore_document(self, document_id):
@@ -183,11 +183,6 @@ class TaggerOne(BaseTagger):
         self.logger.warning("TaggerOne exception in file {}".format(last_file))
         self.skipped_files.add(last_file)
         copyfile(self.log_file, "{}.{}".format(self.log_file, len(self.skipped_files)))
-        if os.path.exists(last_file):
-            os.remove(last_file)
-            self.logger.debug("Successfully deleted {}".format(last_file))
-        else:
-            self.logger.debug("Failed to delete {}. File is already deleted.".format(last_file))
 
     def handle_error(self, last_batch_file):
         """

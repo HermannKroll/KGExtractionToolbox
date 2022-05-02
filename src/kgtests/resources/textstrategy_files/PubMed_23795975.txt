@@ -1,0 +1,31 @@
+23795975|t| Clinically relevant reductions in HbA1c without hypoglycaemia: results across four studies of saxagliptin
+23795975|a| BackgroundIn four 24-week controlled studies, the antihyperglycaemic efficacy of saxagliptin was demonstrated in patients with type 2 diabetes mellitus as add-on therapy to glyburide, a thiazolidinedione, or metformin, and when used in initial combination with metformin vs. metformin monotherapy in drug-naive patients. MethodsData from these studies were analysed to compare the proportions of patients who achieved specific reductions from baseline in glycated haemoglobin [HbA1c; reductions of >= 0.5% and >= 0.7% in all studies (prespecified); reductions >= 1.0% in the add-on studies and >= 1.0% to >= 2.5% in the initial combination study (post hoc)] for saxagliptin vs. comparator at week 24. We report overall rates of glycaemic response defined by these reductions in HbA1c and rates of response without experiencing hypoglycaemia. ResultsLarge glycaemic response rates were higher with saxagliptin 2.5 and 5 mg/day than with comparator (HbA1c >= 1.0%, 31.7-50.3% vs. 10.3-20.0%) as add-on therapy and higher with saxagliptin 5 mg/day as initial combination with metformin than with metformin monotherapy (HbA1c >= 2.0%, 68.3% vs. 49.8%) in drug-naive patients. Addition of saxagliptin was associated with a low incidence of hypoglycaemia; overall response rates and response rates excluding patients who experienced hypoglycaemia were similar. Analysis of several demographic and baseline clinical variables revealed no consistent correlations with response to saxagliptin. ConclusionsWhether receiving saxagliptin as an add-on therapy to glyburide, a thiazolidinedione, or metformin or in initial combination with metformin, a greater percentage of patients achieve clinically relevant large reductions in HbA1c vs. comparator, with a low incidence of hypoglycaemia.
+23795975	94	105	saxagliptin	Chemical	MESH:C502994
+23795975	187	198	saxagliptin	Chemical	MESH:C502994
+23795975	279	288	glyburide	Chemical	MESH:D005905
+23795975	292	309	thiazolidinedione	Chemical	MESH:D045162
+23795975	314	323	metformin	Chemical	MESH:D008687
+23795975	367	376	metformin	Chemical	MESH:D008687
+23795975	381	390	metformin	Chemical	MESH:D008687
+23795975	768	779	saxagliptin	Chemical	MESH:C502994
+23795975	1013	1024	saxagliptin	Chemical	MESH:C502994
+23795975	1140	1151	saxagliptin	Chemical	MESH:C502994
+23795975	1189	1198	metformin	Chemical	MESH:D008687
+23795975	1209	1218	metformin	Chemical	MESH:D008687
+23795975	1300	1311	saxagliptin	Chemical	MESH:C502994
+23795975	1588	1599	saxagliptin	Chemical	MESH:C502994
+23795975	1642	1653	saxagliptin	Chemical	MESH:C502994
+23795975	1678	1687	glyburide	Chemical	MESH:D005905
+23795975	1691	1708	thiazolidinedione	Chemical	MESH:D045162
+23795975	1713	1722	metformin	Chemical	MESH:D008687
+23795975	1754	1763	metformin	Chemical	MESH:D008687
+23795975	233	257	type 2 diabetes mellitus	Disease	MESH:D003924
+23795975	884	888	HbA1	Gene	3039
+23795975	1846	1850	HbA1	Gene	3039
+23795975	219	227	patients	Species	9606
+23795975	417	425	patients	Species	9606
+23795975	502	510	patients	Species	9606
+23795975	1278	1286	patients	Species	9606
+23795975	1418	1426	patients	Species	9606
+23795975	1789	1797	patients	Species	9606
+

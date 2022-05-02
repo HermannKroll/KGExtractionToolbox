@@ -1,0 +1,4 @@
+1|t|title1
+1|a|First export document containing simvastatin and diabetes mellitus.
+1	41	51	simvastatin	Drug	CHEMBL1064
+1	56	64	diabetes mellitus	Disease	D003924

@@ -2,7 +2,8 @@ import argparse
 import logging
 
 from kgextractiontoolbox.backend.database import Session
-from kgextractiontoolbox.backend.models import Tag, Document, DocTaggedBy, DocProcessedByIE, Predication, Sentence
+from kgextractiontoolbox.backend.models import Tag, Document, DocTaggedBy, DocProcessedByIE, Predication, Sentence, \
+    DocumentTranslation, DocumentSection, DocumentClassification
 
 
 def delete_document_collection_from_database(document_collection: str):
@@ -13,7 +14,6 @@ def delete_document_collection_from_database(document_collection: str):
     session.query(DocProcessedByIE).filter(DocProcessedByIE.document_collection == document_collection).delete()
 
     logging.info('Deleting sentences entries...')
-    sub_query = session.query(Predication.sentence_id).filter(Predication.document_collection == document_collection)
     session.query(Sentence).filter(Sentence.document_collection == document_collection).delete()
 
     logging.info('Deleting predication entries...')
@@ -24,6 +24,16 @@ def delete_document_collection_from_database(document_collection: str):
 
     logging.info('Deleting tag entries...')
     session.query(Tag).filter(Tag.document_collection == document_collection).delete()
+
+    logging.info('Deleting document translation entries...')
+    session.query(DocumentTranslation).filter(DocumentTranslation.document_collection == document_collection).delete()
+
+    logging.info('Deleting document section entries...')
+    session.query(DocumentSection).filter(DocumentSection.document_collection == document_collection).delete()
+
+    logging.info('Deleting document classification entries...')
+    session.query(DocumentClassification).filter(
+        DocumentClassification.document_collection == document_collection).delete()
 
     logging.info('Deleting document entries...')
     session.query(Document).filter(Document.collection == document_collection).delete()

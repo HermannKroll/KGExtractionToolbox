@@ -91,7 +91,19 @@ We support the following methods:
 - OpenIE51
 - OpenIE6
 
-Note, PathIEStanza, OpenIE51 and OpenIE6 cannot run in parallel.
+If you use an OpenIE method, then you must specify the corresponding entity filtering:
+- no_entity_filter (do not filter OpenIE methods)
+- partial_entity_filter (Default; force that in subject and object an entity must partially be included)
+- exact_entity_filter (force that subject and object must match an entity)
+- only_subject_exact (force that subject must match an entity)
+
+```
+python src/kgextractiontoolbox/extaction/pipeline.py --extraction_type METHOD --collection COLLECTION --entity_filter no_entity_filter
+```
+
+
+The **--workers** argument allows you to run the execution in parallel. 
+Note that PathIEStanza, OpenIE51 and OpenIE6 cannot run in parallel.
 
 If you want to process a list of document ids, you can define this list as a .txt file:
 ```
@@ -318,6 +330,17 @@ You can specify the filtering method by the *--entity_filter* argument:
 python src/kgextractiontoolbox/extraction/loading/load_openie_extractions.py OPENIE_OUTPUT --entity_filter partial_entity_filter  --collection DOCUMENT_COLLECTION --extraction_type OpenIE
 ```
 
-Supported extraction types: OpenIE, OpenIE51 and OpenIE6
+We support the following filter options:
+- no_entity_filter (do not filter OpenIE methods)
+- partial_entity_filter (Default; force that in subject and object an entity must partially be included)
+- exact_entity_filter (force that subject and object must match an entity)
+- only_subject_exact (force that subject must match an entity)
 
 
+The extraction type will be stored in the database (Predication table). Usually select on of these OpenIE, OpenIE51 and OpenIE6 names.
+
+We support the following optional flags:
+- --filter_predicate_str (Should the predicate be filtered to retain only verb phrases?)
+- --swap_passive_voice  (Swap passive voice to active voice)
+- --ignore_be_and_have (Ignore be and have verb phrases)
+- --keep_original_predicate (The original predicate is kept without further cleaning or lemmatizing)

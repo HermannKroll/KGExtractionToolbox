@@ -1,0 +1,16 @@
+1313813	0	8	prote ins	DosageForm	Desc1
+1313813	200	209	proteins	DosageForm	Desc1
+1313813	230	238	protein	DosageForm	Desc1
+1313813	413	421	protein	DosageForm	Desc1
+1313813	559	567	protein	DosageForm	Desc1
+1313813	621	629	protein	DosageForm	Desc1
+1313813	700	708	protein	DosageForm	Desc1
+1313813	812	821	proteins	DosageForm	Desc1
+1313813	928	936	protein	DosageForm	Desc1
+1313813	968	976	phorbol	DosageForm	Desc3
+1313813	968	976	phorbol	DosageForm	Desc2
+1313813	1103	1112	proteins	DosageForm	Desc1
+1313813	1317	1325	protein	DosageForm	Desc1
+1313813	1393	1401	protein	DosageForm	Desc1
+1313813	1608	1616	protein	DosageForm	Desc1
+1313813	1636	1645	proteins	DosageForm	Desc1

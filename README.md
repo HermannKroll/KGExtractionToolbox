@@ -3,23 +3,54 @@ This GitHub project belongs to our JCDL2021 submission "A Toolbox for the Nearly
 The code is shared under the MIT license. Feel free to submit any problem or issue to this GitHub project.
 
 If you use our project in your own research, then please cite:
+
 ```
 @inproceedings{kroll2021toolbox,
-author = {Kroll, Hermann and Pirklbauer, Jan and Balke, Wolf-Tilo},
-title = {A Toolbox for the Nearly-Unsupervised Construction of Digital Library Knowledge Graphs},
-year = {2021},
-publisher = {Association for Computing Machinery},
-address = {New York, NY, USA},
-booktitle = {Proceedings of the ACM/IEEE Joint Conference on Digital Libraries in 2021},
-numpages = {10},
-keywords = {knowledge graph, information extraction, digital library},
-location = {Urbana-Champaign, IL, USA},
-series = {JCDL '21}
+  author = {H. Kroll and J. Pirklbauer and W. Balke},
+  booktitle = {2021 ACM/IEEE Joint Conference on Digital Libraries (JCDL)},
+  title = {A Toolbox for the Nearly-Unsupervised Construction of Digital Library Knowledge Graphs},
+  year = {2021},
+  volume = {},
+  issn = {},
+  pages = {21-30},
+  doi = {10.1109/JCDL52503.2021.00014},
+  url = {https://doi.ieeecomputersociety.org/10.1109/JCDL52503.2021.00014},
+  publisher = {IEEE Computer Society},
+  address = {Los Alamitos, CA, USA},
+  month = {sep}
 }
 ```
 
+You can find our JCDL2021 conference talk here: [YouTube](https://youtu.be/G6ndS0GZBeg)
+We evaluated our toolbox in three different collections: Wikipedia, Pharmacy (PubMed) and Political Sciences.
+See the [Case Study Readme](README_CASE_STUDIES.md) for more details.
+
+
+We applied the toolbox to the pharmaceutical domain. 
+If you are interested in a possible application, watch our ICADL2021 talk: [YouTube](https://youtu.be/9N1XTXPEqfU)
+
+```
+@inproceedings{kroll2021narrativequerygraphs,
+  author="Kroll, Hermann and Pirklbauer, Jan and Kalo, Jan-Christoph and Kunz, Morris and Ruthmann, Johannes and Balke, Wolf-Tilo",
+  editor="Ke, Hao-Ren and Lee, Chei Sian and Sugiyama, Kazunari",
+  title="Narrative Query Graphs for Entity-Interaction-Aware Document Retrieval",
+  booktitle="Towards Open and Trustworthy Digital Societies",
+  year="2021",
+  publisher="Springer International Publishing",
+  address="Cham",
+  pages="80--95",
+  isbn="978-3-030-91669-5"
+}
+```
+
+
 # Toolbox Overview
 ![Toolbox](toolbox.png)
+
+The toolbox covers three central topics:
+- Entity Linking and Namend Entity Recognition
+- Information Extraction
+- Canonicalization and Cleaning
 
 # General Setup
 To use our toolbox, please follow the following setup procedure.
@@ -79,6 +110,9 @@ python src/kgextractiontoolbox/backend/delete_collection.py COLLECTION --force
 ```
 
 # Toolbox Components
+Before you can use the toolbox, you must bring your documents into a compatible format and load them:
+- [0 Document Formats & Loading](README_00_DOCUMENTS.md)
+
 
 The extraction toolbox covers three essential components:
 - [01 Entity Linking](README_01_ENTITY_LINKING.md)
@@ -89,97 +123,5 @@ If you would like to know how to use own of these components, follow the corresp
 How data of our toolbox can be exported is described here:
 - [04 Export Statements](README_04_EXPORT.md)
 
-There are several example files in the [resources](resources) folder.
+There are several example files in the [resources] folder or you may have a look at our [case studies](README_CASE_STUDIES.md).
 
-
-
-# Supported Document Formats
-
-Our Pipeline supports two document formats (JSON and Pubtator). Every document is identified via an unique id (integer). 
-Documents must belong to a document collection, but each document id must be unique within the collection.
-
-
-
-## Loading Documents
-You can load your documents:
-```
-python src/kgextractiontoolbox/documents/load_document.py DOCUMENTS.json --collection COLLECTION
-```
-Document ids must be unique integers within a document collection. 
-The loading procedure will automatically include entity annotations (tags) if contained in the document file. 
-If you don't want to include tags, use the **--ignore_tags** argument.
-
-```
-python src/kgextractiontoolbox/documents/load_document.py DOCUMENTS.json --collection COLLECTION --ignore_tags
-```
-
-A document file may contain only annotations (exported by our toolbox; see [export](README_04_EXPORT.md)).
-The toolbox will only load these annotations if the corresponding documents with titles or abstracts have been inserted into the database.
-
-
-### Document JSON Format
-Here is an example of our JSON format:
-```
-[
-  {
-      "id": 12345,
-      "title": "Barack Obama [...]",
-      "abstract": "Obama was born in Honolulu, Hawaii. After graduating from Columbia University in 1983 [..]",
-  },
-  // more documents ...
-]
-```
-The outmost array brackets `[]` can be omitted if only a single json document should be contained within the file.
-
-Note:
-- a document id must be an integer
-- id, title and abstracts are required
-
-### Document PubTator Format
-The second document format is the so-called [PubTator format](https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/PubTator/tutorial/index.html). 
-A PubTator document has a document id, a document collection, a title and an abstract. 
-```
-document_id|t|title text here
-document_id|a|abstract text here
-
-```
-ATTENTION: the PubTator file must end with two *\n* characters. 
-The document id must be an integer. Title and abstract can include special characters - the texts will be sanitized in our pipeline. 
-If you want to tag several documents, you can choose from two options:
-1. Create a PubTator file for each document and put them into a directory
-2. Create a single PubTator file with several documents
-```
-document_id_1|t|title text here
-document_id_1|a|abstract text here
-
-document_id_2|t|title text here
-document_id_2|a|abstract text here
-
-document_id_3|t|title text here
-document_id_3|a|abstract text here
-
-```
-The files are separated by two new line characters *\\n*. ATTENTION: the PubTator file must end with two *\\n* characters. 
-
-
-### Expert Loading for Custom Tagging
-The following is only of interest, if you are working with custom taggers.
-In addition, you can specify a tagger map when loading a document file. 
-Then, the database will store the information that these files have been processed by the corresponding taggers.
-This is useful, if you work with custom taggers, and you don't want to annotate document twice.
-As an example:
-```
-{
-  "Chemical" : ["TaggerOne", "0.2.1"],
-  "Disease" : ["TaggerOne", "0.2.1"],
-  "DosageForm": ["DosageFormTagger" , "1.0.0"],
-  "Gene" : ["GNormPlus", "unknown"],
-  "Species" : ["SR4GN", "unknown" ],
-  "CellLine" : ["TaggerOne", "0.2.1"],
-  "Variant" : [ "tmVar", "2.0"]
-}
-```
-Then, run
-```
-python src/kgextractiontoolbox/documents/load_document.py DOCUMENTS.json --tagger_map TAGGER_MAP.json --collection COLLECTION
-```

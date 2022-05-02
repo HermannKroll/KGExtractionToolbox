@@ -1,0 +1,17 @@
+24729111	0	10	Amiodarone	Chemical	D000638
+24729111	19	33	myxoedema coma	Disease	D007037|D003128	myxoedema|coma
+24729111	71	82	bradycardia	Disease	D001919
+24729111	84	95	hypothermia	Disease	D007035
+24729111	100	119	respiratory failure	Disease	D012131
+24729111	148	158	amiodarone	Chemical	D000638
+24729111	171	190	atrial fibrillation	Disease	D001281
+24729111	275	284	thyroxine	Chemical	D013974
+24729111	395	403	steroids	Chemical	D013256
+24729111	497	510	levothyroxine	Chemical	D013974
+24729111	772	785	levothyroxine	Chemical	D013974
+24729111	885	891	iodine	Chemical	D007455
+24729111	944	954	amiodarone	Chemical	D000638
+24729111	963	977	myxoedema coma	Disease	D007037|D003128	myxoedema|coma
+24729111	1139	1149	amiodarone	Chemical	D000638
+24729111	1158	1172	myxoedema coma	Disease	D007037|D003128	myxoedema|coma
+24729111	1216	1231	thyroid disease	Disease	D013959

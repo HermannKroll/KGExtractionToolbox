@@ -1,0 +1,33 @@
+25817734|t| Estimating kidney function and use of oral antidiabetic drugs in elderly.
+25817734|a| The prevalence of diabetes mellitus (DM) and renal impairment rises with age making regular estimation of glomerular filtration rate (eGFR) in older diabetics necessary. This study investigated the differences among available estimating equations in assessing eGFR in older diabetics and examined the use of oral antidiabetic drugs (OADs) in relation to renal function. Patients with DM were participants of the Berlin Initiative Study (BIS), a population-based cohort study initiated in 2009 in Berlin, Germany, to evaluate kidney function in people 70 years. GFR was estimated with the creatinine-based CKD-EPICREA (Chronic Kidney Disease Epidemiology Collaboration), the MDRD (Modification of Diet in Renal Diseases) and the BIS1 equation and was directly measured (mGFR) with iohexol clearance as a gold standard in a subgroup (n = 137). Creatinine clearance was estimated with the Cockcroft-Gault equation (CrCl). DM prevalence was 26% (539 of 2070 overall participants). The antidiabetic drugs most commonly used among OAD patients were metformin (67%), glimepiride (27%) and glibenclamide (14%). Three of ten metformin patients had a CrCl <60 mL/min. Compared to mGFR, the mean differences of filtration rates calculated by MDRD, CKD-EPICREA and BIS1 were +8.9, +6.7 and -1.8 mL/min/1.73 m(2) , respectively. Summing up, many patients with a CrCl <60 mL/min received metformin, although this represents a contraindication in Germany. Glibenclamide was commonly used despite its classification as potentially inappropriate medication in older adults. Finally, BIS1 performed better in estimating GFR in older diabetics than MDRD or CKD-EPICREA .
+25817734	663	673	creatinine	Chemical	MESH:D003404
+25817734	855	862	iohexol	Chemical	MESH:D007472
+25817734	917	927	Creatinine	Chemical	MESH:D003404
+25817734	987	991	CrCl	Chemical	MESH:C022990
+25817734	1118	1127	metformin	Chemical	MESH:D008687
+25817734	1135	1146	glimepiride	Chemical	MESH:C057619
+25817734	1157	1170	glibenclamide	Chemical	MESH:D005905
+25817734	1191	1200	metformin	Chemical	MESH:D008687
+25817734	1216	1220	CrCl	Chemical	MESH:C022990
+25817734	1424	1428	CrCl	Chemical	MESH:C022990
+25817734	1449	1458	metformin	Chemical	MESH:D008687
+25817734	1516	1529	Glibenclamide	Chemical	MESH:D005905
+25817734	92	109	diabetes mellitus	Disease	MESH:D003920
+25817734	111	113	DM	Disease	MESH:D003920
+25817734	119	135	renal impairment	Disease	MESH:D007674
+25817734	223	232	diabetics	Disease	MESH:D003920
+25817734	348	357	diabetics	Disease	MESH:D003920
+25817734	458	460	DM	Disease	MESH:D003920
+25817734	693	715	Chronic Kidney Disease	Disease	MESH:D051436
+25817734	749	753	MDRD	Disease	MESH:D007674
+25817734	779	793	Renal Diseases	Disease	MESH:D007674
+25817734	994	996	DM	Disease	MESH:D003920
+25817734	1306	1310	MDRD	Disease	MESH:D007674
+25817734	1690	1709	diabetics than MDRD	Disease	MESH:D003928
+25817734	444	452	Patients	Species	9606
+25817734	466	478	participants	Species	9606
+25817734	618	624	people	Species	9606
+25817734	1104	1112	patients	Species	9606
+25817734	1201	1209	patients	Species	9606
+25817734	1408	1416	patients	Species	9606
+

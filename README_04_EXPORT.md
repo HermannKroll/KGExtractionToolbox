@@ -6,7 +6,7 @@ This Readme contains instructions on how to export data from our toolbox databas
 First, the entity linking annotations can be exported in two formats: JSON and PubTator.
 You can export the annotations via:
 ```
-python src/kgextractiontoolbox/entitylinking/export_annotations.py -d -t EXPORT_FILE --format JSON --collection COLLECTION
+python src/kgextractiontoolbox/document/export.py -d -t EXPORT_FILE --format JSON --collection COLLECTION
 ```
 You can export only tags (only -t) or document contents and tags (-d and -t).
 You can export a whole document collection or a set of document ids in that collection.

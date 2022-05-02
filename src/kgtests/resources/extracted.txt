@@ -1,0 +1,39 @@
+1313813|t|Proteins are secreted by both constitutive and regulated secretory pathways in lactating mouse mammary epithelial cells
+1313813|a|Lactating mammary epithelial cells secrete high levels of caseins and other milk proteins. The extent to which protein secretion from these cells occurs in a regulated fashion was examined in experiments on secretory acini isolated from the mammary glands of lactating mice at 10 d postpartum. Protein synthesis and secretion were assayed by following the incorporation or release, respectively, of [35S]methionine-labeled TCA-precipitable protein. The isolated cells incorporated [35S]methionine into protein linearly for at least 5 h with no discernible lag period. In contrast, protein secretion was only detectable after a lag of approximately 1 h, consistent with exocytotic secretion of proteins immediately after passage through the secretory pathway and package into secretory vesicles. The extent of protein secretion was unaffected by the phorbol ester PMA, 8-bromo-cAMP, or 8- bromo-cGMP but was doubled by the Ca2+ ionophore ionomycin. In a pulse- label protocol in which proteins were prelabeled for 1 h before a chase period, constitutive secretion was unaffected by depletion of cytosolic Ca2+ but ionomycin was found to give a twofold stimulation of the secretion of presynthesized protein in a Ca(2+)-dependent manner. Ionomycin was still able to stimulate protein secretion after constitutive secretion had terminated. These results suggest that lactating mammary cells possess both a Ca(2+)-independent constitutive pathway and a Ca(2+)-activated regulatory pathway for protein secretion. The same proteins were secreted by both pathways. No ultrastructural evidence for apocrine secretion was seen in response to ionomycin and so it appears that regulated casein release involves exocytosis. Ionomycin was unlikely to be acting by disassembling the cortical actin network since cytochalasin D did not mimic its effects on secretion. The regulated pathway may be controlled by Ca2+ acting at a late step such as exocytotic membrane fusion.
+1313813	89	94	mouse	Species	10090
+1313813	389	393	mice	Species	10090
+1313813	1224	1228	Ca2+	Chemical	MESH:D002118
+1313813	1042	1046	Ca2+	Chemical	MESH:D002118
+1313813	1005	1018	8- bromo-cGMP	Chemical	MESH:C016276
+1313813	519	534	[35S]methionine	Chemical	MESH:C013111
+1313813	1356	1365	Ionomycin	Chemical	MESH:D015759
+1313813	988	1000	8-bromo-cAMP	Chemical	MESH:D015124
+1313813	969	986	phorbol ester PMA	Chemical	MESH:D010703
+1313813	1832	1841	Ionomycin	Chemical	MESH:D015759
+1313813	1331	1337	Ca(2+)	Chemical	MESH:D002118
+1313813	601	616	[35S]methionine	Chemical	MESH:C013111
+1313813	1753	1762	ionomycin	Chemical	MESH:D015759
+1313813	1057	1066	ionomycin	Chemical	MESH:D015759
+1313813	1233	1242	ionomycin	Chemical	MESH:D015759
+1313813	543	546	TCA	Chemical	MESH:C000589078
+1313813	1569	1575	Ca(2+)	Chemical	MESH:D002118
+1313813	2016	2020	Ca2+	Chemical	MESH:D002118
+1313813	1523	1529	Ca(2+)	Chemical	MESH:D002118
+
+1313814|t|Nerve growth factor nonresponsive pheochromocytoma cells: altered internalization results in signaling dysfunction
+1313814|a|Variant rat pheochromocytoma (PC12) cells which fail to respond to nerve growth factor (NGF) (PC12nnr5) (Green, S. H., R. E. Rydel, J. L. Connoly, and L. A. Greene. 1986. J. Cell Biol. 102:830-843) bind NGF at both high and low affinity sites. Although still undefined at the molecular level, these have been referred to as type I (high) and type II (low) receptors. They are apparently composed of two membrane-bound proteins, p75 and the protooncogene trk, both of which bind NGF, and apparently contribute singularly or in concert to the two observed affinities, and to the promotion of the NGF effects. In native PC12 cells, only the high affinity receptors are apparently capable of mediating internalization and degradation. PC12nnr5 cells also display type I binding, but the subsequent internalization is not the same fashion as in the parental cell line, nor is it subjected to lysosomal degradation. Rather it is initially sequestered during the first 15 min, and is eventually released intact into the medium. In contrast, EGF is bound, internalized, and degraded by PC12nnr5 cells, albeit less efficiently than in the parent cells. These observations argue that the defect(s) preventing the PC12nnr5 variants from responding to NGF prevents competent internalization, which in the case of NGF, may be required for the full expression of activity. The absence of trk, as one alteration in PC12nnr5 cells (Loeb, D. M., J. Maragos, D. Martin- Zanca, M. V. Chao, L. F. Parada, and L. A. Greene. 1991. Cell. 66:961- 966), is consistent with this conclusion.
+1313814	0	19	Nerve growth factor	Gene	310738
+1313814	93	114	signaling dysfunction	Disease	MESH:C566796
+1313814	34	50	pheochromocytoma	Disease	MESH:D010673
+1313814	182	201	nerve growth factor	Gene	310738
+1313814	203	206	NGF	Gene	310738
+1313814	543	546	p75	Gene	24596
+1313814	569	572	trk	Gene	59109
+1313814	593	596	NGF	Gene	310738
+1313814	709	712	NGF	Gene	310738
+1313814	1355	1358	NGF	Gene	310738
+1313814	1416	1419	NGF	Gene	310738
+1313814	1489	1492	trk	Gene	59109
+1313814	318	321	NGF	Gene	310738
+1313814	123	126	rat	Species	10116
+1313814	127	143	pheochromocytoma	Disease	MESH:D010673

@@ -1,0 +1,8 @@
+1|t|012345
+1|a|Aspirin (ASA) is a known drug. ASA treats pain and headaches. Its other name is acetylsalicylacid
+1	7	14	aspirin	Drug	aspirin
+1	16	19	asa	Drug	aspirin
+1	38	41	asa	Drug	aspirin
+1	87	104	acetylsalicylacid	Drug	aspirin
+
+

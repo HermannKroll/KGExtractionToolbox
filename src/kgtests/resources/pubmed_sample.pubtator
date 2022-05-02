@@ -1,0 +1,139 @@
+18662465|t|Computing motivation: Incentive salience boosts of drug or appetite states.
+18662465|a|Current computational models predict reward based solely on learning. Real motivation involves that but also more. Brain reward systems can dynamically generate incentive salience, by integrating prior learned values with even novel physiological states (e.g., natural appetites; drug-induced mesolimbic sensitization) to cause intense desires that were themselves never learned. We hope future computational models may capture this too.
+
+21749973|t|Riley et al. Respond to "Co-occurring Health Conditions and Life Challenges"
+21749973|a|
+
+22684753|t|Lead Exposure and Cognitive Outcomes of Children With Prenatal Cocaine Exposure-Reply.
+22684753|a|
+22684753	40	48	Children	Species	9606
+22684753	63	70	Cocaine	Chemical	MESH:D003042
+
+27440197|t|What is the BMI threshold for open ventral hernia repair?
+27440197|a|BACKGROUND: Overweight and obese patients are often asked to lose weight prior to ventral hernia repair (VHR). Improved outcomes are the reasons behind this strategy. Data regarding weight loss targets are scant, and it is not known at what body mass index (BMI) threshold postoperative complications increase. This study aimed to determine the threshold to allow proper patient counseling. METHODS: All patients who underwent open VHR at our institution between 2002 and 2015 captured in the NSQIP database were included. The primary outcome was defined as any (&gt;=1) of 18 captured postoperative complications. Patients were divided into five groups based on BMI: group 1 (&lt;25 kg/m2); 2 (25-29.99 kg/m2); 3 (30-34.99 kg/m2); 4 (35-39.99 kg/m2); and 5 (&gt;=40 kg/m2). Multivariable, adjusted logistic regression was performed to evaluate the association between BMI categories and postoperative complications. RESULTS: Sixty seven of 922 patients (7.3 %) had at least one postoperative complication following VHR. The adjusted odds of complications in group 5 was 2.89 times greater compared to group 1 (OR 2.89; 95 % CI = 1.22-6.84), while there was no significant differences in odds of postoperative complications for groups 2, 3, or 4 compared to group 1. BMI category was also significantly associated with undergoing recurrent VHR, with 28.7 % of patients in group 5 having a recurrent repair compared to 14 % in patients in group 1 (p = 0.03). CONCLUSIONS: After VHR, complications are most likely to occur in patients with BMI &gt;= 40 kg/m2. This subset of patients also had a significantly higher risk of undergoing surgery for a recurrent hernia, suggesting that this group of patients is likely to experience adverse outcomes after VHR and should be counseled to consider bariatric surgery prior to attempts at VHR. VHR at lower BMIs appears appropriate, and delaying therapy to achieve preoperative weight loss will likely offer no advantage.
+27440197	30	49	open ventral hernia	Disease	MESH:D006555
+27440197	85	90	obese	Disease	MESH:D009765
+27440197	91	99	patients	Species	9606
+27440197	140	154	ventral hernia	Disease	MESH:D006555
+27440197	240	251	weight loss	Disease	MESH:D015431
+27440197	429	436	patient	Species	9606
+27440197	462	470	patients	Species	9606
+27440197	673	681	Patients	Species	9606
+27440197	1003	1011	patients	Species	9606
+27440197	1418	1426	patients	Species	9606
+27440197	1484	1492	patients	Species	9606
+27440197	1582	1590	patients	Species	9606
+27440197	1631	1639	patients	Species	9606
+27440197	1715	1721	hernia	Disease	MESH:D006547
+27440197	1753	1761	patients	Species	9606
+27440197	1977	1988	weight loss	Disease	MESH:D015431
+
+27440198|t|Histopathological and clinical expression of periodontal disease related to the systemic inflammatory response.
+27440198|a|Periodontal disease with its systemic implications is highly prevalent among the population, and this correlation could have an impact on the quality lives of many humans. The purpose of this study was to assess the clinical and histopathological changes of the periodontium correlated with the systemic inflammatory response in periodontal disease. An experimental study was performed on male Wistar rats which were subjected to a procedure of periodontitis induction through placing silk thread ligatures around the lower incisors, under general anesthesia. Clinically, the changes of the periodontal tissue induced by the periodontitis progression were daily assessed. Two blood samples were obtained from each animal, at baseline and on completion of the experiment. The plasma level of the cytokine IL-6 and haematological parameters such as leukocytes, neutrophils, lymphocytes, monocytes, and platelets were determined. After seven days the animals were sacrificed, and samples were prepared for histological evaluation. Clinical manifestations such as changes in the color, contour and consistency of the gingival tissue and the bleeding on probing were registered. Histopathological analysis showed an intense inflammatory cell infiltration, the presence of osteoclasts and an obvious bone resorption activity. A significant increase in IL-6 values during the progression of periodontitis in rats (p&lt;0.001) was also observed. The results of this research demonstrated that the clinical and histological changes in the rat's periodontium are correlated with a notable systemic inflammatory response. Therefore, periodontitis control can be inserted as part of the programs of systemic disorders prevention, in clinical practice.
+27440198	112	131	Periodontal disease	Disease	MESH:D010510
+27440198	276	282	humans	Species	9606
+27440198	506	517	Wistar rats	Species	10116
+27440198	557	570	periodontitis	Disease	MESH:D010518
+27440198	737	750	periodontitis	Disease	MESH:D010518
+27440198	916	920	IL-6	Gene	24498
+27440198	1249	1257	bleeding	Disease	MESH:D006470
+27440198	1458	1462	IL-6	Gene	24498
+27440198	1496	1509	periodontitis	Disease	MESH:D010518
+27440198	1513	1517	rats	Species	10116
+27440198	1642	1645	rat	Species	10116
+27440198	1734	1747	periodontitis	Disease	MESH:D010518
+27440198	1799	1817	systemic disorders	Disease	MESH:D007154
+
+27440199|t|A near-zero Poisson's ratio of Si with ordered nanopores.
+27440199|a|The Poisson's ratio nuij = -epsilon/epsilon, where epsilon and epsilon (i,j = x, y, z) are applied and resulting strain, respectively, are computed from first-principles for Si with an array of cylindrical, nanometer-sized pores aligned in the z direction (nanoporous Si, or np-Si). Through density functional theory calculations, it is demonstrated that the periodic arrangement of pores introduces strong anisotropy in the Poisson's ratio of np-Si: while nuyz remains close to the Poisson's ratio of the bulk, nuzx and nuxy exhibit an increase and a sharp decrease from the bulk value, respectively, as the volume fraction of pores (phi) becomes large. It is shown that the characteristic dependence of the Poisson's ratio on phi originates from the difference in the actual stress on np-Si, which is caused by the dissimilar surface geometry. Unlike random porous materials, this finding signifies the importance of structural details in determining the mechanical response of ordered systems at a nanoscale.
+27440199	31	33	Si	Chemical	MESH:D012825
+27440199	326	328	Si	Chemical	MESH:D012825
+
+27440202|t|Comparison of current platelet functional tests for the assessment of aspirin and clopidogrel response. A review of the literature.
+27440202|a|The two most widely used antiplatelet drugs in the world are aspirin and clopidogrel. However, some patients on aspirin and/or clopidogrel therapy do not respond appropriately to either aspirin or clopidogrel. This phenomenon is usually called "aspirin/clopidogrel resistance". Several platelet function tests have been used in various studies for the assessment of aspirin and clopidogrel resistance in healthy individuals and patients admitted in cardiology departments. An accurate assessment of platelet response to aspirin/clopidogrel could benefit patients by proposing tailored-antiplatelet therapy based on test results. However, there is a clear lack of standardisation of such techniques and their analytical variability may induce misinterpretation. After a quick report of the mechanisms responsible for aspirin/clopidogrel resistance, we describe the pre-analytical aspects and the analytical performances of current platelet function tests (Light-transmission aggregometry, whole-blood aggregometry, VerifyNow , Platelet Function Analyzer , thromboelastography, VASP assay) that are used for the assessment of aspirin/clopidogrel resistance in clinical studies. Considering the different variables that have to be taken into account with each of the platelet function tests, a particular attention should be paid when interpreting results.
+27440202	70	77	aspirin	Chemical	MESH:D001241
+27440202	82	93	clopidogrel	Chemical	MESH:D000077144
+27440202	193	200	aspirin	Chemical	MESH:D001241
+27440202	205	216	clopidogrel	Chemical	MESH:D000077144
+27440202	232	240	patients	Species	9606
+27440202	244	251	aspirin	Chemical	MESH:D001241
+27440202	259	270	clopidogrel	Chemical	MESH:D000077144
+27440202	318	325	aspirin	Chemical	MESH:D001241
+27440202	329	340	clopidogrel	Chemical	MESH:D000077144
+27440202	377	384	aspirin	Chemical	MESH:D001241
+27440202	385	396	clopidogrel	Chemical	MESH:D000077144
+27440202	498	505	aspirin	Chemical	MESH:D001241
+27440202	510	521	clopidogrel	Chemical	MESH:D000077144
+27440202	560	568	patients	Species	9606
+27440202	652	659	aspirin	Chemical	MESH:D001241
+27440202	660	671	clopidogrel	Chemical	MESH:D000077144
+27440202	686	694	patients	Species	9606
+27440202	948	955	aspirin	Chemical	MESH:D001241
+27440202	956	967	clopidogrel	Chemical	MESH:D000077144
+27440202	1208	1212	VASP	Gene	7408
+27440202	1256	1263	aspirin	Chemical	MESH:D001241
+27440202	1264	1275	clopidogrel	Chemical	MESH:D000077144
+
+27440203|t|Mesenchymal stem cells as a double-edged sword in suppression or progression of solid tumor cells.
+27440203|a|Tumor cells are able to attract mesenchymal stem cells (MSCs) to primary tumor site. On the other hand, MSCs secrete various factors to attract tumor cells towards BM. In this review, in addition to assessment of MSCs function at tumor sites and their impact on growth and metastasis of tumor cells, the importance of MSC in attraction of malignant cells to BM and their involvement in drug resistance of tumor cells have also been studied. Relevant literature was identified by a PubMed search (2000-2015) of English-language literature using the terms mesenchymal stem cells, cancer cell, metastasis, and tumor microenvironment. MSCs migrate towards tumor microenvironment and are involved in both pro-tumorigenic and antitumorigenic functions. The dual function of MSCs at tumor sites is dependent upon a variety of factors, including the type and origin of MSCs, the cancer cell line under study, in vivo or in vitro conditions, the factors secreted by MSCs and interactions between MSCs, host immune cells and cancer cells. Therefore, MSCs can be regarded both as friends and enemies of cancer cells. Although the role of a number of pathways, including IL-6/STAT3 pathway, has been indicated in controlling the interaction between MSCs and tumor cells, other mechanisms by which MSCs can control the tumor cells are not clear yet. A better understanding of these mechanisms through further studies can determine the exact role of MSCs in cancer progression and identify them as important therapeutic agents or targets.
+27440203	80	91	solid tumor	Disease	MESH:D009369
+27440203	172	177	tumor	Disease	MESH:D009369
+27440203	243	248	tumor	Disease	MESH:D009369
+27440203	329	334	tumor	Disease	MESH:D009369
+27440203	386	391	tumor	Disease	MESH:D009369
+27440203	504	509	tumor	Disease	MESH:D009369
+27440203	677	683	cancer	Disease	MESH:D009369
+27440203	706	711	tumor	Disease	MESH:D009369
+27440203	751	756	tumor	Disease	MESH:D009369
+27440203	875	880	tumor	Disease	MESH:D009369
+27440203	970	976	cancer	Disease	MESH:D009369
+27440203	1114	1120	cancer	Disease	MESH:D009369
+27440203	1191	1197	cancer	Disease	MESH:D009369
+27440203	1258	1262	IL-6	Gene	3569
+27440203	1263	1268	STAT3	Gene	6774
+27440203	1345	1350	tumor	Disease	MESH:D009369
+27440203	1405	1410	tumor	Disease	MESH:D009369
+27440203	1543	1549	cancer	Disease	MESH:D009369
+
+27440204|t|A novel index for preoperative, non-invasive prediction of macro-radical primary surgery in patients with stage IIIC-IV ovarian cancer-a part of the Danish prospective pelvic mass study.
+27440204|a|The purpose of this study was to develop a novel index for preoperative, non-invasive prediction of complete primary cytoreduction in patients with FIGO stage IIIC-IV epithelial ovarian cancer. Prospectively collected clinical data was registered in the Danish Gynecologic Cancer Database. Blood samples were collected within 14 days of surgery and stored by the Danish CancerBiobank. Serum human epididymis protein 4 (HE4), serum cancer antigen 125 (CA125), age, performance status, and presence/absence of ascites at ultrasonography were evaluated individually and combined to predict complete tumor removal. One hundred fifty patients with advanced epithelial ovarian cancer were treated with primary debulking surgery (PDS). Complete PDS was achieved in 41 cases (27 %). The receiver operating characteristic curves demonstrated an area under the curve of 0.785 for HE4, 0.678 for CA125, and 0.688 for age. The multivariate model (Cancer Ovarii Non-invasive Assessment of Treatment Strategy (CONATS) index), consisting of HE4, age, and performance status, demonstrated an AUC of 0.853. According to the Danish indicator level, macro-radical PDS should be achieved in 60 % of patients admitted to primary surgery (positive predictive value of 60 %), resulting in a negative predictive value of 87.5 %, sensitivity of 68.3 %, specificity of 83.5 %, and cutoff of 0.63 for the CONATS index. Non-invasive prediction of complete PDS is possible with the CONATS index. The CONATS index is meant as a supplement to the standard preoperative evaluation of each patient. Evaluation of the CONATS index combined with radiological and/or laparoscopic findings may improve the assessment of the optimal treatment strategy in patients with advanced epithelial ovarian cancer.
+27440204	92	100	patients	Species	9606
+27440204	112	134	IIIC-IV ovarian cancer	Disease	MESH:D010051
+27440204	321	329	patients	Species	9606
+27440204	346	379	IIIC-IV epithelial ovarian cancer	Disease	MESH:D000077216
+27440204	578	583	human	Species	9606
+27440204	606	609	HE4	Gene	10406
+27440204	618	624	cancer	Disease	MESH:D009369
+27440204	638	643	CA125	Gene	94025
+27440204	695	702	ascites	Disease	MESH:D001201
+27440204	783	796	tumor removal	Disease	MESH:D009369
+27440204	816	824	patients	Species	9606
+27440204	830	864	advanced epithelial ovarian cancer	Disease	MESH:D000077216
+27440204	910	913	PDS	Disease	MESH:C536648
+27440204	1057	1060	HE4	Gene	10406
+27440204	1072	1077	CA125	Gene	94025
+27440204	1213	1216	HE4	Gene	10406
+27440204	1366	1374	patients	Species	9606
+27440204	1615	1618	PDS	Disease	MESH:C536648
+27440204	1744	1751	patient	Species	9606
+27440204	1904	1912	patients	Species	9606
+27440204	1918	1952	advanced epithelial ovarian cancer	Disease	MESH:D000077216
+
+27440672|t|Depression in Schizophrenia: Associations With Cognition, Functional Capacity, Everyday Functioning, and Self-Assessment.
+27440672|a|Depressed mood has a complex relationship with self-evaluation of personal competence in multiple populations. The absence of depression may be associated with overestimation of abilities, while mild depression seems to lead to accurate self-assessment. Significant depression may lead to underestimation of functioning. In this study, we expand on our previous work by directly comparing the association between different levels of depression, everyday functioning, cognitive and functional capacity performance, and self-assessment of everyday functioning in a large (n = 406) sample of outpatients with schizophrenia. Participants with very low self-reported depression overestimated their everyday functioning compared with informant reports. Higher levels of depression were associated with more accurate self-assessment, but no subgroup of patients underestimated their functioning. Depressive symptom severity was associated with poorer informant-rated social functioning, but there were no differences in vocational functioning, everyday activities, cognitive performance, and functional capacity associated with the severity of self-reported depression. There was minimal evidence of impact of depression on most aspects of everyday functioning and objective test performance and a substantial relationship between depression and accuracy of self-assessment.
+27440672	0	27	Depression in Schizophrenia	Disease	MESH:D000275
+27440672	122	136	Depressed mood	Disease	MESH:D000275
+27440672	237	258	absence of depression	Disease	MESH:D000275
+27440672	322	332	depression	Disease	MESH:D000275
+27440672	388	398	depression	Disease	MESH:D000275
+27440672	555	565	depression	Disease	MESH:D000275
+27440672	728	741	schizophrenia	Disease	MESH:D012559
+27440672	743	755	Participants	Species	9606
+27440672	784	794	depression	Disease	MESH:D000275
+27440672	886	896	depression	Disease	MESH:D000275
+27440672	968	976	patients	Species	9606
+27440672	1011	1021	Depressive	Disease	MESH:D000275
+27440672	1273	1283	depression	Disease	MESH:D000275
+27440672	1315	1335	impact of depression	Disease	MESH:D000275
+27440672	1446	1456	depression	Disease	MESH:D000275
+

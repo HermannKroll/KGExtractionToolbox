@@ -1,0 +1,31 @@
+24118860|t| Metabolic Syndrome Components and Their Response to Lifestyle and Metformin Interventions are Associated with Differences in Diabetes Risk in Persons with Impaired Glucose Tolerance
+24118860|a| Aims To determine the association of metabolic syndrome (MetS) and its components with diabetes risk in participants with impaired glucose tolerance (IGT), and whether intervention-related changes in MetS lead to differences in diabetes incidence. Methods We used the NCEP/ATP III revised MetS definition at baseline and intervention-related changes of its components to predict incident diabetes using Cox models in 3234 Diabetes Prevention Program (DPP) participants with IGT over an average follow-up of 3.2 years. Results In an intention-to-treat analysis, the demographic-adjusted hazard ratios (95%CI) for diabetes in those with MetS (versus no MetS) at baseline were 1.7(1.3-2.3), 1.7(1.2-2.3), and 2.0(1.3-3.0) for placebo, metformin, and lifestyle groups, respectively. Higher levels of fasting plasma glucose and triglycerides at baseline were independently associated with increased risk of diabetes. Greater waist circumference (WC) was associated with higher risk in placebo and lifestyle groups, but not in the metformin group. In a multivariate model, favorable changes in WC (placebo and lifestyle) and HDLc (placebo and metformin) contributed to reduced diabetes risk. Conclusions MetS and some of its components are associated with increased diabetes incidence in persons with IGT in a manner that differed according to DPP intervention. After hyperglycemia, the most predictive factors for diabetes were baseline hypertriglyceridemia and both baseline and lifestyle-associated changes in waist circumference. Targeting these cardio-metabolic risk factors may help to assess the benefits of interventions that reduce diabetes incidence.
+24118860	66	75	Metformin	Chemical	MESH:D008687
+24118860	455	458	ATP	Chemical	MESH:D000255
+24118860	914	923	metformin	Chemical	MESH:D008687
+24118860	993	1000	glucose	Chemical	MESH:D005947
+24118860	1005	1018	triglycerides	Chemical	MESH:D014280
+24118860	1207	1216	metformin	Chemical	MESH:D008687
+24118860	1319	1328	metformin	Chemical	MESH:D008687
+24118860	125	133	Diabetes	Disease	MESH:D003920
+24118860	155	181	Impaired Glucose Tolerance	Disease	MESH:D018149
+24118860	219	237	metabolic syndrome	Disease	MESH:D008659
+24118860	269	277	diabetes	Disease	MESH:D003920
+24118860	304	330	impaired glucose tolerance	Disease	MESH:D018149
+24118860	410	418	diabetes	Disease	MESH:D003920
+24118860	570	578	diabetes	Disease	MESH:D003920
+24118860	604	612	Diabetes	Disease	MESH:D003920
+24118860	794	802	diabetes	Disease	MESH:D003920
+24118860	1084	1092	diabetes	Disease	MESH:D003920
+24118860	1353	1361	diabetes	Disease	MESH:D003920
+24118860	1442	1450	diabetes	Disease	MESH:D003920
+24118860	1544	1557	hyperglycemia	Disease	MESH:D006943
+24118860	1591	1599	diabetes	Disease	MESH:D003920
+24118860	1614	1634	hypertriglyceridemia	Disease	MESH:D015228
+24118860	1817	1825	diabetes	Disease	MESH:D003920
+24118860	585	588	Cox	Gene	1351
+24118860	142	149	Persons	Species	9606
+24118860	286	298	participants	Species	9606
+24118860	638	650	participants	Species	9606
+24118860	1464	1471	persons	Species	9606
+

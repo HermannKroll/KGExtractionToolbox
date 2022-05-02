@@ -7,8 +7,9 @@ import subprocess
 import sys
 import tempfile
 from datetime import datetime
-from spacy.lang.en import English
 from time import sleep
+
+from spacy.lang.en import English
 
 from kgextractiontoolbox.config import NLP_CONFIG
 from kgextractiontoolbox.document.count import count_documents
@@ -18,13 +19,14 @@ from kgextractiontoolbox.extraction.extraction_utils import filter_document_sent
 from kgextractiontoolbox.progress import print_progress_with_eta
 
 
-def openie_prepare_files(document_file, no_entity_filter=False):
+def openie_prepare_files(document_file, no_entity_filter=False, consider_sections=False):
     """
     Converts a PubTator file into plain texts files which can be processed by OpenIE
     Easily speaking, writes title and abstract of a PubTator file to a plain text file
     Creates a new temporary directory as a workign dir
     :param document_file: a PubTator file / a directory of PubTator files
     :param no_entity_filter: if true only sentences with two tags will be processed by OpenIE
+    :param consider_sections: Should document sections be considered for text generation?
     :return: a filelist for OpenIE, the location where the OpenIE output should be stored, the amount of files
     """
     temp_dir = tempfile.mkdtemp()
@@ -44,7 +46,8 @@ def openie_prepare_files(document_file, no_entity_filter=False):
                 amount_skipped_files += 1
             else:
                 doc_count += 1
-                content = f"{doc.title}. {doc.abstract}"
+                # TODO: Not beautiful but join sections via a '.' to ensure sentence splitting in CoreNLP
+                content = '. '.join([te for te in doc.iterate_over_text_elements(sections=consider_sections)])
                 input_file = os.path.join(temp_in_dir, "{}.txt".format(doc.id))
                 input_files.append(input_file)
                 with open(input_file, "w") as f:
@@ -54,7 +57,8 @@ def openie_prepare_files(document_file, no_entity_filter=False):
         spacy_nlp = English()  # just the language with no model
         spacy_nlp.add_pipe("sentencizer")
 
-        doc2sentences, doc2tags = filter_document_sentences_without_tags(doc_count, document_file, spacy_nlp)
+        doc2sentences, doc2tags = filter_document_sentences_without_tags(doc_count, document_file, spacy_nlp,
+                                                                         consider_sections=consider_sections)
         doc_count = len(doc2tags)
         for doc_id, sentences in doc2sentences.items():
             if sentences:
@@ -99,7 +103,11 @@ def openie_run(core_nlp_dir: str, out_fn: str, filelist_fn: str):
         num_files = len(f.read().split("\n"))
 
     run_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "run.sh")
+    out_fn = os.path.join(os.path.dirname(os.path.abspath(out_fn)), os.path.basename(out_fn))
+    filelist_fn = os.path.join(os.path.dirname(os.path.abspath(filelist_fn)), os.path.basename(filelist_fn))
     sp_args = ["/bin/bash", "-c", "{} {} {} {}".format(run_script, core_nlp_dir, out_fn, filelist_fn)]
+    logging.info(f'Invoking Stanford CoreNLP with: {sp_args}')
+
     process = subprocess.Popen(sp_args, cwd=core_nlp_dir, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     start_time = datetime.now()
     while process.poll() is None:
@@ -181,13 +189,14 @@ def openie_process_output(openie_out: str, outfile: str):
     logging.info('{} lines written'.format(tuples))
 
 
-def run_corenlp_openie(input_file, output, config=NLP_CONFIG, no_entity_filter=False):
+def run_corenlp_openie(input_file, output, config=NLP_CONFIG, no_entity_filter=False, consider_sections=False):
     """
     Executes the Stanford CoreNLP OpenIE extraction
     :param input_file: pubtator input file
     :param output: file to write the extractions to
     :param config: NLP configuration
-     :param no_entity_filter: if true only sentences with two tags will be processed by OpenIE
+    :param no_entity_filter: if true only sentences with two tags will be processed by OpenIE
+    :param consider_sections: Should document sections be considered for text generation?
     :return: None
     """
     # Read config
@@ -196,7 +205,8 @@ def run_corenlp_openie(input_file, output, config=NLP_CONFIG, no_entity_filter=F
         core_nlp_dir = conf["corenlp"]
 
     # Prepare files
-    filelist_fn, out_fn, amount_files = openie_prepare_files(input_file, no_entity_filter=no_entity_filter)
+    filelist_fn, out_fn, amount_files = openie_prepare_files(input_file, no_entity_filter=no_entity_filter,
+                                                             consider_sections=consider_sections)
 
     if amount_files == 0:
         print('no files to process - stopping')
@@ -216,12 +226,14 @@ def main():
     parser.add_argument("--config", default=NLP_CONFIG)
     parser.add_argument("--no_entity_filter", action="store_true",
                         default=False, required=False, help="Does not filter sentences by tags")
+    parser.add_argument("--sections", action="store_true", default=False,
+                        help="Should the section texts be considered in the extraction step?")
     args = parser.parse_args()
 
     logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
                         datefmt='%Y-%m-%d:%H:%M:%S',
                         level=logging.INFO)
-    run_corenlp_openie(args.input, args.output, args.config, args.no_entity_filter)
+    run_corenlp_openie(args.input, args.output, args.config, args.no_entity_filter, consider_sections=args.sections)
 
 
 if __name__ == "__main__":

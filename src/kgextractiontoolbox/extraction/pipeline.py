@@ -5,15 +5,16 @@ import os
 import shutil
 import tempfile
 from datetime import datetime
-from spacy.lang.en import English
 from typing import Optional, Set
+
+from spacy.lang.en import English
 
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import DocProcessedByIE, Document
 from kgextractiontoolbox.cleaning.relation_vocabulary import RelationVocabulary
 from kgextractiontoolbox.config import NLP_CONFIG
 from kgextractiontoolbox.document.count import count_documents
-from kgextractiontoolbox.entitylinking.export_annotations import export
+from kgextractiontoolbox.document.export import export
 from kgextractiontoolbox.extraction.extraction_utils import filter_and_write_documents_to_tempdir
 from kgextractiontoolbox.extraction.loading.load_openie_extractions import OpenIEEntityFilterMode, load_openie_tuples
 from kgextractiontoolbox.extraction.loading.load_pathie_extractions import load_pathie_extractions
@@ -88,7 +89,8 @@ def mark_document_as_processed_by_ie(document_ids: [int], document_collection: s
 def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collection, extraction_type, workers=1,
                                       corenlp_config=NLP_CONFIG,
                                       relation_vocab: RelationVocabulary = None,
-                                      entity_filter: OpenIEEntityFilterMode = OpenIEEntityFilterMode.PARTIAL_ENTITY_FILTER):
+                                      entity_filter: OpenIEEntityFilterMode = OpenIEEntityFilterMode.PARTIAL_ENTITY_FILTER,
+                                      consider_sections=False):
     """
     Performs fact extraction for the given documents with the selected extraction type
     The document texts and tags will be exported automatically
@@ -101,6 +103,7 @@ def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collect
     :param corenlp_config: the nlp config
     :param relation_vocab: the relation vocabulary for PathIE (optional)
     :param entity_filter: the entity filter mode: Exact (IE arg must match entity str), Partial (entity is partially included), None = no entity checking
+    :param consider_sections: Should document sections be considered for text generation?
     :return: None
     """
     # Read config
@@ -140,7 +143,8 @@ def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collect
             logging.info('Filtering documents...')
             count_ie_files, doc2tags = filter_and_write_documents_to_tempdir(len(ids_to_process), document_export_file,
                                                                              ie_input_dir, ie_filelist_file, spacy_nlp,
-                                                                             workers)
+                                                                             workers,
+                                                                             consider_sections=consider_sections)
 
             corenlp_output_dir = os.path.join(working_dir, 'corenlp_output')
             if not os.path.exists(corenlp_output_dir):
@@ -164,7 +168,8 @@ def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collect
             pred_vocab = relation_vocab.relation_dict if relation_vocab else None
             logging.info('Starting PathIE Stanza...')
             start = datetime.now()
-            run_stanza_pathie(document_export_file, ie_output_file, predicate_vocabulary=pred_vocab)
+            run_stanza_pathie(document_export_file, ie_output_file, predicate_vocabulary=pred_vocab,
+                              consider_sections=consider_sections)
             logging.info((" done in {}".format(datetime.now() - start)))
             load_pathie_extractions(ie_output_file, document_collection, PATHIE_STANZA_EXTRACTION)
         elif extraction_type in [OPENIE_EXTRACTION, OPENIE51_EXTRACTION, OPENIE6_EXTRACTION]:
@@ -174,13 +179,17 @@ def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collect
             logging.info(f'Starting {extraction_type}...')
             start = datetime.now()
             if extraction_type == OPENIE_EXTRACTION:
-                run_corenlp_openie(document_export_file, ie_output_file, no_entity_filter=no_entity_filter)
+                run_corenlp_openie(document_export_file, ie_output_file, no_entity_filter=no_entity_filter,
+                                   consider_sections=consider_sections)
             elif extraction_type == OPENIE51_EXTRACTION:
-                openie51_run(document_export_file, ie_output_file, no_entity_filter=no_entity_filter)
+                openie51_run(document_export_file, ie_output_file, no_entity_filter=no_entity_filter,
+                             consider_sections=consider_sections)
             elif extraction_type == OPENIE6_EXTRACTION:
-                openie6_run(document_export_file, ie_output_file, no_entity_filter=no_entity_filter)
+                openie6_run(document_export_file, ie_output_file, no_entity_filter=no_entity_filter,
+                            consider_sections=consider_sections)
             logging.info((" done in {}".format(datetime.now() - start)))
-            load_openie_tuples(ie_output_file, document_collection, entity_filter=entity_filter)
+            load_openie_tuples(ie_output_file, document_collection, entity_filter=entity_filter,
+                               extraction_type=extraction_type)
 
     time_open_ie = datetime.now()
     # add document as processed to database
@@ -199,7 +208,8 @@ def main():
     parser.add_argument("-i", "--idfile", help="Document ID file (documents must be in database)")
     parser.add_argument("-et", "--extraction_type", required=True, help="the extraction method",
                         choices=list(
-                            [OPENIE_EXTRACTION, OPENIE51_EXTRACTION, OPENIE6_EXTRACTION, PATHIE_EXTRACTION, PATHIE_STANZA_EXTRACTION]))
+                            [OPENIE_EXTRACTION, OPENIE51_EXTRACTION, OPENIE6_EXTRACTION, PATHIE_EXTRACTION,
+                             PATHIE_STANZA_EXTRACTION]))
     parser.add_argument("-c", "--collection", required=True, help="Name of the given document collection")
     parser.add_argument("--config", help="OpenIE / PathIE Configuration file", default=NLP_CONFIG)
     parser.add_argument("-w", "--workers", help="number of parallel workers", default=1, type=int)
@@ -209,6 +219,8 @@ def main():
     parser.add_argument('--relation_vocab', default=None, help='Path to a relation vocabulary (json file)')
     parser.add_argument("--entity_filter", default=OpenIEEntityFilterMode.PARTIAL_ENTITY_FILTER,
                         help="the entity filter mode", choices=OpenIEEntityFilterMode.to_str_list())
+    parser.add_argument("--sections", action="store_true", default=False,
+                        help="Should the section texts be considered in the extraction step?")
     args = parser.parse_args()
 
     logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
@@ -220,15 +232,21 @@ def main():
         relation_vocab.load_from_json(args.relation_vocab)
     else:
         relation_vocab = None
-    document_ids = None
+    document_ids = set()
     if args.idfile:
         logging.info('Reading id file: {}'.format(args.idfile))
         with open(args.idfile, 'r') as f:
             document_ids = set([int(line.strip()) for line in f])
         logging.info(f'{len(document_ids)} documents in id file')
+    else:
+        logging.info(f'No id file given - query all known ids for document collection: {args.collection}')
+        session = Session.get()
+        for r in session.query(Document.id).filter(Document.collection == args.collection).distinct():
+            document_ids.add(r[0])
+        logging.info(f'{len(document_ids)} were found in db')
     document_ids_to_process = retrieve_document_ids_to_process(args.collection, args.extraction_type,
                                                                document_id_filter=document_ids)
-    num_of_chunks = int(len(document_ids_to_process) / args.batch_size)
+    num_of_chunks = int(len(document_ids_to_process) / args.batch_size) + 1
     logging.info(f'Splitting task into {num_of_chunks} chunks...')
     for idx, batch_ids in enumerate(chunks(list(document_ids_to_process), args.batch_size)):
         logging.info('=' * 60)
@@ -236,7 +254,8 @@ def main():
         logging.info('=' * 60)
         process_documents_ids_in_pipeline(batch_ids, args.collection, args.extraction_type, corenlp_config=args.config,
                                           workers=args.workers, relation_vocab=relation_vocab,
-                                          entity_filter=args.entity_filter)
+                                          entity_filter=OpenIEEntityFilterMode(args.entity_filter),
+                                          consider_sections=args.sections)
 
 
 if __name__ == "__main__":

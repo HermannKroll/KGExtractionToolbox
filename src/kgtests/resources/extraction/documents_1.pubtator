@@ -1,0 +1,63 @@
+7121659|t| Antirifampicin antibodies in acute rifampicin-associated renal failure.
+7121659|a| 5 patients with acute renal failure (3 with thrombopenia and hemolysis) induced by the reintroduction of rifampicin are described. No correlation was found between the severity of clinical manifestations and the total dose taken by the patients. In all but 1 patient, antirifampicin antibodies were detected. Antibodies suggested to be of the IgM class were detected in all 3 patients with hematological disorders. The pattern of non-specific acute tubular necrosis found in the 2 biopsied patients, indistinguishable from that of ischemic origin, raised the possibility of a vascular-mediated damage. In 3 patients, the possibility of a triggering immunoallergic mechanism is discussed.
+7121659	35	45	rifampicin	Chemical	D012293
+7121659	57	70	renal failure	Disease	D051437
+7121659	88	107	acute renal failure	Disease	D058186
+7121659	116	128	thrombopenia	Disease	D013921
+7121659	133	142	hemolysis	Disease	D006461
+7121659	177	187	rifampicin	Chemical	D012293
+7121659	462	485	hematological disorders	Disease	D006402
+7121659	515	537	acute tubular necrosis	Disease	D007683
+
+23952588|t| Risk factors and predictors of levodopa-induced dyskinesia among multiethnic Malaysians with Parkinson's disease.
+23952588|a| Chronic pulsatile levodopa therapy for Parkinson's disease (PD) leads to the development of motor fluctuations and dyskinesia. We studied the prevalence and predictors of levodopa-induced dyskinesia among multiethnic Malaysian patients with PD. METHODS: This is a cross-sectional study involving 95 patients with PD on uninterrupted levodopa therapy for at least 6 months. The instrument used was the UPDRS questionnaires. The predictors of dyskinesia were determined using multivariate logistic regression analysis. RESULTS: The mean age was 65.6 + 8.5 years. The mean onset age was 58.5 + 9.8 years. The median disease duration was 6 (7) years. Dyskinesia was present in 44% (n = 42) with median levodopa therapy of 3 years. There were 64.3% Chinese, 31% Malays, and 3.7% Indians and other ethnic groups. Eighty-one percent of patients with dyskinesia had clinical fluctuations. Patients with dyskinesia had lower onset age ( p < 0.001), longer duration of levodopa therapy ( p < 0.001), longer disease duration ( p < 0.001), higher total daily levodopa dose ( p < 0.001), and higher total UPDRS scores ( p = 0.005) than patients without dyskinesia. The three significant predictors of dyskinesia were duration of levodopa therapy, onset age, and total daily levodopa dose. CONCLUSIONS: The prevalence of levodopa-induced dyskinesia in our patients was 44%. The most significant predictors were duration of levodopa therapy, total daily levodopa dose, and onset age.
+23952588	31	39	levodopa	Chemical	D007980
+23952588	48	58	dyskinesia	Disease	D004409
+23952588	93	112	Parkinson's disease	Disease	D010300
+23952588	132	140	levodopa	Chemical	D007980
+23952588	153	172	Parkinson's disease	Disease	D010300
+23952588	174	176	PD	Disease	D010300
+23952588	229	239	dyskinesia	Disease	D004409
+23952588	285	293	levodopa	Chemical	D007980
+23952588	302	312	dyskinesia	Disease	D004409
+23952588	355	357	PD	Disease	D010300
+23952588	427	429	PD	Disease	D010300
+23952588	447	455	levodopa	Chemical	D007980
+23952588	555	565	dyskinesia	Disease	D004409
+23952588	761	771	Dyskinesia	Disease	D004409
+23952588	812	820	levodopa	Chemical	D007980
+23952588	957	967	dyskinesia	Disease	D004409
+23952588	1009	1019	dyskinesia	Disease	D004409
+23952588	1073	1081	levodopa	Chemical	D007980
+23952588	1161	1169	levodopa	Chemical	D007980
+23952588	1254	1264	dyskinesia	Disease	D004409
+23952588	1302	1312	dyskinesia	Disease	D004409
+23952588	1330	1338	levodopa	Chemical	D007980
+23952588	1375	1383	levodopa	Chemical	D007980
+23952588	1421	1429	levodopa	Chemical	D007980
+23952588	1438	1448	dyskinesia	Disease	D004409
+23952588	1523	1531	levodopa	Chemical	D007980
+23952588	1553	1561	levodopa	Chemical	D007980
+
+22836123|t| Late-onset scleroderma renal crisis induced by tacrolimus and prednisolone: a case report.
+22836123|a| Scleroderma renal crisis (SRC) is a rare complication of systemic sclerosis (SSc) but can be severe enough to require temporary or permanent renal replacement therapy. Moderate to high dose corticosteroid use is recognized as a major risk factor for SRC. Furthermore, there have been reports of thrombotic microangiopathy precipitated by cyclosporine in patients with SSc. In this article, we report a patient with SRC induced by tacrolimus and corticosteroids. The aim of this work is to call attention to the risk of tacrolimus use in patients with SSc.
+22836123	11	35	scleroderma renal crisis	Disease	D007674
+22836123	47	57	tacrolimus	Chemical	D016559
+22836123	62	74	prednisolone	Chemical	D011239
+22836123	91	115	Scleroderma renal crisis	Disease	D007674
+22836123	117	120	SRC	Disease	D007674
+22836123	148	166	systemic sclerosis	Disease	D012595
+22836123	168	171	SSc	Disease	D012595
+22836123	281	295	corticosteroid	Chemical	D000305
+22836123	341	344	SRC	Disease	D007674
+22836123	386	412	thrombotic microangiopathy	Disease	D057049
+22836123	429	441	cyclosporine	Chemical	D016572
+22836123	459	462	SSc	Disease	D012595
+22836123	506	509	SRC	Disease	D007674
+22836123	521	531	tacrolimus	Chemical	D016559
+22836123	536	551	corticosteroids	Chemical	D000305
+22836123	610	620	tacrolimus	Chemical	D016559
+22836123	642	645	SSc	Disease	D012595
+
+
+

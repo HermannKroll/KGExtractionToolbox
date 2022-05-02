@@ -1,0 +1,101 @@
+{
+  "treats": {
+    "subjects": [
+      "Chemical",
+      "Drug",
+      "Excipient",
+      "PlantFamily/Genus"
+    ],
+    "objects": [
+      "Disease",
+      "Species"
+    ]
+  },
+  "administered": {
+    "subjects": [
+      "DosageForm"
+    ],
+    "objects": [
+      "All"
+    ]
+  },
+  "method": {
+    "subjects": [
+      "Method",
+      "LabMethod"
+    ],
+    "objects": [
+      "All"
+    ]
+  },
+  "induces": {
+    "subjects": [
+      "Chemical",
+      "Drug",
+      "Excipient",
+      "Disease",
+      "PlantFamily/Genus"
+    ],
+    "objects": [
+      "Chemical",
+      "Drug",
+      "Excipient",
+      "Disease",
+      "PlantFamily/Genus"
+    ]
+  },
+  "decreases": {
+    "subjects": [
+      "Chemical",
+      "Drug",
+      "Excipient",
+      "Disease",
+      "PlantFamily/Genus"
+    ],
+    "objects": [
+      "Chemical",
+      "Drug",
+      "Excipient",
+      "Disease",
+      "PlantFamily/Genus"
+    ]
+  },
+  "interacts": {
+    "subjects": [
+      "Chemical",
+      "Drug",
+      "Excipient",
+      "Gene",
+      "PlantFamily/Genus"
+    ],
+    "objects": [
+      "Chemical",
+      "Drug",
+      "Excipient",
+      "Gene",
+      "PlantFamily/Genus"
+    ]
+  },
+  "metabolises": {
+    "subjects": [
+      "Gene"
+    ],
+    "objects": [
+      "Chemical",
+      "Drug",
+      "Excipient",
+      "PlantFamily/Genus"
+    ]
+  },
+  "inhibits": {
+    "subjects": [
+      "Chemical",
+      "Drug",
+      "Excipient",
+      "PlantFamily/Genus"
+    ],
+    "objects": [
+      "Gene"
+    ]
+  }
+}

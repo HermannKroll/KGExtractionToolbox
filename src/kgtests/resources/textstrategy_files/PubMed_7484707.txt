@@ -1,0 +1,29 @@
+7484707|t| Oral hypoglycemic agents in type II diabetes mellitus.
+7484707|a| The patient with type II, or non-insulin-dependent, diabetes mellitus (NIDDM) is characterized by obesity and insulin resistance, with resultant hyperinsulinemia and hyperglycemia. Sulfonylureas are the chief therapy for patients with NIDDM; for a limited time, these agents stimulate increased insulin secretion. With chronic administration, sulfonylureas improve the diabetic patient's insulin activity by increasing cellular insulin receptors and reducing insulin postreceptor defects. Metformin, a drug in the biguanide class, is now approved for use in the United States. This drug does not stimulate insulin release but works by lowering glucose in peripheral tissues. It can be used alone or in combination with a sulfonylurea. With sulfonylureas and metformin, therapy for the patient with NIDDM can be more effectively tailored.
+7484707	236	249	Sulfonylureas	Chemical	MESH:D013453
+7484707	398	411	sulfonylureas	Chemical	MESH:D013453
+7484707	544	553	Metformin	Chemical	MESH:D008687
+7484707	569	578	biguanide	Chemical	MESH:D001645
+7484707	699	706	glucose	Chemical	MESH:D005947
+7484707	776	788	sulfonylurea	Chemical	MESH:D013453
+7484707	795	808	sulfonylureas	Chemical	MESH:D013453
+7484707	813	822	metformin	Chemical	MESH:D008687
+7484707	28	53	type II diabetes mellitus	Disease	MESH:D003924
+7484707	107	124	diabetes mellitus	Disease	MESH:D003920
+7484707	126	131	NIDDM	Disease	MESH:D003924
+7484707	153	160	obesity	Disease	MESH:D009765
+7484707	200	216	hyperinsulinemia	Disease	MESH:D006946
+7484707	221	234	hyperglycemia	Disease	MESH:D006943
+7484707	424	432	diabetic	Disease	MESH:D003920
+7484707	88	95	insulin	Gene	3630
+7484707	165	172	insulin	Gene	3630
+7484707	350	357	insulin	Gene	3630
+7484707	443	450	insulin	Gene	3630
+7484707	483	490	insulin	Gene	3630
+7484707	514	521	insulin	Gene	3630
+7484707	661	668	insulin	Gene	3630
+7484707	59	66	patient	Species	9606
+7484707	276	284	patients	Species	9606
+7484707	433	440	patient	Species	9606
+7484707	840	847	patient	Species	9606
+

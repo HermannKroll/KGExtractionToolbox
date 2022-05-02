@@ -1,20 +1,20 @@
-from collections import namedtuple, defaultdict
-from enum import Enum
-
 import argparse
 import csv
 import logging
-import nltk
+from collections import namedtuple, defaultdict
 from datetime import datetime
+from enum import Enum
 from itertools import islice
-from nltk.corpus import wordnet
 from typing import List, Tuple
 
+import nltk
+from nltk.corpus import wordnet
+
 from kgextractiontoolbox.backend.database import Session
-from kgextractiontoolbox.backend.models import Tag
-from kgextractiontoolbox.extraction.loading.load_extractions import PRED, TOKENS_TO_IGNORE, MAX_SENTENCE_LENGTH, \
+from kgextractiontoolbox.backend.models import Tag, Document
+from kgextractiontoolbox.extraction.loading.load_extractions import PRED, TOKENS_TO_IGNORE, \
     clean_and_load_predications_into_db
-from kgextractiontoolbox.extraction.versions import OPENIE_EXTRACTION, OPENIE6_EXTRACTION, OPENIE_EXTRACTIONS
+from kgextractiontoolbox.extraction.versions import OPENIE_EXTRACTION
 from kgextractiontoolbox.progress import print_progress_with_eta
 
 OPENIE_TUPLE = namedtuple("OpenIETuple", ['doc_id', 'subj', 'pred', 'pred_lemma', 'obj', 'conf', 'sent'])
@@ -24,6 +24,7 @@ class OpenIEEntityFilterMode(Enum):
     NO_ENTITY_FILTER = "no_entity_filter"
     PARTIAL_ENTITY_FILTER = "partial_entity_filter"
     EXACT_ENTITY_FILTER = "exact_entity_filter"
+    ONLY_SUBJECT_EXACT = "only_subject_exact"
 
     def __str__(self):
         return self.value
@@ -49,7 +50,8 @@ def read_stanford_openie_input(openie_file: str):
         # read all lines for a single doc
         for row in islice(reader, 1, None):
             c = row
-            o_t = OPENIE_TUPLE(int(c[0]), c[1], c[2], c[3], c[4], c[5], c[6])
+            o_t = OPENIE_TUPLE(int(c[0].strip()), c[1].strip(), c[2].strip(), c[3].strip(), c[4].strip(), c[5].strip(),
+                               clean_sentence(c[6]).strip())
             doc_ids.add(o_t.doc_id)
             tuples_cached.append(o_t)
     return doc_ids, tuples_cached
@@ -84,6 +86,10 @@ def get_subject_and_object_entities(doc_tags, ie_sub: str, ie_obj: str, entity_f
     # default not hit
     subs_included = []
     objs_included = []
+
+    if not ie_sub or not ie_obj:
+        return [], []
+
     # compute lower case with empty spaces
     if ie_sub[-1].isalpha():
         sub_text = ' {} '.format(ie_sub.lower())
@@ -115,6 +121,14 @@ def get_subject_and_object_entities(doc_tags, ie_sub: str, ie_obj: str, entity_f
             if ent_str.strip() == obj_text.strip():
                 o_t = (ent_str, ent_id, ent_type)
                 objs_included.append(o_t)
+        elif entity_filter == OpenIEEntityFilterMode.ONLY_SUBJECT_EXACT:
+            if ent_str.strip() == sub_text.strip():
+                s_t = (ent_str, ent_id, ent_type)
+                subs_included.append(s_t)
+
+    if entity_filter == OpenIEEntityFilterMode.ONLY_SUBJECT_EXACT:
+        objs_included = [(ie_obj, ie_obj, "Unknown")]
+
     return subs_included, objs_included
 
 
@@ -143,7 +157,8 @@ def load_tags_for_doc_ids(doc_ids: List[int], collection: str) -> {str: List[Tup
     return doc2tags
 
 
-def _clean_tuple_predicate_based(t: PRED):
+def clean_tuple_predicate_based(t: PRED, keep_original_predicate=False, filter_predicate_str=False,
+                                swap_passive_voice=False, keep_be_and_have=True):
     """
     cleans the tuple based on predicate rules
     1. remove unnecessary tokens
@@ -151,63 +166,85 @@ def _clean_tuple_predicate_based(t: PRED):
     3. remove be and have predicates
     4. apply stripping to all fields
     :param t: a tuple (named tuple PRED expected, PRED.pred_cleaned is expected to be the a lemmatized predicate)
+    :param keep_original_predicate: if true the original predicate of the OpenIE method is used without further cleaning
+    :param filter_predicate_str: should the predicate str be cleaned to only keep verb phrases?
+    :param swap_passive_voice: should passive voice be swapped to active voice?
+    :param keep_be_and_have: should be and have predicates be kept?
     :return: a cleaned tuple (PRED)
     """
-    fact_sentence = '{} {} {}.'.format(t.subj, t.pred, t.obj)
-    fact_sentence_tokens = nltk.word_tokenize(fact_sentence)
-    pos_tags = nltk.pos_tag(fact_sentence_tokens)
+    if keep_original_predicate and (filter_predicate_str or swap_passive_voice or not keep_be_and_have):
+        raise ValueError('If keep_original_predicate is set, then no verb phrase filter options are available')
 
-    # ignore tuples from too long sentences
-    if len(t.sent) > MAX_SENTENCE_LENGTH:
-        return None
+    if keep_original_predicate:
+        return PRED(t.doc_id, t.subj.strip(), t.pred.strip(), t.pred.strip(), t.obj.strip(), t.conf, t.sent,
+                    t.s_id, t.s_str.strip(), t.s_type.strip(), t.o_id, t.o_str.strip(), t.o_type.strip())
+
+    # no cleaning is required
+    if not filter_predicate_str and not swap_passive_voice and keep_be_and_have:
+        return t
+
     # pred_lemma is stored in the pred_cleaned field
     pred_lemma = t.pred_cleaned
-
-    # ignore tuples containing just 'be' and 'have'
-    if pred_lemma == 'be' or pred_lemma == 'have':
-        return None
-
-    pred_cleaned = ''
-    # remove be and have if multiple tokens are included
     tokens = pred_lemma.split(' ')
-    start_pred = len(t.subj.split(' '))
-    participe_past_detected = False
-    for idx, tok in enumerate(tokens):
-        try:
-            pos_tag = pos_tags[start_pred + idx][1]
-            if pos_tag == 'VBN':
-                participe_past_detected = True
 
+    if keep_be_and_have:
+        # ignore tuples containing just 'be' and 'have'
+        if pred_lemma == 'be' or pred_lemma == 'have':
+            return None
+
+    if not filter_predicate_str:
+        pred_cleaned = ' '.join(pred_lemma.split())
+    else:
+        pred_cleaned = ''
+        # remove be and have if multiple tokens are included
+        tokens_remain = []
+        for tok in tokens:
             # remove unnecessary phrases
             if tok in TOKENS_TO_IGNORE:
                 continue
-            # remove adjectives and adverbs
-            syns = wordnet.synsets(tok)
-            if len(syns) > 0 and syns[0].pos() in ['a', 's', 'r']:
+
+            # do not keep be and have if not desired
+            if not keep_be_and_have and (tok == "be" or tok == "have"):
                 continue
 
-            pred_cleaned += tok + ' '
-        except IndexError:
-            continue
-    # clean the sentence
-    cleaned_sentence = clean_sentence(t.sent).strip()
-    # check for active and passive voice
-    if ('be' in tokens and participe_past_detected) or ('by' in t.pred and participe_past_detected):
-        # passive means we have to change the direction of the tuple
-        t_sub, t_s_txt, t_s_id, t_s_type = t.subj, t.s_str, t.s_id, t.s_type
-        subj, s_txt, s_id, s_type = t.obj, t.o_str, t.o_id, t.o_type
-        obj, o_txt, o_id, o_type = t_sub, t_s_txt, t_s_id, t_s_type
+            # allow the not token
+            if tok != "not":
+                # remove adjectives and adverbs
+                syns = wordnet.synsets(tok)
+                if len(syns) > 0 and syns[0].pos() in ['a', 's', 'r']:
+                    continue
 
-        return PRED(t.doc_id, subj.strip(), t.pred.strip(), pred_cleaned.strip(), obj.strip(), t.conf, cleaned_sentence,
-                    s_id, s_txt.strip(), s_type.strip(), o_id, o_txt.strip(), o_type.strip())
+            tokens_remain.append(tok)
+        pred_cleaned = ' '.join([str(tok.strip()) for tok in tokens_remain])
 
-    return PRED(t.doc_id, t.subj.strip(), t.pred.strip(), pred_cleaned.strip(), t.obj.strip(), t.conf, cleaned_sentence,
+    if swap_passive_voice:
+        fact_sentence = '{} {} {}.'.format(t.subj, t.pred, t.obj)
+        fact_sentence_tokens = nltk.word_tokenize(fact_sentence)
+        pos_tags = nltk.pos_tag(fact_sentence_tokens)
+
+        # check if particpe past was detected
+        participe_past_detected = len([p_t for p_t in pos_tags if p_t[1] == "VBN"]) > 0
+
+        # check for active and passive voice
+        if ('be' in tokens and participe_past_detected) or ('by' in t.pred and participe_past_detected):
+            pred_cleaned = pred_cleaned.replace('be', '').replace('by', '')
+            # passive means we have to change the direction of the tuple
+            t_sub, t_s_txt, t_s_id, t_s_type = t.subj, t.s_str, t.s_id, t.s_type
+            subj, s_txt, s_id, s_type = t.obj, t.o_str, t.o_id, t.o_type
+            obj, o_txt, o_id, o_type = t_sub, t_s_txt, t_s_id, t_s_type
+
+            return PRED(t.doc_id, subj.strip(), t.pred.strip(), pred_cleaned.strip(), obj.strip(), t.conf, t.sent,
+                        s_id, s_txt.strip(), s_type.strip(), o_id, o_txt.strip(), o_type.strip())
+
+    return PRED(t.doc_id, t.subj.strip(), t.pred.strip(), pred_cleaned.strip(), t.obj.strip(), t.conf, t.sent,
                 t.s_id, t.s_str.strip(), t.s_type.strip(), t.o_id, t.o_str.strip(), t.o_type.strip())
 
 
 def clean_open_ie(doc_ids, openie_tuples: [OPENIE_TUPLE], collection,
                   entity_filter: OpenIEEntityFilterMode,
-                  extraction_type=OPENIE_EXTRACTION):
+                  extraction_type=OPENIE_EXTRACTION,
+                  keep_original_predicate=False,
+                  filter_predicate_str=False, swap_passive_voice=False, keep_be_and_have=True):
     """
     cleans the open ie tuples by:
     1. applying an entity filter (keep only facts about entities)
@@ -217,8 +254,15 @@ def clean_open_ie(doc_ids, openie_tuples: [OPENIE_TUPLE], collection,
     :param collection: document collection where the id's stem from (to retrieve entities from the database)
     :param entity_filter: the entity filter mode: Exact (IE arg must match entity str), Partial (entity is partially included), None = no entity checking
     :param extraction_type: extraction type (OPENIE_EXTRACTION (default) or OPENIE6_EXTRACTION)
+    :param keep_original_predicate: if true the original predicate of the OpenIE method is used without further cleaning
+    :param filter_predicate_str: should the predicate str be cleaned to only keep verb phrases?
+    :param swap_passive_voice: should passive voice be swapped to active voice?
+    :param keep_be_and_have: should be and have predicates be kept?
     :return:
     """
+    if keep_original_predicate and (filter_predicate_str or swap_passive_voice or not keep_be_and_have):
+        raise ValueError('If keep_original_predicate is set, then no verb phrase filter options are available')
+
     logging.info('Beginning cleaning step...')
     tuples_cached = openie_tuples
     logging.info('{} OpenIE tuples read...'.format(len(tuples_cached)))
@@ -226,8 +270,15 @@ def clean_open_ie(doc_ids, openie_tuples: [OPENIE_TUPLE], collection,
         logging.info("No documents to check - stopping")
         return
 
-    logging.info("Retrieving tags from database for {} doc_ids...".format(len(doc_ids)))
-    doc2tags = load_tags_for_doc_ids(doc_ids, collection)
+    if entity_filter != OpenIEEntityFilterMode.NO_ENTITY_FILTER:
+        logging.info("Retrieving tags from database for {} doc_ids...".format(len(doc_ids)))
+        doc2tags = load_tags_for_doc_ids(doc_ids, collection)
+        document_ids = set(doc2tags.keys())
+    else:
+        session = Session.get()
+        document_ids = Document.get_document_ids_for_collection(session, collection)
+        doc2tags = defaultdict()
+    logging.info(f'{len(document_ids)} document ids are present for collection: {collection}')
 
     logging.info('Cleaning tuples...')
     i = 0
@@ -238,12 +289,18 @@ def clean_open_ie(doc_ids, openie_tuples: [OPENIE_TUPLE], collection,
     already_included = set()
     # go trough all cached triples
     start_time = datetime.now()
+    skipped_tuples_because_doc_missing = 0
     for openie_t in tuples_cached:
         if entity_filter != OpenIEEntityFilterMode.NO_ENTITY_FILTER:
             if openie_t.doc_id not in doc2tags:
+                skipped_tuples_because_doc_missing += 1
                 continue
             doc_tags = doc2tags[openie_t.doc_id]
         else:
+            # skip tuple because document is not in document ids
+            if openie_t.doc_id not in document_ids:
+                skipped_tuples_because_doc_missing += 1
+                continue
             doc_tags = []
         # go trough all detected entities in the subject and object part of the open ie triple
         sub_ents, obj_ents = get_subject_and_object_entities(doc_tags, openie_t.subj, openie_t.obj, entity_filter)
@@ -257,7 +314,7 @@ def clean_open_ie(doc_ids, openie_tuples: [OPENIE_TUPLE], collection,
                     tuples_with_ent.append(t)
                     already_included.add(key)
 
-        print_progress_with_eta("Cleaning (entity based)", i, len_tuples, start_time)
+        print_progress_with_eta(f"Applying filter {entity_filter} to tuples...", i, len_tuples, start_time)
         i += 1
 
     logging.info("{} facts remaining...".format(len(tuples_with_ent)))
@@ -265,40 +322,55 @@ def clean_open_ie(doc_ids, openie_tuples: [OPENIE_TUPLE], collection,
     tuples_cleaned = []
     len_tuples = len(tuples_with_ent)
     start_time = datetime.now()
-    skipped_tuples = 0
-    skipped_in_docs = set()
     passive_changed = 0
     for i, t in enumerate(tuples_with_ent):
-        t_cleaned = _clean_tuple_predicate_based(t)
-        if t_cleaned:
-            # subject changed
-            if t[1] != t_cleaned[1]:
-                passive_changed += 1
-            tuples_cleaned.append(t_cleaned)
-        else:
-            skipped_in_docs.add(t[0])
-            skipped_tuples += 1
+        t_cleaned = clean_tuple_predicate_based(t,
+                                                keep_original_predicate=keep_original_predicate,
+                                                filter_predicate_str=filter_predicate_str,
+                                                swap_passive_voice=swap_passive_voice,
+                                                keep_be_and_have=keep_be_and_have)
+        # subject changed
+        if t[1] != t_cleaned[1]:
+            passive_changed += 1
+        tuples_cleaned.append(t_cleaned)
         print_progress_with_eta("Cleaning (predicates)", i, len_tuples, start_time)
 
-    logging.info('Changed {} times passive voices (subj <-> obj swapped)'.format(passive_changed))
-    logging.warning(
-        '{} facts skipped (too long sentences) in {} documents'.format(skipped_tuples, len(skipped_in_docs)))
+    if swap_passive_voice:
+        logging.info('Changed {} times passive voices (subj <-> obj swapped)'.format(passive_changed))
+    logging.warning(f'{skipped_tuples_because_doc_missing} tuples ignored because their documents are missing')
     logging.info('Cleaning finished...')
 
     clean_and_load_predications_into_db(tuples_cleaned, collection, extraction_type=extraction_type)
 
 
 def load_openie_tuples(input_file: str, document_collection: str, entity_filter: OpenIEEntityFilterMode,
-                       extraction_type: str = OPENIE_EXTRACTION):
+                       extraction_type: str = OPENIE_EXTRACTION, keep_original_predicate=False,
+                       filter_predicate_str=False, swap_passive_voice=False, keep_be_and_have=True):
     """
     Load OpenIE tuples from a TSV file
     :param input_file: the path to the tsv file
     :param document_collection: the document collection
     :param entity_filter: the entity filter mode
+    :param extraction_type: extraction type to load tuples into the db
+    :param keep_original_predicate: if true the original predicate of the OpenIE method is used without further cleaning
+    :param filter_predicate_str: should the predicate str be cleaned to only keep verb phrases?
+    :param swap_passive_voice: should passive voice be swapped to active voice?
+    :param keep_be_and_have: should be and have predicates be kept?
     :return: None
     """
     doc_ids, openie_tuples = read_stanford_openie_input(input_file)
-    clean_open_ie(doc_ids, openie_tuples, document_collection, entity_filter, extraction_type=extraction_type)
+
+    logging.info('==' * 60)
+    logging.info('Settings:')
+    logging.info(f'keep_original_predicate: {keep_original_predicate}')
+    logging.info(f'filter_predicate_str: {filter_predicate_str}')
+    logging.info(f'swap_passive_voice: {swap_passive_voice}')
+    logging.info(f'keep_be_and_have: {keep_be_and_have}')
+    logging.info('==' * 60)
+    clean_open_ie(doc_ids, openie_tuples, document_collection, entity_filter, extraction_type=extraction_type,
+                  keep_original_predicate=keep_original_predicate,
+                  filter_predicate_str=filter_predicate_str, swap_passive_voice=swap_passive_voice,
+                  keep_be_and_have=keep_be_and_have)
 
 
 def main():
@@ -306,17 +378,29 @@ def main():
     parser.add_argument("input", help='OpenIE export file (exported by main.py / pipeline.py')
     parser.add_argument("-c", "--collection", required=True,
                         help='document collection to which the document ids belong')
-    parser.add_argument("-et", "--extraction_type", help=f"extraction type", choices=OPENIE_EXTRACTIONS,
+    parser.add_argument("-et", "--extraction_type", help=f"extraction type",
                         default=OPENIE_EXTRACTION)
     parser.add_argument("--entity_filter", default=OpenIEEntityFilterMode.PARTIAL_ENTITY_FILTER,
                         help="the entity filter mode", choices=OpenIEEntityFilterMode.to_str_list())
+    parser.add_argument("--filter_predicate_str", default=False, action="store_true",
+                        help="Should the predicate be filtered to retain only verb phrases?")
+    parser.add_argument("--swap_passive_voice", default=False, action="store_true",
+                        help="Swap passive voice to active voice")
+    parser.add_argument("--ignore_be_and_have", default=False, action="store_true",
+                        help="Ignore be and have verb phrases")
+    parser.add_argument("--keep_original_predicate", default=False, action="store_true",
+                        help="The original predicate is kept without further cleaning or lemmatizing")
 
     args = parser.parse_args()
 
     logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
                         datefmt='%Y-%m-%d:%H:%M:%S',
                         level=logging.INFO)
-    load_openie_tuples(args.input, args.collection, args.entity_filter, args.extraction_type)
+    load_openie_tuples(args.input, args.collection, OpenIEEntityFilterMode(args.entity_filter), args.extraction_type,
+                       keep_original_predicate=args.keep_original_predicate,
+                       filter_predicate_str=args.filter_predicate_str,
+                       swap_passive_voice=args.swap_passive_voice,
+                       keep_be_and_have=not args.ignore_be_and_have)
     logging.info('finished')
 
 

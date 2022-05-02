@@ -1,8 +1,9 @@
+import json
+import logging
+import re
 from collections import defaultdict
 from enum import Enum, auto
-
-import json
-import re
+from typing import List
 
 from kgextractiontoolbox import tools
 from kgextractiontoolbox.backend.models import Tag, Document
@@ -35,7 +36,7 @@ def get_doc_format(filehandle=None, path=None) -> DocFormat:
 
 
 def is_doc_file(fn):
-    return not fn.startswith(".") and any([fn.endswith(ext) for ext in [".txt", ".document", "json"]])
+    return not fn.startswith(".") and any([fn.endswith(ext) for ext in [".txt", ".document", ".pubtator", "json"]])
 
 
 class TaggedEntity:
@@ -62,6 +63,17 @@ class TaggedEntity:
     def __hash__(self):
         return hash((self.start, self.end, self.text, self.ent_id))
 
+    def is_valid(self):
+        if not self.ent_id or not self.ent_type or not self.text or self.start is None or self.end is None:
+            return False
+        return True
+
+
+def parse_tag_list(path_or_str):
+    content = tools.read_if_path(path_or_str)
+    reg_result = TAG_LINE_NORMAL.findall(content)
+    return [TaggedEntity(t) for t in reg_result] if reg_result else []
+
 
 class Sentence:
     def __init__(self, sid, text, start, end) -> None:
@@ -72,21 +84,32 @@ class Sentence:
         self.end = end
 
     def __str__(self):
-        return f'<Sentence {self.sid}, {self.start}, {self.end}, {self.text}'
+        return f'<Sentence {self.sid}, {self.start}, {self.end}, {self.text}>'
 
     def __repr__(self):
         return str(self)
 
 
-def parse_tag_list(path_or_str):
-    content = tools.read_if_path(path_or_str)
-    reg_result = TAG_LINE_NORMAL.findall(content)
-    return [TaggedEntity(t) for t in reg_result] if reg_result else []
+class DocumentSection:
+    def __init__(self, position: int, title: str, text: str):
+        self.position = position
+        self.title = title
+        self.text = text
+
+    def to_dict(self):
+        return {"position": self.position, "title": self.title, "text": self.text}
+
+    def __str__(self):
+        return f'<DocumentSection {self.position}, {self.title}, {self.text}>'
+
+    def __repr__(self):
+        return str(self)
 
 
 class TaggedDocument:
 
-    def __init__(self, from_str=None, spacy_nlp=None, ignore_tags=False, id=None, title=None, abstract=None):
+    def __init__(self, from_str=None, spacy_nlp=None, ignore_tags=False, id=None, title=None, abstract=None,
+                 sections=False):
         """
         initialize a document document
         :param from_str: content of a document file or a document filename
@@ -96,42 +119,15 @@ class TaggedDocument:
         self.id = None
         self.tags = []
         self.classification = {}
+        self.sections: List[DocumentSection] = []
 
         if from_str:
             from_str = tools.read_if_path(from_str)
             str_format = "pt" if re.match(r"\d", from_str[0]) else "json"
-
             if str_format == "pt":
-                match = CONTENT_ID_TIT_ABS.match(from_str)
-                if match:
-                    self.id, self.title, self.abstract = match.group(1, 2, 3)
-                    self.title = self.title.strip()
-                    self.abstract = self.abstract.strip()
-                    self.id = int(self.id)
-                else:
-                    self.id, self.title, self.abstract = None, None, None
-
-                if from_str and not ignore_tags:
-                    self.tags = [TaggedEntity(t) for t in TAG_LINE_NORMAL.findall(from_str)]
-                    if not self.id and self.tags:
-                        self.id = self.tags[0].document
-
+                self.load_from_pubtator(pubtator_content=from_str, ignore_tags=ignore_tags)
             elif str_format == "json":
-                doc_dict = json.loads(from_str)
-                self.id, self.title, self.abstract = doc_dict["id"], doc_dict.get("title"), doc_dict.get("abstract")
-                if "tags" in doc_dict and not ignore_tags:
-                    self.tags = [
-                        TaggedEntity(document=self.id,
-                                     start=tag["start"],
-                                     end=tag["end"],
-                                     text=tag["mention"],
-                                     ent_type=tag["type"],
-                                     ent_id=tag["id"])
-                        for tag in doc_dict["tags"]
-                    ]
-                if "classification" in doc_dict:
-                    self.classification = {k: v for k, v in
-                                           zip(doc_dict["classification"], [""] * len(doc_dict["classification"]))}
+                self.load_from_json(json_str=from_str, ignore_tags=ignore_tags)
 
         else:
             self.id = id
@@ -148,15 +144,56 @@ class TaggedDocument:
 
         self.entity_names = {t.text.lower() for t in self.tags}
         if spacy_nlp:
-            if not self.title and not self.abstract:
-                raise ValueError(f'Cannot process document ({self.id}) without title or abstract')
-            # Indexes
-            # self.mesh_by_entity_name = {}  # Use to select mesh descriptor by given entity
-            self.sentence_by_id = {}  # Use to build mesh->sentence index
-            self.entities_by_ent_id = defaultdict(list)  # Use Mesh->TaggedEntity index to build Mesh->Sentence index
-            self.sentences_by_ent_id = defaultdict(set)  # Mesh->Sentence index
-            self.entities_by_sentence = defaultdict(set)  # Use for _query processing
-            self._create_index(spacy_nlp)
+            self._compute_nlp_indexes(spacy_nlp, sections=sections)
+
+    def load_from_pubtator(self, pubtator_content: str, ignore_tags=False):
+        """
+        Loads a TaggedDocument from a PubTator str
+        :param pubtator_content: the pubtator content
+        :param ignore_tags: should tags be ignored?
+        :return: None
+        """
+        match = CONTENT_ID_TIT_ABS.match(pubtator_content)
+        if match:
+            self.id, self.title, self.abstract = match.group(1, 2, 3)
+            self.title = self.title.strip()
+            self.abstract = self.abstract.strip()
+            self.id = int(self.id)
+        else:
+            self.id, self.title, self.abstract = None, None, None
+
+        if pubtator_content and not ignore_tags:
+            self.tags = [TaggedEntity(t) for t in TAG_LINE_NORMAL.findall(pubtator_content)]
+            if not self.id and self.tags:
+                self.id = self.tags[0].document
+
+    def load_from_json(self, json_str: str, ignore_tags=False):
+        """
+        Loads a TaggedDocument from a JSON str
+        :param json_str: the json str (not parsed)
+        :param ignore_tags: should tags be ignored?
+        :return: None
+        """
+        doc_dict = json.loads(json_str)
+        self.id, self.title, self.abstract = doc_dict["id"], doc_dict.get("title"), doc_dict.get("abstract")
+        if "tags" in doc_dict and not ignore_tags:
+            self.tags = [
+                TaggedEntity(document=self.id,
+                             start=tag["start"],
+                             end=tag["end"],
+                             text=tag["mention"],
+                             ent_type=tag["type"],
+                             ent_id=tag["id"])
+                for tag in doc_dict["tags"]
+            ]
+        if "classification" in doc_dict:
+            self.classification = doc_dict["classification"]
+
+        if "sections" in doc_dict:
+            self.sections = [DocumentSection(position=sec["position"],
+                                             title=sec["title"],
+                                             text=sec["text"])
+                             for sec in doc_dict["sections"]]
 
     @staticmethod
     def pubtator_has_composite_tags(tags: [TaggedEntity]) -> bool:
@@ -207,44 +244,72 @@ class TaggedDocument:
     def clean_tags(self):
         clean_tags = self.tags.copy()
         for tag1 in self.tags:
-            if not tag1.document or not tag1.start or not tag1.end or not tag1.text or not tag1.ent_type or not tag1.ent_id:
+            if not tag1.is_valid():
                 clean_tags.remove(tag1)
             else:
                 for tag2 in self.tags:
                     if tag2.start <= tag1.start and tag2.end >= tag1.end and tag1.text.lower() != tag2.text.lower():
                         clean_tags.remove(tag1)
                         break
-        self.tags = sorted(clean_tags, key=lambda t: (t.start, t.end, t.ent_id))
+        self.tags = clean_tags
+        self.sort_tags()
 
-    def _create_index(self, spacy_nlp):
-        # self.mesh_by_entity_name = {t.text.lower(): t.mesh for t in self.tags if
-        #                            t.text.lower() not in self.mesh_by_entity_name}
-        if self.title:
-            if self.title[-1] == '.':
-                content = f'{self.title} {self.abstract}'
-                offset = 1
-            else:
-                content = f'{self.title}. {self.abstract}'
-                offset = 2
-        else:
-            content = f'{self.abstract}'
-            offset = 0
+    def sort_tags(self):
+        """
+        Sort tags by their text location
+        :return:
+        """
+        self.tags = sorted(self.tags, key=lambda t: (t.start, t.end, t.ent_id))
 
-        doc_nlp = spacy_nlp(content)
-        for idx, sent in enumerate(doc_nlp.sents):
-            sent_str = str(sent)
-            start_pos = content.index(sent_str)
-            end_pos = content.index(sent_str) + len(sent_str)
-            if start_pos > len(self.title):
-                start_pos -= offset
-                end_pos -= offset
+    def check_and_repair_tag_integrity(self):
+        """
+        Checks and repairs tags in documents. If an entity is not correctly aligned to the content, the entity
+        is searched left (-30) and right (5) from the location. If the entity could be found, then its position
+        is upated. Otherwise nothing happens
+        :return:
+        """
+        text_content = self.get_text_content().lower()
+        for t in self.tags:
+            tag_text = t.text.lower()
+            text_text = text_content[t.start:t.end]
+            if tag_text != text_text:
+                repaired = False
+                # run backwards trough the document
+                for off in range(5, -30, -1):
+                    if tag_text == text_content[t.start + off:t.end + off]:
+                        t.start = t.start - off
+                        t.end = t.end - off
+                        repaired = True
+                if not repaired:
+                    logging.debug(f'Tag position does not match to string in text ({tag_text} vs {text_text})')
 
-            self.sentence_by_id[idx] = Sentence(
-                idx,
-                sent_str,
-                start_pos,
-                end_pos
-            )
+    def _compute_nlp_indexes(self, spacy_nlp, sections=False):
+        if not self.has_content():
+            raise ValueError(f'Cannot process document ({self.id}) without title or abstract')
+            # Indexes
+        self.sentence_by_id = {}  # Use to build entity->sentence index
+        self.entities_by_ent_id = defaultdict(list)  # Use entity->TaggedEntity index to build Mesh->Sentence index
+        self.sentences_by_ent_id = defaultdict(set)  # entity->Sentence index
+        self.entities_by_sentence = defaultdict(set)  # sent->entities
+
+        sentence_idx = 0
+        # iterate over all text elements (title, abstract, sec1 title, sec1 text, sec2 title, ...)
+        for text_element, offset in self.iterate_over_text_elements(sections=sections):
+            doc_nlp = spacy_nlp(text_element)
+
+            # iterate over sentences in each element
+            for sent in doc_nlp.sents:
+                sent_str = str(sent)
+                start_pos = sent.start_char + offset
+                end_pos = sent.end_char + offset
+
+                self.sentence_by_id[sentence_idx] = Sentence(
+                    sentence_idx,
+                    sent_str,
+                    start_pos,
+                    end_pos
+                )
+                sentence_idx += 1
 
         for tag in self.tags:
             self.entities_by_ent_id[tag.ent_id].append(tag)
@@ -256,7 +321,28 @@ class TaggedDocument:
                         self.sentences_by_ent_id[ent_id].add(sid)
                         self.entities_by_sentence[sid].add(entity)
 
-    def to_dict(self, export_content=True, export_tags=True):
+    def iterate_over_text_elements(self, sections=False):
+        """
+        Iterate over all text elements in a document
+        :param sections: should sections be considered?
+        :return: an iterator over (string, int)
+        """
+        running_offset = 0
+        if self.title:
+            yield self.title, 0
+            running_offset += len(self.title) + 1
+        if self.abstract:
+            yield self.abstract, running_offset
+            running_offset += len(self.abstract) + 1
+
+        if sections and self.sections:
+            for sec in self.sections:
+                yield sec.title, running_offset
+                running_offset += len(sec.title) + 1
+                yield sec.text, running_offset
+                running_offset += len(sec.text) + 1
+
+    def to_dict(self, export_content=True, export_tags=True, export_sections=True):
         """
         converts the TaggedDocument to a dictionary that is consistent with our json ouptut format.
         Gosh, it's beautiful to formulate a json construction in python
@@ -270,9 +356,9 @@ class TaggedDocument:
                 "title": self.title,
                 "abstract": self.abstract
             })
+        out_dict["classification"] = self.classification
         if export_tags:
             out_dict.update({
-                # "classification": list(self.classification.keys()),
                 "tags": [
                     {
                         "id": tag.ent_id,
@@ -284,10 +370,25 @@ class TaggedDocument:
                     for tag in self.tags
                 ],
             })
+        if export_sections and self.sections:
+            out_dict["sections"] = [sec.to_dict() for sec in self.sections]
+
         return out_dict
 
-    def get_text_content(self):
-        return f"{self.title} {self.abstract}"
+    def has_content(self):
+        return True if (self.title or self.abstract) else False
+
+    def get_text_content(self, sections=False):
+        if sections and self.sections:
+            fulltext = ' '.join([str(sec.title) + ' ' + str(sec.text) for sec in self.sections])
+            return f"{self.title} {self.abstract} " + fulltext
+        else:
+            return f"{self.title} {self.abstract}"
+
+    def __eq__(self, other):
+        if not isinstance(other, TaggedDocument):
+            return False
+        return self.to_dict() == other.to_dict()
 
     def __str__(self):
         return Document.create_pubtator(self.id, self.title, self.abstract) + "".join(

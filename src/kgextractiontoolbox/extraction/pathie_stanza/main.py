@@ -1,8 +1,9 @@
 import argparse
 import csv
 import logging
-import stanza
 from datetime import datetime
+
+import stanza
 from spacy.lang.en import English
 
 from kgextractiontoolbox.cleaning.relation_vocabulary import RelationVocabulary
@@ -89,13 +90,15 @@ def pathie_stanza_extract_interactions(doc2sentences, doc2tags, file_count, outp
             document_batch.clear()
 
 
-def run_stanza_pathie(input_file, output, predicate_vocabulary: {str: [str]} = None, cpu=False):
+def run_stanza_pathie(input_file, output, predicate_vocabulary: {str: [str]} = None, cpu=False,
+                      consider_sections=False):
     """
     Executes PathIE via Stanza
     :param input_file: the PubTator input file (tags must be included)
     :param output: extractions will be written to output
     :param predicate_vocabulary: the predicate vocabulary if special words are given
     :param cpu: forces Stanford Stanza to run on CPU
+    :param consider_sections: Should document sections be considered for text generation?
     :return: None
     """
     logging.info('Init spacy nlp...')
@@ -106,7 +109,8 @@ def run_stanza_pathie(input_file, output, predicate_vocabulary: {str: [str]} = N
     doc_count = count_documents(input_file)
     logging.info('{} documents counted'.format(doc_count))
 
-    doc2sentences, doc2tags = filter_document_sentences_without_tags(doc_count, input_file, spacy_nlp)
+    doc2sentences, doc2tags = filter_document_sentences_without_tags(doc_count, input_file, spacy_nlp,
+                                                                     consider_sections=consider_sections)
     amount_files = len(doc2tags)
 
     if amount_files == 0:
@@ -125,6 +129,8 @@ def main():
     parser.add_argument("output", help="PathIE output file")
     parser.add_argument('--relation_vocab', default=None, help='Path to a relation vocabulary (json file)')
     parser.add_argument('--cpu', default=False, action="store_true", help="forces Stanza to run in CPU mode")
+    parser.add_argument("--sections", action="store_true", default=False,
+                        help="Should the section texts be considered in the extraction step?")
     args = parser.parse_args()
 
     logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
@@ -137,9 +143,10 @@ def main():
         relation_vocab = RelationVocabulary()
         relation_vocab.load_from_json(args.relation_vocab)
 
-        run_stanza_pathie(args.input, args.output, predicate_vocabulary=relation_vocab.relation_dict, cpu=cpu)
+        run_stanza_pathie(args.input, args.output, predicate_vocabulary=relation_vocab.relation_dict, cpu=cpu,
+                          consider_sections=args.sections)
     else:
-        run_stanza_pathie(args.input, args.output, cpu=cpu)
+        run_stanza_pathie(args.input, args.output, cpu=cpu, consider_sections=args.sections)
 
 
 if __name__ == "__main__":

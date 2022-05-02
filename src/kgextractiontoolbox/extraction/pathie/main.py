@@ -11,8 +11,9 @@ import subprocess
 import sys
 import tempfile
 from datetime import datetime
-from spacy.lang.en import English
 from time import sleep
+
+from spacy.lang.en import English
 
 from kgextractiontoolbox.cleaning.relation_vocabulary import RelationVocabulary
 from kgextractiontoolbox.config import NLP_CONFIG
@@ -51,8 +52,10 @@ def pathie_run_corenlp(core_nlp_dir: str, out_corenlp_dir: str, filelist_fn: str
         num_files = len(f.read().split("\n"))
 
     run_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "run.sh")
+    filelist_fn = os.path.join(os.path.dirname(os.path.abspath(filelist_fn)), os.path.basename(filelist_fn))
     sp_args = ["/bin/bash", "-c", "{} {} {} {} {}".format(run_script, core_nlp_dir, out_corenlp_dir, filelist_fn,
                                                           worker_no)]
+    logging.info(f'Invoking Stanford CoreNLP with: {sp_args}')
     process = subprocess.Popen(sp_args, cwd=core_nlp_dir, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     start_time = datetime.now()
     print_progress_with_eta('CoreNLP running...', 0, num_files, start_time, print_every_k=1)
@@ -227,7 +230,8 @@ def pathie_process_corenlp_output_parallelized(out_corenlp_dir, amount_files, ou
 
 
 def run_pathie(input, output, workdir=None, config=NLP_CONFIG,
-               predicate_vocabulary: {str: [str]} = None, workers=1):
+               predicate_vocabulary: {str: [str]} = None, workers=1,
+               consider_sections=False):
     """
     Runs PathIE based on Stanford CoreNLP toolkit
     :param input: pubtator input file
@@ -235,7 +239,8 @@ def run_pathie(input, output, workdir=None, config=NLP_CONFIG,
     :param workdir: workdir (if none a temp dir will be created)
     :param config: NLP config
     :param predicate_vocabulary: the predicate vocabulary if special words are given
-    :param workers: amount of parallel workers
+    :param workers: number of parallel workers
+    :param consider_sections: Should document sections be considered for text generation?
     :return: None
     """
     # Read config
@@ -270,7 +275,8 @@ def run_pathie(input, output, workdir=None, config=NLP_CONFIG,
     doc_count = count_documents(input)
     logging.info('{} documents counted'.format(doc_count))
     amount_files, doc2tags = filter_and_write_documents_to_tempdir(doc_count, input, temp_in_dir, filelist_fn,
-                                                                   spacy_nlp, worker_count=workers)
+                                                                   spacy_nlp, worker_count=workers,
+                                                                   consider_sections=consider_sections)
     if amount_files == 0:
         print('no files to process - stopping')
     else:
@@ -294,6 +300,8 @@ def main():
     parser.add_argument("--workdir", help="working directory")
     parser.add_argument("--config", default=NLP_CONFIG)
     parser.add_argument('--relation_vocab', default=None, help='Path to a relation vocabulary (json file)')
+    parser.add_argument("--sections", action="store_true", default=False,
+                        help="Should the section texts be considered in the extraction step?")
     parser.add_argument("-w", "--workers", help="number of parallel workers", default=1, type=int)
     args = parser.parse_args()
 
@@ -305,9 +313,10 @@ def main():
         relation_vocab.load_from_json(args.relation_vocab)
 
         run_pathie(args.input, args.output, args.workdir, args.config, workers=args.workers,
-                   predicate_vocabulary=relation_vocab.relation_dict)
+                   predicate_vocabulary=relation_vocab.relation_dict, consider_sections=args.sections)
     else:
-        run_pathie(args.input, args.output, args.workdir, args.config, workers=args.workers)
+        run_pathie(args.input, args.output, args.workdir, args.config, workers=args.workers,
+                   consider_sections=args.sections)
 
 
 if __name__ == "__main__":

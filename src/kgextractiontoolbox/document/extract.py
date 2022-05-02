@@ -31,7 +31,7 @@ def read_pubtator_documents(path, yield_paths=False):
                     if line.strip():
                         content += line
                     else:
-                        yield (path, content) if yield_paths else content
+                        if content: yield (path, content) if yield_paths else content
                         content = ""
                 if content: yield (path, content) if yield_paths else content
             else:
