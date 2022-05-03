@@ -11,7 +11,7 @@ from typing import Union, Type, List, Iterator
 from sqlalchemy import select, func
 
 import kgextractiontoolbox.backend.database as db
-from kgextractiontoolbox.document.load_document import document_bulk_load
+import kgextractiontoolbox.document.load_document as ld
 from kgextractiontoolbox.backend.models import DocumentTranslation
 from kgextractiontoolbox.progress import Progress
 from kgextractiontoolbox.document.document import TaggedDocument
@@ -182,23 +182,25 @@ class DocumentTranslationLoader:
 def run_document_translation(input: Union[Path, str], output: Union[Path, str],
                              doctranslation_subclass: Type[DocumentTranslationLoader], collection: str,
                              loader_kwargs=None, convert_difference_only=False,
-                             document_limit=None):
-    loader = doctranslation_subclass(collection, loader_kwargs)
-    logging.info("Document translation loader init...")
-    logging.debug(f"Input file: {input}")
-    logging.debug(f"Output file: {output}")
-    logging.info("Counting documents...")
-    count = loader.count_documents(input)
-    logging.info(f"Found {count} documents.")
-    prog = Progress(total=(document_limit or count), text="Translating", print_every=1000)
-    proc_docs = loader.translate(input, output, diff=convert_difference_only, prog_logger=prog, limit=document_limit)
-    logging.info(f"Processed {proc_docs} new or changed documents.")
-
-    document_bulk_load(output, collection)
+                             document_limit=None, load_function=None):
+        loader = doctranslation_subclass(collection, loader_kwargs)
+        logging.info("Document translation loader init...")
+        logging.debug(f"Input file: {input}")
+        logging.debug(f"Output file: {output}")
+        logging.info("Counting documents...")
+        count = loader.count_documents(input)
+        logging.info(f"Found {count} documents.")
+        prog = Progress(total=(document_limit or count), text="Translating", print_every=1000)
+        proc_docs = loader.translate(input, output, diff=convert_difference_only, prog_logger=prog, limit=document_limit)
+        logging.info(f"Processed {proc_docs} new or changed documents.")
+        if load_function:
+            load_function(output, collection)
+        else:
+            ld.document_bulk_load(output, collection)
 
 
 def main(doctranslation_subclass: Type[DocumentTranslationLoader], doctrans_args=None, args: List[str] = None,
-         parser=None, loader_kwargs=None):
+         parser=None, loader_kwargs=None, load_function=None):
     """
     Run the document translation, insert translation entries into the document_translation table,
     export documents to a json file and load them into the database if -l flag is set.
@@ -206,6 +208,7 @@ def main(doctranslation_subclass: Type[DocumentTranslationLoader], doctrans_args
     :param doctranslation_subclass: The subclass of the DocumentTranlationLoader capable of reading SourcedDocuments from
     the used third-party format
     :param args: command line arguments
+    :param narrative_documents: if true use load_narrative_documents.py to load documents
     :return: None
     """
     if doctrans_args is None:
@@ -217,6 +220,7 @@ def main(doctranslation_subclass: Type[DocumentTranslationLoader], doctrans_args
     parser.add_argument("-d", "--diff", action="store_true", help="only process documents with new/changed md5 hash")
     parser.add_argument("-l", "--load", action="store_true", help="load document contents into document table")
     parser.add_argument("-n", "--limit", type=int, help="Only exctract that many documents from source doc")
+    parser.add_argument("-f", "--load_function", action="store_true", help="specify a load function")
     args = parser.parse_args(args)
 
     logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
@@ -226,4 +230,4 @@ def main(doctranslation_subclass: Type[DocumentTranslationLoader], doctrans_args
 
     run_document_translation(args.input, args.output, doctranslation_subclass, args.collection,
                              loader_kwargs=loader_kwargs, convert_difference_only=args.diff,
-                             document_limit=args.limit)
+                             document_limit=args.limit, load_function=args.load_function)

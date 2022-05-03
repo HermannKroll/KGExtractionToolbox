@@ -105,6 +105,9 @@ class DocumentSection:
     def __repr__(self):
         return str(self)
 
+    def __eq__(self, other):
+        return self.position == other.position and self.title == other.title and self.text == other.text
+
 
 class TaggedDocument:
 
@@ -342,7 +345,7 @@ class TaggedDocument:
                 yield sec.text, running_offset
                 running_offset += len(sec.text) + 1
 
-    def to_dict(self, export_content=True, export_tags=True, export_sections=True):
+    def to_dict(self, export_content=True, export_tags=True, export_sections=True, export_classification=True):
         """
         converts the TaggedDocument to a dictionary that is consistent with our json ouptut format.
         Gosh, it's beautiful to formulate a json construction in python
@@ -356,7 +359,8 @@ class TaggedDocument:
                 "title": self.title,
                 "abstract": self.abstract
             })
-        out_dict["classification"] = self.classification
+        if export_classification:
+            out_dict["classification"] = self.classification
         if export_tags:
             out_dict.update({
                 "tags": [

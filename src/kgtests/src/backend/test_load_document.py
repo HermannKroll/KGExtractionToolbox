@@ -2,7 +2,7 @@ import copy
 import unittest
 
 from kgextractiontoolbox.backend.database import Session
-from kgextractiontoolbox.backend.retrieve import retrieve_tagged_documents_from_database
+from kgextractiontoolbox.backend.retrieve import retrieve_tagged_documents_from_database, iterate_over_all_documents_in_collection
 from kgextractiontoolbox.document.document import TaggedDocument
 from kgextractiontoolbox.document.load_document import document_bulk_load
 from kgtests import util
@@ -85,3 +85,21 @@ class TestLoadDocument(unittest.TestCase):
 
         self.assertEqual(1, len(db_docs))
         self.assertEqual(test_doc, db_docs[0])
+
+    def test_load_document_translation(self):
+        test_path = util.get_test_resource_filepath("loading/example_doc_translation.json")
+        document_bulk_load(test_path, "TestLoading4", artificial_document_ids=True)
+
+        # parsed json document
+        with open(test_path, 'rt') as f:
+            doc_content = f.read()
+        test_doc = TaggedDocument(doc_content)
+
+        session = Session.get()
+        db_docs = list(iterate_over_all_documents_in_collection(session, "TestLoading4", consider_sections=True))
+        self.assertEqual(1, len(db_docs))
+        self.assertNotEqual(test_doc, db_docs[0])
+        self.assertNotEqual(test_doc.id, db_docs[0].id)
+        self.assertEqual(test_doc.abstract, db_docs[0].abstract)
+        self.assertEqual(test_doc.title, db_docs[0].title)
+        self.assertEqual(test_doc.sections, db_docs[0].sections)

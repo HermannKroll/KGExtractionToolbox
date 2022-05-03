@@ -104,7 +104,7 @@ class TestRetrieve(unittest.TestCase):
         test_sections_doc2 = create_copy(test_retrieve_doc2, clear_tag=True, clear_classifications=True)
 
         session = Session.get()
-        retrieve_docs = list(iterate_over_all_documents_in_collection(session, "TestRetrieve", consider_sections=True))
+        retrieve_docs = list(iterate_over_all_documents_in_collection(session, "TestRetrieve", [1, 2], consider_sections=True))
 
         self.assertEqual(2, len(retrieve_docs))
         self.assertEqual(test_sections_doc, retrieve_docs[0])
@@ -119,7 +119,7 @@ class TestRetrieve(unittest.TestCase):
         test_classifications_doc2 = create_copy(test_retrieve_doc2, clear_tag=True, clear_sections=True)
 
         session = Session.get()
-        retrieve_docs = list(iterate_over_all_documents_in_collection(session, "TestRetrieve", consider_classification=True))
+        retrieve_docs = list(iterate_over_all_documents_in_collection(session, "TestRetrieve", [1, 2], consider_classification=True))
 
         self.assertEqual(2, len(retrieve_docs))
         self.assertEqual(test_classifications_doc, retrieve_docs[0])
@@ -134,7 +134,7 @@ class TestRetrieve(unittest.TestCase):
         test_tag_sec_doc2 = create_copy(test_retrieve_doc2, clear_classifications=True)
 
         session = Session.get()
-        retrieve_docs = list(iterate_over_all_documents_in_collection(session, "TestRetrieve", consider_tag=True, consider_sections=True))
+        retrieve_docs = list(iterate_over_all_documents_in_collection(session, "TestRetrieve", [1, 2], consider_tag=True, consider_sections=True))
         self.assertEqual(2, len(retrieve_docs))
         self.assertEqual(test_tag_sec_doc, retrieve_docs[0])
         self.assertEqual(test_tag_sec_doc2, retrieve_docs[1])
