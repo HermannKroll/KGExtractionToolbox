@@ -1,0 +1,46 @@
+"predicate","relation","count"
+"work","occupation",36536
+"award","award received",32468
+"degree","academic degree",32363
+"member of","member of",29902
+"research","field of work",7595
+"win","award received",6205
+"responsible for","field of work",3068
+"diploma","academic degree",2920
+"honor","award received",2807
+"death","date of death",2135
+"career","occupation",2008
+"occupation","occupation",1552
+"employ","occupation",1446
+"honour","award received",1340
+"winner of","award received",874
+"medal","award received",836
+"area","field of work",775
+"research on","field of work",772
+"job","occupation",729
+"subject","field of work",666
+"field","field of work",562
+"faith","religion",523
+"membership","member of",494
+"activity","field of work",380
+"religion","religion",212
+"honorary title","award received",184
+"discipline","field of work",168
+"trade","field of work",138
+"craft","occupation",134
+"dead","date of death",130
+"academic degree","academic degree",71
+"employment","occupation",62
+"mother tongue","native language",40
+"specialty","field of work",38
+"profession","occupation",36
+"academic discipline","field of work",22
+"scientific discipline","field of work",18
+"native language","native language",18
+"domain","field of work",14
+"denomination","religion",12
+"field of research","field of work",6
+"field of study","field of work",6
+"DOD","date of death",4
+"award receive","award received",2
+"birth date","date of birth",2

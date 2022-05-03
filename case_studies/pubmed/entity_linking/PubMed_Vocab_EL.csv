@@ -1,0 +1,501 @@
+"ent_str","ent_id","ent_type","count"
+"patients","9606","Species",9711
+"cancer","MESH:D009369","Disease",3316
+"disease","MESH:D004194","Disease",3030
+"protein","Proteins","Excipient",2440
+"human","9606","Species",2347
+"tumor","MESH:D009369","Disease",1858
+"therapy","MESH:D013812","Method",1709
+"mice","10090","Species",1659
+"patient","9606","Species",1612
+"rats","10116","Species",1405
+"infection","MESH:D007239","Disease",1227
+"children","9606","Species",1020
+"proteins","Proteins","Excipient",991
+"in vitro","MESH:D066298","LabMethod",948
+"novel","Novel-","Excipient",928
+"women","9606","Species",925
+"rat","10116","Species",760
+"diseases","MESH:D004194","Disease",746
+"injury","MESH:D014947","Disease",677
+"tumors","MESH:D009369","Disease",666
+"syndrome","MESH:D013577","Disease",660
+"diagnosis","MESH:D003933","Method",639
+"Patients","9606","Species",626
+"death","MESH:D003643","Disease",621
+"carcinoma","MESH:D002277","Disease",612
+"mouse","10090","Species",592
+"assay","FIDXLM1","LabMethod",589
+"strains","MESH:D013180","Disease",571
+"inflammation","MESH:D007249","Disease",556
+"covid-19","MESH:D000086382","Disease",550
+"breast cancer","MESH:D001943","Disease",517
+"mortality","MESH:D009026","Method",514
+"chemotherapy","MESH:D004358","Method",499
+"infections","MESH:D007239","Disease",498
+"insulin","CHEMBL1201631","Drug",480
+"incidence","MESH:D015994","Method",469
+"pain","MESH:D010146","Disease",460
+"participants","9606","Species",448
+"strain","MESH:D013180","Disease",438
+"hypertension","MESH:D006973","Disease",433
+"toxicity","MESH:D064420","Disease",428
+"injection","MESH:D007267","Method",414
+"injection","MESH:D007267","DosageForm",414
+"sensitivity","MESH:D012680","Method",389
+"placebo","MESH:D010919","Method",384
+"insulin","3630","Gene",378
+"diabetes","MESH:D003920","Disease",353
+"nanoparticles","MESH:D053758","DosageForm",347
+"vaccination","MESH:D014611","Method",344
+"men","9606","Species",338
+"hcc","MESH:D006528","Disease",319
+"prevalence","MESH:D015995","Method",313
+"influenza","MESH:D007251","Disease",311
+"measures","MESH:D014894","Method",308
+"blood pressure","MESH:D001794","Method",307
+"cholesterol","CHEMBL112570","Excipient",305
+"control group","MESH:D035061","Method",300
+"weight","MESH:D014894","Method",282
+"obesity","MESH:D009765","Disease",277
+"recurrence","MESH:D012008","Disease",276
+"screening","MESH:D008403","Method",275
+"humans","9606","Species",272
+"p53","7157","Gene",270
+"cancers","MESH:D009369","Disease",264
+"antioxidant","Antioxidants","Excipient",263
+"necrosis","MESH:D009336","Disease",257
+"metastasis","MESH:D009362","Disease",256
+"procedure","MESH:D008722","Method",251
+"stroke","MESH:D020521","Disease",250
+"tuberculosis","MESH:D014376","Disease",248
+"murine","10090","Species",244
+"vaccine","MESH:D014612","Vaccine",241
+"leukemia","MESH:D007938","Disease",239
+"therapies","MESH:D013812","Method",239
+"antibiotic","CHEMBL606111","Drug",238
+"staining","MESH:D013194","LabMethod",237
+"prognosis","MESH:D011379","Method",233
+"risk factors","MESH:D012307","Method",226
+"antibiotics","CHEMBL606111","Drug",225
+"tumour","MESH:D009369","Disease",218
+"lung cancer","MESH:D008175","Disease",216
+"specificity","MESH:D012680","Method",214
+"people","9606","Species",213
+"hepatitis","MESH:D006505","Disease",210
+"estrogen","CHEMBL592868","Drug",209
+"colorectal cancer","MESH:D015179","Disease",206
+"pneumonia","MESH:D011014","Disease",206
+"bleeding","MESH:D006470","Disease",205
+"scale","MESH:D014894","Method",204
+"crc","MESH:D015179","Disease",204
+"fibrosis","MESH:D005355","Disease",199
+"dopamine","CHEMBL59","Chemical",199
+"nitric oxide","CHEMBL1200689","Chemical",194
+"lymphoma","MESH:D008223","Disease",194
+"prostate cancer","MESH:D011471","Disease",192
+"procedures","MESH:D008722","Method",191
+"asthma","MESH:D001249","Disease",191
+"tnf-alpha","CHEMBL265582","Drug",190
+"depression","MESH:D000275","Disease",189
+"radiotherapy","MESH:D011878","Method",189
+"morbidity","MESH:D009017","Method",187
+"adenocarcinoma","MESH:D000230","Disease",186
+"diabetic","MESH:D003920","Disease",186
+"cisplatin","CHEMBL11359","Drug",184
+"cisplatin","CHEMBL2068237","Drug",184
+"malaria","MESH:D008288","Disease",183
+"measure","MESH:D014894","Method",180
+"COVID-19","MESH:C000657245","Disease",178
+"oa","MESH:D010003","Disease",175
+"metastases","MESH:D009362","Disease",171
+"cytotoxicity","MESH:D064420","Disease",169
+"infarction","MESH:D007238","Disease",169
+"survey","MESH:D011795","Method",168
+"pd","MESH:D010300","Disease",167
+"vitamin d","CHEMBL1042","Drug",165
+"heart failure","MESH:D006333","Disease",163
+"donor","9606","Species",163
+"ci","MESH:D016001","Method",162
+"ad","MESH:D000544","Disease",161
+"arthritis","MESH:D001168","Disease",161
+"hypoxia","MESH:D000860","Disease",160
+"wound","MESH:D014947","Disease",160
+"observations","MESH:D019370","Method",158
+"mammalian","9606","Species",158
+"ischemia","MESH:D007511","Disease",157
+"body weight","MESH:D001835","Disease",156
+"dogs","9615","Species",155
+"infants","9606","Species",155
+"albumin","CHEMBL1201451","Excipient",154
+"ckd","MESH:D051436","Disease",153
+"no","CHEMBL1200689","Chemical",152
+"ethanol","CHEMBL545","Excipient",151
+"fever","MESH:D005334","Disease",151
+"transplantation","MESH:D014180","Method",150
+"anemia","MESH:D000740","Disease",149
+"observation","MESH:D019370","Method",148
+"tyrosine","CHEMBL925","Chemical",147
+"achieve","Achieve","Excipient",147
+"EGFR","1956","Gene",147
+"SARS-CoV-2","2697049","Species",145
+"type 2 diabetes","MESH:D003924","Disease",144
+"heparin","CHEMBL4650299","Chemical",144
+"malignancies","MESH:D009369","Disease",144
+"heparin","CHEMBL1909300","Chemical",144
+"shock","MESH:D012769","Disease",142
+"confidence interval","MESH:D016001","Method",142
+"Human","9606","Species",142
+"epilepsy","MESH:D004827","Disease",141
+"Escherichia coli","562","Species",141
+"melanoma","MESH:D008545","Disease",141
+"emergency","MESH:D004630","Disease",140
+"questionnaire","MESH:D011795","Method",139
+"progesterone","CHEMBL103","Chemical",139
+"risk","MESH:D012306","Method",139
+"diabetes mellitus","MESH:D003920","Disease",138
+"nicotine","CHEMBL3","Chemical",138
+"ms","MESH:D009103","Disease",138
+"bovine","9913","Species",137
+"pancreatic cancer","MESH:D010190","Disease",137
+"glutathione","CHEMBL1543","Chemical",137
+"dexamethasone","CHEMBL384467","Drug",137
+"sepsis","MESH:D018805","Disease",135
+"fatigue","MESH:D005221","Disease",135
+"myocardial infarction","MESH:D009203","Disease",134
+"injections","MESH:D007267","Method",133
+"injections","MESH:D007267","DosageForm",133
+"hemodialysis","MESH:D006435","Method",133
+"TNF-alpha","7124","Gene",132
+"body weight","MESH:D001835","Method",130
+"after treatment","MESH:D000359","Method",130
+"meningitis","MESH:D008581","Disease",130
+"NSCLC","MESH:D002289","Disease",128
+"cocaine","CHEMBL370805","Drug",128
+"tb","MESH:D014376","Disease",126
+"man","9606","Species",126
+"histamine","CHEMBL90","Chemical",126
+"elisa","MESH:D004797","LabMethod",125
+"VEGF","7422","Gene",124
+"seizures","MESH:D012640","Disease",124
+"CD4","920","Gene",122
+"HIV-1","11676","Species",122
+"biopsy","MESH:D001706","LabMethod",121
+"tobacco","4097","Species",121
+"serotonin","CHEMBL39","Chemical",120
+"insulin resistance","MESH:D007333","Disease",120
+"immunization","MESH:D007114","Method",118
+"lipoprotein","Lipoproteins","Excipient",118
+"phosphate","Phosphates","Excipient",116
+"anxiety","MESH:D001008","Disease",116
+"protease","CHEMBL1201482","Chemical",116
+"morphine","CHEMBL70","Drug",116
+"fatty acid","Fatty acids","Excipient",115
+"potassium","CHEMBL1201290","Excipient",115
+"logistic regression","MESH:D016015","Method",115
+"carcinogenesis","MESH:D063646","Disease",115
+"child","9606","Species",114
+"cardiovascular disease","MESH:D002318","Disease",114
+"deaths","MESH:D003643","Disease",114
+"ibd","MESH:D015212","Disease",114
+"rabbit","9986","Species",113
+"heart rate","MESH:D006339","Method",112
+"schizophrenia","MESH:D012559","Disease",112
+"tobacco","Tobacco","Chemical",112
+"risks","MESH:D012306","Method",111
+"fatty acids","Fatty acids","Excipient",111
+"nsclc","MESH:D008175","Disease",111
+"device","MESH:D004864","Method",111
+"spectroscopy","MESH:D013057","LabMethod",111
+"edema","MESH:D004487","Disease",110
+"pigs","9823","Species",109
+"thrombosis","MESH:D013927","Disease",109
+"relapse","MESH:D012008","Disease",108
+"obese","MESH:D009765","Disease",108
+"immunohistochemistry","MESH:D007150","LabMethod",108
+"sclerosis","MESH:D012598","Disease",108
+"parkinson's disease","MESH:D010300","Disease",108
+"rabbits","9986","Species",107
+"anesthesia","MESH:D000758","Method",107
+"woman","9606","Species",106
+"copd","MESH:D029424","Disease",106
+"doxorubicin","CHEMBL53463","Drug",104
+"cvd","MESH:D002318","Disease",104
+"liposomes","MESH:D008081","DosageForm",104
+"IL-6","3569","Gene",104
+"liposomes","Liposomes","Excipient",104
+"western blot","MESH:D015153","LabMethod",104
+"perfusion","MESH:D010477","Method",103
+"polymer","Polymers","Excipient",103
+"Participants","9606","Species",102
+"odds ratio","MESH:D016017","Method",102
+"Staphylococcus aureus","1280","Species",101
+"ovarian cancer","MESH:D010051","Disease",101
+"immunotherapy","MESH:D007167","Method",101
+"hemoglobin","Hemoglobin","Chemical",100
+"probability","MESH:D011336","Method",100
+"trauma","MESH:D014947","Disease",99
+"ulcer","MESH:D014456","Disease",99
+"creatinine","CHEMBL65567","Excipient",98
+"tomography","MESH:D014054","Method",97
+"AML","MESH:D015470","Disease",96
+"yeast","4932","Species",96
+"devices","MESH:D004864","Method",96
+"copper","CHEMBL55643","Chemical",95
+"outpatient","9606","Species",95
+"testosterone","CHEMBL386630","Chemical",95
+"hyperplasia","MESH:D006965","Disease",94
+"H. pylori","210","Species",94
+"carcinomas","MESH:D002277","Disease",93
+"atherosclerosis","MESH:D050197","Disease",93
+"HCV","11103","Species",92
+"electrode","MESH:D004566","Method",92
+"vaccines","MESH:D014612","Vaccine",92
+"interferon","CHEMBL2108494","Drug",92
+"films","FIDX10","DosageForm",92
+"E. coli","562","Species",92
+"glioblastoma","MESH:D005909","Disease",91
+"injuries","MESH:D014947","Disease",91
+"hospitalization","MESH:D006760","Method",91
+"NF-kappaB","4790","Gene",91
+"t2dm","MESH:D003924","Disease",91
+"or","MESH:D016017","Method",90
+"PATIENTS","9606","Species",90
+"CRP","1401","Gene",90
+"il-10","CHEMBL4297771","Chemical",89
+"Children","9606","Species",89
+"HER2","2064","Gene",89
+"disease progression","MESH:D018450","Disease",89
+"ra","MESH:D001172","Disease",89
+"risk factor","MESH:D012307","Method",89
+"cannabis","Cannabis","PlantFamily/Genus",88
+"cervical cancer","MESH:D002583","Disease",87
+"persons","9606","Species",87
+"flow cytometry","MESH:D005434","LabMethod",87
+"covid-19 pandemic","MESH:D000086382","Disease",87
+"rehabilitation","MESH:D012046","Method",86
+"aspirin","CHEMBL25","Drug",86
+"IL-2","3558","Gene",86
+"eae","MESH:D004681","Disease",86
+"acetylcholine","CHEMBL1184","Chemical",85
+"rice","4530","Species",85
+"acetylcholine","CHEMBL667","Chemical",85
+"ct","MESH:D014054","Method",84
+"propofol","CHEMBL526","Drug",84
+"renal failure","MESH:D051437","Disease",83
+"cortisol","CHEMBL389621","Chemical",83
+"stenosis","MESH:D003251","Disease",83
+"weight loss","MESH:D015431","Disease",83
+"hepatitis c","MESH:D006526","Disease",83
+"squamous cell carcinoma","MESH:D002294","Disease",83
+"hepatocellular carcinoma","MESH:D006528","Disease",83
+"metformin","CHEMBL1431","Drug",83
+"af","MESH:D001281","Disease",82
+"AF","MESH:D001281","Disease",81
+"cows","9913","Species",81
+"analgesia","MESH:D000698","Method",81
+"Rats","10116","Species",81
+"dementia","MESH:D003704","Disease",81
+"estradiol","CHEMBL135","Chemical",81
+"RA","MESH:D001172","Disease",81
+"mass spectrometry","MESH:D013058","LabMethod",81
+"malignancy","MESH:D009369","Disease",80
+"bevacizumab","CHEMBL1201583","Drug",80
+"cf","MESH:D003550","Disease",79
+"polypeptide","Polypeptides","Excipient",79
+"HPV","10566","Species",79
+"polymerase chain reaction","MESH:D016133","LabMethod",79
+"hf","MESH:D006333","Disease",79
+"kidney disease","MESH:D007674","Disease",78
+"pfs","MESH:D000077982","Method",78
+"AIDS","MESH:D000163","Disease",78
+"cohort study","MESH:D015331","Method",78
+"lactate","CHEMBL358850","Excipient",78
+"colitis","MESH:D003092","Disease",78
+"lithium","CHEMBL2146126","Drug",77
+"CD8","925","Gene",77
+"ami","MESH:D009203","Disease",77
+"animal models","MESH:D023421","Method",77
+"AD","MESH:D000544","Disease",76
+"bmi","MESH:D015992","Method",76
+"metabolic syndrome","MESH:D024821","Disease",76
+"Women","9606","Species",76
+"Cancer","MESH:D009369","Disease",75
+"heart disease","MESH:D006331","Disease",75
+"sarcoma","MESH:D012509","Disease",75
+"IFN-gamma","3458","Gene",75
+"Wistar rats","10116","Species",75
+"methanol","Methanol","Excipient",75
+"gastric cancer","MESH:D013274","Disease",75
+"immunosuppression","MESH:D007165","Method",74
+"respondents","MESH:D011795","Method",74
+"bv","MESH:D016585","Disease",74
+"HGF","3082","Gene",74
+"pneumoniae","MESH:D011014","Disease",74
+"multiple sclerosis","MESH:D009103","Disease",74
+"LPS","MESH:C536528","Disease",74
+"dissociation","MESH:D004213","Disease",74
+"sle","MESH:D008180","Disease",74
+"poisoning","MESH:D011041","Disease",74
+"mets","MESH:D024821","Disease",74
+"magnetic resonance imaging","MESH:D008279","Method",73
+"rheumatoid arthritis","MESH:D001172","Disease",73
+"western blotting","MESH:D015153","LabMethod",73
+"arginine","CHEMBL1485","Excipient",73
+"biopsies","MESH:D001706","LabMethod",73
+"cad","MESH:D003324","Disease",73
+"PD","MESH:D010300","Disease",73
+"AKT","207","Gene",73
+"5-fu","CHEMBL185","Chemical",73
+"als","MESH:D000690","Disease",73
+"catheter","MESH:D057785","Method",73
+"ad","MESH:D003876","Disease",72
+"caffeine","CHEMBL113","Excipient",72
+"iodine","CHEMBL1201225","Chemical",72
+"Patient","9606","Species",72
+"da","CHEMBL59","Chemical",72
+"all","MESH:D054198","Disease",72
+"gene therapy","MESH:D015316","Method",72
+"headache","MESH:D006261","Disease",72
+"regression analysis","MESH:D012044","Method",71
+"IL-1beta","3553","Gene",71
+"colon cancer","MESH:D003110","Disease",70
+"hypertensive","MESH:D006973","Disease",70
+"aldosterone","CHEMBL273453","Chemical",70
+"HIV","12721","Species",70
+"surfactant","Surfactants","Excipient",70
+"intensive care","MESH:D003422","Method",70
+"horses","9796","Species",70
+"sulfate","Sulfate","Chemical",69
+"guinea pig","10141","Species",69
+"vomiting","MESH:D014839","Disease",69
+"silica","Silica","Excipient",69
+"polymers","Polymers","Excipient",69
+"ards","MESH:D012128","Disease",69
+"powder","MESH:D011208","DosageForm",69
+"Pseudomonas aeruginosa","287","Species",68
+"chicken","9031","Species",68
+"dr","MESH:D003930","Disease",68
+"thrombin","CHEMBL2108110","Chemical",67
+"sugar","Sugar","Excipient",67
+"sugar","Sugars","Excipient",67
+"pcos","MESH:D011085","Disease",67
+"lambda","CHEMBL1909302","Drug",67
+"scc","MESH:D002294","Disease",67
+"adenosine","CHEMBL477","Chemical",67
+"soybean","3847","Species",66
+"osteoporosis","MESH:D010024","Disease",66
+"5-fluorouracil","CHEMBL185","Chemical",66
+"pulse","MESH:D011674","Method",66
+"COPD","MESH:D029424","Disease",66
+"hypertrophy","MESH:D006984","Disease",66
+"wheat","4565","Species",66
+"IL-10","3586","Gene",65
+"nsclc","MESH:D002289","Disease",65
+"Mice","10090","Species",65
+"P. aeruginosa","287","Species",65
+"visual acuity","MESH:D014792","Method",65
+"radiation therapy","MESH:D011878","Method",65
+"EBV","10376","Species",64
+"cats","9685","Species",64
+"thrombin","2147","Gene",64
+"IFN-gamma","15978","Gene",64
+"infarct","MESH:D007238","Disease",63
+"angiotensin ii","CHEMBL2392353","Drug",63
+"cd","CHEMBL2074977","Chemical",63
+"sulfur","CHEMBL2105487","Excipient",63
+"angiotensin ii","CHEMBL2392353","Chemical",63
+"registry","MESH:D012042","Method",63
+"IL-8","3576","Gene",63
+"angiotensin","CHEMBL2391146","Chemical",63
+"survival rate","MESH:D015996","Method",63
+"hemorrhage","MESH:D006470","Disease",63
+"angiotensin ii","CHEMBL408403","Chemical",63
+"seizure","MESH:D012640","Disease",63
+"body mass index","MESH:D015992","Method",63
+"syndromes","MESH:D013577","Disease",63
+"crp","Proteins","Excipient",62
+"melatonin","CHEMBL45","Chemical",62
+"mri","MESH:D008279","Method",62
+"ldl","Lipoproteins","Excipient",62
+"psa","MESH:D015535","Disease",62
+"SLE","MESH:D008180","Disease",62
+"bph","MESH:D011470","Disease",62
+"glaucoma","MESH:D005901","Disease",62
+"leptin","Leptin","Chemical",62
+"silver","CHEMBL1230866","Chemical",61
+"HBV","10407","Species",61
+"prospective study","MESH:D011446","Method",61
+"bd","MESH:D001528","Disease",61
+"fracture","MESH:D050723","Disease",61
+"escc","MESH:D000077277","Disease",61
+"suspension","MESH:D013535","DosageForm",61
+"TNF-alpha","24835","Gene",61
+"cough","MESH:D003371","Disease",61
+"bc","MESH:D001943","Disease",61
+"arsenic","CHEMBL1231052","Drug",61
+"diazepam","CHEMBL12","Drug",61
+"colon cancer","MESH:D015179","Disease",61
+"GVHD","MESH:D006086","Disease",61
+"cadmium","CHEMBL2074977","Chemical",61
+"flavonoids","CHEMBL3182320","Drug",60
+"chloride","Chloride","Chemical",60
+"reperfusion","MESH:D015424","Method",60
+"retrospective study","MESH:D012189","Method",60
+"cyclophosphamide","CHEMBL88","Drug",60
+"multivariate analysis","MESH:D015999","Method",60
+"transfection","MESH:D014162","Method",60
+"E-cadherin","999","Gene",60
+"cyclophosphamide","CHEMBL1200796","Drug",60
+"glutamine","CHEMBL930","Chemical",60
+"aml","MESH:D015470","Disease",60
+"canine","9615","Species",60
+"multiple myeloma","MESH:D009101","Disease",60
+"phospholipid","CHEMBL4298065","Excipient",60
+"metabolic syndrome","MESH:D008659","Disease",60
+"cyclic amp","CHEMBL316966","Chemical",59
+"curcumin","CHEMBL116438","Excipient",59
+"tamoxifen","CHEMBL83","Drug",59
+"chitosan","Chitosan","Excipient",59
+"records","MESH:D011996","Method",59
+"alzheimer's disease","MESH:D000544","Disease",59
+"infant","9606","Species",58
+"tumorigenesis","MESH:D063646","Disease",58
+"antioxidants","Antioxidants","Excipient",58
+"vitamin e","CHEMBL3989727","Excipient",58
+"vitamin e","CHEMBL47","Excipient",58
+"immunofluorescence","MESH:D005455","LabMethod",58
+"diarrhea","MESH:D003967","Disease",58
+"pancreatitis","MESH:D010195","Disease",58
+"pancreatic","MESH:D010195","Disease",58
+"ulcers","MESH:D014456","Disease",58
+"osteosarcoma","MESH:D012516","Disease",58
+"cattle","9913","Species",57
+"atrial fibrillation","MESH:D001281","Disease",57
+"ACE","1636","Gene",57
+"liver disease","MESH:D008107","Disease",57
+"cardiomyopathy","MESH:D009202","Disease",57
+"red blood cells","CHEMBL2108195","Drug",57
+"H1N1","114727","Species",57
+"cartilage","MESH:D002357","Disease",57
+"DM","MESH:D009223","Disease",57
+"fractures","MESH:D050723","Disease",57
+"influenza","11309","Species",56
+"analgesia","MESH:D000699","Disease",56
+"indomethacin","CHEMBL6","Drug",56
+"tablets","MESH:D013607","DosageForm",56
+"x-ray diffraction","MESH:D014961","LabMethod",56
+"nausea","MESH:D009325","Disease",56
+"tomato","4081","Species",56
+"weight gain","MESH:D015430","Disease",55
+"cysteine","CHEMBL863","Excipient",55
+"cirrhosis","MESH:D005355","Disease",55
+"IL-6","16193","Gene",55
+"cysteine","CHEMBL54943","Excipient",55
+"vitamin","Vitamins","Excipient",55
+"thyroid cancer","MESH:D013964","Disease",54
+"lp","MESH:D008010","Disease",54
+"girls","9606","Species",54
+"ipf","MESH:D054990","Disease",54
+"progression-free survival","MESH:D000077982","Method",54
+"rituximab","CHEMBL1201576","Drug",54

@@ -6,7 +6,7 @@ from typing import List, Tuple
 
 import fasttext
 from scipy.spatial.distance import cosine
-from sqlalchemy import update, and_
+from sqlalchemy import update
 
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import Predication
@@ -191,7 +191,7 @@ def canonicalize_predicates(best_matches: {str: (str, float)}, min_distance_thre
     :param best_matches: dictionary which maps a predicate to a canonicalized predicate and a distance score
     :param min_distance_threshold: all predicates that have a match with a distance blow minimum threshold distance are canonicalized
     :param document_collection: the document collection to canonicalize
-    :param predication_id_minimum: only predication ids above this will be updated
+    :param predication_id_minimum: only predication ids above this will be updated (note: statistics will be computed on the whole table)
     :return: None
     """
     session = Session.get()
@@ -204,6 +204,12 @@ def canonicalize_predicates(best_matches: {str: (str, float)}, min_distance_thre
             pred_canonicalized = None
         pred_can2preds[pred_canonicalized].add(pred)
 
+    if document_collection:
+        logging.info(f'Only updating predications from document collection: {document_collection}')
+
+    if predication_id_minimum:
+        logging.info(f'Only updating predications with ids >= {predication_id_minimum}')
+
     logging.info(f'Execute {len(pred_can2preds)} update jobs...')
     task_size = len(pred_can2preds)
     for i, (pred_canonicalized, preds) in enumerate(pred_can2preds.items()):
@@ -211,16 +217,19 @@ def canonicalize_predicates(best_matches: {str: (str, float)}, min_distance_thre
         stmt = update(Predication).where(Predication.predicate.in_(preds))
         if document_collection:
             stmt = stmt.where(Predication.document_collection == document_collection)
+        if predication_id_minimum:
+            stmt = stmt.where(Predication.id >= predication_id_minimum)
         stmt = stmt.values(relation=pred_canonicalized)
         session.execute(stmt)
-  
+
     logging.info('Committing updates...')
     session.commit()
 
 
 def canonicalize_predication_table(relation_vocabulary: RelationVocabulary, document_collection=None,
                                    word2vec_model_file=None,
-                                   output_distances=None, min_distance_threshold=0.4, min_predicate_threshold=0.0001):
+                                   output_distances=None, min_distance_threshold=0.4, min_predicate_threshold=0.0001,
+                                   predication_id_minimum: int = None):
     """
     Canonicalizes the predicates against the relation vocabulary and updates the database
     :param relation_vocabulary: the predicate vocabulary
@@ -229,6 +238,7 @@ def canonicalize_predication_table(relation_vocabulary: RelationVocabulary, docu
     :param output_distances: a file where the predicate mapping will be stored
     :param min_predicate_threshold: how often should a predicate occur at minimum (0.1 means that the predicate appears in at least 10% of all extractions)
     :param min_distance_threshold: all predicates that have a match with a distance blow minimum threshold distance are canonicalized
+    :param predication_id_minimum: only predication ids above this will be updated (note: statistics will be computed on the whole table)
     :return: None
     """
     if word2vec_model_file:
@@ -249,7 +259,8 @@ def canonicalize_predication_table(relation_vocabulary: RelationVocabulary, docu
     logging.info('Matching predicates...')
     best_matches = compute_mapping_plan(predicates, relation_vocabulary, output_distances, model=model)
     logging.info('Canonicalizing predicates...')
-    canonicalize_predicates(best_matches, min_distance_threshold, document_collection)
+    canonicalize_predicates(best_matches, min_distance_threshold, document_collection,
+                            predication_id_minimum=predication_id_minimum)
     logging.info('Finished')
 
 
@@ -263,6 +274,8 @@ def main():
     parser.add_argument('--min_predicate_threshold', required=False,
                         help='Minimum number of occurrences for predicates', default=0.0001, type=float)
     parser.add_argument("-c", "--collection", default=None, help="The document collection of interest")
+    parser.add_argument("--predicate_id_minimum", default=None, type=int, required=False,
+                        help="only predication ids above this will be updated (note: statistics will be computed on the whole table)")
     args = parser.parse_args()
 
     logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
@@ -276,7 +289,8 @@ def main():
                                    relation_vocabulary=relation_vocab,
                                    min_distance_threshold=args.min_distance,
                                    min_predicate_threshold=args.min_predicate_threshold,
-                                   document_collection=args.collection)
+                                   document_collection=args.collection,
+                                   predication_id_minimum=args.predicate_id_minimum)
 
 
 if __name__ == "__main__":

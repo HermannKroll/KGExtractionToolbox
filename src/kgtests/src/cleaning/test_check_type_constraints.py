@@ -1,5 +1,7 @@
 import unittest
 
+from sqlalchemy import update
+
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import Document, Sentence, Predication
 from kgextractiontoolbox.cleaning.check_type_constraints import delete_predications_hurting_type_constraints
@@ -46,7 +48,20 @@ class RelationTypeConstraintChecking(unittest.TestCase):
                         ]
         Predication.bulk_insert_values_into_table(session, predications)
 
+    def setup_relations(self):
+        session = Session.get()
+        session.execute(update(Predication).where(Predication.id == 31).where(
+            Predication.document_collection == "Test_Type_Checking").values(relation="treats"))
+        session.execute(update(Predication).where(Predication.id == 32).where(
+            Predication.document_collection == "Test_Type_Checking").values(relation="treats"))
+        session.execute(update(Predication).where(Predication.id == 33).where(
+            Predication.document_collection == "Test_Type_Checking").values(relation="induces"))
+        session.execute(update(Predication).where(Predication.id == 34).where(
+            Predication.document_collection == "Test_Type_Checking").values(relation="induces"))
+        session.commit()
+
     def test_check_constraints(self):
+        self.setup_relations()
         store = RelationTypeConstraintStore()
         store.load_from_json(util.get_test_resource_filepath('cleaning/pharm_relation_type_constraints.json'))
 
@@ -55,5 +70,18 @@ class RelationTypeConstraintChecking(unittest.TestCase):
         session = Session.get()
         self.assertIsNotNone(session.query(Predication).filter(Predication.id == 31).first())
         self.assertIsNone(session.query(Predication).filter(Predication.id == 32).first())
+        self.assertIsNotNone(session.query(Predication).filter(Predication.id == 33).first())
+        self.assertIsNone(session.query(Predication).filter(Predication.id == 34).first())
+
+    def test_check_constraints_above_id(self):
+        self.setup_relations()
+        store = RelationTypeConstraintStore()
+        store.load_from_json(util.get_test_resource_filepath('cleaning/pharm_relation_type_constraints.json'))
+
+        delete_predications_hurting_type_constraints(store, "Test_Type_Checking", predicate_id_minimum=33)
+
+        session = Session.get()
+        self.assertIsNotNone(session.query(Predication).filter(Predication.id == 31).first())
+        self.assertIsNotNone(session.query(Predication).filter(Predication.id == 32).first())
         self.assertIsNotNone(session.query(Predication).filter(Predication.id == 33).first())
         self.assertIsNone(session.query(Predication).filter(Predication.id == 34).first())

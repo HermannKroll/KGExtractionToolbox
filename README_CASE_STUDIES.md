@@ -1,10 +1,16 @@
 # Disclaimer
 This repository belongs to our JCDL2022 submission. 
 ```
-A Library Perspective on Nearly-Unsupervised Information Extraction Workflows in Digital Libraries
+@inproceedings{kroll2022jcdl,
+	title = {A Library Perspective on Nearly-Unsupervised Information Extraction Workflows in Digital Libraries},
+	booktitle = {ACM/IEEE Joint Conference on Digital Libraries (JCDL '22)},
+	year = {2022},
+	month = {06},
+	address = {Cologne, Germany},
+	doi={10.1145/3529372.3530924},
+	author = {Hermann Kroll and Jan Pirklbauer and Florian Plötzky and Wolf-Tilo Balke}
+}
 ```
-Due to the double-blind review process, we can't publish our case studies as a pull request to GitHub. 
-If the paper is accepted, we will make all data publicly available at GitHub.
 
 # Content
 We performed case studies in three domains:
@@ -18,7 +24,10 @@ We provide the following data for each case study:
 - Used entity vocabularies
 - Used relation vocabularies
 
-Note that each scientist must have an Wikipedia page and Wikidata entry.
+Note that we selected scientists that must have an Wikipedia page and Wikidata entry.
+We zipped the data directory to reduce the GitHub repository size.
+So unzip [it](case_studies/data.zip) first.
+
 
 This repository contains:
 - Bash scripts to reproduce our findings
@@ -56,7 +65,7 @@ You can find the data in the corresponding subfolders.
 The file names should be self-explaining.
 
 # Code Changes:
-We implemented:
+We implemented to improve our toolbox:
 - a subject entity filter ([Code](src/kgextractiontoolbox/extraction/loading/load_openie_extractions.py))
 - enhanced verb phrase filter options ([Code](src/kgextractiontoolbox/extraction/loading/load_openie_extractions.py))
 - improved Open IE6 handling ([Code](src/kgextractiontoolbox/extraction/openie6/main.py))
