@@ -50,10 +50,14 @@ class RelationTypeConstraintChecking(unittest.TestCase):
 
     def setup_relations(self):
         session = Session.get()
-        session.execute(update(Predication).where(Predication.id == 31).values(relation="treats"))
-        session.execute(update(Predication).where(Predication.id == 32).values(relation="treats"))
-        session.execute(update(Predication).where(Predication.id == 33).values(relation="induces"))
-        session.execute(update(Predication).where(Predication.id == 34).values(relation="induces"))
+        session.execute(update(Predication).where(Predication.id == 31).where(
+            Predication.document_collection == "Test_Type_Checking").values(relation="treats"))
+        session.execute(update(Predication).where(Predication.id == 32).where(
+            Predication.document_collection == "Test_Type_Checking").values(relation="treats"))
+        session.execute(update(Predication).where(Predication.id == 33).where(
+            Predication.document_collection == "Test_Type_Checking").values(relation="induces"))
+        session.execute(update(Predication).where(Predication.id == 34).where(
+            Predication.document_collection == "Test_Type_Checking").values(relation="induces"))
         session.commit()
 
     def test_check_constraints(self):
