@@ -1,6 +1,7 @@
 import argparse
 import logging
 from datetime import datetime
+
 from sqlalchemy import delete
 from sqlalchemy.cimmutabledict import immutabledict
 
@@ -27,7 +28,8 @@ def clean_predication_to_delete_table(session):
 
 def delete_predications_hurting_type_constraints(relation_type_constraints: RelationTypeConstraintStore,
                                                  document_collection: str = None,
-                                                 reorder_tuples_if_allowed=False):
+                                                 reorder_tuples_if_allowed=False,
+                                                 predicate_id_minimum: int = None):
     """
     Checks the type constraints
     If subject and object could be swapped to meet the constraint - they will be swapped
@@ -36,6 +38,7 @@ def delete_predications_hurting_type_constraints(relation_type_constraints: Rela
     :param document_collection: apply constraints only for this document collection
     :param reorder_tuples_if_allowed: if type constraints are hurt but a swapping of s and o would solve it,
     the tuple will be flipped if this parameter is true
+    :param predicate_id_minimum: only predication ids above this id will be considered
     :return: None
     """
     preds_to_delete = set()
@@ -50,14 +53,13 @@ def delete_predications_hurting_type_constraints(relation_type_constraints: Rela
         pred_count = session.query(Predication).count()
     logging.info(f'{pred_count} predications were found')
     logging.info('Querying predications...')
+    pred_query = session.query(Predication).filter(Predication.relation != None)
     if document_collection:
-        pred_query = session.query(Predication) \
-            .filter(Predication.relation != None) \
-            .filter(Predication.document_collection == document_collection) \
-            .yield_per(BULK_QUERY_CURSOR_COUNT)
-    else:
-        pred_query = session.query(Predication).filter(Predication.relation != None) \
-            .yield_per(BULK_QUERY_CURSOR_COUNT)
+        pred_query = pred_query.filter(Predication.document_collection == document_collection)
+    if predicate_id_minimum:
+        logging.info(f'Consider only predication ids > {predicate_id_minimum}')
+        pred_query = pred_query.filter(Predication.id > predicate_id_minimum)
+    pred_query = pred_query.yield_per(BULK_QUERY_CURSOR_COUNT)
     start_time = datetime.now()
     for idx, pred in enumerate(pred_query):
         print_progress_with_eta("checking type constraints", idx, pred_count, start_time)
@@ -137,13 +139,17 @@ def main():
     parser.add_argument("-c", "--collection", required=False, help='Apply constraints only in this document collection')
     parser.add_argument("--allow_reorder", action="store_true", required=False,
                         help='Will reorder tuples that hurt type constraints if possible')
+    parser.add_argument("--predicate_id_minimum", default=None, type=int, required=False,
+                        help="only predication ids above this will be considered")
+
     args = parser.parse_args()
     constraints = RelationTypeConstraintStore()
     logging.info(f'Loading constraints from {args.constraint_file}')
     constraints.load_from_json(args.constraint_file)
     logging.info('Checking type constraints...')
     delete_predications_hurting_type_constraints(constraints, document_collection=args.collection,
-                                                 reorder_tuples_if_allowed=args.allow_reorder)
+                                                 reorder_tuples_if_allowed=args.allow_reorder,
+                                                 predicate_id_minimum=predicate_id_minimum)
     logging.info('Finished...')
 
 
