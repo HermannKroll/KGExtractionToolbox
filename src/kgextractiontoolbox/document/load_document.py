@@ -1,7 +1,10 @@
 import argparse
 import json
 import logging
+import os
+import shutil
 import sys
+import tempfile
 from datetime import datetime
 from pathlib import Path
 from typing import Tuple, Dict, Union
@@ -15,7 +18,6 @@ from kgextractiontoolbox.document.count import count_documents
 from kgextractiontoolbox.document.document import TaggedDocument
 from kgextractiontoolbox.document.extract import read_pubtator_documents
 from kgextractiontoolbox.progress import print_progress_with_eta
-from kgtests import util
 
 BULK_LOAD_COMMIT_AFTER = 50000
 PRINT_ETA_EVERY_K_DOCUMENTS = 100
@@ -73,8 +75,10 @@ def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, 
     :return:
     """
     if artificial_document_ids:
-        out = util.tmp_rel_path("outfile.json")
+        temp_dir = tempfile.mkdtemp()
+        out = os.path.join(temp_dir, "outfile.json")
         dc.run_document_translation(path, out, jc.JSONConverter, collection, load_function=document_bulk_load)
+        shutil.rmtree(temp_dir)
     else:
         session = Session.get()
         if tagger_mapping is None:

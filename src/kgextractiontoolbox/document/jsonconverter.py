@@ -5,10 +5,11 @@ from pathlib import Path
 from typing import Union, Iterator
 
 import kgextractiontoolbox.document.count as c
-from kgextractiontoolbox.document.document import TaggedDocument
-from kgextractiontoolbox.document.extract import read_pubtator_documents
 from kgextractiontoolbox.document.doctranslation import DocumentTranslationLoader, SourcedDocument, \
     run_document_translation
+
+from kgextractiontoolbox.document.document import TaggedDocument
+from kgextractiontoolbox.document.extract import read_pubtator_documents
 
 
 class JSONConverter(DocumentTranslationLoader):
@@ -28,14 +29,13 @@ def main():
     parser.add_argument("input", help="Input file", metavar="INPUT_FILE_OR_DIR")
     parser.add_argument("output", help="Output file", metavar="OUTPUT_FILE")
     parser.add_argument("-c", "--collection", required=True, help="document collection")
-    parser.add_argument("-nd", "--narrative", action="store_true", help="load documents with load_narative_documents.py")
     args = parser.parse_args()
 
     logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
                         datefmt='%Y-%m-%d:%H:%M:%S',
                         level=logging.INFO)
 
-    run_document_translation(args.input, args.output, JSONConverter, collection=args.collection, narrative_documents=args.narrative)
+    run_document_translation(args.input, args.output, JSONConverter, collection=args.collection)
 
 
 if __name__ == "__main__":
