@@ -3,8 +3,11 @@ import json
 import logging
 import sys
 from datetime import datetime
-from typing import Tuple, Dict
+from pathlib import Path
+from typing import Tuple, Dict, Union
 
+import kgextractiontoolbox.document.doctranslation as dc
+import kgextractiontoolbox.document.jsonconverter as jc
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import Document, Tag, Tagger, DocTaggedBy, DocumentSection, \
     DocumentClassification
@@ -13,8 +16,6 @@ from kgextractiontoolbox.document.document import TaggedDocument
 from kgextractiontoolbox.document.extract import read_pubtator_documents
 from kgextractiontoolbox.progress import print_progress_with_eta
 from kgtests import util
-import kgextractiontoolbox.document.doctranslation as dc
-import kgextractiontoolbox.document.jsonconverter as jc
 
 BULK_LOAD_COMMIT_AFTER = 50000
 PRINT_ETA_EVERY_K_DOCUMENTS = 100
@@ -58,14 +59,7 @@ def insert_taggers(*tagger_list):
     Tagger.bulk_insert_values_into_table(session, insert_values, check_constraints=True)
 
 
-def run_doctranslation(path, out, submodule, collection, load_function=None):
-    if load_function:
-        dc.run_document_translation(path, out, submodule, collection, load_function=load_function)
-    else:
-        dc.run_document_translation(path, out, submodule, collection)
-
-
-def document_bulk_load(path, collection, tagger_mapping=None, logger=logging, ignore_tags=True,
+def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, logger=logging, ignore_tags=True,
                        artificial_document_ids=False):
     """
     Bulk load a file in PubTator/JSON Format or a directory of PubTator/JSON files into the database.
@@ -75,12 +69,12 @@ def document_bulk_load(path, collection, tagger_mapping=None, logger=logging, ig
     :param dict tagger_mapping: Mapping from entity type to tuple (tagger name, tagger version)
     :param ignore_tags: if true no tags will be inserted
     :param logging logger: a logging instance to be used
-    :param artificial_document_ids: generates artificial doucment ids for non-int-ids
+    :param artificial_document_ids: Forces to generate artificial document ids (e.g. for non-int ids)
     :return:
     """
     if artificial_document_ids:
         out = util.tmp_rel_path("outfile.json")
-        run_doctranslation(path, out, jc.JSONConverter, collection, load_function=document_bulk_load)
+        dc.run_document_translation(path, out, jc.JSONConverter, collection, load_function=document_bulk_load)
     else:
         session = Session.get()
         if tagger_mapping is None:
@@ -181,7 +175,8 @@ def document_bulk_load(path, collection, tagger_mapping=None, logger=logging, ig
                 document_sections = []
                 document_classification = []
 
-            print_progress_with_eta("Adding documents", idx, n_docs, start_time, print_every_k=PRINT_ETA_EVERY_K_DOCUMENTS)
+            print_progress_with_eta("Adding documents", idx, n_docs, start_time,
+                                    print_every_k=PRINT_ETA_EVERY_K_DOCUMENTS)
 
         Document.bulk_insert_values_into_table(session, document_inserts)
         Tag.bulk_insert_values_into_table(session, tag_inserts)
@@ -201,7 +196,7 @@ def main(args=None):
                                                    "to tuple with tagger name and tagger version")
     parser.add_argument("--ignore_tags", action="store_true", help="Will ignore all tags in this document")
     parser.add_argument("--logsql", action="store_true", help='logs sql statements')
-    parser.add_argument("--artificial_document_ids", action="store_true", help="generates artifical document ids")
+    parser.add_argument("--artificial_document_ids", action="store_true", help="generates artificial document ids")
     args = parser.parse_args(args)
 
     tagger_mapping = None
