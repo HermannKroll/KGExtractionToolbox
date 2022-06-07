@@ -47,18 +47,24 @@ def delete_predications_hurting_type_constraints(relation_type_constraints: Rela
     session = Session.get()
     clean_predication_to_delete_table(session)
     logging.info('Counting the number of predications...')
+    pred_count_q = session.query(Predication)
     if document_collection:
-        pred_count = session.query(Predication).filter(Predication.document_collection == document_collection).count()
-    else:
-        pred_count = session.query(Predication).count()
+        logging.info(f'Consider only in collection {document_collection}')
+        pred_count_q = pred_count_q.filter(Predication.document_collection == document_collection)
+
+    if predicate_id_minimum:
+        logging.info(f'Consider only predication ids >= {predicate_id_minimum}')
+        pred_count_q = pred_count_q.filter(Predication.id >= predicate_id_minimum)
+
+    pred_count = pred_count_q.count()
     logging.info(f'{pred_count} predications were found')
     logging.info('Querying predications...')
     pred_query = session.query(Predication).filter(Predication.relation != None)
     if document_collection:
         pred_query = pred_query.filter(Predication.document_collection == document_collection)
     if predicate_id_minimum:
-        logging.info(f'Consider only predication ids > {predicate_id_minimum}')
-        pred_query = pred_query.filter(Predication.id > predicate_id_minimum)
+        logging.info(f'Consider only predication ids >= {predicate_id_minimum}')
+        pred_query = pred_query.filter(Predication.id >= predicate_id_minimum)
     pred_query = pred_query.yield_per(BULK_QUERY_CURSOR_COUNT)
     start_time = datetime.now()
     for idx, pred in enumerate(pred_query):
