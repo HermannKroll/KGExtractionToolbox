@@ -149,7 +149,7 @@ def main():
     logging.info('Checking type constraints...')
     delete_predications_hurting_type_constraints(constraints, document_collection=args.collection,
                                                  reorder_tuples_if_allowed=args.allow_reorder,
-                                                 predicate_id_minimum=predicate_id_minimum)
+                                                 predicate_id_minimum=args.predicate_id_minimum)
     logging.info('Finished...')
 
 
