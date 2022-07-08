@@ -129,5 +129,5 @@ If you would like to know how to use own of these components, follow the corresp
 How data of our toolbox can be exported is described here:
 - [04 Export Statements](README_04_EXPORT.md)
 
-There are several example files in the [resources] folder or you may have a look at our [case studies](README_CASE_STUDIES.md).
+There are several example files in the [resources](resources) folder or you may have a look at our [case studies](README_CASE_STUDIES.md).
 
