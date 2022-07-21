@@ -93,6 +93,16 @@ class Vocabulary:
     def get_ent_types(self):
         return self.vocabularies.keys()
 
+    def count_distinct_entities(self):
+        return len(self._entry_by_id_and_type)
+
+    def count_distinct_terms(self):
+        terms = set()
+        for _, v_terms in self.vocabularies.items():
+            for t in v_terms:
+                terms.add(t)
+        return len(terms)
+
 
 def expand_vocabulary_term(term: str, minimum_len_to_expand=3, depth=0) -> str:
     # only consider the length the last term
