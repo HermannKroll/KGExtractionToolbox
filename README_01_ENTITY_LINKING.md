@@ -76,6 +76,12 @@ If your entity vocabulary has changed, you can use the **--force** argument to e
 python src/kgextractiontoolbox/entitylinking/vocab_entity_linking.py -i DOCUMENT -c COLLECTION -v VOCAB_FILE --force
 ```
 
+## Full-text Documents
+If your document includes sections, you must enable section linking explicitly:
+```
+python src/kgextractiontoolbox/entitylinking/vocab_entity_linking.py  -c COLLECTION -v VOCAB_FILE --sections
+```
+Only if _--sections_ is set, sections are considered in the linking step.
 
 ## Configuration
 There are several options that can be specified in a configuration file. 
@@ -117,6 +123,13 @@ python src/kgextractiontoolbox/entitylinking/stanza_ner.py -i DOCUMENT -c COLLEC
 Note that our toolbox won't annotate the same document twice. 
 This will be checked automatically.
 If your document content has changed, please delete the old table contents (document and doc_tagged_by and tags before).
+
+## Full-text Documents
+If your document includes sections, you must enable section linking explicitly:
+```
+python src/kgextractiontoolbox/entitylinking/stanza_ner.py -i DOCUMENT -c COLLECTION --sections
+```
+Only if _--sections_ is set, sections are considered in the linking step.
 
 ## Stanza Config
 There are several options that can be specified in a configuration file. 
