@@ -43,12 +43,17 @@ If you are interested in a possible application, watch our ICADL2021 talk: [YouT
 }
 ```
 
+# Toolbox Application Examples
+There are several example files in the [resources](resources) folder. 
+You may have a look at our [case studies](README_CASE_STUDIES.md).
+
 
 # Toolbox Overview
 ![Toolbox](toolbox.png)
 
 The toolbox covers three central topics:
-- Entity Linking and Namend Entity Recognition
+- Entity Linking and Named Entity Recognition
+- Simple Text Classification
 - Information Extraction
 - Canonicalization and Cleaning
 
@@ -122,12 +127,13 @@ Before you can use the toolbox, you must bring your documents into a compatible 
 
 The extraction toolbox covers three essential components:
 - [01 Entity Linking](README_01_ENTITY_LINKING.md)
-- [02 Extraction](README_02_EXTRACTION.md)
-- [03 Cleaning](README_03_CLEANING.md)
+- [02 Classification](README_02_CLASSIFICATION.md)
+- [03 Extraction](README_03_EXTRACTION.md)
+- [04 Cleaning](README_04_CLEANING.md)
 
 If you would like to know how to use own of these components, follow the corresponding linked README. 
 How data of our toolbox can be exported is described here:
-- [04 Export Statements](README_04_EXPORT.md)
+- [04 Export Statements](README_05_EXPORT.md)
 
-There are several example files in the [resources](resources) folder or you may have a look at our [case studies](README_CASE_STUDIES.md).
+
 
