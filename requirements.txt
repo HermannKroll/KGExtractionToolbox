@@ -1,7 +1,7 @@
 SQLAlchemy==1.4.23
 nltk==3.6.6
 networkx==2.6.2
-lxml==4.6.5
+lxml~=4.9.1
 psycopg2-binary==2.9.1
 psutil==5.8.0
 stanza==1.2.3

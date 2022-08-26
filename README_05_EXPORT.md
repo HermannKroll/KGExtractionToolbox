@@ -62,11 +62,23 @@ JSON (tags + content):
        "end": 40,
        "type": "Location"
       }
+     ],
+     "sections": [
+      {
+       "position": 0, 
+       "title": "Introduction", 
+       "text": "Angela Dorothea Merkel is a retired German politician and scientist [...]"
+      }, 
+      {
+       "position": 1, 
+       "title": "Background and early life", 
+       "text": "Merkel was born Angela Dorothea Kasner in 1954, in Hamburg, West Germany [...]"
+      }
      ]
    }
 ]
 ```
-
+The "sections" part is optional.
 
 PubTator (only Tags) is a TSV file. Each line contains:
 - document id

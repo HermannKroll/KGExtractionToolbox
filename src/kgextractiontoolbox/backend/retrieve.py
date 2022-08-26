@@ -9,27 +9,30 @@ from kgextractiontoolbox.backend.models import Document, DocumentClassification,
 from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
 
 
-def iterate_over_all_documents_in_collection(session, collection: str, consider_tag=False, consider_sections=False, consider_classification=False):
-    doc_query = session.query(Document).filter(Document.collection == collection) \
+def iterate_over_all_documents_in_collection(session, collection: str, document_ids=None, consider_tag=False, consider_sections=False, consider_classification=False):
+    if not document_ids:
+        document_ids = sorted(list(Document.get_document_ids_for_collection(session=session, collection=collection)))
+
+    doc_query = session.query(Document).filter(and_(Document.id.in_(document_ids), Document.collection == collection)) \
         .order_by(Document.id) \
         .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
 
     if consider_tag:
-        tag_query = session.query(Tag).filter(Tag.document_collection == collection) \
+        tag_query = session.query(Tag).filter(and_(Tag.document_id.in_(document_ids), Tag.document_collection == collection)) \
             .order_by(Tag.document_id) \
             .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
         tag_query = iter(tag_query)
         current_tag = next(tag_query, None)
 
     if consider_classification:
-        class_query = session.query(DocumentClassification).filter(DocumentClassification.document_collection == collection) \
+        class_query = session.query(DocumentClassification).filter(and_(DocumentClassification.document_id.in_(document_ids), DocumentClassification.document_collection == collection)) \
             .order_by(DocumentClassification.document_id) \
             .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
         class_query = iter(class_query)
         current_class = next(class_query, None)
 
     if consider_sections:
-        sec_query = session.query(DocumentSection).filter(DocumentSection.document_collection == collection) \
+        sec_query = session.query(DocumentSection).filter(and_(DocumentSection.document_id.in_(document_ids), DocumentSection.document_collection == collection)) \
             .order_by(DocumentSection.document_id) \
             .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
         sec_query = iter(sec_query)

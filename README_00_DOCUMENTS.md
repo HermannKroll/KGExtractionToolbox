@@ -33,11 +33,23 @@ Here is an example of our JSON format:
       "id": 12345,
       "title": "Barack Obama [...]",
       "abstract": "Obama was born in Honolulu, Hawaii. After graduating from Columbia University in 1983 [..]",
+      "sections": [
+       {
+        "position": 0, 
+        "title": "Introduction", 
+        "text": "Barack Hussein Obama II is an American politician [...]"
+       }, 
+       {
+        "position": 1, 
+        "title": "Early life and career", 
+        "text": "Obama was born on August 4, 1961, at Kapiolani Medical Center for Women and Children [...]"
+       }
+      ]
   },
   // more documents ...
 ]
 ```
-The outmost array brackets `[]` can be omitted if only a single json document should be contained within the file.
+The "sections" part is optional. The outmost array brackets `[]` can be omitted if only a single json document should be contained within the file.
 
 Note:
 - a document id must be an integer

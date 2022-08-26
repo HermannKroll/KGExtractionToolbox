@@ -121,6 +121,14 @@ The pipeline will do all the internal file handling for you, but you won't get a
 PathIE supports the extraction of special keywords on the dependency path of sentences. 
 For more information, see the section below.
 
+## Consider Sections (Full-text documents)
+To extract statements from sections in documents, the _--section_ parameter must be set.
+```
+python src/kgextractiontoolbox/extaction/pipeline.py --extraction_type METHOD --collection COLLECTION --sections
+```
+Note that this parameter must also be set when running the extraction methods separately (not in pipeline mode). 
+Every script below supports the _--section_ parameter.
+
 ## Running the Extraction Methods
 If you want to work with the immediate results, you can invoke the extraction methods manually. 
 The following section describes this process. 

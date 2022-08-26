@@ -35,6 +35,8 @@ def main(arguments=None):
     parser.add_argument("-y", "--yes_force", help="skip prompt for workdir deletion", action="store_true")
     parser.add_argument("--cpu", help="forces Stanza to run on CPU only (GPU is used by default)", default=False,
                         action="store_true")
+    parser.add_argument("--sections", action="store_true", default=False,
+                        help="Should the section texts be considered when tagging?")
     parser.add_argument("input", help="composite document file")
     args = parser.parse_args(arguments)
 
@@ -83,6 +85,9 @@ def main(arguments=None):
     stanza_tagger.base_insert_tagger()
     batch_size = conf.stanza_document_batch_size
 
+    consider_sections = args.sections
+    logger.info(f'Consider sections: {consider_sections}')
+
     def generate_tasks():
         document_batch = []
         for doc in read_pubtator_documents(in_file):
@@ -100,7 +105,7 @@ def main(arguments=None):
         stanza_tagger.prepare(use_gpu=not args.cpu)
 
     def do_task(in_docs: List[TaggedDocument]):
-        tagged_docs = stanza_tagger.tag_document_batch(in_docs)
+        tagged_docs = stanza_tagger.tag_document_batch(in_docs, sections=consider_sections)
         for tagged_doc in tagged_docs:
             tagged_doc.clean_tags()
         return tagged_docs

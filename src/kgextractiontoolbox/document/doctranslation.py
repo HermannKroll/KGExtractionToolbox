@@ -11,10 +11,9 @@ from typing import Union, Type, List, Iterator
 from sqlalchemy import select, func
 
 import kgextractiontoolbox.backend.database as db
-from kgextractiontoolbox.document.load_document import document_bulk_load
-from kgextractiontoolbox.backend.models import DocumentTranslation
-from kgextractiontoolbox.progress import Progress
+import kgextractiontoolbox.backend.models as kgmodels
 from kgextractiontoolbox.document.document import TaggedDocument
+from kgextractiontoolbox.progress import Progress
 
 
 @dataclass
@@ -56,8 +55,8 @@ class DocumentTranslationLoader:
         """
         result = self.session.execute(
             select(
-                func.max(DocumentTranslation.document_id)
-            ).where(DocumentTranslation.document_collection == self.collection)
+                func.max(kgmodels.DocumentTranslation.document_id)
+            ).where(kgmodels.DocumentTranslation.document_collection == self.collection)
         )
         return [r for r in result][0][0] or 0
 
@@ -72,10 +71,10 @@ class DocumentTranslationLoader:
         """
         result = self.session.execute(
             select(
-                DocumentTranslation.md5
+                kgmodels.DocumentTranslation.md5
             ).where(and_(
-                DocumentTranslation.document_collection == self.collection,
-                DocumentTranslation.source_doc_id == doc.source_id
+                kgmodels.DocumentTranslation.document_collection == self.collection,
+                kgmodels.DocumentTranslation.source_doc_id == doc.source_id
             ))
         )
         result = [r for r in result]
@@ -149,7 +148,7 @@ class DocumentTranslationLoader:
         :param translations: a list of translation entry dictionaries
         :return: None
         """
-        DocumentTranslation.bulk_insert_values_into_table(self.session, translations)
+        kgmodels.DocumentTranslation.bulk_insert_values_into_table(self.session, translations)
 
     @staticmethod
     def get_md5(sdoc: SourcedDocument) -> str:
@@ -182,7 +181,7 @@ class DocumentTranslationLoader:
 def run_document_translation(input: Union[Path, str], output: Union[Path, str],
                              doctranslation_subclass: Type[DocumentTranslationLoader], collection: str,
                              loader_kwargs=None, convert_difference_only=False,
-                             document_limit=None):
+                             document_limit=None, load_function=None):
     loader = doctranslation_subclass(collection, loader_kwargs)
     logging.info("Document translation loader init...")
     logging.debug(f"Input file: {input}")
@@ -193,8 +192,11 @@ def run_document_translation(input: Union[Path, str], output: Union[Path, str],
     prog = Progress(total=(document_limit or count), text="Translating", print_every=1000)
     proc_docs = loader.translate(input, output, diff=convert_difference_only, prog_logger=prog, limit=document_limit)
     logging.info(f"Processed {proc_docs} new or changed documents.")
-
-    document_bulk_load(output, collection)
+    if load_function:
+        load_function(output, collection)
+    else:
+        import kgextractiontoolbox.document.load_document as ld
+        ld.document_bulk_load(output, collection)
 
 
 def main(doctranslation_subclass: Type[DocumentTranslationLoader], doctrans_args=None, args: List[str] = None,
@@ -222,7 +224,6 @@ def main(doctranslation_subclass: Type[DocumentTranslationLoader], doctrans_args
     logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
                         datefmt='%Y-%m-%d:%H:%M:%S',
                         level=logging.INFO)
-
 
     run_document_translation(args.input, args.output, doctranslation_subclass, args.collection,
                              loader_kwargs=loader_kwargs, convert_difference_only=args.diff,

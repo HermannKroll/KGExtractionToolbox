@@ -76,6 +76,7 @@ python src/kgextractiontoolbox/cleaning/canonicalize_predicates.py --relation_vo
 
 
 
+
 Next, run the export of predicate mappings again:
 ```
 python src/kgextractiontoolbox/cleaning/export_predicate_mappings.py MAPPING.tsv
@@ -114,6 +115,13 @@ If you would like to edit your relation vocabulary, go back to the first step an
 
 
 
+If your collection is growing, you may want to apply the canonicalization procedure only to the latest inserts. 
+Therefore, we support a _predication_id_minimum_ parameter:
+```
+python src/kgextractiontoolbox/cleaning/canonicalize_predicates.py --relation_vocab RELATION_VOCAB.json --predication_id_minimum 10
+```
+This parameter will only consider predication tuples with an id >= the specified value.
+
 # Relation Type Constraints
 Finally, you may clean your extraction by formulating type constraints. 
 The relation **born** could be a relation between persons and locations only. 
@@ -146,6 +154,13 @@ You may want to apply the relation type constraints to a single document collect
 ```
 python src/kgextractiontoolbox/cleaning/check_type_constraints.py.py TYPE_CONSTRAINTS.json --collection COLLECTION --allow_reorder
 ```
+
+If your collection is growing, you may want to apply the checking only to the latest inserts.
+Therefore, we support a _predication_id_minimum_ parameter:
+```
+python src/kgextractiontoolbox/cleaning/check_type_constraints.py.py TYPE_CONSTRAINTS.json --collection COLLECTION --predication_id_minimum 10
+```
+This parameter will only consider predication tuples with an id >= the specified value.
 
 
 # Biomedical Examples:

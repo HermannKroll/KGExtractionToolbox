@@ -1,5 +1,5 @@
-# Disclaimer
-This repository belongs to our JCDL2022 submission. 
+# Getting Started
+This Readme belongs to our JCDL2022 submission. 
 ```
 @inproceedings{kroll2022jcdl,
 	title = {A Library Perspective on Nearly-Unsupervised Information Extraction Workflows in Digital Libraries},

@@ -105,6 +105,9 @@ class DocumentSection:
     def __repr__(self):
         return str(self)
 
+    def __eq__(self, other):
+        return self.position == other.position and self.title == other.title and self.text == other.text
+
 
 class TaggedDocument:
 
@@ -242,7 +245,8 @@ class TaggedDocument:
         return cleaned_composite_tags
 
     def clean_tags(self):
-        clean_tags = self.tags.copy()
+        # Set ensures duplicate elimination
+        clean_tags = set(self.tags.copy())
         for tag1 in self.tags:
             if not tag1.is_valid():
                 clean_tags.remove(tag1)
@@ -251,7 +255,7 @@ class TaggedDocument:
                     if tag2.start <= tag1.start and tag2.end >= tag1.end and tag1.text.lower() != tag2.text.lower():
                         clean_tags.remove(tag1)
                         break
-        self.tags = clean_tags
+        self.tags = list(clean_tags)
         self.sort_tags()
 
     def sort_tags(self):
@@ -342,7 +346,7 @@ class TaggedDocument:
                 yield sec.text, running_offset
                 running_offset += len(sec.text) + 1
 
-    def to_dict(self, export_content=True, export_tags=True, export_sections=True):
+    def to_dict(self, export_content=True, export_tags=True, export_sections=True, export_classification=True):
         """
         converts the TaggedDocument to a dictionary that is consistent with our json ouptut format.
         Gosh, it's beautiful to formulate a json construction in python
@@ -356,7 +360,8 @@ class TaggedDocument:
                 "title": self.title,
                 "abstract": self.abstract
             })
-        out_dict["classification"] = self.classification
+        if export_classification:
+            out_dict["classification"] = self.classification
         if export_tags:
             out_dict.update({
                 "tags": [

@@ -319,3 +319,32 @@ class TestDocument(unittest.TestCase):
         self.assertEqual("Lets hope that splitting works.", doc1.sentence_by_id[5].text)
         self.assertEqual(106, doc1.sentence_by_id[5].start)
         self.assertEqual(137, doc1.sentence_by_id[5].end)
+
+    def test_clean_tags_not_valid(self):
+        doc1 = TaggedDocument()
+        doc1.tags.append(TaggedEntity(document=1, start=0, end=10, text="simvastatin", ent_id="D1", ent_type="Drug"))
+        doc1.tags.append(TaggedEntity(document=1, start=0, end=10, text="simvastatin", ent_id=None, ent_type=None))
+
+        self.assertEqual(2, len(doc1.tags))
+        doc1.clean_tags()
+        # Second tag is not valid
+        self.assertEqual(1, len(doc1.tags))
+
+    def test_clean_tags_longer_mention(self):
+        doc1 = TaggedDocument()
+        doc1.tags.append(TaggedEntity(document=1, start=0, end=10, text="simvastatin", ent_id="D1", ent_type="Drug"))
+        doc1.tags.append(
+            TaggedEntity(document=1, start=0, end=15, text="simvastatin acid", ent_id="D1", ent_type="Drug"))
+        self.assertEqual(2, len(doc1.tags))
+        # Test: Small simvastatin mention should be removed
+        doc1.clean_tags()
+        self.assertEqual(1, len(doc1.tags))
+
+    def test_clean_tags_duplicated(self):
+        doc1 = TaggedDocument()
+        doc1.tags.append(TaggedEntity(document=1, start=0, end=10, text="simvastatin", ent_id="D1", ent_type="Drug"))
+        doc1.tags.append(TaggedEntity(document=1, start=0, end=10, text="simvastatin", ent_id="D1", ent_type="Drug"))
+        self.assertEqual(2, len(doc1.tags))
+        doc1.clean_tags()
+        # Duplicated tag should be removed
+        self.assertEqual(1, len(doc1.tags))
