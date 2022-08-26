@@ -145,6 +145,9 @@ class TaggedDocument:
             if TaggedDocument.pubtator_has_composite_tags(self.tags):
                 self.tags = TaggedDocument.pubtator_split_composite_tags(self.tags)
 
+            self.tags = list(set(self.tags))
+            self.sort_tags()
+
         self.entity_names = {t.text.lower() for t in self.tags}
         if spacy_nlp:
             self._compute_nlp_indexes(spacy_nlp, sections=sections)
