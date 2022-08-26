@@ -123,11 +123,8 @@ def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collect
         os.mkdir(ie_input_dir)
 
     logging.info('Process will work in: {}'.format(working_dir))
-    # export them with their tags
-    if consider_sections:
-        raise NotImplemented # Todo: The export below does not export sections! Fix it
     export(document_export_file, export_tags=True, document_ids=ids_to_process, collection=document_collection,
-           content=True)
+           content=True, export_sections=consider_sections)
     time_exported = datetime.now()
 
     logging.info('Counting documents...')
