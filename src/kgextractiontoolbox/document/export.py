@@ -9,7 +9,8 @@ from kgextractiontoolbox.document.document import TaggedDocument
 from kgextractiontoolbox.backend.retrieve import iterate_over_all_documents_in_collection
 
 
-def write_doc(doc: TaggedDocument, export_format: str, f, first_doc: bool, export_content=True, export_tags=True, export_sections=True, export_classification=True):
+def write_doc(doc: TaggedDocument, export_format: str, f, first_doc: bool, export_content=True, export_tags=True,
+              export_sections=True, export_classification=True):
     """
     Writes a document to a file
     :param doc: the tagged document object
@@ -23,12 +24,14 @@ def write_doc(doc: TaggedDocument, export_format: str, f, first_doc: bool, expor
     if export_format == "json":
         if not first_doc:
             f.write(",\n")
-        json.dump(doc.to_dict(export_content=export_content, export_tags=export_tags, export_sections=export_sections, export_classification=export_classification), f, indent=1)
+        json.dump(doc.to_dict(export_content=export_content, export_tags=export_tags, export_sections=export_sections,
+                              export_classification=export_classification), f, indent=1)
     elif export_format == "pubtator":
         f.write(str(doc))
 
 
-def export(out_fn, export_tags=True, export_sections=True, export_classififcation=True, document_ids=None, collection=None, content=True, logger=logging, export_format="pubtator",
+def export(out_fn, export_tags=True, export_sections=True, export_classififcation=True, document_ids=None,
+           collection=None, content=True, logger=logging, export_format="pubtator",
            write_doc=write_doc, translate_document_ids: bool = False):
     """
     Exports tagged documents in the database as a single PubTator file
@@ -63,10 +66,11 @@ def export(out_fn, export_tags=True, export_sections=True, export_classififcatio
             doc_id_2_source_id[r[0]] = r[1]
         logger.info(f'Found {len(doc_id_2_source_id)} id translations')
 
-    t_docs = list(iterate_over_all_documents_in_collection(session, collection, document_ids=document_ids, consider_tag=export_tags, consider_sections=export_sections, consider_classification=export_classififcation))
+    t_docs = iterate_over_all_documents_in_collection(session, collection=collection, document_ids=document_ids,
+                                                      consider_tag=export_tags, consider_sections=export_sections,
+                                                      consider_classification=export_classififcation)
 
     first_doc = True
-
     with open(out_fn, "w") as f:
         if export_format == "json":
             f.write("[\n")

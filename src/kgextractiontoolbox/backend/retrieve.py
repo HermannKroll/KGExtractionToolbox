@@ -11,35 +11,62 @@ from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
 
 def iterate_over_all_documents_in_collection(session, collection: str, document_ids=None, consider_tag=False,
                                              consider_sections=False, consider_classification=False):
-    if not document_ids:
-        document_ids = sorted(list(Document.get_document_ids_for_collection(session=session, collection=collection)))
+    """
+    Iterate over documents in a collection
+    :param session: the DB session
+    :param collection: document collection
+    :param document_ids: a set of document ids as a filter (optional)
+    :param consider_tag: should tags be retrieved?
+    :param consider_sections: should sections be retrieved?
+    :param consider_classification: should classifications be retrieved?
+    :return:
+    """
+    if not collection:
+        raise ValueError("Document collection must be specified and cannot be None")
 
-    doc_query = session.query(Document).filter(and_(Document.id.in_(document_ids), Document.collection == collection)) \
-        .order_by(Document.id) \
-        .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
+    doc_query = session.query(Document)
+    doc_query = doc_query.filter(Document.collection == collection)
+
+    if document_ids:
+        doc_query = doc_query.filter(Document.id.in_(document_ids))
+
+    doc_query = doc_query.order_by(Document.id)
+    doc_query = doc_query.yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
 
     if consider_tag:
-        tag_query = session.query(Tag).filter(
-            and_(Tag.document_id.in_(document_ids), Tag.document_collection == collection)) \
-            .order_by(Tag.document_id) \
-            .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
+        tag_query = session.query(Tag)
+        tag_query = tag_query.filter(Tag.document_collection == collection)
+
+        if document_ids:
+            tag_query = tag_query.filter(Tag.document_id.in_(document_ids))
+
+        tag_query = tag_query.order_by(Tag.document_id)
+        tag_query = tag_query.yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
         tag_query = iter(tag_query)
         current_tag = next(tag_query, None)
 
     if consider_classification:
-        class_query = session.query(DocumentClassification).filter(
-            and_(DocumentClassification.document_id.in_(document_ids),
-                 DocumentClassification.document_collection == collection)) \
-            .order_by(DocumentClassification.document_id) \
-            .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
+        class_query = session.query(DocumentClassification)
+        class_query = class_query.filter(DocumentClassification.document_collection == collection)
+
+        if document_ids:
+            class_query = class_query.filter(DocumentClassification.document_id.in_(document_ids))
+
+        class_query = class_query.order_by(DocumentClassification.document_id)
+        class_query = class_query.yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
+
         class_query = iter(class_query)
         current_class = next(class_query, None)
 
     if consider_sections:
-        sec_query = session.query(DocumentSection).filter(
-            and_(DocumentSection.document_id.in_(document_ids), DocumentSection.document_collection == collection)) \
-            .order_by(DocumentSection.document_id) \
-            .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
+        sec_query = session.query(DocumentSection)
+        sec_query = sec_query.filter(DocumentSection.document_collection == collection)
+
+        if document_ids:
+            sec_query = sec_query.filter(DocumentSection.document_id.in_(document_ids))
+
+        sec_query = sec_query.order_by(DocumentSection.document_id)
+        sec_query = sec_query.yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
         sec_query = iter(sec_query)
         current_sec = next(sec_query, None)
 
@@ -72,38 +99,6 @@ def iterate_over_all_documents_in_collection(session, collection: str, document_
 
         t_doc.remove_duplicates_and_sort_tags()
         yield t_doc
-
-
-def iterate_over_documents_in_collection(session, collection: str, consider_sections=False):
-    if consider_sections:
-        doc_query = session.query(Document).filter(Document.collection == collection) \
-            .order_by(Document.id) \
-            .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
-
-        sec_query = session.query(DocumentSection).filter(DocumentSection.document_collection == collection) \
-            .order_by(DocumentSection.document_id) \
-            .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
-        sec_query = iter(sec_query)
-        current_sec = next(sec_query, None)
-
-        for res in doc_query:
-            t_doc = TaggedDocument(id=res.id, title=res.title,
-                                   abstract=res.abstract)
-            while current_sec and t_doc.id == current_sec.document_id:
-                t_doc.sections.append(
-                    kgextractiontoolbox.document.document.DocumentSection(position=current_sec.position,
-                                                                          title=current_sec.title,
-                                                                          text=current_sec.text))
-                current_sec = next(sec_query, None)
-
-            yield t_doc
-
-    else:
-        doc_query = session.query(Document).filter(Document.collection == collection) \
-            .yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
-        for res in doc_query:
-            yield TaggedDocument(id=res.id, title=res.title,
-                                 abstract=res.abstract)
 
 
 def retrieve_tagged_documents_from_database(session, document_ids: Set[int], document_collection: str) \
