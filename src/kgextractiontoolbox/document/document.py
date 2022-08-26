@@ -145,8 +145,7 @@ class TaggedDocument:
             if TaggedDocument.pubtator_has_composite_tags(self.tags):
                 self.tags = TaggedDocument.pubtator_split_composite_tags(self.tags)
 
-            self.tags = list(set(self.tags))
-            self.sort_tags()
+            self.remove_duplicates_and_sort_tags()
 
         self.entity_names = {t.text.lower() for t in self.tags}
         if spacy_nlp:
@@ -249,7 +248,7 @@ class TaggedDocument:
 
     def clean_tags(self):
         # Set ensures duplicate elimination
-        clean_tags = set(self.tags.copy())
+        clean_tags = set(self.tags)
         for tag1 in self.tags:
             if not tag1.is_valid():
                 clean_tags.remove(tag1)
@@ -259,6 +258,14 @@ class TaggedDocument:
                         clean_tags.remove(tag1)
                         break
         self.tags = list(clean_tags)
+        self.sort_tags()
+
+    def remove_duplicates_and_sort_tags(self):
+        """
+        Removes duplicated tags and sort tags
+        :return:
+        """
+        self.tags = set(self.tags)
         self.sort_tags()
 
     def sort_tags(self):
