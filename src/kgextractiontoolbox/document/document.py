@@ -248,6 +248,7 @@ class TaggedDocument:
 
     def clean_tags(self):
         # Set ensures duplicate elimination
+        self.remove_duplicates_and_sort_tags()
         clean_tags = set(self.tags)
         for tag1 in self.tags:
             if not tag1.is_valid():
@@ -265,7 +266,7 @@ class TaggedDocument:
         Removes duplicated tags and sort tags
         :return:
         """
-        self.tags = set(self.tags)
+        self.tags = list(set(self.tags))
         self.sort_tags()
 
     def sort_tags(self):
@@ -273,7 +274,11 @@ class TaggedDocument:
         Sort tags by their text location
         :return:
         """
-        self.tags = sorted(self.tags, key=lambda t: (t.start, t.end, t.ent_id))
+        try:
+            self.tags = sorted(self.tags, key=lambda t: (t.start, t.end, t.ent_id))
+        except TypeError:
+            # No ent id given
+            self.tags = sorted(self.tags, key=lambda t: (t.start, t.end))
 
     def check_and_repair_tag_integrity(self):
         """
