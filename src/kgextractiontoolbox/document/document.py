@@ -145,6 +145,8 @@ class TaggedDocument:
             if TaggedDocument.pubtator_has_composite_tags(self.tags):
                 self.tags = TaggedDocument.pubtator_split_composite_tags(self.tags)
 
+            self.remove_duplicates_and_sort_tags()
+
         self.entity_names = {t.text.lower() for t in self.tags}
         if spacy_nlp:
             self._compute_nlp_indexes(spacy_nlp, sections=sections)
@@ -246,7 +248,8 @@ class TaggedDocument:
 
     def clean_tags(self):
         # Set ensures duplicate elimination
-        clean_tags = set(self.tags.copy())
+        self.remove_duplicates_and_sort_tags()
+        clean_tags = set(self.tags)
         for tag1 in self.tags:
             if not tag1.is_valid():
                 clean_tags.remove(tag1)
@@ -258,12 +261,24 @@ class TaggedDocument:
         self.tags = list(clean_tags)
         self.sort_tags()
 
+    def remove_duplicates_and_sort_tags(self):
+        """
+        Removes duplicated tags and sort tags
+        :return:
+        """
+        self.tags = list(set(self.tags))
+        self.sort_tags()
+
     def sort_tags(self):
         """
         Sort tags by their text location
         :return:
         """
-        self.tags = sorted(self.tags, key=lambda t: (t.start, t.end, t.ent_id))
+        try:
+            self.tags = sorted(self.tags, key=lambda t: (t.start, t.end, t.ent_id))
+        except TypeError:
+            # No ent id given
+            self.tags = sorted(self.tags, key=lambda t: (t.start, t.end))
 
     def check_and_repair_tag_integrity(self):
         """

@@ -168,8 +168,11 @@ def main(arguments=None):
             tagged_doc = metatag.tag_doc(in_doc, consider_sections=consider_sections)
             tagged_doc.clean_tags()
             return tagged_doc.tags
-        except:
-            logger.error('An error has occurred when tagging...')
+        except Exception as e:
+            if in_doc:
+                logger.error(f'Error when tagging {in_doc.id} ({str(e)})')
+            else:
+                logger.error('An error has occurred when tagging (document is None)')
             return []
 
     docs_done = multiprocessing.Value('i', 0)
