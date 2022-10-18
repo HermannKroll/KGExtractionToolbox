@@ -78,8 +78,7 @@ def main(arguments=None):
     else:
         logger.info("Skipping bulk load")
 
-    kwargs = dict(collection=args.collection, root_dir=root_dir, input_dir=None, logger=logger,
-                  log_dir=log_dir, config=conf, mapping_id_file=None, mapping_file_id=None)
+    kwargs = dict(collection=args.collection, logger=logger, config=conf)
 
     stanza_tagger = StanzaTagger(**kwargs)
     stanza_tagger.base_insert_tagger()
