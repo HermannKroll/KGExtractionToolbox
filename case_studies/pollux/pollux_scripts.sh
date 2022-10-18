@@ -20,7 +20,7 @@ python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/stanza_ner.p
 python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/vocab_entity_linking.py $POLLUX_DOC -c pollux -v $POLLUX_VOCAB --skip-load -f
 
 # Next Delete all short entities
-# See SQL queries
+python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/delete_short_tags.py 5 -c pollux
 
 
 # run OpenIE6
