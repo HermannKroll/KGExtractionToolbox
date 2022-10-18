@@ -1,4 +1,5 @@
 import csv
+import logging
 from collections import defaultdict
 from pathlib import Path
 from typing import Union, List
@@ -35,7 +36,7 @@ class Vocabulary:
 
         key = (entity_id, entity_type)
         if key in self._entry_by_id_and_type:
-            raise ValueError(f"Found duplicated entry in vocabulary: {key}")
+            logging.warning(f"Ignoring duplicated entry ({key}) in vocabulary{self.path}")
         else:
             self._entry_by_id_and_type[key] = entry
 
