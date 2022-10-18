@@ -1,5 +1,6 @@
 # Getting Started
-This Readme belongs to our JCDL2022 submission. 
+This Readme belongs to our JCDL2022 paper on Nearly-Unsupervised Information Extraction Workflows. 
+Fore more information, please read:
 ```
 @inproceedings{kroll2022jcdl,
 	title = {A Library Perspective on Nearly-Unsupervised Information Extraction Workflows in Digital Libraries},
@@ -24,9 +25,9 @@ We provide the following data for each case study:
 - Used entity vocabularies
 - Used relation vocabularies
 
-Note that we selected scientists that must have an Wikipedia page and Wikidata entry.
+Note that we selected scientists that must have a Wikipedia page and Wikidata entry.
 We zipped the data directory to reduce the GitHub repository size.
-So unzip [it](case_studies/data.zip) first.
+So unzip the [data](case_studies/data.zip) first.
 
 
 This repository contains:
