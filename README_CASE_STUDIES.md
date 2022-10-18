@@ -66,7 +66,7 @@ You can find the data in the corresponding subfolders.
 The file names should be self-explaining.
 
 # Code Changes:
-We implemented to improve our toolbox:
+We implemented the following improvements for our toolbox:
 - a subject entity filter ([Code](src/kgextractiontoolbox/extraction/loading/load_openie_extractions.py))
 - enhanced verb phrase filter options ([Code](src/kgextractiontoolbox/extraction/loading/load_openie_extractions.py))
 - improved Open IE6 handling ([Code](src/kgextractiontoolbox/extraction/openie6/main.py))
