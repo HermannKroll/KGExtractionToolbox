@@ -47,7 +47,7 @@ def openie_prepare_files(document_file, no_entity_filter=False, consider_section
             else:
                 doc_count += 1
                 # TODO: Not beautiful but join sections via a '.' to ensure sentence splitting in CoreNLP
-                content = '. '.join([te for te in doc.iterate_over_text_elements(sections=consider_sections)])
+                content = '. '.join([te for te, _ in doc.iterate_over_text_elements(sections=consider_sections)])
                 input_file = os.path.join(temp_in_dir, "{}.txt".format(doc.id))
                 input_files.append(input_file)
                 with open(input_file, "w") as f:
