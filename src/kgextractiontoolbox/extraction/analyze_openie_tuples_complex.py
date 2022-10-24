@@ -158,7 +158,7 @@ def analyze_openie_tuples(tuples: List[OPENIE_TUPLE]):
     progress = Progress(total, print_every=10, text="Analysing OpenIE tuples")
     progress.start_time()
 
-    for i, t in enumerate(tuples): 
+    for i, t in enumerate(tuples):
         progress.print_progress(i)
         if not t.subj.strip() or not t.pred.strip() or not t.obj.strip():
             continue
