@@ -5,3 +5,4 @@ config/*
 /tmp/
 *.pyc
 *.DS_Store
+case_studies/data/
