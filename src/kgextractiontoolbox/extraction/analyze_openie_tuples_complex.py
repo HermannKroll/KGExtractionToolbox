@@ -151,13 +151,14 @@ def analyze_openie_tuples(tuples: List[OPENIE_TUPLE]):
     # Todo needs: python3 -m spacy download en_core_web_sm
     nlp = spacy.load("en_core_web_sm")
 
+
     tuple_count = 0
     doc_ids = set()
     total = len(tuples)
     progress = Progress(total, print_every=10, text="Analysing OpenIE tuples")
     progress.start_time()
 
-    for i, t in enumerate(tuples):
+    for i, t in enumerate(tuples): 
         progress.print_progress(i)
         if not t.subj.strip() or not t.pred.strip() or not t.obj.strip():
             continue
