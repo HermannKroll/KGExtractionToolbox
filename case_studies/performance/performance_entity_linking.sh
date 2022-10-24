@@ -1,5 +1,5 @@
 #!/bin/bash
-PUBMED_SAMPLE="../data/pubmed/pubmed_10k_sample.json"
+PUBMED_SAMPLE="../data/pubmed/pubmed_10k.json"
 PHARMACY_VOCAB="../data/pubmed/pubpharm_vocab_2022.tsv"
 
 WIKIPEDIA_DOC="../data/wikipedia/wikipedia_scientists.json"
@@ -33,19 +33,19 @@ echo "3. Vocab Linking PubMed: ${DIFF}s"
 python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/document/load_document.py $WIKIPEDIA_DOC -c scientists_benchmark 2>> /dev/null 1>>/dev/null
 
 START=$(date +%s.%N)
-python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/stanza_ner.py -c scientists_benchmark $WIKIPEDIA_DOC 2>> /dev/null 1>>/dev/null
+python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/stanza_ner.py -c scientists_benchmark $WIKIPEDIA_DOC --skip-load 2>> /dev/null 1>>/dev/null
 END=$(date +%s.%N)
 DIFF=$(echo "$END - $START" | bc)
 echo "1. Stanza NER Wikipedia: ${DIFF}s"
 
 START=$(date +%s.%N)
-python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/stanza_ner.py -c scientists_benchmark $WIKIPEDIA_DOC 2>> /dev/null 1>>/dev/null
+python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/stanza_ner.py -c scientists_benchmark $WIKIPEDIA_DOC --skip-load 2>> /dev/null 1>>/dev/null
 END=$(date +%s.%N)
 DIFF=$(echo "$END - $START" | bc)
 echo "2. Stanza NER Wikipedia: ${DIFF}s"
 
 START=$(date +%s.%N)
-python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/stanza_ner.py -c scientists_benchmark $WIKIPEDIA_DOC 2>> /dev/null 1>>/dev/null
+python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/stanza_ner.py -c scientists_benchmark $WIKIPEDIA_DOC --skip-load 2>> /dev/null 1>>/dev/null
 END=$(date +%s.%N)
 DIFF=$(echo "$END - $START" | bc)
 echo "3. Stanza NER Wikipedia: ${DIFF}s"
@@ -78,13 +78,13 @@ DIFF=$(echo "$END - $START" | bc)
 echo "1. Stanza NER Pollux: ${DIFF}s"
 
 START=$(date +%s.%N)
-python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/stanza_ner.py -c pollux_benchmark $POLLUX_DOC 2>> /dev/null 1>>/dev/null
+python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/stanza_ner.py -c pollux_benchmark $POLLUX_DOC --skip-load 2>> /dev/null 1>>/dev/null
 END=$(date +%s.%N)
 DIFF=$(echo "$END - $START" | bc)
 echo "2. Stanza NER Pollux: ${DIFF}s"
 
 START=$(date +%s.%N)
-python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/stanza_ner.py -c pollux_benchmark $POLLUX_DOC 2>> /dev/null 1>>/dev/null
+python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/stanza_ner.py -c pollux_benchmark $POLLUX_DOC --skip-load 2>> /dev/null 1>>/dev/null
 END=$(date +%s.%N)
 DIFF=$(echo "$END - $START" | bc)
 echo "3. Stanza NER Pollux: ${DIFF}s"
