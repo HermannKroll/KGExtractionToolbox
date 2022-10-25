@@ -1,0 +1,3616 @@
+[
+{
+ "id": 30160001,
+ "title": "",
+ "abstract": "Tumors in the head and neck region include a heterogeneous group of carcinomas whose treatment has advanced in recent years.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D009369",
+   "mention": "tumors",
+   "start": 0,
+   "end": 6,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D002277",
+   "mention": "carcinomas",
+   "start": 68,
+   "end": 78,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 85,
+   "end": 94,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30160002,
+ "title": "",
+ "abstract": "Tumors in the head and neck region comprise a heterogeneous group of carcinomas for whose therapy progress has been observed in recent years.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D009369",
+   "mention": "tumors",
+   "start": 0,
+   "end": 6,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D002277",
+   "mention": "carcinomas",
+   "start": 69,
+   "end": 79,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "therapy",
+   "start": 90,
+   "end": 97,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30160011,
+ "title": "",
+ "abstract": "At the same time, however, there has been a shift in risk factors from a decrease in tobacco- and alcohol-associated cancers to an increase in human papillomavirus-related carcinomas.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D012307",
+   "mention": "risk factors",
+   "start": 53,
+   "end": 65,
+   "type": "Method"
+  },
+  {
+   "id": "Tobacco",
+   "mention": "tobacco",
+   "start": 85,
+   "end": 92,
+   "type": "Chemical"
+  },
+  {
+   "id": "CHEMBL545",
+   "mention": "alcohol",
+   "start": 98,
+   "end": 105,
+   "type": "Excipient"
+  },
+  {
+   "id": "MESH:D009369",
+   "mention": "cancers",
+   "start": 117,
+   "end": 124,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D002277",
+   "mention": "carcinomas",
+   "start": 172,
+   "end": 182,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30160012,
+ "title": "",
+ "abstract": "At the same time, there has been a shift in risk factors in the form of a decrease in tobacco- and alcohol-associated cancers to an increase in human papillomavirus-related carcinomas.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D012307",
+   "mention": "risk factors",
+   "start": 44,
+   "end": 56,
+   "type": "Method"
+  },
+  {
+   "id": "Tobacco",
+   "mention": "tobacco",
+   "start": 86,
+   "end": 93,
+   "type": "Chemical"
+  },
+  {
+   "id": "CHEMBL545",
+   "mention": "alcohol",
+   "start": 99,
+   "end": 106,
+   "type": "Excipient"
+  },
+  {
+   "id": "MESH:D009369",
+   "mention": "cancers",
+   "start": 118,
+   "end": 125,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D002277",
+   "mention": "carcinomas",
+   "start": 173,
+   "end": 183,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30160021,
+ "title": "",
+ "abstract": "This shift changes the understanding of the disease, its therapy, and the life expectancy of those affected.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D004194",
+   "mention": "disease",
+   "start": 44,
+   "end": 51,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "therapy",
+   "start": 57,
+   "end": 64,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D008017",
+   "mention": "life expectancy",
+   "start": 74,
+   "end": 89,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30160022,
+ "title": "",
+ "abstract": "This changes the understanding of the disease, its therapy and the life expectancy of those affected.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D004194",
+   "mention": "disease",
+   "start": 38,
+   "end": 45,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "therapy",
+   "start": 51,
+   "end": 58,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D008017",
+   "mention": "life expectancy",
+   "start": 67,
+   "end": 82,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30160031,
+ "title": "",
+ "abstract": "This work focuses on radiation therapy, a treatment option with possible short- and long-term complications, and the resulting consequences for the patients\u2019 quality of life.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D011878",
+   "mention": "radiation therapy",
+   "start": 21,
+   "end": 38,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 42,
+   "end": 51,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30160032,
+ "title": "",
+ "abstract": "The focus here will be on radiation treatment, a treatment option with potential short- and long-term complications and the resulting consequences for patients' quality of life.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D011878",
+   "mention": "radiation treatment",
+   "start": 26,
+   "end": 45,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 49,
+   "end": 58,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30160041,
+ "title": "",
+ "abstract": "Furthermore, we show which supportive measures can be taken during and after radiation therapy with the help of clinical pharmacists.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D014894",
+   "mention": "measures",
+   "start": 38,
+   "end": 46,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D011878",
+   "mention": "radiation therapy",
+   "start": 77,
+   "end": 94,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30160042,
+ "title": "",
+ "abstract": "Furthermore, it will be shown which supportive measures can be taken during and after radiation treatment with the participation of clinical pharmacists.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D014894",
+   "mention": "measures",
+   "start": 47,
+   "end": 55,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D011878",
+   "mention": "radiation treatment",
+   "start": 86,
+   "end": 105,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30170001,
+ "title": "",
+ "abstract": "Daunorubicin has been established as important cornerstone in ALL- and AML-treatment since many years.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL178",
+   "mention": "daunorubicin",
+   "start": 0,
+   "end": 12,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30170002,
+ "title": "",
+ "abstract": "The anthracycline daunorubicin has been an integral part of ALL and AML treatment for many years.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL178",
+   "mention": "daunorubicin",
+   "start": 18,
+   "end": 30,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 72,
+   "end": 81,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30170011,
+ "title": "",
+ "abstract": "Its metabolite daunorubicinol does not contribute to antineoplastic activities of the anthracycline, however, it may have a potential impact on drug\u2019s cardiotoxicity.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL2272076",
+   "mention": "impact",
+   "start": 134,
+   "end": 140,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D066126",
+   "mention": "cardiotoxicity",
+   "start": 151,
+   "end": 165,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30170012,
+ "title": "",
+ "abstract": "The metabolite daunorubicinol plays less of a role in the antineoplastic effect, but probably more in the potential cardiotoxicity of the cytostatic.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D066126",
+   "mention": "cardiotoxicity",
+   "start": 116,
+   "end": 130,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30170021,
+ "title": "",
+ "abstract": "Current guidelines in Germany consider a daunorubicin dose reduction by 50 % in case of individual GFR between 30 and 50 ml/min which (1) is in contrast to FDA-based guidelines, and (2) which is somewhat confusing when the clinical pharmacokinetic behaviour of daunorubicin and doxorubicin are compared with each other.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL178",
+   "mention": "daunorubicin",
+   "start": 41,
+   "end": 53,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D000084862",
+   "mention": "dose reduction",
+   "start": 54,
+   "end": 68,
+   "type": "Method"
+  },
+  {
+   "id": "CHEMBL178",
+   "mention": "daunorubicin",
+   "start": 261,
+   "end": 273,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL53463",
+   "mention": "doxorubicin",
+   "start": 278,
+   "end": 289,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30170022,
+ "title": "",
+ "abstract": "The currently filed guidelines for dose modification stipulate that the anthracycline should only be used at 50% of the usual dose already at a glomerular filtration rate (GFR) between 50 ml/min and 30 ml/min.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D005919",
+   "mention": "glomerular filtration rate",
+   "start": 144,
+   "end": 170,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D005919",
+   "mention": "gfr",
+   "start": 172,
+   "end": 175,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30170031,
+ "title": "",
+ "abstract": "As a consequence, a leukemia patient may receive daunorubicin full dose in the US, and 50 % of curative dose in Germany in case of e.g. GFR 43 ml/min.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D007938",
+   "mention": "leukemia",
+   "start": 20,
+   "end": 28,
+   "type": "Disease"
+  },
+  {
+   "id": "CHEMBL178",
+   "mention": "daunorubicin",
+   "start": 49,
+   "end": 61,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30170032,
+ "title": "",
+ "abstract": "This requirement is irritating, considering that (1) the FDA has not provided a corresponding recommendation to date, and (2) recent work has identified very large clinical pharmacokinetic parallels between daunorubicin and doxorubicin.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL178",
+   "mention": "daunorubicin",
+   "start": 207,
+   "end": 219,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL53463",
+   "mention": "doxorubicin",
+   "start": 224,
+   "end": 235,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30170041,
+ "title": "",
+ "abstract": "Thus, a revised assessment of current guidelines on a regulatory level is of great interest for clinical oncologist.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30170042,
+ "title": "",
+ "abstract": "Thus, a leukemia patient with a GFR of 43 ml/min would receive only 50% of the curatively scheduled dose in Germany compared with the United States.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D007938",
+   "mention": "leukemia",
+   "start": 8,
+   "end": 16,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30170052,
+ "title": "",
+ "abstract": "A timely regulatory reassessment of this issue is therefore of great clinical oncological interest.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30180001,
+ "title": "",
+ "abstract": "Vancomycin (VAN) is an established treatment option for infections involving methicillin-resistant Staphylococcus aureus strains (MRSA).",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL262777",
+   "mention": "vancomycin",
+   "start": 0,
+   "end": 10,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL262777",
+   "mention": "van",
+   "start": 12,
+   "end": 15,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 35,
+   "end": 44,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D007239",
+   "mention": "infections",
+   "start": 56,
+   "end": 66,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D013180",
+   "mention": "strains",
+   "start": 121,
+   "end": 128,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D013180",
+   "mention": "mrsa",
+   "start": 130,
+   "end": 134,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30180002,
+ "title": "",
+ "abstract": "Vancomycin (VAN) is an established therapeutic option for infections with methicillin-resistant Staphylococcus aureus (MRSA) strains.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL262777",
+   "mention": "vancomycin",
+   "start": 0,
+   "end": 10,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL262777",
+   "mention": "van",
+   "start": 12,
+   "end": 15,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "therapeutic",
+   "start": 35,
+   "end": 46,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D007239",
+   "mention": "infections",
+   "start": 58,
+   "end": 68,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D013180",
+   "mention": "strains",
+   "start": 125,
+   "end": 132,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30180011,
+ "title": "",
+ "abstract": "However, the bactericidal effect of VAN on MRSA is reduced in strains with minimal inhibitory concentrations (MICs) of \u2265 1 mg/L. Due to an apparent correlation of VAN MICs with the risk of treatment failure, both EUCAST and CLSI reduced the \u201dsensitive\u201c MIC range to < 2 mg/L. Conversely, the clinical medical societies increased the target ranges of VAN plasma through levels.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013180",
+   "mention": "strains",
+   "start": 62,
+   "end": 69,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D017211",
+   "mention": "treatment failure",
+   "start": 189,
+   "end": 206,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30180012,
+ "title": "",
+ "abstract": "However, the bactericidal effect of VAN on MRSA is already reduced for strains against which the MIC of VAN increases to \u22651 mg/l. Therefore, because there is a correlation between the MIC and the risk of treatment failure of VAN, EUCAST and CLSI reduced the MIC above which an MRSA strain is considered vancomycin-sensitive to <2 mg/l, and clinical societies increased the target ranges for plasma levels.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013180",
+   "mention": "strains",
+   "start": 71,
+   "end": 78,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D017211",
+   "mention": "treatment failure",
+   "start": 204,
+   "end": 221,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D013180",
+   "mention": "strain",
+   "start": 282,
+   "end": 288,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30180021,
+ "title": "",
+ "abstract": "However, nephrotoxic and ototoxic effects limit the use of increased VAN dosages for the improvement of treatment efficacy.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D016896",
+   "mention": "treatment efficacy",
+   "start": 104,
+   "end": 122,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30180022,
+ "title": "",
+ "abstract": "However, nephro- and ototoxic effects limit VAN dose increases to improve therapy.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013812",
+   "mention": "therapy",
+   "start": 74,
+   "end": 81,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30180031,
+ "title": "",
+ "abstract": "Trough level monitoring and corresponding dose adjustments are recommended for the optimization of VAN exposure.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30180032,
+ "title": "",
+ "abstract": "Valley level measurements after therapy initiation, with dose adjustment if necessary, are recommended to optimize VAN exposure.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013812",
+   "mention": "therapy",
+   "start": 32,
+   "end": 39,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30180041,
+ "title": "",
+ "abstract": "Using the data of 1122 patients from the years 1990 to 2011, we investigated the impact of dose regimens and patient characteristics on the attainment of the newly defined target ranges until day 3 and later in the course of treatment.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL2272076",
+   "mention": "impact",
+   "start": 81,
+   "end": 87,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 225,
+   "end": 234,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30180042,
+ "title": "",
+ "abstract": "Using data from 1122 patients from 1990 to 2011, we retrospectively examined the influences of dosing regimens and patient characteristics on the achievability of newly defined target ranges for VAN valley levels by therapy day 3 and later.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013812",
+   "mention": "therapy",
+   "start": 216,
+   "end": 223,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30180051,
+ "title": "",
+ "abstract": "With dosages recommended by the manufacturers, the mean trough levels remained clearly below the values recommended by current therapeutic guidelines (15\u201320 mg/L for severe infections), particularly in patients without renal impairment.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013812",
+   "mention": "therapeutic",
+   "start": 127,
+   "end": 138,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D007239",
+   "mention": "infections",
+   "start": 173,
+   "end": 183,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30180052,
+ "title": "",
+ "abstract": "When dosed according to manufacturer's instructions, mean valley levels were significantly below the current guideline recommendation (15-20 mg/l for severe infections), particularly in renally healthy patients.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D007239",
+   "mention": "infections",
+   "start": 157,
+   "end": 167,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30180061,
+ "title": "",
+ "abstract": "Even with body-weight adjusted dosages, only a minority of patients reached plasma levels that meet the guideline recommendations, particularly during the early phase of treatment until day three.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D001835",
+   "mention": "body-weight",
+   "start": 10,
+   "end": 21,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D001835",
+   "mention": "body-weight",
+   "start": 10,
+   "end": 21,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 170,
+   "end": 179,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30180062,
+ "title": "",
+ "abstract": "Even with body-weight-based dosing, only a minority of patients achieved valley levels in line with recommendations, especially by therapy day 3.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013812",
+   "mention": "therapy",
+   "start": 131,
+   "end": 138,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30180071,
+ "title": "",
+ "abstract": "A moderate correlation was observed between VAN trough levels and body weight-adjusted dosage.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D014894",
+   "mention": "weight",
+   "start": 71,
+   "end": 77,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30180072,
+ "title": "",
+ "abstract": "There was a moderate correlation of valley level with body-weight-based dosing.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30180081,
+ "title": "",
+ "abstract": "The intraindividual variability of renal function which is commonly observed in intensive care patients further confounds the predictability of VAN exposure.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D003422",
+   "mention": "intensive care",
+   "start": 80,
+   "end": 94,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30180082,
+ "title": "",
+ "abstract": "In ICU patients, more frequent fluctuations in renal function have unpredictable effects on VAN exposure.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30180091,
+ "title": "",
+ "abstract": "In most cases, VAN dosages beyond the manufacturer recommendation are required to reach the target trough levels specified by the guidelines (10\u201320 mg/L).",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30180092,
+ "title": "",
+ "abstract": "In most cases, VAN doses above the manufacturer's recommendation are needed to achieve the current valley level target ranges of 10 to 20 mg/l. The results argue for early, repeated valley level measurements even in renally healthy patients.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Achieve",
+   "mention": "achieve",
+   "start": 79,
+   "end": 86,
+   "type": "Excipient"
+  }
+ ]
+},
+{
+ "id": 30180101,
+ "title": "",
+ "abstract": "These results strongly support early and repeated VAN trough level measurements even in patients with normal renal function.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30180102,
+ "title": "",
+ "abstract": "The low exposure in the critical early phase and the limited correlation of dosage and exposure suggest the use of other MRSA-active drugs, at least in critically ill patients with infections of organs or deep tissue areas and in nonsusceptible pathogens (MIC of VAN \u22652 mg/l).",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D016638",
+   "mention": "critically ill",
+   "start": 152,
+   "end": 166,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D007239",
+   "mention": "infections",
+   "start": 181,
+   "end": 191,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30180111,
+ "title": "",
+ "abstract": "Moreover, the generally low exposure observed in the critical early phase and the limited correlation of dosage and exposure suggest the use of other antibiotics active against MRSA at least in severely ill patients with infections of organs or deep tissues, or if insensitive bacterial strains are involved (VAN MIC \u2265 2 mg/L).",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL606111",
+   "mention": "antibiotics",
+   "start": 150,
+   "end": 161,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D007239",
+   "mention": "infections",
+   "start": 221,
+   "end": 231,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D013180",
+   "mention": "strains",
+   "start": 287,
+   "end": 294,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30180112,
+ "title": "",
+ "abstract": "However, the clinical and microbiological response and the occurrence of toxicity have not been studied.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30180121,
+ "title": "",
+ "abstract": "Clinical and microbiological responses as well as toxicities were not investigated in this study.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30190001,
+ "title": "",
+ "abstract": "Meropenem, piperacillin and ceftazidime are commonly used broad spectrum beta-lactam antibiotics in intensive care units.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL127",
+   "mention": "meropenem",
+   "start": 0,
+   "end": 9,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL1200820",
+   "mention": "piperacillin",
+   "start": 11,
+   "end": 23,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL702",
+   "mention": "piperacillin",
+   "start": 11,
+   "end": 23,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL44354",
+   "mention": "ceftazidime",
+   "start": 28,
+   "end": 39,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL606111",
+   "mention": "antibiotics",
+   "start": 85,
+   "end": 96,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D003422",
+   "mention": "intensive care",
+   "start": 100,
+   "end": 114,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30190002,
+ "title": "",
+ "abstract": "The beta-lactam antibiotics meropenem, piperacillin, and ceftazidime are used in intensive care for the treatment of life-threatening bacterial infectious diseases due to their broad spectrum of activity.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL606111",
+   "mention": "antibiotics",
+   "start": 16,
+   "end": 27,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL127",
+   "mention": "meropenem",
+   "start": 28,
+   "end": 37,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL1200820",
+   "mention": "piperacillin",
+   "start": 39,
+   "end": 51,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL702",
+   "mention": "piperacillin",
+   "start": 39,
+   "end": 51,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL44354",
+   "mention": "ceftazidime",
+   "start": 57,
+   "end": 68,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D003422",
+   "mention": "intensive care",
+   "start": 81,
+   "end": 95,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 104,
+   "end": 113,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D003141",
+   "mention": "infectious diseases",
+   "start": 144,
+   "end": 163,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30190011,
+ "title": "",
+ "abstract": "To improve the therapeutic outcome of the antimicrobial therapy of critically ill patients therapeutic drug monitoring is recommended.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013812",
+   "mention": "therapeutic",
+   "start": 15,
+   "end": 26,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "therapy",
+   "start": 56,
+   "end": 63,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D016638",
+   "mention": "critically ill",
+   "start": 67,
+   "end": 81,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D016903",
+   "mention": "therapeutic drug monitoring",
+   "start": 91,
+   "end": 118,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30190012,
+ "title": "",
+ "abstract": "Due to strong inter- and intraindividual variations in pharmacokinetics, the establishment of therapeutic drug monitoring is recommended to improve therapeutic outcome.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D016903",
+   "mention": "therapeutic drug monitoring",
+   "start": 94,
+   "end": 121,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "therapeutic",
+   "start": 148,
+   "end": 159,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30190021,
+ "title": "",
+ "abstract": "Therefore an analytical method was established measuring fluctuating serum levels during therapy.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D008722",
+   "mention": "method",
+   "start": 24,
+   "end": 30,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "therapy",
+   "start": 89,
+   "end": 96,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30190022,
+ "title": "",
+ "abstract": "In the following, an analytical HPLC method is described, with the help of which the serum concentrations of the three beta-lactams in the therapy-relevant range of 2.5 \u00b5g/ml (piperacillin: 6 \u00b5g/ml) to 200 \u00b5g/ml can be determined quickly and reliably.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D008722",
+   "mention": "method",
+   "start": 37,
+   "end": 43,
+   "type": "Method"
+  },
+  {
+   "id": "CHEMBL1200820",
+   "mention": "piperacillin",
+   "start": 176,
+   "end": 188,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL702",
+   "mention": "piperacillin",
+   "start": 176,
+   "end": 188,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30190031,
+ "title": "",
+ "abstract": "A simple and sensitive high-performance liquid chromatography (HPLC) method with diode array detection (DAD) was developed and validated for simultaneous quantification of these antimicrobial agents.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D002851",
+   "mention": "high-performance liquid chromatography",
+   "start": 23,
+   "end": 61,
+   "type": "LabMethod"
+  },
+  {
+   "id": "MESH:D002851",
+   "mention": "hplc",
+   "start": 63,
+   "end": 67,
+   "type": "LabMethod"
+  },
+  {
+   "id": "MESH:D008722",
+   "mention": "method",
+   "start": 69,
+   "end": 75,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30190032,
+ "title": "",
+ "abstract": "The serum levels determined can then be used as a valid basis for further therapy decisions.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013812",
+   "mention": "therapy",
+   "start": 74,
+   "end": 81,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30190041,
+ "title": "",
+ "abstract": "For sample preparation a sample amount of 250 \u00b5l serum was spiked with cefotaxime as an internal standard.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL1730",
+   "mention": "cefotaxime",
+   "start": 71,
+   "end": 81,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D012015",
+   "mention": "standard",
+   "start": 97,
+   "end": 105,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30190051,
+ "title": "",
+ "abstract": "Afterwards protein was precipitated using acetonitrile/methanol (1:1).",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Proteins",
+   "mention": "protein",
+   "start": 11,
+   "end": 18,
+   "type": "Excipient"
+  }
+ ]
+},
+{
+ "id": 30190061,
+ "title": "",
+ "abstract": "The supernatant was transferred to HPLC.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30190071,
+ "title": "",
+ "abstract": "A Merck LiChrospher\u00ae 100 RP-18 (5 \u00b5m) x 125 mm analytical column with a gradient of acetonitrile and a pH 2.2 phosphoric acid solution was used for separation.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL45211",
+   "mention": "acetonitrile",
+   "start": 84,
+   "end": 96,
+   "type": "Excipient"
+  },
+  {
+   "id": "CHEMBL1187",
+   "mention": "phosphoric acid",
+   "start": 110,
+   "end": 125,
+   "type": "Excipient"
+  }
+ ]
+},
+{
+ "id": 30190081,
+ "title": "",
+ "abstract": "Peaks of interest were detected via ultraviolet absorbance at 240, 298 and 310 nm respectively.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30190091,
+ "title": "",
+ "abstract": "The method developed shows a linear correlation between concentration and response over a concentration range of 2.5 (piperacillin: 6) to 200 \u00b5g/ml for each antibiotic in the serum samples.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D008722",
+   "mention": "method",
+   "start": 4,
+   "end": 10,
+   "type": "Method"
+  },
+  {
+   "id": "CHEMBL1200820",
+   "mention": "piperacillin",
+   "start": 118,
+   "end": 130,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL702",
+   "mention": "piperacillin",
+   "start": 118,
+   "end": 130,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL606111",
+   "mention": "antibiotic",
+   "start": 157,
+   "end": 167,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30190101,
+ "title": "",
+ "abstract": "Validation has demonstrated the method to be accurate and precise too.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D008722",
+   "mention": "method",
+   "start": 32,
+   "end": 38,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30190111,
+ "title": "",
+ "abstract": "No interferences with other common drugs except metamizole (dipyrone) and ceftazidime were detected.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL3989803",
+   "mention": "dipyrone",
+   "start": 60,
+   "end": 68,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL461522",
+   "mention": "dipyrone",
+   "start": 60,
+   "end": 68,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL44354",
+   "mention": "ceftazidime",
+   "start": 74,
+   "end": 85,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30190121,
+ "title": "",
+ "abstract": "The method is currently used in the pharmacy department of the German Army Hospital in Berlin for therapeutic drug monitoring (TDM) of beta-lactams in critically ill patients.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D008722",
+   "mention": "method",
+   "start": 4,
+   "end": 10,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D016903",
+   "mention": "therapeutic drug monitoring",
+   "start": 98,
+   "end": 125,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D016903",
+   "mention": "tdm",
+   "start": 127,
+   "end": 130,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D016638",
+   "mention": "critically ill",
+   "start": 151,
+   "end": 165,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30200001,
+ "title": "",
+ "abstract": "The frequency of bacterial infections for which antibiotics no longer work is increasing worldwide due to the development of antibiotic resistance among pathogens.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D001424",
+   "mention": "bacterial infections",
+   "start": 17,
+   "end": 37,
+   "type": "Disease"
+  },
+  {
+   "id": "CHEMBL606111",
+   "mention": "antibiotics",
+   "start": 48,
+   "end": 59,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL606111",
+   "mention": "antibiotic",
+   "start": 125,
+   "end": 135,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30200002,
+ "title": "",
+ "abstract": "The frequency of bacterial infections for which antibiotics are no longer effective is increasing worldwide due to the development of resistance in pathogens.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D001424",
+   "mention": "bacterial infections",
+   "start": 17,
+   "end": 37,
+   "type": "Disease"
+  },
+  {
+   "id": "CHEMBL606111",
+   "mention": "antibiotics",
+   "start": 48,
+   "end": 59,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30200011,
+ "title": "",
+ "abstract": "Research topics, in order to counter this threat, include the development of new antibiotics, the reactivation of existing antibacterial agents and the finding of resistance-modifying properties of natural substances.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL606111",
+   "mention": "antibiotics",
+   "start": 81,
+   "end": 92,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30200012,
+ "title": "",
+ "abstract": "To counter this threat, research is being conducted - in addition to the development of new antibiotics and the reactivation of existing antibacterial agents - into the resistance-modifying properties of natural products.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL606111",
+   "mention": "antibiotics",
+   "start": 92,
+   "end": 103,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30200021,
+ "title": "",
+ "abstract": "In the present work, the checkerboard microdilution method was used to investigate how the essential oils from cloves (Syzygium aromaticum) and cinnamon (Cinnamomum verum) combined with lysozyme amplify the effects of a carbapenem- (imipenem) and an aminoglycoside-antibiotic (gentamicin) against the bacterial pathogens Pseudomonas aeruginosa and Klebsiella pneumoniae.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D008722",
+   "mention": "method",
+   "start": 52,
+   "end": 58,
+   "type": "Method"
+  },
+  {
+   "id": "Syzygium",
+   "mention": "syzygium",
+   "start": 119,
+   "end": 127,
+   "type": "PlantFamily/Genus"
+  },
+  {
+   "id": "CHEMBL2108924",
+   "mention": "cinnamon",
+   "start": 144,
+   "end": 152,
+   "type": "Excipient"
+  },
+  {
+   "id": "CHEMBL2108924",
+   "mention": "cinnamomum verum",
+   "start": 154,
+   "end": 170,
+   "type": "Excipient"
+  },
+  {
+   "id": "Lysozyme",
+   "mention": "lysozyme",
+   "start": 186,
+   "end": 194,
+   "type": "Chemical"
+  },
+  {
+   "id": "CHEMBL1240705",
+   "mention": "carbapenem",
+   "start": 220,
+   "end": 230,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL148",
+   "mention": "imipenem",
+   "start": 233,
+   "end": 241,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL43708",
+   "mention": "imipenem",
+   "start": 233,
+   "end": 241,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL3039597",
+   "mention": "gentamicin",
+   "start": 277,
+   "end": 287,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL463809",
+   "mention": "gentamicin",
+   "start": 277,
+   "end": 287,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D011014",
+   "mention": "pneumoniae",
+   "start": 359,
+   "end": 369,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30200022,
+ "title": "",
+ "abstract": "In the present work, the checkerboard microdilution method was used to investigate how the essential oils from cloves (Syzygium aromaticum) and the bark of the cinnamon tree (Cinnamomum verum) combined with lysozyme enhance the effects of antibiotics from the carbapenems (imipenem) and aminoglycosides (gentamicin) groups against the bacterial pathogens Pseudomonas aeruginosa and Klebsiella pneumoniae, respectively.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D008722",
+   "mention": "method",
+   "start": 52,
+   "end": 58,
+   "type": "Method"
+  },
+  {
+   "id": "Syzygium",
+   "mention": "syzygium",
+   "start": 119,
+   "end": 127,
+   "type": "PlantFamily/Genus"
+  },
+  {
+   "id": "CHEMBL2108924",
+   "mention": "cinnamon",
+   "start": 160,
+   "end": 168,
+   "type": "Excipient"
+  },
+  {
+   "id": "CHEMBL2108924",
+   "mention": "cinnamomum verum",
+   "start": 175,
+   "end": 191,
+   "type": "Excipient"
+  },
+  {
+   "id": "Lysozyme",
+   "mention": "lysozyme",
+   "start": 207,
+   "end": 215,
+   "type": "Chemical"
+  },
+  {
+   "id": "CHEMBL606111",
+   "mention": "antibiotics",
+   "start": 239,
+   "end": 250,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL1240705",
+   "mention": "carbapenems",
+   "start": 260,
+   "end": 271,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL1240705",
+   "mention": "imipenem",
+   "start": 273,
+   "end": 281,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL148",
+   "mention": "imipenem",
+   "start": 273,
+   "end": 281,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL43708",
+   "mention": "imipenem",
+   "start": 273,
+   "end": 281,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL3039597",
+   "mention": "gentamicin",
+   "start": 304,
+   "end": 314,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL463809",
+   "mention": "gentamicin",
+   "start": 304,
+   "end": 314,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D011014",
+   "mention": "pneumoniae",
+   "start": 393,
+   "end": 403,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30200031,
+ "title": "",
+ "abstract": "The results indicate that the essential oils of both plant species reduce the minimum inhibitory concentrations of gentamicin and imipenem against multi-drug resistant clinical isolates of the two gram-negative bacterial species and thus significantly increase the antibiotic effects.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D008826",
+   "mention": "minimum inhibitory concentrations",
+   "start": 78,
+   "end": 111,
+   "type": "LabMethod"
+  },
+  {
+   "id": "CHEMBL3039597",
+   "mention": "gentamicin",
+   "start": 115,
+   "end": 125,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL463809",
+   "mention": "gentamicin",
+   "start": 115,
+   "end": 125,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL148",
+   "mention": "imipenem",
+   "start": 130,
+   "end": 138,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL43708",
+   "mention": "imipenem",
+   "start": 130,
+   "end": 138,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL606111",
+   "mention": "antibiotic",
+   "start": 265,
+   "end": 275,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30200032,
+ "title": "",
+ "abstract": "The results show that the essential oils of both plant species decrease the minimum inhibitory concentrations of gentamicin and imipenem against multidrug-resistant clinical isolates of the two Gram-negative bacterial species, thereby significantly enhancing antibiotic efficacy.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D008826",
+   "mention": "minimum inhibitory concentrations",
+   "start": 76,
+   "end": 109,
+   "type": "LabMethod"
+  },
+  {
+   "id": "CHEMBL3039597",
+   "mention": "gentamicin",
+   "start": 113,
+   "end": 123,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL463809",
+   "mention": "gentamicin",
+   "start": 113,
+   "end": 123,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL148",
+   "mention": "imipenem",
+   "start": 128,
+   "end": 136,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL43708",
+   "mention": "imipenem",
+   "start": 128,
+   "end": 136,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL606111",
+   "mention": "antibiotic",
+   "start": 259,
+   "end": 269,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30200041,
+ "title": "",
+ "abstract": "The observed potent resistance-modifying properties of the essential oils favour further investigations of the phenylpropanoids as the main components of both oils and other natural substances in this context.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30200042,
+ "title": "",
+ "abstract": "The potent resistance-modifying properties of the essential oils suggest further investigation of phenylpropanoids as major components of both oils and other natural products in this context is promising.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30210001,
+ "title": "",
+ "abstract": "Due to lack of reliable therapy and insufficient available vaccines against SARS-CoV-2, researchers are looking for promising and effective therapy in substances that are already available.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013812",
+   "mention": "therapy",
+   "start": 24,
+   "end": 31,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D014612",
+   "mention": "vaccines",
+   "start": 59,
+   "end": 67,
+   "type": "Vaccine"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "therapy",
+   "start": 140,
+   "end": 147,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30210002,
+ "title": "",
+ "abstract": "Since there is still no reliable therapy and not enough approved vaccines against SARS-CoV-2, research is looking for promising, effective substances that are already available.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013812",
+   "mention": "therapy",
+   "start": 33,
+   "end": 40,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D014612",
+   "mention": "vaccines",
+   "start": 65,
+   "end": 73,
+   "type": "Vaccine"
+  }
+ ]
+},
+{
+ "id": 30210011,
+ "title": "",
+ "abstract": "The objective of the current study is to investigate whether the herbal preparation Cystus Pandalis\u00ae (CPE) has in vitro antiviral properties against SARS-CoV-2.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D066298",
+   "mention": "in vitro",
+   "start": 111,
+   "end": 119,
+   "type": "LabMethod"
+  }
+ ]
+},
+{
+ "id": 30210012,
+ "title": "",
+ "abstract": "This study will investigate whether the herbal preparation Cystus Pandalis\u00ae has in vitro antiviral properties against SARS-CoV-2, as it has already been shown to be effective against several other viruses.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D066298",
+   "mention": "in vitro",
+   "start": 80,
+   "end": 88,
+   "type": "LabMethod"
+  }
+ ]
+},
+{
+ "id": 30210021,
+ "title": "",
+ "abstract": "CPE has already proved to be effective against several other viruses.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30210022,
+ "title": "",
+ "abstract": "At the Fraunhofer Institute for Cell Therapy and Immunology (IZI), cell cultures were infected with SARS-CoV-2 using Cystus Pandalis\u00ae extract (CPE), and the reduction in infection rate was evaluated by comparing foci-forming units.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D064987",
+   "mention": "cell therapy",
+   "start": 32,
+   "end": 44,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D018929",
+   "mention": "cell cultures",
+   "start": 67,
+   "end": 80,
+   "type": "LabMethod"
+  },
+  {
+   "id": "MESH:D007239",
+   "mention": "infection",
+   "start": 170,
+   "end": 179,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30210031,
+ "title": "",
+ "abstract": "At the Fraunhofer Institute for Cell Therapy and Immunology (IZI), cell cultures treated with Cystus Pandalis\u00ae extract were infected with SARS-CoV-2, and the reduction in the infection rate was evaluated by comparing focus-forming units.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D064987",
+   "mention": "cell therapy",
+   "start": 32,
+   "end": 44,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D018929",
+   "mention": "cell cultures",
+   "start": 67,
+   "end": 80,
+   "type": "LabMethod"
+  },
+  {
+   "id": "MESH:D007239",
+   "mention": "infection",
+   "start": 175,
+   "end": 184,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30210032,
+ "title": "",
+ "abstract": "An almost complete reduction in infection rate by CPE was observed at concentrations greater than 15.6 \u00b5g/ml with a calculated EC50 of 1.94 \u00b5g/ml.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D007239",
+   "mention": "infection",
+   "start": 32,
+   "end": 41,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30210041,
+ "title": "",
+ "abstract": "An almost complete reduction in the CPE infection rate was observed at concentrations of greater than 15.6\u200a\u00b5g/ml with a calculated EC50 (mean effective concentration) of 1.94\u200a\u00b5g/ml.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D007239",
+   "mention": "infection",
+   "start": 40,
+   "end": 49,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30210042,
+ "title": "",
+ "abstract": "The mechanism of action of this extract may be based on the high polymer polyphenols that coat certain viral epitopes, causing CPE to act as an entry inhibitor.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Polymers",
+   "mention": "polymer",
+   "start": 65,
+   "end": 72,
+   "type": "Excipient"
+  }
+ ]
+},
+{
+ "id": 30210051,
+ "title": "",
+ "abstract": "The mechanism of action of this extract may be based on the highly polymeric polyphenols that envelop certain viral epitopes, whereby CPE acts as an entry inhibitor.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30210052,
+ "title": "",
+ "abstract": "Due to the high in vitro activity, it seems reasonable to use CPE as prophylaxis against infections with SARS-CoV-2.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D066298",
+   "mention": "in vitro",
+   "start": 16,
+   "end": 24,
+   "type": "LabMethod"
+  },
+  {
+   "id": "MESH:D007239",
+   "mention": "infections",
+   "start": 89,
+   "end": 99,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30210061,
+ "title": "",
+ "abstract": "The high in vitro activity of CPE seems to make it a reasonable candidate for prophylaxis against SARS-CoV-2.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D066298",
+   "mention": "in vitro",
+   "start": 9,
+   "end": 17,
+   "type": "LabMethod"
+  }
+ ]
+},
+{
+ "id": 30220001,
+ "title": "",
+ "abstract": "Fruits from Apium graveolens (celery) are used traditionally in Persian and European medicine for the treatment of uncomplicated urinary tract infections.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Apium",
+   "mention": "apium",
+   "start": 12,
+   "end": 17,
+   "type": "PlantFamily/Genus"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 102,
+   "end": 111,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D014552",
+   "mention": "urinary tract infections",
+   "start": 129,
+   "end": 153,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30220002,
+ "title": "",
+ "abstract": "The fruits of Apium graveolens L. (celery) are used in traditional Persian and European medicine for the treatment of uncomplicated urinary tract infections (UTI).",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Apium",
+   "mention": "apium",
+   "start": 14,
+   "end": 19,
+   "type": "PlantFamily/Genus"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 105,
+   "end": 114,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D014552",
+   "mention": "urinary tract infections",
+   "start": 132,
+   "end": 156,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D014552",
+   "mention": "uti",
+   "start": 158,
+   "end": 161,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30220011,
+ "title": "",
+ "abstract": "No data are available on A. graveolens extract on the interplay between uropathogenic E. coli and the eukaryotic host cells and on quorum sensing of the bacteria.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30220012,
+ "title": "",
+ "abstract": "To date, no data are available investigating the influence of corresponding drug extracts with regard to adhesion of uropathogenic E. coli to eukaryotic host cells from bladder and kidney and bacterial quorum sensing.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30220021,
+ "title": "",
+ "abstract": "The present study aimed to characterize an antiadhesive and anti quorum sensing effect of a characterized A. graveolens extract by specific in vitro assays and to correlate these effects with in vivo data obtained by an animal infection model.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D066298",
+   "mention": "in vitro",
+   "start": 140,
+   "end": 148,
+   "type": "LabMethod"
+  },
+  {
+   "id": "FIDXLM1",
+   "mention": "assays",
+   "start": 149,
+   "end": 155,
+   "type": "LabMethod"
+  },
+  {
+   "id": "MESH:D007239",
+   "mention": "infection",
+   "start": 227,
+   "end": 236,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30220022,
+ "title": "",
+ "abstract": "The present studies describe a marked anti-adhesive and anti-quorum sensing effect of an extract of A. graveolens using in vitro studies and in vivo studies in the mouse infection model.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D066298",
+   "mention": "in vitro",
+   "start": 120,
+   "end": 128,
+   "type": "LabMethod"
+  },
+  {
+   "id": "MESH:D007239",
+   "mention": "infection",
+   "start": 170,
+   "end": 179,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30220031,
+ "title": "",
+ "abstract": "Hydroalcoholic extract CSE (EtOH-water, 1:1) from A. graveolens fruits was characterized by UHPLC/+ESI-QTOF-MS and investigated on antiproliferative activity against UPEC (strain NU14) and human T24 bladder cells.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013180",
+   "mention": "strain",
+   "start": 172,
+   "end": 178,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30220032,
+ "title": "",
+ "abstract": "A hydroalcoholic extract (Cellery Seed Extract, CSE; EtOH-water, 1:1) of A. graveolens fruit was phytochemically characterized by UHPLC/+ESI-QTOF-MS and evaluated for antiproliferative properties against UPEC (strain NU14) and human T24 blast cells.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013180",
+   "mention": "strain",
+   "start": 210,
+   "end": 216,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30220041,
+ "title": "",
+ "abstract": "Antiadhesive properties of CSE were investigated within two different in vitro adhesion assays.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D066298",
+   "mention": "in vitro",
+   "start": 70,
+   "end": 78,
+   "type": "LabMethod"
+  },
+  {
+   "id": "FIDXLM1",
+   "mention": "assays",
+   "start": 88,
+   "end": 94,
+   "type": "LabMethod"
+  }
+ ]
+},
+{
+ "id": 30220042,
+ "title": "",
+ "abstract": "Anti-adhesive effects of CSE were tested by two in vitro adhesion assays.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D066298",
+   "mention": "in vitro",
+   "start": 48,
+   "end": 56,
+   "type": "LabMethod"
+  },
+  {
+   "id": "FIDXLM1",
+   "mention": "assays",
+   "start": 66,
+   "end": 72,
+   "type": "LabMethod"
+  }
+ ]
+},
+{
+ "id": 30220051,
+ "title": "",
+ "abstract": "For in vivo studies BALB/c mice were used in an UPEC infection model.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D007239",
+   "mention": "infection",
+   "start": 53,
+   "end": 62,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30220052,
+ "title": "",
+ "abstract": "For in vivo studies, BALB/c mice were used in a UPEC infection model and the effect of CSE on bacterial load in bladder and kidney tissues was investigated in the context of 4- and 7-day pretreatment (200, 500 mg/kg), respectively.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D007239",
+   "mention": "infection",
+   "start": 53,
+   "end": 62,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D058491",
+   "mention": "bacterial load",
+   "start": 94,
+   "end": 108,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30220061,
+ "title": "",
+ "abstract": "The effect of CSE on bacterial load in bladder tissue was monitored within a 4- and 7 days pretreatment (200, 500 mg/kg) of the animals.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D058491",
+   "mention": "bacterial load",
+   "start": 21,
+   "end": 35,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30220062,
+ "title": "",
+ "abstract": "CSE is phytochemically characterized by the presence of luteolin glycosides, similar flavones, and furanocoumarins.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL151",
+   "mention": "luteolin",
+   "start": 56,
+   "end": 64,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL275638",
+   "mention": "flavones",
+   "start": 85,
+   "end": 93,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30220071,
+ "title": "",
+ "abstract": "CSE was dominated by the presence of luteolin-glycosides and related flavones besides furocoumarins.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL275638",
+   "mention": "flavones",
+   "start": 69,
+   "end": 77,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30220072,
+ "title": "",
+ "abstract": "CSE shows no cytotoxic effects against UPEC and blast cells, but exhibits concentration-dependent antiadhesive effects against UPEC strain NU14 and UTI89.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013180",
+   "mention": "strain",
+   "start": 132,
+   "end": 138,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30220081,
+ "title": "",
+ "abstract": "CSE had no cytotoxic effects against UPEC and bladder cells.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30220082,
+ "title": "",
+ "abstract": "CSE inhibits bacterial quorum sensing in a concentration-dependent manner.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30220091,
+ "title": "",
+ "abstract": "CSE exerts a dose dependent antiadhesive activity against UPEC strains NU14 and UTI89.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013180",
+   "mention": "strains",
+   "start": 63,
+   "end": 70,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30220092,
+ "title": "",
+ "abstract": "In vivo 4 and 7 day pretreatment of mice with CSE followed by transurethal UPEC NU14 infection significantly inhibited bacterial load in bladder tissue.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D007239",
+   "mention": "infection",
+   "start": 85,
+   "end": 94,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D058491",
+   "mention": "bacterial load",
+   "start": 119,
+   "end": 133,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30220101,
+ "title": "",
+ "abstract": "CSE inhibited in a concentration-dependent manner bacterial quorum sensing.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30220102,
+ "title": "",
+ "abstract": "Based on these data, the traditional use of the drug in UTI appears to be justified.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30220111,
+ "title": "",
+ "abstract": "4- and 7-day pretreatment of animals with CSE transurethrally infected with UPEC NU14, significantly reduced the bacterial load in bladder tissue.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D058491",
+   "mention": "bacterial load",
+   "start": 113,
+   "end": 127,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30220121,
+ "title": "",
+ "abstract": "CSE is assessed as an antiadhesive extract for which the traditional use in phytotherapy for UTI is justified.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D008517",
+   "mention": "phytotherapy",
+   "start": 76,
+   "end": 88,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30230001,
+ "title": "",
+ "abstract": "2-(4-Chlorophenyl)-4-metathiazanone (2) is the intermediate product for the two step-synthesis of chlormezanone (1), a centrally acting muscle relaxant.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL1200714",
+   "mention": "chlormezanone",
+   "start": 98,
+   "end": 111,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL1200714",
+   "mention": "1",
+   "start": 113,
+   "end": 114,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30230002,
+ "title": "",
+ "abstract": "2-(4-Chlorophenyl)-4-metathiazanone (2) is the intermediate in the two-step synthesis of chlormezanone (1), a centrally acting muscle relaxant.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL1200714",
+   "mention": "chlormezanone",
+   "start": 89,
+   "end": 102,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL1200714",
+   "mention": "1",
+   "start": 104,
+   "end": 105,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30230011,
+ "title": "",
+ "abstract": "The second step includes the oxidation of its sulfur atom.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL2105487",
+   "mention": "sulfur",
+   "start": 46,
+   "end": 52,
+   "type": "Excipient"
+  }
+ ]
+},
+{
+ "id": 30230012,
+ "title": "",
+ "abstract": "The second step is the oxidation of the sulfur atom.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL2105487",
+   "mention": "sulfur",
+   "start": 40,
+   "end": 46,
+   "type": "Excipient"
+  }
+ ]
+},
+{
+ "id": 30230021,
+ "title": "",
+ "abstract": "It has been found that the foregoing reaction of 4-chlorobenzaldehyde with methylamine forming the hemiaminale and the subsequent addition of \u03b2-mercaptopropionic acid leads to a remarkable better yield (67% of th.)",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL43280",
+   "mention": "methylamine",
+   "start": 75,
+   "end": 86,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30230022,
+ "title": "",
+ "abstract": "A much improved yield (67% d.th.)",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30230031,
+ "title": "",
+ "abstract": "than the route via the hemimercaptale (42% of th.).2 could be oxidized with sodium perborate superior to potassium permanganate.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL3707333",
+   "mention": "sodium perborate",
+   "start": 76,
+   "end": 92,
+   "type": "Excipient"
+  },
+  {
+   "id": "CHEMBL3833305",
+   "mention": "potassium permanganate",
+   "start": 105,
+   "end": 127,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30230032,
+ "title": "",
+ "abstract": "of 2 is obtained when the half-aminal is first formed from 4-chlorobenzaldehyde and methylamine, which then reacts with \u03b2-mercaptopropionic acid, than when the reverse is added via the half-mercaptal (42% d.th.).",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL43280",
+   "mention": "methylamine",
+   "start": 84,
+   "end": 95,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30230041,
+ "title": "",
+ "abstract": "The racemic chlormezanone (1) is resolved quickly on a gram scale by preparative column chromatography on a Chiralcel\u00ae OD column (tris(3,5-dimethyl-phenyl-carbamoyl)cellulose on silicagel).",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL1200714",
+   "mention": "chlormezanone",
+   "start": 12,
+   "end": 25,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL1200714",
+   "mention": "1",
+   "start": 27,
+   "end": 28,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D014894",
+   "mention": "scale",
+   "start": 60,
+   "end": 65,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D002845",
+   "mention": "chromatography",
+   "start": 88,
+   "end": 102,
+   "type": "LabMethod"
+  },
+  {
+   "id": "CHEMBL2108563",
+   "mention": "silicagel",
+   "start": 178,
+   "end": 187,
+   "type": "Excipient"
+  },
+  {
+   "id": "MESH:D058428",
+   "mention": "silicagel",
+   "start": 178,
+   "end": 187,
+   "type": "DosageForm"
+  }
+ ]
+},
+{
+ "id": 30230042,
+ "title": "",
+ "abstract": "Sodium perborate is clearly superior to potassium permanganate as an oxidizing agent.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL3707333",
+   "mention": "sodium perborate",
+   "start": 0,
+   "end": 16,
+   "type": "Excipient"
+  },
+  {
+   "id": "CHEMBL3833305",
+   "mention": "potassium permanganate",
+   "start": 40,
+   "end": 62,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30230051,
+ "title": "",
+ "abstract": "The resolution needed only 40 min, if flow rate, composition of the mobile phase and temperature as the most important factors are determined prior with an analytical column.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30230052,
+ "title": "",
+ "abstract": "The racemic chloromezanone (1) can be separated rapidly in the gramma\u00destab on a Chiralcel\u00ae OD column.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30230061,
+ "title": "",
+ "abstract": "Both dissociation constants could be determined for the first time with the aid of a log pKa-Titrator of the Sirius Co., which needs for the registration of the curves only 15\u201317 min in the pH range of 2\u201312.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D004213",
+   "mention": "dissociation",
+   "start": 5,
+   "end": 17,
+   "type": "Disease"
+  },
+  {
+   "id": "Sirius",
+   "mention": "sirius",
+   "start": 109,
+   "end": 115,
+   "type": "Excipient"
+  }
+ ]
+},
+{
+ "id": 30230062,
+ "title": "",
+ "abstract": "If the crucial factors such as flow rate, mobile phase composition and temperature are first determined on analytical columns, then the separation requires only 40 min.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30230071,
+ "title": "",
+ "abstract": "This speed outplayed the disturbing cleavage of the S-C bond of chlormezanone at strong acidic and alkaline pH values.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL1200714",
+   "mention": "chlormezanone",
+   "start": 64,
+   "end": 77,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30230072,
+ "title": "",
+ "abstract": "For the first time, the two dissociation constants of 1 could be determined using the log pKa titrator from Sirius Co. which requires only 15-17 min to register the titration curves in the pH range 2-12.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D004213",
+   "mention": "dissociation",
+   "start": 28,
+   "end": 40,
+   "type": "Disease"
+  },
+  {
+   "id": "Sirius",
+   "mention": "sirius",
+   "start": 108,
+   "end": 114,
+   "type": "Excipient"
+  }
+ ]
+},
+{
+ "id": 30230082,
+ "title": "",
+ "abstract": "This speed glosses over the interfering break in the S-C bond of 1 in the strongly acidic and strongly alkaline pH ranges.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30240001,
+ "title": "",
+ "abstract": "Background and objectives: The efficacy and tolerance of an antiseptic wound powder based on the antibiotic tyrothricin was investigated in a prospective, randomized multicenter trial in patients with posttraumatic and surgical cutaneous lesions.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D014947",
+   "mention": "wound",
+   "start": 71,
+   "end": 76,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D011208",
+   "mention": "powder",
+   "start": 77,
+   "end": 83,
+   "type": "DosageForm"
+  },
+  {
+   "id": "CHEMBL606111",
+   "mention": "antibiotic",
+   "start": 97,
+   "end": 107,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL577736",
+   "mention": "tyrothricin",
+   "start": 108,
+   "end": 119,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D015337",
+   "mention": "multicenter trial",
+   "start": 166,
+   "end": 183,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30240002,
+ "title": "",
+ "abstract": "Background and Purpose: In a prospective, randomized multicenter study, the efficacy and tolerability of an antibiotic wound powder containing the active ingredient tyrothricin were investigated in posttraumatic and postoperative skin lesions.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL606111",
+   "mention": "antibiotic",
+   "start": 108,
+   "end": 118,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D014947",
+   "mention": "wound",
+   "start": 119,
+   "end": 124,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D011208",
+   "mention": "powder",
+   "start": 125,
+   "end": 131,
+   "type": "DosageForm"
+  },
+  {
+   "id": "CHEMBL577736",
+   "mention": "tyrothricin",
+   "start": 165,
+   "end": 176,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30240011,
+ "title": "",
+ "abstract": "Patients and methods: In 5 centers, 131 male and female patients from 18\u201385 years were included with posttraumatic or surgical cutaneous lesions with infection or in danger of infection (area \u2265 200 mm2).",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D008722",
+   "mention": "methods",
+   "start": 13,
+   "end": 20,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D007239",
+   "mention": "infection",
+   "start": 150,
+   "end": 159,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D007239",
+   "mention": "infection",
+   "start": 176,
+   "end": 185,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30240012,
+ "title": "",
+ "abstract": "PATIENTS AND METHODS: In 5 study sites, 131 men and women aged 18 to 85 years with a posttraumatic/postoperative infected or infection-prone skin lesion (wound area \u2265 200 mm2) participated.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D008722",
+   "mention": "methods",
+   "start": 13,
+   "end": 20,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D014947",
+   "mention": "wound",
+   "start": 154,
+   "end": 159,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30240021,
+ "title": "",
+ "abstract": "In a double-blind study, tyrothricin (n = 62; 0.1 g tyrothricin per 100 g of vehicle) or placebo powder (n = 69) was applied to the wound twice daily for 9 days.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D004311",
+   "mention": "double-blind study",
+   "start": 5,
+   "end": 23,
+   "type": "Method"
+  },
+  {
+   "id": "CHEMBL577736",
+   "mention": "tyrothricin",
+   "start": 25,
+   "end": 36,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL577736",
+   "mention": "tyrothricin",
+   "start": 52,
+   "end": 63,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL2108661",
+   "mention": "vehicle",
+   "start": 77,
+   "end": 84,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D010919",
+   "mention": "placebo",
+   "start": 89,
+   "end": 96,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D011208",
+   "mention": "powder",
+   "start": 97,
+   "end": 103,
+   "type": "DosageForm"
+  },
+  {
+   "id": "MESH:D014947",
+   "mention": "wound",
+   "start": 132,
+   "end": 137,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30240022,
+ "title": "",
+ "abstract": "During 9 days of double-blind treatment, tyrothricin (n = 62; 0.1 g tyrothricin per 100 g base) or placebo powder (n = 69) was to be applied to the wound area 2 \u00d7 daily.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 30,
+   "end": 39,
+   "type": "Method"
+  },
+  {
+   "id": "CHEMBL577736",
+   "mention": "tyrothricin",
+   "start": 41,
+   "end": 52,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL577736",
+   "mention": "tyrothricin",
+   "start": 68,
+   "end": 79,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D010919",
+   "mention": "placebo",
+   "start": 99,
+   "end": 106,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D011208",
+   "mention": "powder",
+   "start": 107,
+   "end": 113,
+   "type": "DosageForm"
+  },
+  {
+   "id": "MESH:D014947",
+   "mention": "wound",
+   "start": 148,
+   "end": 153,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30240031,
+ "title": "",
+ "abstract": "The primary aim was to evaluate the average daily reduction of the radius from the lesion area between the start and end of the randomized treatment (\u03b1 = 0.025; one-sided).",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 139,
+   "end": 148,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30240032,
+ "title": "",
+ "abstract": "The primary efficacy parameter was the average daily reduction in wound radius calculated from wound area between the start and end of randomized treatment (\u03b1 = 0.025; unilateral).",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D014947",
+   "mention": "wound",
+   "start": 66,
+   "end": 71,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D014947",
+   "mention": "wound",
+   "start": 95,
+   "end": 100,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 146,
+   "end": 155,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30240041,
+ "title": "",
+ "abstract": "Secondly, a wound index (range 0\u201315) was calculated from the assessments of rubor, crusting, exudation, pain and functional impairment.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D014947",
+   "mention": "wound",
+   "start": 12,
+   "end": 17,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30240042,
+ "title": "",
+ "abstract": "A wound index (range of values: 0-15) was calculated from the assessment of symptoms of redness, coatings, exudation, pain, and functional limitation.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D014947",
+   "mention": "wound",
+   "start": 2,
+   "end": 7,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30240051,
+ "title": "",
+ "abstract": "Results: The treatment groups were comparable at baseline.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 13,
+   "end": 22,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30240052,
+ "title": "",
+ "abstract": "Results: Wound radius decreased by an average of 0.55 \u00b1 0.31 mm/day (mean \u00b1 s) under tyrothricin and 0.47 \u00b1 0.30 mm/day under placebo in the intention-to-treat collective at comparable baseline (p = 0.016; one-sided).",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D014947",
+   "mention": "wound",
+   "start": 9,
+   "end": 14,
+   "type": "Disease"
+  },
+  {
+   "id": "CHEMBL577736",
+   "mention": "tyrothricin",
+   "start": 85,
+   "end": 96,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D010919",
+   "mention": "placebo",
+   "start": 126,
+   "end": 133,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30240061,
+ "title": "",
+ "abstract": "During randomized treatment, the radius of the lesions was reduced at an average of 0.55 \u00b1 0.31 mm/day (mean \u00b1 SD) for tyrothricin and 0.47 \u00b1 0.30 mm/day for placebo (p = 0.016; one-sided; intention-to-treat data set).",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 18,
+   "end": 27,
+   "type": "Method"
+  },
+  {
+   "id": "CHEMBL577736",
+   "mention": "tyrothricin",
+   "start": 119,
+   "end": 130,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D010919",
+   "mention": "placebo",
+   "start": 158,
+   "end": 165,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30240062,
+ "title": "",
+ "abstract": "The wound index decreased by a mean of 4.2 \u00b1 1.7 points under tyrothricin and 3.3 \u00b1 1.9 points under placebo (p = 0.0048; one-sided).",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D014947",
+   "mention": "wound",
+   "start": 4,
+   "end": 9,
+   "type": "Disease"
+  },
+  {
+   "id": "CHEMBL577736",
+   "mention": "tyrothricin",
+   "start": 62,
+   "end": 73,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D010919",
+   "mention": "placebo",
+   "start": 101,
+   "end": 108,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30240071,
+ "title": "",
+ "abstract": "The wound index decreased at an average of 4.2 \u00b1 1.7 and 3.3 \u00b1 1.9 points for tyrothricin and placebo, respectively (p = 0.0048; one-sided).",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D014947",
+   "mention": "wound",
+   "start": 4,
+   "end": 9,
+   "type": "Disease"
+  },
+  {
+   "id": "CHEMBL577736",
+   "mention": "tyrothricin",
+   "start": 78,
+   "end": 89,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D010919",
+   "mention": "placebo",
+   "start": 94,
+   "end": 101,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30240072,
+ "title": "",
+ "abstract": "Of 4 adverse events in each of the two treatment groups, a causal relationship with the medication could not be ruled out in only 3 cases under placebo.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 39,
+   "end": 48,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D010919",
+   "mention": "placebo",
+   "start": 144,
+   "end": 151,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30240081,
+ "title": "",
+ "abstract": "4 adverse events occurred in each group.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30240082,
+ "title": "",
+ "abstract": "Conclusions: The results demonstrate the promotion of healing of infected and infection-prone skin lesions by Tyrothricin powder (Tyrosur\u00ae powder) and its superiority over placebo.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL577736",
+   "mention": "tyrothricin",
+   "start": 110,
+   "end": 121,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D011208",
+   "mention": "powder",
+   "start": 122,
+   "end": 128,
+   "type": "DosageForm"
+  },
+  {
+   "id": "MESH:D011208",
+   "mention": "powder",
+   "start": 139,
+   "end": 145,
+   "type": "DosageForm"
+  },
+  {
+   "id": "MESH:D010919",
+   "mention": "placebo",
+   "start": 172,
+   "end": 179,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30240091,
+ "title": "",
+ "abstract": "A causal relationship with the investigational drug could not be excluded in 3 of the placebo group.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D010919",
+   "mention": "placebo",
+   "start": 86,
+   "end": 93,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30240092,
+ "title": "",
+ "abstract": "Due to the good tolerability and the lack of a systemic effect, the substance is suitable for therapy in skin injuries.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D013812",
+   "mention": "therapy",
+   "start": 94,
+   "end": 101,
+   "type": "Method"
+  },
+  {
+   "id": "MESH:D014947",
+   "mention": "injuries",
+   "start": 110,
+   "end": 118,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30240101,
+ "title": "",
+ "abstract": "Conclusion: The results confirm the tendency to an acceleration of wound healing by tyrothricin powder (Tyrosur\u00ae Powder) in case of infection or danger of infection.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D014947",
+   "mention": "wound",
+   "start": 67,
+   "end": 72,
+   "type": "Disease"
+  },
+  {
+   "id": "CHEMBL577736",
+   "mention": "tyrothricin",
+   "start": 84,
+   "end": 95,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D011208",
+   "mention": "powder",
+   "start": 96,
+   "end": 102,
+   "type": "DosageForm"
+  },
+  {
+   "id": "MESH:D011208",
+   "mention": "powder",
+   "start": 113,
+   "end": 119,
+   "type": "DosageForm"
+  },
+  {
+   "id": "MESH:D007239",
+   "mention": "infection",
+   "start": 132,
+   "end": 141,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D007239",
+   "mention": "infection",
+   "start": 155,
+   "end": 164,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30240111,
+ "title": "",
+ "abstract": "A superior efficacy compared to placebo was demonstrated.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "MESH:D010919",
+   "mention": "placebo",
+   "start": 32,
+   "end": 39,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30240121,
+ "title": "",
+ "abstract": "Due to its good tolerability and the absence of a systemic effects tyrothricin powder is appropriate for the treatment of superficial skin lesions.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL577736",
+   "mention": "tyrothricin",
+   "start": 67,
+   "end": 78,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D011208",
+   "mention": "powder",
+   "start": 79,
+   "end": 85,
+   "type": "DosageForm"
+  },
+  {
+   "id": "MESH:D013812",
+   "mention": "treatment",
+   "start": 109,
+   "end": 118,
+   "type": "Method"
+  }
+ ]
+},
+{
+ "id": 30250001,
+ "title": "",
+ "abstract": "2,5-Dichloro-4-methyl-benzo[c][2,7]naphthyridine (1) reacted with aromatic amines selectively by substitution at the 5-position to yield the amidines 2.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30250002,
+ "title": "",
+ "abstract": "2,5-Dichloro-4-methyl-benzo[c][2,7]naphthyridine (1) reacted selectively with aromatic amines with substitution at the 5-position to give the amidines 2.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 30250011,
+ "title": "",
+ "abstract": "The 4-aminophenol 2c could also be synthesized by cleavage of the ether 2b.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL1142",
+   "mention": "4-aminophenol",
+   "start": 4,
+   "end": 17,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL388353",
+   "mention": "4-aminophenol",
+   "start": 4,
+   "end": 17,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL16264",
+   "mention": "ether",
+   "start": 66,
+   "end": 71,
+   "type": "Excipient"
+  }
+ ]
+},
+{
+ "id": 30250012,
+ "title": "",
+ "abstract": "The 4-aminophenol 2c could also be prepared by ether cleavage of 2b.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL1142",
+   "mention": "4-aminophenol",
+   "start": 4,
+   "end": 17,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL388353",
+   "mention": "4-aminophenol",
+   "start": 4,
+   "end": 17,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL16264",
+   "mention": "ether",
+   "start": 47,
+   "end": 52,
+   "type": "Excipient"
+  }
+ ]
+},
+{
+ "id": 30250021,
+ "title": "",
+ "abstract": "The structure of 2c was proved by X-ray crystal analysis.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Crystal",
+   "mention": "crystal",
+   "start": 40,
+   "end": 47,
+   "type": "Excipient"
+  }
+ ]
+},
+{
+ "id": 30250022,
+ "title": "",
+ "abstract": "The structure of 2c was proved by X-ray crystal analysis.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Crystal",
+   "mention": "crystal",
+   "start": 40,
+   "end": 47,
+   "type": "Excipient"
+  }
+ ]
+},
+{
+ "id": 30250031,
+ "title": "",
+ "abstract": "Aminomethylation of 2c yielded the amodiaquine analogue 3.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL682",
+   "mention": "amodiaquine",
+   "start": 35,
+   "end": 46,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30250032,
+ "title": "",
+ "abstract": "Aminomethylation of 2c afforded the amodiaquine analogue 3.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL682",
+   "mention": "amodiaquine",
+   "start": 36,
+   "end": 47,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30250041,
+ "title": "",
+ "abstract": "The mono- and bisaminomethylated derivatives 4 and 5 were obtained by reaction of compound 1 with phenol Mannich base hydrochlorides.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL129",
+   "mention": "compound",
+   "start": 82,
+   "end": 90,
+   "type": "Drug"
+  },
+  {
+   "id": "CHEMBL14060",
+   "mention": "phenol",
+   "start": 98,
+   "end": 104,
+   "type": "Excipient"
+  }
+ ]
+},
+{
+ "id": 30250042,
+ "title": "",
+ "abstract": "Reaction of 1 with phenol Mannich base hydrochlorides gave the mono- and bisaminomethylated derivatives 4 and 5.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL14060",
+   "mention": "phenol",
+   "start": 19,
+   "end": 25,
+   "type": "Excipient"
+  }
+ ]
+},
+{
+ "id": 30250051,
+ "title": "",
+ "abstract": "Compounds 3\u20135 were tested in vitro for antimalarial activity using chloroquine-sensitive and resistant Plasmodium-falciparum strains.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL129",
+   "mention": "compounds",
+   "start": 0,
+   "end": 9,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D066298",
+   "mention": "in vitro",
+   "start": 26,
+   "end": 34,
+   "type": "LabMethod"
+  },
+  {
+   "id": "MESH:D013180",
+   "mention": "strains",
+   "start": 125,
+   "end": 132,
+   "type": "Disease"
+  }
+ ]
+},
+{
+ "id": 30250052,
+ "title": "",
+ "abstract": "Compounds 3-5 were tested for activity against malaria with a chloroquine-sensitive and -resistant Plasmodium falciparum strain in vitro.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL129",
+   "mention": "compounds",
+   "start": 0,
+   "end": 9,
+   "type": "Drug"
+  },
+  {
+   "id": "MESH:D008288",
+   "mention": "malaria",
+   "start": 47,
+   "end": 54,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D013180",
+   "mention": "strain",
+   "start": 121,
+   "end": 127,
+   "type": "Disease"
+  },
+  {
+   "id": "MESH:D066298",
+   "mention": "in vitro",
+   "start": 128,
+   "end": 136,
+   "type": "LabMethod"
+  }
+ ]
+},
+{
+ "id": 30250061,
+ "title": "",
+ "abstract": "The highest activities were shown by the pyronaridine-type compounds 5a and 5b with IC50 values of approximately 200 nM.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL129",
+   "mention": "compounds",
+   "start": 59,
+   "end": 68,
+   "type": "Drug"
+  }
+ ]
+},
+{
+ "id": 30250062,
+ "title": "",
+ "abstract": "Pyronaridine analogues 5a and 5b showed the best activities with IC50 values around 200 nM.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "CHEMBL35228",
+   "mention": "pyronaridine",
+   "start": 0,
+   "end": 12,
+   "type": "Drug"
+  }
+ ]
+}
+]
