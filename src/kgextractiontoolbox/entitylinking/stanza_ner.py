@@ -112,6 +112,7 @@ def main(arguments=None):
     docs_done = multiprocessing.Value('i', 0)
     docs_to_do = multiprocessing.Value('i', number_of_docs)
     start = datetime.now()
+    print_progress_with_eta("Tagging...", 0, docs_to_do.value, start, print_every_k=1, logger=logger)
 
     def consume_task(out_docs: List[TaggedDocument]):
         docs_done.value += len(out_docs)
