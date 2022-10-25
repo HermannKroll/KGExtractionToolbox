@@ -9,7 +9,7 @@ WIKIPEDIA_CORENLP_OPENIE_EXTRACATIONS_TEST="../data/wikipedia/extractions/corenl
 
 
 PUBMED_SAMPLE="../data/pubmed/pubmed_10k_with_entities.json"
-PUBMED_CORENLP_OPENIE_TEMP="../data/pubmed/corenlp_openie_performance.tsv"
+PUBMED_CORENLP_OPENIE_TEMP="../data/pubmed/corenlp_openie_benchmark.tsv"
 
 
 
