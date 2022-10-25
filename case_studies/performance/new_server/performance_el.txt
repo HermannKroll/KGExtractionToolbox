@@ -1,0 +1,16 @@
+# Measured on new server
+1. Vocab Linking PubMed: 9.071650016s
+2. Vocab Linking PubMed: 8.899019234s
+3. Vocab Linking PubMed: 9.022479974s
+1. Stanza NER Wikipedia: 241.209352368s
+2. Stanza NER Wikipedia: 243.840424861s
+3. Stanza NER Wikipedia: 241.522961096s
+1. Vocab Linking Wikipedia: 4.333419879s
+2. Vocab Linking Wikipedia: 4.079626318s
+3. Vocab Linking Wikipedia: 4.102951306s
+1. Stanza NER Pollux: 226.123561152s
+2. Stanza NER Pollux: 228.238395066s
+3. Stanza NER Pollux: 226.375276949s
+1. Vocab Linking Pollux: 5.495269426s
+2. Vocab Linking Pollux: 5.685670148s
+3. Vocab Linking Pollux: 6.447379549s
