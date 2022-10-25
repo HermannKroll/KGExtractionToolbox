@@ -1,0 +1,150 @@
+2022-10-24:18:56:51,946 INFO     [analyze_openie_tuples_complex.py:220] Reading OpenIE TSV file: ../data/wikipedia/corenlp.tsv
+2022-10-24:18:56:51,946 INFO     [load_openie_extractions.py:46] Reading OpenIE input...
+2022-10-24:18:56:56,542 INFO     [analyze_openie_tuples_complex.py:130] Analyzing tuples...
+2022-10-24:20:33:55,580 INFO     [analyze_openie_tuples_complex.py:189] ========================================================================================================================
+2022-10-24:20:33:55,580 INFO     [analyze_openie_tuples_complex.py:190] Open IE Tuple Analysis Report:
+2022-10-24:20:33:55,580 INFO     [analyze_openie_tuples_complex.py:191] #Document IDs: 1970
+2022-10-24:20:33:55,580 INFO     [analyze_openie_tuples_complex.py:192] #Tuples:       544842
+2022-10-24:20:33:55,580 INFO     [analyze_openie_tuples_complex.py:193] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:20:33:55,580 INFO     [analyze_openie_tuples_complex.py:195] #Complex subjects:  16926 (0.031065886991090995%)
+2022-10-24:20:33:55,580 INFO     [analyze_openie_tuples_complex.py:197] #Complex objects:   255152 (0.4683045727018108%)
+2022-10-24:20:33:55,580 INFO     [analyze_openie_tuples_complex.py:199] #Complex sentences: 486776 (0.8934259840467512%)
+2022-10-24:20:33:55,580 INFO     [analyze_openie_tuples_complex.py:200] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:20:33:55,580 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:20:33:55,580 INFO     [analyze_openie_tuples_complex.py:204] has_adposition subjects: 1734 (0.0031825740306364045%)
+2022-10-24:20:33:55,580 INFO     [analyze_openie_tuples_complex.py:205] has_adposition objects: 247301 (0.45389489062884286%)
+2022-10-24:20:33:55,580 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:204] has_conjunction subjects: 28 (5.139104547740446e-05%)
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:205] has_conjunction objects: 119 (0.00021841194327896894%)
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:204] has_nouns_only subjects: 246091 (0.45167406330642645%)
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:205] has_nouns_only objects: 152513 (0.27992151853197805%)
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:204] has_nouns_pronouns_adjectives_only subjects: 497081 (0.9123397241769173%)
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:205] has_nouns_pronouns_adjectives_only objects: 225230 (0.4133858990312788%)
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:204] has_nouns_pronouns_only subjects: 440678 (0.80881796924613%)
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:205] has_nouns_pronouns_only objects: 169286 (0.3107065901674247%)
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:204] has_verb subjects: 39429 (0.07236776900459216%)
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:205] has_verb objects: 176626 (0.32417838566043%)
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:204] lt_20_of_sentence subjects: 14199 (0.02606076624048807%)
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:205] lt_20_of_sentence objects: 185442 (0.34035922340788705%)
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:204] lt_30_of_sentence subjects: 2922 (0.005363022674463422%)
+2022-10-24:20:33:55,581 INFO     [analyze_openie_tuples_complex.py:205] lt_30_of_sentence objects: 106489 (0.19544932292297584%)
+2022-10-24:20:33:55,582 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:20:33:55,582 INFO     [analyze_openie_tuples_complex.py:204] lt_40_of_sentence subjects: 621 (0.0011397799729095774%)
+2022-10-24:20:33:55,582 INFO     [analyze_openie_tuples_complex.py:205] lt_40_of_sentence objects: 57892 (0.10625465731349638%)
+2022-10-24:20:33:55,582 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:20:33:55,582 INFO     [analyze_openie_tuples_complex.py:204] lt_50_of_sentence subjects: 122 (0.00022391812672297657%)
+2022-10-24:20:33:55,582 INFO     [analyze_openie_tuples_complex.py:205] lt_50_of_sentence objects: 27761 (0.05095238619636518%)
+2022-10-24:20:33:55,582 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:20:33:55,582 INFO     [analyze_openie_tuples_complex.py:204] lt_60_of_sentence subjects: 25 (4.5884862033396837e-05%)
+2022-10-24:20:33:55,582 INFO     [analyze_openie_tuples_complex.py:205] lt_60_of_sentence objects: 11409 (0.020940015637560982%)
+2022-10-24:20:33:55,582 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:20:33:55,582 INFO     [analyze_openie_tuples_complex.py:204] lt_70_of_sentence subjects: 5 (9.176972406679368e-06%)
+2022-10-24:20:33:55,582 INFO     [analyze_openie_tuples_complex.py:205] lt_70_of_sentence objects: 3445 (0.006322933988202085%)
+2022-10-24:20:33:55,582 INFO     [analyze_openie_tuples_complex.py:206] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:20:33:55,582 INFO     [analyze_openie_tuples_complex.py:208] ========================================================================================================================
+2022-10-24:20:33:58,375 INFO     [analyze_openie_tuples_complex.py:220] Reading OpenIE TSV file: ../data/pubmed/corenlp.tsv
+2022-10-24:20:33:58,375 INFO     [load_openie_extractions.py:46] Reading OpenIE input...
+2022-10-24:20:34:06,228 INFO     [analyze_openie_tuples_complex.py:130] Analyzing tuples...
+2022-10-24:23:21:54,931 INFO     [analyze_openie_tuples_complex.py:189] ========================================================================================================================
+2022-10-24:23:21:54,931 INFO     [analyze_openie_tuples_complex.py:190] Open IE Tuple Analysis Report:
+2022-10-24:23:21:54,931 INFO     [analyze_openie_tuples_complex.py:191] #Document IDs: 8651
+2022-10-24:23:21:54,931 INFO     [analyze_openie_tuples_complex.py:192] #Tuples:       930014
+2022-10-24:23:21:54,931 INFO     [analyze_openie_tuples_complex.py:193] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:23:21:54,931 INFO     [analyze_openie_tuples_complex.py:195] #Complex subjects:  36982 (0.039764992785054847%)
+2022-10-24:23:21:54,931 INFO     [analyze_openie_tuples_complex.py:197] #Complex objects:   492567 (0.5296339624994892%)
+2022-10-24:23:21:54,931 INFO     [analyze_openie_tuples_complex.py:199] #Complex sentences: 798374 (0.8584537437070839%)
+2022-10-24:23:21:54,931 INFO     [analyze_openie_tuples_complex.py:200] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:23:21:54,931 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:23:21:54,931 INFO     [analyze_openie_tuples_complex.py:204] has_adposition subjects: 8226 (0.008845028139361343%)
+2022-10-24:23:21:54,931 INFO     [analyze_openie_tuples_complex.py:205] has_adposition objects: 484727 (0.5212039818755416%)
+2022-10-24:23:21:54,931 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:204] has_conjunction subjects: 366 (0.00039354246280163527%)
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:205] has_conjunction objects: 1051 (0.0011300905147664444%)
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:204] has_nouns_only subjects: 472820 (0.5084009488029212%)
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:205] has_nouns_only objects: 179078 (0.1925540905835826%)
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:204] has_nouns_pronouns_adjectives_only subjects: 765198 (0.8227811624341139%)
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:205] has_nouns_pronouns_adjectives_only objects: 292596 (0.3146146187046647%)
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:204] has_nouns_pronouns_only subjects: 553468 (0.5951179229559985%)
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:205] has_nouns_pronouns_only objects: 182627 (0.19637016216960174%)
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:204] has_verb subjects: 142653 (0.15338801351377507%)
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:205] has_verb objects: 374403 (0.40257781065661374%)
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:204] lt_20_of_sentence subjects: 51154 (0.05500347306599686%)
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:205] lt_20_of_sentence objects: 374013 (0.40215846213067763%)
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:23:21:54,932 INFO     [analyze_openie_tuples_complex.py:204] lt_30_of_sentence subjects: 9780 (0.010515970727322384%)
+2022-10-24:23:21:54,933 INFO     [analyze_openie_tuples_complex.py:205] lt_30_of_sentence objects: 212376 (0.22835785267748657%)
+2022-10-24:23:21:54,933 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:23:21:54,933 INFO     [analyze_openie_tuples_complex.py:204] lt_40_of_sentence subjects: 2054 (0.002208568903263822%)
+2022-10-24:23:21:54,933 INFO     [analyze_openie_tuples_complex.py:205] lt_40_of_sentence objects: 108220 (0.11636383968413379%)
+2022-10-24:23:21:54,933 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:23:21:54,933 INFO     [analyze_openie_tuples_complex.py:204] lt_50_of_sentence subjects: 416 (0.00044730509433191327%)
+2022-10-24:23:21:54,933 INFO     [analyze_openie_tuples_complex.py:205] lt_50_of_sentence objects: 46018 (0.0494809755552067%)
+2022-10-24:23:21:54,933 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:23:21:54,933 INFO     [analyze_openie_tuples_complex.py:204] lt_60_of_sentence subjects: 88 (9.462223149328934e-05%)
+2022-10-24:23:21:54,933 INFO     [analyze_openie_tuples_complex.py:205] lt_60_of_sentence objects: 15240 (0.016386850090428746%)
+2022-10-24:23:21:54,933 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:23:21:54,933 INFO     [analyze_openie_tuples_complex.py:204] lt_70_of_sentence subjects: 16 (1.7204042089688973e-05%)
+2022-10-24:23:21:54,933 INFO     [analyze_openie_tuples_complex.py:205] lt_70_of_sentence objects: 3228 (0.0034709154915947503%)
+2022-10-24:23:21:54,933 INFO     [analyze_openie_tuples_complex.py:206] ------------------------------------------------------------------------------------------------------------------------
+2022-10-24:23:21:54,933 INFO     [analyze_openie_tuples_complex.py:208] ========================================================================================================================
+2022-10-24:23:21:57,949 INFO     [analyze_openie_tuples_complex.py:220] Reading OpenIE TSV file: ../data/pollux/corenlp.tsv
+2022-10-24:23:21:57,949 INFO     [load_openie_extractions.py:46] Reading OpenIE input...
+2022-10-24:23:22:02,834 INFO     [analyze_openie_tuples_complex.py:130] Analyzing tuples...
+2022-10-25:01:04:54,385 INFO     [analyze_openie_tuples_complex.py:189] ========================================================================================================================
+2022-10-25:01:04:54,385 INFO     [analyze_openie_tuples_complex.py:190] Open IE Tuple Analysis Report:
+2022-10-25:01:04:54,385 INFO     [analyze_openie_tuples_complex.py:191] #Document IDs: 9318
+2022-10-25:01:04:54,385 INFO     [analyze_openie_tuples_complex.py:192] #Tuples:       569131
+2022-10-25:01:04:54,385 INFO     [analyze_openie_tuples_complex.py:193] ------------------------------------------------------------------------------------------------------------------------
+2022-10-25:01:04:54,385 INFO     [analyze_openie_tuples_complex.py:195] #Complex subjects:  15884 (0.027909215980152197%)
+2022-10-25:01:04:54,385 INFO     [analyze_openie_tuples_complex.py:197] #Complex objects:   301370 (0.5295265940530387%)
+2022-10-25:01:04:54,385 INFO     [analyze_openie_tuples_complex.py:199] #Complex sentences: 507573 (0.8918386100915255%)
+2022-10-25:01:04:54,385 INFO     [analyze_openie_tuples_complex.py:200] ------------------------------------------------------------------------------------------------------------------------
+2022-10-25:01:04:54,385 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-25:01:04:54,385 INFO     [analyze_openie_tuples_complex.py:204] has_adposition subjects: 1678 (0.002948354596744862%)
+2022-10-25:01:04:54,385 INFO     [analyze_openie_tuples_complex.py:205] has_adposition objects: 299117 (0.5255679272434641%)
+2022-10-25:01:04:54,385 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:204] has_conjunction subjects: 30 (5.27119415389427e-05%)
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:205] has_conjunction objects: 275 (0.00048319279744030814%)
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:204] has_nouns_only subjects: 305101 (0.5360822025157652%)
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:205] has_nouns_only objects: 115761 (0.2033995688163182%)
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:204] has_nouns_pronouns_adjectives_only subjects: 501869 (0.8818163129402545%)
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:205] has_nouns_pronouns_adjectives_only objects: 188492 (0.33119264281861294%)
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:204] has_nouns_pronouns_only subjects: 379140 (0.6661735171691578%)
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:205] has_nouns_pronouns_only objects: 121787 (0.21398764080677385%)
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:204] has_verb subjects: 61356 (0.10780646283544562%)
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:205] has_verb objects: 213403 (0.374962882007833%)
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:204] lt_20_of_sentence subjects: 20205 (0.035501492626477914%)
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:205] lt_20_of_sentence objects: 206869 (0.36348222114065126%)
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:204] lt_30_of_sentence subjects: 4295 (0.007546592963658631%)
+2022-10-25:01:04:54,386 INFO     [analyze_openie_tuples_complex.py:205] lt_30_of_sentence objects: 115661 (0.20322386234452175%)
+2022-10-25:01:04:54,387 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-25:01:04:54,387 INFO     [analyze_openie_tuples_complex.py:204] lt_40_of_sentence subjects: 1232 (0.00216470373253258%)
+2022-10-25:01:04:54,387 INFO     [analyze_openie_tuples_complex.py:205] lt_40_of_sentence objects: 60216 (0.1058034090569658%)
+2022-10-25:01:04:54,387 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-25:01:04:54,387 INFO     [analyze_openie_tuples_complex.py:204] lt_50_of_sentence subjects: 414 (0.0007274247932374093%)
+2022-10-25:01:04:54,387 INFO     [analyze_openie_tuples_complex.py:205] lt_50_of_sentence objects: 27252 (0.04788352769397555%)
+2022-10-25:01:04:54,387 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-25:01:04:54,387 INFO     [analyze_openie_tuples_complex.py:204] lt_60_of_sentence subjects: 183 (0.0003215428433875505%)
+2022-10-25:01:04:54,387 INFO     [analyze_openie_tuples_complex.py:205] lt_60_of_sentence objects: 9442 (0.016590205067023234%)
+2022-10-25:01:04:54,387 INFO     [analyze_openie_tuples_complex.py:203] ------------------------------------------------------------------------------------------------------------------------
+2022-10-25:01:04:54,387 INFO     [analyze_openie_tuples_complex.py:204] lt_70_of_sentence subjects: 81 (0.0001423222421551453%)
+2022-10-25:01:04:54,387 INFO     [analyze_openie_tuples_complex.py:205] lt_70_of_sentence objects: 2087 (0.0036669940663924473%)
+2022-10-25:01:04:54,387 INFO     [analyze_openie_tuples_complex.py:206] ------------------------------------------------------------------------------------------------------------------------
+2022-10-25:01:04:54,387 INFO     [analyze_openie_tuples_complex.py:208] ========================================================================================================================
