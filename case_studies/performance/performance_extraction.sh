@@ -1,12 +1,12 @@
 #!/bin/bash
 POLLUX_DOC="../data/pollux/pollux_docs.json"
 POLLUX_DOC_ENTITIES="../data/pollux/pollux_docs_with_entities.json"
-POLLUX_OPENIE6_EXTRACATIONS_TEST="../data/pollux/extractions/openie6_benchmark.tsv"
+POLLUX_OPENIE6_EXTRACATIONS_TEST="../data/pollux/openie6_benchmark.tsv"
 
 
 WIKIPEDIA_DOC="../data/wikipedia/wikipedia_scientists.json"
 WIKIPEDIA_DOC_ENTITIES="../data/wikipedia/wikipedia_scientists_entities.json"
-WIKIPEDIA_OPENIE6_EXTRACATIONS_TEST="../data/wikipedia/extractions/openie6_benchmark.tsv"
+WIKIPEDIA_OPENIE6_EXTRACATIONS_TEST="../data/wikipedia/openie6_benchmark.tsv"
 
 
 PUBMED_SAMPLE="../data/pubmed/pubmed_10k_with_entities.json"
