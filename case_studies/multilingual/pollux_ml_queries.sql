@@ -63,7 +63,7 @@ ORDER BY document_collection, extraction_type, document_id;
 
 
 -- No Filter
-SELECT Predication.document_id, subject_type, predicate_org, predicate, object_str, Sentence.text
+SELECT Predication.document_id, subject_str, predicate_org, predicate, object_str, Sentence.text
 FROM Predication JOIN Sentence ON (Predication.sentence_id = Sentence.id)
 WHERE extraction_type = 'OPENIE6_NF' and Predication.document_collection = 'pollux_ml'
 ORDER BY Predication.document_id;
