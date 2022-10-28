@@ -6,12 +6,8 @@ POLLUX_CORENLP_EXTRACATIONS="../data/pollux/corenlp.tsv"
 # Load Pollux documents with tags
 python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/document/load_document.py $POLLUX_DOC_ENTITIES -c pollux
 
-# Next Delete all short entities
-python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/delete_short_tags.py 5 -c pollux
-
 # Analyze sentences
 python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/document/count_sentences.py $POLLUX_DOC_ENTITIES
-
 
 # run CoreNLP
 python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/openie/main.py $POLLUX_DOC_ENTITIES $POLLUX_CORENLP_EXTRACATIONS --no_entity_filter
@@ -24,4 +20,4 @@ python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/loading/load_op
 
 
 # Analyze the extractions
-#python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/analyze_openie_tuples.py $POLLUX_CORENLP_EXTRACATIONS
+python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/analyze_openie_tuples.py $POLLUX_CORENLP_EXTRACATIONS
