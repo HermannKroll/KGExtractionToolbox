@@ -9,9 +9,8 @@ PUBMED_OPENIE6_EXTRACTIONS="../data/pubmed/openie6.tsv"
 # Load all documents with Entities
 python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/document/load_document.py $PUBMED_SAMPLE_WITH_ENTITIES -c PubMed_canon
 
-
 # Run Open IE 6
-# python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/openie6/main.py $PUBMED_SAMPLE $PUBMED_OPENIE6_EXTRACTIONS  --no_entity_filter
+python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/openie6/main.py $PUBMED_SAMPLE $PUBMED_OPENIE6_EXTRACTIONS  --no_entity_filter
 
 
 # Load OpenIE6
