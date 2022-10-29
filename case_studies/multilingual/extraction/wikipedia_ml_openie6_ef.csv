@@ -1,0 +1,5 @@
+document_id,subject_str,subject_id,subject_type,predicate_org,predicate,object_str,object_id,object_type,text
+10010241,einstein,Einstein,PERSON,was visiting,be visit,the united states,the United States,GPE,"In 1933 , while Einstein was visiting the United States , Adolf Hitler came to power in Germany ."
+10010241,einstein,Einstein,PERSON,was visiting,be visit,the united states,http://www.wikidata.org/entity/Q30,Country,"In 1933 , while Einstein was visiting the United States , Adolf Hitler came to power in Germany ."
+10010241,einstein,http://www.wikidata.org/entity/Q937,Person,was visiting,be visit,the united states,the United States,GPE,"In 1933 , while Einstein was visiting the United States , Adolf Hitler came to power in Germany ."
+10010241,einstein,http://www.wikidata.org/entity/Q937,Person,was visiting,be visit,the united states,http://www.wikidata.org/entity/Q30,Country,"In 1933 , while Einstein was visiting the United States , Adolf Hitler came to power in Germany ."
