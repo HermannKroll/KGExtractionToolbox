@@ -10,23 +10,27 @@ RELATION_VOCAB_PERSON="../data/wikipedia/relation_vocab_person.json"
 
 
 
+# Analyze the vocabulary
+python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/tagging/vocabulary_analysis.py $WIKIDATA_VOCAB
+
+
 # Load document content
-python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/document/load_document.py $WIKIPEDIA_DOC -c scientists
+# python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/document/load_document.py $WIKIPEDIA_DOC -c scientists
 
 
 # Analyze sentences
-python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/document/count_sentences.py $WIKIPEDIA_DOC_ENTITIES
-
+# python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/document/count_sentences.py $WIKIPEDIA_DOC_ENTITIES
 
 
 # First perform Stanza NER
-python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/stanza_ner.py -c scientists $WIKIPEDIA_DOC
+# python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/stanza_ner.py -c scientists $WIKIPEDIA_DOC
 # Perform EL with our dictionaries
-python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/vocab_entity_linking.py $WIKIPEDIA_DOC -c scientists -v $WIKIDATA_VOCAB --skip-load -f
+# python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/vocab_entity_linking.py $WIKIPEDIA_DOC -c scientists -v $WIKIDATA_VOCAB --skip-load -f
 
+
+python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/document/load_document.py $WIKIPEDIA_DOC_ENTITIES -c scientists
 # Next Delete all short entities
 python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/delete_short_tags.py 5 -c scientists
-
 
 
 # run OpenIE6
@@ -51,6 +55,8 @@ python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/pipeline.py -c 
 python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/cleaning/canonicalize_predicates.py -c scientists --relation_vocab $RELATION_VOCAB_SMALL --min_predicate_threshold 0
 
 # canonicalize with small vocabulary with word embeddings
+# Load Word2Vec model
+# wget https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.en.zip
 # python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/cleaning/canonicalize_predicates.py -c scientists --relation_vocab $RELATION_VOCAB_PERSON --min_predicate_threshold 0 --min_distance 1.0 --word2vec /home/jan/models/wiki.en.bin
 
 
