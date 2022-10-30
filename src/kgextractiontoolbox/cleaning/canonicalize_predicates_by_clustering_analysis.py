@@ -1,6 +1,5 @@
 import argparse
 import logging
-from collections import defaultdict
 from datetime import datetime
 from typing import List, Tuple
 
@@ -8,13 +7,10 @@ import fasttext
 import numpy
 import scipy.cluster.hierarchy
 from scipy.spatial.distance import pdist
-from sqlalchemy import update
 
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import Predication
 from kgextractiontoolbox.cleaning.canonicalize_predicates import filter_predicate_list
-from kgextractiontoolbox.cleaning.canonicalize_predicates_by_clustering import compute_mapping_plan_with_clustering
-from kgextractiontoolbox.cleaning.relation_vocabulary import RelationVocabulary
 from kgextractiontoolbox.progress import print_progress_with_eta
 
 
