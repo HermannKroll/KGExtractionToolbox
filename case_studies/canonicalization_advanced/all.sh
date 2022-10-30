@@ -1,4 +1,4 @@
 #!/bin/bash
-bash pollux_scripts.sh
-bash wikipedia_scripts.sh
-bash pubmed_scripts.sh
+bash load_pollux_scripts.sh
+bash load_wikipedia_scripts.sh
+bash load_pubmed_scripts.sh
