@@ -17,5 +17,5 @@ python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/loading/load_op
 python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/loading/load_openie_extractions.py $PUBMED_CORENLP_OPENIE_EXTRACTIONS -c PubMed -et CORENLP_OPENIE_SF --entity_filter only_subject_exact
 
 # Analyze the Tuples
-# python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/analyze_openie_tuples.py $PUBMED_CORENLP_OPENIE_EXTRACTIONS
+python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/analyze_openie_tuples.py $PUBMED_CORENLP_OPENIE_EXTRACTIONS
 

@@ -20,7 +20,7 @@ python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/loading/load_op
 
 
 # Analyze extractions
-# python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/analyze_openie_tuples.py $WIKIPEDIA_CORENLP_EXTRACATIONS
+python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/analyze_openie_tuples.py $WIKIPEDIA_CORENLP_EXTRACATIONS
 
 
 
