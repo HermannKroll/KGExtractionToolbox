@@ -72,7 +72,7 @@ def analyze_canonicalize_predication_table_with_clustering(document_collection=N
     logging.info('Filtering with minimum count...')
     predicates = filter_predicate_list(predicates_with_count, min_predicate_threshold)
     logging.info('{} predicates obtained'.format(len(predicates)))
-    logging.info('Analyzing predicate cluters...')
+    logging.info('Analyzing predicate clusters...')
     analyze_cluster_canonicalize_predicates_with_word2vec_model(model, predicates)
     logging.info('Finished')
     logging.info('==' * 60)
