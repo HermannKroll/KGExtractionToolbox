@@ -63,6 +63,9 @@ def analyze_canonicalize_predication_table_with_clustering(document_collection=N
     :param min_predicate_threshold: how often should a predicate occur at minimum (0.1 means that the predicate appears in at least 10% of all extractions)
     :return: None
     """
+    logging.info('==' * 60)
+    logging.info('==' * 60)
+    logging.info(f'Used collection: {document_collection}')
     logging.info(f'Loading Word2Vec model from {word2vec_model_file}')
     model = fasttext.load_model(word2vec_model_file)
 
@@ -76,6 +79,8 @@ def analyze_canonicalize_predication_table_with_clustering(document_collection=N
     logging.info('Analyzing predicate cluters...')
     analyze_cluster_canonicalize_predicates_with_word2vec_model(model, predicates)
     logging.info('Finished')
+    logging.info('==' * 60)
+    logging.info('==' * 60)
 
 
 def main():
