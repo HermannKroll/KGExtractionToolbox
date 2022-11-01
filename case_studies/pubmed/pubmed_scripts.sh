@@ -1,12 +1,14 @@
 #!/bin/bash
 PUBMED_SAMPLE="../data/pubmed/pubmed_10k.json"
-PUBMED_SAMPLE_WITH_ENTITIES="../data/pubmed/pubmed_10k.json"
+PUBMED_SAMPLE_WITH_ENTITIES="../data/pubmed/pubmed_10k_with_entities.json"
 RELATION_VOCAB="../data/pubmed/pharm_relation_vocab.json"
 PHARMACY_VOCAB="../data/pubmed/pubpharm_vocab_2022.tsv"
 
 PATHIE_OUTPUT="../data/pubmed/pathie.tsv"
 PUBMED_OPENIE6_EXTRACTIONS="../data/pubmed/openie6.tsv"
 
+# Analyze the vocabulary
+python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/entitylinking/tagging/vocabulary_analysis.py $PHARMACY_VOCAB
 
 
 # Load all documents
@@ -18,6 +20,7 @@ python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/document/load_document.py 
 
 # Analyze sentences
 python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/document/count_sentences.py $PUBMED_SAMPLE_WITH_ENTITIES
+
 
 # Run Open IE 6
 python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/openie6/main.py $PUBMED_SAMPLE $PUBMED_OPENIE6_EXTRACTIONS  --no_entity_filter
@@ -36,4 +39,4 @@ python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/analyze_openie_
 python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/extraction/pipeline.py -c PubMed -et PathIE --relation_vocab $RELATION_VOCAB --workers 32
 
 # Canonicalize predicates
-python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/cleaning/canonicalize_predicates.py -c PubMed --word2vec_model ../data/BioWordVec_PubMed_MIMICIII_d200.bin --relation_vocab $RELATION_VOCAB
+#python3 ~/KGExtractionToolbox/src/kgextractiontoolbox/cleaning/canonicalize_predicates.py -c PubMed --word2vec_model ../data/BioWordVec_PubMed_MIMICIII_d200.bin --relation_vocab $RELATION_VOCAB

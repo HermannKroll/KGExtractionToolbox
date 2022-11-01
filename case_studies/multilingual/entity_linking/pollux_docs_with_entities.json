@@ -1,0 +1,4614 @@
+[
+{
+ "id": 20060001,
+ "title": "",
+ "abstract": "This Discussion Paper presents a literature review about performance incentives and workplace behaviour, which was prepared in the context of the research project Performance Management Policies.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "This Discussion Paper",
+   "mention": "This Discussion Paper",
+   "start": 1,
+   "end": 22,
+   "type": "ORG"
+  },
+  {
+   "id": "Performance Management Policies",
+   "mention": "Performance Management Policies",
+   "start": 164,
+   "end": 195,
+   "type": "ORG"
+  }
+ ]
+},
+{
+ "id": 20060002,
+ "title": "",
+ "abstract": "This Discussion Paper presents a literature review on the topic of performance incentives and performance behavior, which was conducted in the context of the research project Performance Policy in International Comparison at the WZB.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Performance Policy in International Comparison",
+   "mention": "Performance Policy in International Comparison",
+   "start": 176,
+   "end": 222,
+   "type": "WORK_OF_ART"
+  }
+ ]
+},
+{
+ "id": 20060011,
+ "title": "",
+ "abstract": "An International Comparison.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060012,
+ "title": "",
+ "abstract": "The literature study has two goals.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060021,
+ "title": "",
+ "abstract": "The literature review has two main goals.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060022,
+ "title": "",
+ "abstract": "First, it compares theories and research approaches from economics, psychology, and sociology.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060031,
+ "title": "",
+ "abstract": "The first goal is to compare and discuss the different theoretical perspectives from economics, psychology and sociology.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060032,
+ "title": "",
+ "abstract": "Second, it examines the role that the research disciplines assign to cultural factors with regard to performance behavior and the design of performance incentives.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060041,
+ "title": "",
+ "abstract": "The second goal is to compare the three disciplines regarding their understanding of culture and the importance of cultural factors for the analysis of workplace behavior and performance incentives.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "three",
+   "mention": "three",
+   "start": 35,
+   "end": 40,
+   "type": "CARDINAL"
+  }
+ ]
+},
+{
+ "id": 20060042,
+ "title": "",
+ "abstract": "In particular, the agency theory of personnel economics, the bounded rationality approaches of behavioral economics, the motivation theories of organizational psychology, and the sociological theories of social compromises at the workplace, workplace social orders, and workplace work cultures are discussed comparatively.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060051,
+ "title": "",
+ "abstract": "The comparison includes personnel economics and agency theory, behavioral economics and their bounded rationality concepts, psychological theories of motivation, and sociological theories of social compromises at the workplace, workplace social orders and workplace cultures.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060052,
+ "title": "",
+ "abstract": "A consensus among the disciplines is not in sight.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060061,
+ "title": "",
+ "abstract": "The perspectives and theoretical concepts of all three disciplines differ strongly.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "three",
+   "mention": "three",
+   "start": 50,
+   "end": 55,
+   "type": "CARDINAL"
+  }
+ ]
+},
+{
+ "id": 20060062,
+ "title": "",
+ "abstract": "Interestingly, however, there are similar impulses with regard to future research questions.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060071,
+ "title": "",
+ "abstract": "There are, however, in all three disciplines similar impulses for future research questions.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "three",
+   "mention": "three",
+   "start": 28,
+   "end": 33,
+   "type": "CARDINAL"
+  }
+ ]
+},
+{
+ "id": 20060072,
+ "title": "",
+ "abstract": "Behavioral economics as well as organizational psychology and sociology of work emphasize the importance of framing performance incentives, generating trust, creating legitimacy, and key events such as crises, waves of layoffs, restructuring processes, and so on.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060081,
+ "title": "",
+ "abstract": "Behavioral economics, organizational psychology and sociology of work emphasize the importance of the framing of performance incentives, of trust and legitimacy at the workplace, and of crucial events like crises, redundancies and restructuring processes.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060082,
+ "title": "",
+ "abstract": "They can lead to virtuous circles or spirals of distrust.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060091,
+ "title": "",
+ "abstract": "They can initiate virtuous circles or self-reinforcing spirals of distrust.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060092,
+ "title": "",
+ "abstract": "The cultural context influences the development, but is reinforced, modified or even broken by the internal processes.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060101,
+ "title": "",
+ "abstract": "The cultural context of the workplaces influences the developments.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060102,
+ "title": "",
+ "abstract": "This suggests the development of process-oriented research approaches.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060111,
+ "title": "",
+ "abstract": "Its impact can be reinforced, modified but also broken by company-internal processes.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20060121,
+ "title": "",
+ "abstract": "This suggests developing process-oriented research approaches.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20070001,
+ "title": "",
+ "abstract": "\"Children from lower-educated and/or immigrant minority families generally start primary school at a deficit.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Q669262",
+   "mention": "primary",
+   "start": 81,
+   "end": 88,
+   "type": "Election"
+  }
+ ]
+},
+{
+ "id": 20070002,
+ "title": "",
+ "abstract": "\"Children from educationally disadvantaged households and/or immigrant children have an unfavorable starting position at the beginning of their primary school years.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Q669262",
+   "mention": "primary",
+   "start": 144,
+   "end": 151,
+   "type": "Election"
+  }
+ ]
+},
+{
+ "id": 20070011,
+ "title": "",
+ "abstract": "One way of improving these children's initial position is by stimulating the development of relevant knowledge and abilities before the start of formal elementary education, e.g. through participation in centers for preschool education.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20070012,
+ "title": "",
+ "abstract": "One of the ways to improve the starting position is to stimulate knowledge and skills at preschool age.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20070021,
+ "title": "",
+ "abstract": "Although such centers aim to improve the school careers of all children at risk, it can be assumed that children differ in the extent to which they benefit from taking part.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20070022,
+ "title": "",
+ "abstract": "Although preschool education centers aim to improve the school career of at-risk children, it can be assumed that children differ in the extent to which they benefit from participation.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20070031,
+ "title": "",
+ "abstract": "This paper describes the results of a study, conducted in the Netherlands, in which two variables were examined that are assumed to moderate the effectiveness of preschool center participation: (i) the (structural and process) quality of centers and (ii) the family backgrounds of articipating children.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Netherlands",
+   "mention": "Netherlands",
+   "start": 63,
+   "end": 74,
+   "type": "GPE"
+  }
+ ]
+},
+{
+ "id": 20070032,
+ "title": "",
+ "abstract": "This paper describes the results of a study in the Netherlands that examined two variables that are assumed to modify the effectiveness of preschool education centers: (i) the (structural and procedural) quality of the centers and (ii) the family background of the participating children.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Netherlands",
+   "mention": "Netherlands",
+   "start": 52,
+   "end": 63,
+   "type": "GPE"
+  }
+ ]
+},
+{
+ "id": 20070041,
+ "title": "",
+ "abstract": "The study reveals that preschool center participation contributes to children's early literacy development but that effects fade away over time.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20070042,
+ "title": "",
+ "abstract": "The study found that participation in preschool education centers contributes to early literacy development, but the effects diminish over time.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20070051,
+ "title": "",
+ "abstract": "Furthermore, the study shows that effective-ness is partly dependent on the adult-child ratio and, for children from immigrant minority families, on their home language situation.\" (",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20070052,
+ "title": "",
+ "abstract": "In addition, the effectiveness of the centers was found to depend in part on the adult-child ratio in the center and, for immigrant children, on the provision of Dutch language at home.\" (",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Dutch",
+   "mention": "Dutch",
+   "start": 163,
+   "end": 168,
+   "type": "LANGUAGE"
+  }
+ ]
+},
+{
+ "id": 20070061,
+ "title": "",
+ "abstract": "author's abstract)",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20070062,
+ "title": "",
+ "abstract": "Author's abstract).",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20080001,
+ "title": "",
+ "abstract": "Think tanks are institutions that create knowledge which influence public opinion and policy making processes.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20080002,
+ "title": "",
+ "abstract": "Think tanks are institutions that create orientation knowledge and introduce it into the political opinion- and will-forming process.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20080011,
+ "title": "",
+ "abstract": "In fact, neoliberalism can look back on a long tradition in this respect.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20080012,
+ "title": "",
+ "abstract": "Neoliberal awareness work can look back on a long tradition.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20080021,
+ "title": "",
+ "abstract": "Beginning with the Mont Pelerin Society, founded by the Austrian economist and philosopher Friedrich v. Hayek in 1947, there arised first in England, then in other countries numerous institutions whose intention were to oppose the Keynesean after-war-consensus.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "the Mont Pelerin Society",
+   "mention": "the Mont Pelerin Society",
+   "start": 16,
+   "end": 40,
+   "type": "ORG"
+  },
+  {
+   "id": "Austrian",
+   "mention": "Austrian",
+   "start": 57,
+   "end": 65,
+   "type": "NORP"
+  },
+  {
+   "id": "Friedrich",
+   "mention": "Friedrich",
+   "start": 92,
+   "end": 101,
+   "type": "PERSON"
+  },
+  {
+   "id": "Hayek",
+   "mention": "Hayek",
+   "start": 105,
+   "end": 110,
+   "type": "PERSON"
+  },
+  {
+   "id": "England",
+   "mention": "England",
+   "start": 142,
+   "end": 149,
+   "type": "GPE"
+  },
+  {
+   "id": "Keynesean",
+   "mention": "Keynesean",
+   "start": 232,
+   "end": 241,
+   "type": "PERSON"
+  }
+ ]
+},
+{
+ "id": 20080022,
+ "title": "",
+ "abstract": "Starting with the Mont Pelerin Society (MPS), founded by Friedrich v. Hayek in 1947, numerous institutions were formed, first in England and then in other countries, to counter the postwar Keynesianist consensus.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "the Mont Pelerin Society",
+   "mention": "the Mont Pelerin Society",
+   "start": 15,
+   "end": 39,
+   "type": "ORG"
+  },
+  {
+   "id": "Friedrich",
+   "mention": "Friedrich",
+   "start": 58,
+   "end": 67,
+   "type": "PERSON"
+  },
+  {
+   "id": "Hayek",
+   "mention": "Hayek",
+   "start": 71,
+   "end": 76,
+   "type": "PERSON"
+  },
+  {
+   "id": "England",
+   "mention": "England",
+   "start": 130,
+   "end": 137,
+   "type": "GPE"
+  },
+  {
+   "id": "Keynesianist",
+   "mention": "Keynesianist",
+   "start": 190,
+   "end": 202,
+   "type": "NORP"
+  }
+ ]
+},
+{
+ "id": 20080031,
+ "title": "",
+ "abstract": "Hayek called Western democracies 'unrestricted democracies' that would be inconsistent with a liberal order.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Hayek",
+   "mention": "Hayek",
+   "start": 1,
+   "end": 6,
+   "type": "PERSON"
+  },
+  {
+   "id": "Western",
+   "mention": "Western",
+   "start": 14,
+   "end": 21,
+   "type": "NORP"
+  }
+ ]
+},
+{
+ "id": 20080032,
+ "title": "",
+ "abstract": "Hayek called the Western democracies 'unrestricted democracies' that were incompatible with a liberal social and market order.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Hayek",
+   "mention": "Hayek",
+   "start": 1,
+   "end": 6,
+   "type": "PERSON"
+  },
+  {
+   "id": "Western",
+   "mention": "Western",
+   "start": 18,
+   "end": 25,
+   "type": "NORP"
+  }
+ ]
+},
+{
+ "id": 20080041,
+ "title": "",
+ "abstract": "In his view they would finally lead to 'The Road to Serfdom', that is the title of his famous book published in 1944.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "'The Road to Serfdom'",
+   "mention": "'The Road to Serfdom'",
+   "start": 40,
+   "end": 61,
+   "type": "WORK_OF_ART"
+  }
+ ]
+},
+{
+ "id": 20080042,
+ "title": "",
+ "abstract": "They would lead to the 'road of servitude,' according to the title of his book published in 1944.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20080051,
+ "title": "",
+ "abstract": "The Viennese Hayek Institute wants to support the worldwide renaissance of the Austrian School of Economics and tries to make its ideas useful for public affairs activities.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "The Viennese Hayek Institute",
+   "mention": "The Viennese Hayek Institute",
+   "start": 1,
+   "end": 29,
+   "type": "ORG"
+  },
+  {
+   "id": "the Austrian School of Economics",
+   "mention": "the Austrian School of Economics",
+   "start": 76,
+   "end": 108,
+   "type": "ORG"
+  }
+ ]
+},
+{
+ "id": 20080052,
+ "title": "",
+ "abstract": "The Vienna Hayek Institute has set itself the task of supporting the worldwide renaissance of the Austrian School of National Economics and actively disseminating its ideas, especially those of its namesake, and preparing them for domestic decision-makers.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "The Vienna Hayek Institute",
+   "mention": "The Vienna Hayek Institute",
+   "start": 1,
+   "end": 27,
+   "type": "ORG"
+  },
+  {
+   "id": "the Austrian School of National Economics",
+   "mention": "the Austrian School of National Economics",
+   "start": 95,
+   "end": 136,
+   "type": "ORG"
+  }
+ ]
+},
+{
+ "id": 20080061,
+ "title": "",
+ "abstract": "Starting with giving an overview of the basic ideas of Hayek the article first outlines the neoliberal think tank scene on a broad scale, also in a historical perspective, and tries to evaluate the significance of the Austrian School within this network; then it deals with the activities of the Hayek Institute and analyzes the connections with both national economic and political elites and a transnational neoliberal community.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Hayek",
+   "mention": "Hayek",
+   "start": 56,
+   "end": 61,
+   "type": "PERSON"
+  },
+  {
+   "id": "the Austrian School",
+   "mention": "the Austrian School",
+   "start": 215,
+   "end": 234,
+   "type": "ORG"
+  },
+  {
+   "id": "the Hayek Institute",
+   "mention": "the Hayek Institute",
+   "start": 293,
+   "end": 312,
+   "type": "ORG"
+  }
+ ]
+},
+{
+ "id": 20080062,
+ "title": "",
+ "abstract": "Building on the main features of Hayek's thinking, this article first provides a brief historical review of the formation of neoliberal networks, in which the 'Austrians' also gained increasing importance.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Hayek",
+   "mention": "Hayek",
+   "start": 34,
+   "end": 39,
+   "type": "PERSON"
+  },
+  {
+   "id": "Austrians",
+   "mention": "Austrians",
+   "start": 161,
+   "end": 170,
+   "type": "NORP"
+  }
+ ]
+},
+{
+ "id": 20080072,
+ "title": "",
+ "abstract": "Then the Hayek Institute will be presented in more detail.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "the Hayek Institute",
+   "mention": "the Hayek Institute",
+   "start": 6,
+   "end": 25,
+   "type": "ORG"
+  }
+ ]
+},
+{
+ "id": 20080082,
+ "title": "",
+ "abstract": "The focus of interest is on the questions of what it wants, what it does, and what networks and personnel connections exist with politics and business on the one hand, and with supranational communities of ideas on the other.' (",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20080092,
+ "title": "",
+ "abstract": "Author's ref.)",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20090001,
+ "title": "",
+ "abstract": "This article deals with the role of policy learning for the genesis of Austrian art policy during the 1980ies and early 1990ies and seeks to utilise the conclusion drawn from this analysis for the further development of the concept of policy learning.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Austrian",
+   "mention": "Austrian",
+   "start": 72,
+   "end": 80,
+   "type": "NORP"
+  },
+  {
+   "id": "the 1980ies and early 1990ies",
+   "mention": "the 1980ies and early 1990ies",
+   "start": 99,
+   "end": 128,
+   "type": "DATE"
+  }
+ ]
+},
+{
+ "id": 20090002,
+ "title": "",
+ "abstract": "'This article addresses the role of policy learning in the formation of Austrian reproductive technology policy during the 1980s and early 1990s and seeks to make findings in this regard useful for a further development of the conception of policy learning.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Austrian",
+   "mention": "Austrian",
+   "start": 73,
+   "end": 81,
+   "type": "NORP"
+  },
+  {
+   "id": "the 1980s",
+   "mention": "the 1980s",
+   "start": 120,
+   "end": 129,
+   "type": "DATE"
+  },
+  {
+   "id": "Q1262263",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q16153173",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q16153188",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q16153198",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q16158980",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q16198629",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q16202695",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q16823099",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q16962137",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q16975136",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q16987074",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q17005450",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q17016708",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q17016719",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q17016736",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q17016751",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q17054223",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q17071078",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q17096500",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q17100346",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q17100532",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q17100713",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q17100786",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q17100887",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q17101048",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q17513894",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q18148371",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q18151613",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q18750246",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q19365014",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q19604758",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q19605229",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q19865348",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q19866846",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20311882",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20313110",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20658263",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20708368",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20708370",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20708373",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20708375",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20708378",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20708382",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20708384",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20708387",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20708392",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20710125",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20710134",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20710149",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20710160",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20710170",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20710180",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20710189",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20710724",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20710734",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20711619",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20714246",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20714249",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20714252",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20714255",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20717449",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20717541",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q20876939",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q21028377",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q21188178",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q21188190",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q21188320",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q21188638",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q22023270",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q22023284",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q23020256",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q23020427",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q23020487",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q24060975",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q2497946",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q24993706",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q24994015",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q28221329",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q28222758",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q28225195",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q28407022",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q29586958",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q29587020",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q29587071",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q30588153",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q30680892",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q3069005",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q3586613",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q3586901",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q3586972",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q3587183",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q3722417",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q3722728",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q3722730",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q39056672",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q39057309",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q39057496",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q42916704",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q4348114",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q4411164",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q4450322",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q4774829",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q4791910",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q4825527",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q48860922",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q4939612",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q4957652",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q5026487",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q5255747",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q5257833",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q5290871",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q5328106",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q5339198",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q5436107",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q55099139",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q5515455",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q55621679",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q5566774",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q5616523",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q5622791",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q5892927",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q5893050",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q5956121",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q6031327",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q606275",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q6068161",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q6099600",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q624469",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q6467453",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q6467482",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q6750216",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q6981369",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q699716",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7054659",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7058699",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7059054",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7093646",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7094983",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7109315",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7126893",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7129998",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7185145",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7258635",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7273137",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7314682",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7362624",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7401614",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7523291",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7558661",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7569540",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7633396",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7665729",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7681374",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7684166",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7826652",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7877684",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7888921",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7890289",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7890618",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891373",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891393",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891410",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891439",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891469",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891481",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891505",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891518",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891530",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891542",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891722",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891736",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891821",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891839",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891860",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891880",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891891",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891908",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891962",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892010",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892024",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892088",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892111",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892446",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892509",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892709",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892740",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892825",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892873",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892908",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892971",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7893060",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7972563",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q7987584",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q841587",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q89286649",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q952341",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "Q96333308",
+   "mention": "1980s",
+   "start": 123,
+   "end": 128,
+   "type": "Election"
+  },
+  {
+   "id": "early 1990s",
+   "mention": "early 1990s",
+   "start": 134,
+   "end": 145,
+   "type": "DATE"
+  },
+  {
+   "id": "Q10844051",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q11932218",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q12184139",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q1231451",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q1286953",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q13256362",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q133770",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q15853369",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q16153879",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q16153886",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q16153896",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q16153901",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q16155929",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q16155935",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q16197811",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q16198668",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q1637737",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q16938020",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q16952659",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q16958900",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q16958915",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q16987137",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q17009942",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q17015311",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q1702253",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q17055416",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q17071095",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q17089477",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q17100171",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q17101137",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q17101187",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q17182377",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q1743215",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q18148388",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q18217585",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q18340210",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q18472279",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q19604874",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q19879971",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q2001802",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q20038302",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q2053571",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q2067054",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q20877279",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q21006053",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q22023276",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q22023288",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q22025943",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q23074",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q23132593",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q2370880",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q24883226",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q24993476",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q24993491",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q24993577",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q25021901",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q25045323",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q2532458",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q25349976",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q2641962",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q28182863",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q28221528",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q28224242",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q28224244",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q28368862",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q28405777",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q28454577",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q28454977",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q28966528",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q29075806",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q29587094",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q30593805",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q30633168",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q30637454",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q30643415",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q3408788",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q3586384",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q3586529",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q3586616",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q3587223",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q3587387",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q3651327",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q3722371",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q3722388",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q3722578",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q3722768",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q3722770",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q3824117",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q3827128",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q42916738",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q4345440",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q4348035",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q4376802",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q4705372",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q4708643",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q4753537",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q4793282",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q4826801",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q4832429",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q48731991",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q48845677",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q48850881",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q48860934",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q4907060",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q4947345",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q4954726",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q4958852",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q4968854",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q4976894",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q4999446",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5021079",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5021258",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5066468",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5147926",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5147962",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5161659",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5163064",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5174928",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5196284",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5201887",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5290795",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5290873",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5329831",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q53878047",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5436111",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5450077",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5461729",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q54874454",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q54874479",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5501511",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q55099170",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5515457",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5547907",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q55614605",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q55621683",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5607421",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5614285",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5764899",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5987499",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q5999901",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q6099605",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q636414",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q6365154",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q6423491",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q6452425",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q6540760",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q658649",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q673527",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q6742053",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q6747363",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q6750212",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q6784415",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q6784434",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q6837824",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q6839728",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q6868716",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q6905171",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q6906370",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q692081",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7010855",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7016159",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7024485",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7041684",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7055857",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7059057",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7081044",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7082418",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7101451",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7125191",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7125198",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7164277",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7248698",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7269831",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7273139",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7492635",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7558069",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7566706",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7676838",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7684168",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7708264",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7813217",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7821022",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7832555",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7855449",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7855453",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7888931",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7890295",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7890403",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7890625",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891364",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891375",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891395",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891424",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891457",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891485",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891521",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891547",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891556",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891565",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891587",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891630",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891643",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891669",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891709",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891739",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891749",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891763",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891842",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891910",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7891975",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892013",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892046",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892078",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892148",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892150",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892451",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7892514",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7904722",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q7921805",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q8030479",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q8072084",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q85726298",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q85726309",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  },
+  {
+   "id": "Q85726326",
+   "mention": "1990s",
+   "start": 139,
+   "end": 144,
+   "type": "Election"
+  }
+ ]
+},
+{
+ "id": 20090011,
+ "title": "",
+ "abstract": "Three assumptions are examined: that political actors predominantly learn from experiences about policy outputs; that a specific policy is to be understood as reaction to the challenges from an outside world; and that learning mainly takes place between discrete policies, rather than within the policy process.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Three",
+   "mention": "Three",
+   "start": 1,
+   "end": 6,
+   "type": "CARDINAL"
+  }
+ ]
+},
+{
+ "id": 20090012,
+ "title": "",
+ "abstract": "Three assumptions of this conception are examined in more detail: that policy actors learn primarily from experience with policy effects; that a particular policy should be seen as a response to the challenge of a world understood as external to policy; and that learning occurs primarily between policies, but not within a policy process.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Three",
+   "mention": "Three",
+   "start": 1,
+   "end": 6,
+   "type": "CARDINAL"
+  }
+ ]
+},
+{
+ "id": 20090021,
+ "title": "",
+ "abstract": "The article shows that these assumptions only partly apply to the case of Austrian art policy, because due to the novelty oft art, a distinct policy field had to be developed beforehand.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Austrian",
+   "mention": "Austrian",
+   "start": 75,
+   "end": 83,
+   "type": "NORP"
+  }
+ ]
+},
+{
+ "id": 20090022,
+ "title": "",
+ "abstract": "The article shows that these assumptions apply only to a limited extent to the case of Austrian reproductive technology policy, since the novelty of reproductive technologies meant that a corresponding policy field had yet to emerge.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Austrian",
+   "mention": "Austrian",
+   "start": 88,
+   "end": 96,
+   "type": "NORP"
+  }
+ ]
+},
+{
+ "id": 20090031,
+ "title": "",
+ "abstract": "Nevertheless, it can be assumed that learning processes had an essential role for the policy making process.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20090032,
+ "title": "",
+ "abstract": "Nevertheless, it can be assumed that learning processes played an essential role in this process.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20090041,
+ "title": "",
+ "abstract": "It is concluded that policy learning does not necessarily need to be built on experiences actually made, but may also be based on 'imagined' experiences.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20090042,
+ "title": "",
+ "abstract": "It is concluded that policy learning does not necessarily have to be based on actual experiences, but can also be based on 'imagined' experiences.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20090051,
+ "title": "",
+ "abstract": "Furthermore, learning processes may also happen in the translation of political actors' core beliefs into policies.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20090052,
+ "title": "",
+ "abstract": "Furthermore, learning processes can also take place in the translation of basic beliefs of political actors into policies.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20090061,
+ "title": "",
+ "abstract": "And, finally, learning processes also occur within the policy formulation process, rather than merely between discrete policies.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20090062,
+ "title": "",
+ "abstract": "Finally, learning processes take place not only between policies, but also within the policy formulation process.'' (",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20090072,
+ "title": "",
+ "abstract": "Author's ref.)",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20100001,
+ "title": "",
+ "abstract": "The co-ordination of employment policy through the European Union applies just to some of many employment policy options.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "the European Union",
+   "mention": "the European Union",
+   "start": 48,
+   "end": 66,
+   "type": "ORG"
+  }
+ ]
+},
+{
+ "id": 20100002,
+ "title": "",
+ "abstract": "The coordination of employment policies via the Employment Guidelines and the National Action Plans remains limited to some of the employment policy options applied in Europe.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "the Employment Guidelines",
+   "mention": "the Employment Guidelines",
+   "start": 45,
+   "end": 70,
+   "type": "LAW"
+  },
+  {
+   "id": "the National Action Plans",
+   "mention": "the National Action Plans",
+   "start": 75,
+   "end": 100,
+   "type": "LAW"
+  },
+  {
+   "id": "Q24759380",
+   "mention": "remains",
+   "start": 100,
+   "end": 107,
+   "type": "Election"
+  },
+  {
+   "id": "Europe",
+   "mention": "Europe",
+   "start": 169,
+   "end": 175,
+   "type": "LOC"
+  }
+ ]
+},
+{
+ "id": 20100011,
+ "title": "",
+ "abstract": "The National Action Plans for employment of Germany and the United Kingdom are compared.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "The National Action Plans for employment of Germany",
+   "mention": "The National Action Plans for employment of Germany",
+   "start": 1,
+   "end": 52,
+   "type": "ORG"
+  },
+  {
+   "id": "the United Kingdom",
+   "mention": "the United Kingdom",
+   "start": 57,
+   "end": 75,
+   "type": "GPE"
+  }
+ ]
+},
+{
+ "id": 20100012,
+ "title": "",
+ "abstract": "The texts of the 'National Action Plans' of Germany and the United Kingdom show great similarity.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "the 'National Action Plans'",
+   "mention": "the 'National Action Plans'",
+   "start": 14,
+   "end": 41,
+   "type": "ORG"
+  },
+  {
+   "id": "Germany",
+   "mention": "Germany",
+   "start": 45,
+   "end": 52,
+   "type": "GPE"
+  },
+  {
+   "id": "the United Kingdom",
+   "mention": "the United Kingdom",
+   "start": 57,
+   "end": 75,
+   "type": "GPE"
+  }
+ ]
+},
+{
+ "id": 20100021,
+ "title": "",
+ "abstract": "The article notes strong similarities in those texts.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20100022,
+ "title": "",
+ "abstract": "The employment policies of the two countries, on the other hand, remain very different, as measurable and thus 'enforceable' targets are almost completely missing.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Q24759380",
+   "mention": "remain",
+   "start": 65,
+   "end": 71,
+   "type": "Election"
+  }
+ ]
+},
+{
+ "id": 20100031,
+ "title": "",
+ "abstract": "The employment policy on the other hand is very different between the two states.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20100032,
+ "title": "",
+ "abstract": "This in turn means that for writing the 'National Action Plan' texts, national employment policies did not need to be changed - even in areas that are supposed to be explicitly coordinated by the NAPs.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "the 'National Action Plan'",
+   "mention": "the 'National Action Plan'",
+   "start": 37,
+   "end": 63,
+   "type": "LAW"
+  }
+ ]
+},
+{
+ "id": 20100041,
+ "title": "",
+ "abstract": "This contribution explains this different relations with the character of the National Action Plans as texts.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "the National Action Plans",
+   "mention": "the National Action Plans",
+   "start": 75,
+   "end": 100,
+   "type": "ORG"
+  }
+ ]
+},
+{
+ "id": 20100051,
+ "title": "",
+ "abstract": "No relevant changes of employment policy have been necessary to write them.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20110001,
+ "title": "",
+ "abstract": "Owing to the rapid rise of the Alternative for Germany (AfD), the public and academia seldom turn their attention to the National Democratic Party of Germany (NPD) anymore.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Germany",
+   "mention": "Germany",
+   "start": 48,
+   "end": 55,
+   "type": "GPE"
+  },
+  {
+   "id": "the National Democratic Party of Germany",
+   "mention": "the National Democratic Party of Germany",
+   "start": 118,
+   "end": 158,
+   "type": "ORG"
+  }
+ ]
+},
+{
+ "id": 20110002,
+ "title": "",
+ "abstract": "Due to the rapid rise of the AfD, the NPD is now rarely given attention, both in public and in research.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20110011,
+ "title": "",
+ "abstract": "The fact that the NPD has maintained its electoral support and continues to be represented at the municipal level is frequently neglected, however.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20110012,
+ "title": "",
+ "abstract": "However, it is often neglected that the NPD is still represented at the municipal level and is also successful electorally.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Q41216873",
+   "mention": "successful",
+   "start": 100,
+   "end": 110,
+   "type": "Election"
+  }
+ ]
+},
+{
+ "id": 20110021,
+ "title": "",
+ "abstract": "This does not apply to the same extent to all municipalities, though.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20110022,
+ "title": "",
+ "abstract": "However, it is not equally successful everywhere.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Q41216873",
+   "mention": "successful",
+   "start": 27,
+   "end": 37,
+   "type": "Election"
+  }
+ ]
+},
+{
+ "id": 20110031,
+ "title": "",
+ "abstract": "Based on a most-similar-case-design, the article analyzes the conditions of the NPD's electoral success in Saxon municipalities in the 2013 German federal elections.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Q4230506",
+   "mention": "conditions",
+   "start": 62,
+   "end": 72,
+   "type": "Coup"
+  },
+  {
+   "id": "Saxon",
+   "mention": "Saxon",
+   "start": 108,
+   "end": 113,
+   "type": "NORP"
+  },
+  {
+   "id": "Q555931",
+   "mention": "2013 german federal elections",
+   "start": 135,
+   "end": 164,
+   "type": "Election"
+  },
+  {
+   "id": "German",
+   "mention": "German",
+   "start": 141,
+   "end": 147,
+   "type": "NORP"
+  }
+ ]
+},
+{
+ "id": 20110032,
+ "title": "",
+ "abstract": "On the basis of a most-similar-case-design, this article therefore examines the conditions for the NPD's success in Saxon municipalities in the 2013 federal election.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Q4230506",
+   "mention": "conditions",
+   "start": 80,
+   "end": 90,
+   "type": "Coup"
+  },
+  {
+   "id": "Saxon",
+   "mention": "Saxon",
+   "start": 117,
+   "end": 122,
+   "type": "NORP"
+  }
+ ]
+},
+{
+ "id": 20110041,
+ "title": "",
+ "abstract": "Using macro data on 438 Saxon municipalities and applying spatial errors models, the analysis tests 14 hypotheses.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Saxon",
+   "mention": "Saxon",
+   "start": 25,
+   "end": 30,
+   "type": "NORP"
+  }
+ ]
+},
+{
+ "id": 20110042,
+ "title": "",
+ "abstract": "Using aggregate data from 438 Saxon municipalities and spatial error models, we test a total of 14 hypotheses stemming from three groups of explanatory factors: cultural demand-side, materialistic demand-side, and internal supply-side factors.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Saxon",
+   "mention": "Saxon",
+   "start": 31,
+   "end": 36,
+   "type": "NORP"
+  },
+  {
+   "id": "three",
+   "mention": "three",
+   "start": 125,
+   "end": 130,
+   "type": "CARDINAL"
+  }
+ ]
+},
+{
+ "id": 20110051,
+ "title": "",
+ "abstract": "These hypotheses were derived from three groups of factors: cultural demand-side, materialistic demand-side and internal supply-side variables.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "three",
+   "mention": "three",
+   "start": 36,
+   "end": 41,
+   "type": "CARDINAL"
+  }
+ ]
+},
+{
+ "id": 20110052,
+ "title": "",
+ "abstract": "The empirical analyses show that cultural explanatory factors most strongly influence the NPD vote share, whereas the effect of materialistic community factors is conditioned by third-party variables.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20110061,
+ "title": "",
+ "abstract": "The results indicate that cultural factors have the strongest impact on the NPD's electoral success in Saxon municipalities, whereas the effect size of materialistic factors is conditioned by other variables.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Saxon",
+   "mention": "Saxon",
+   "start": 104,
+   "end": 109,
+   "type": "NORP"
+  }
+ ]
+},
+{
+ "id": 20110062,
+ "title": "",
+ "abstract": "Overall, the results illustrate that the NPD essentially benefits from favorable community conditions and can only influence its own electoral success to a limited extent.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Q4230506",
+   "mention": "conditions",
+   "start": 91,
+   "end": 101,
+   "type": "Coup"
+  }
+ ]
+},
+{
+ "id": 20110071,
+ "title": "",
+ "abstract": "Overall, the findings illustrate that the NPD largely benefits from favorable contextual conditions at the municipal level.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Q4230506",
+   "mention": "conditions",
+   "start": 89,
+   "end": 99,
+   "type": "Coup"
+  }
+ ]
+},
+{
+ "id": 20110081,
+ "title": "",
+ "abstract": "The party's ability to influence its electoral success itself are limited, however.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20120001,
+ "title": "",
+ "abstract": "Jesko Fezer calls for a political attitude in design processes.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Jesko Fezer",
+   "mention": "Jesko Fezer",
+   "start": 1,
+   "end": 12,
+   "type": "PERSON"
+  }
+ ]
+},
+{
+ "id": 20120002,
+ "title": "",
+ "abstract": "Jesko Fezer calls for a political attitude in design.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Jesko Fezer",
+   "mention": "Jesko Fezer",
+   "start": 1,
+   "end": 12,
+   "type": "PERSON"
+  }
+ ]
+},
+{
+ "id": 20120011,
+ "title": "",
+ "abstract": "The degree and form of political design lies in the hand of the designer.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20120012,
+ "title": "",
+ "abstract": "The degree and form of political design is the responsibility of designers.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20120021,
+ "title": "",
+ "abstract": "An awareness of goals and values must be created in order to be able to oppose the current and forthcoming transformation processes.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20120022,
+ "title": "",
+ "abstract": "He writes that an awareness of goals and values must be established in order to be able to counter the current and upcoming transformation processes.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20120031,
+ "title": "",
+ "abstract": "Fezer pleads for design in a political sense: one that positions itself, locates itself in the conflicts, does not shy away from disputes and refers to attitudes in all spectra.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Fezer",
+   "mention": "Fezer",
+   "start": 1,
+   "end": 6,
+   "type": "PERSON"
+  },
+  {
+   "id": "Q185407",
+   "mention": "conflicts",
+   "start": 95,
+   "end": 104,
+   "type": "War"
+  }
+ ]
+},
+{
+ "id": 20120032,
+ "title": "",
+ "abstract": "Fezer pleads for a partisan design that positions itself, locates itself in the conflicts, does not shy away from confrontations and takes a stance in all spectrums.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Fezer",
+   "mention": "Fezer",
+   "start": 1,
+   "end": 6,
+   "type": "PERSON"
+  },
+  {
+   "id": "Q185407",
+   "mention": "conflicts",
+   "start": 80,
+   "end": 89,
+   "type": "War"
+  }
+ ]
+},
+{
+ "id": 20130001,
+ "title": "",
+ "abstract": "After an introduction in classical and concurrent concepts of memory and remembrance, the following article focuses on interfaces between formations of large groups and their memories.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20130002,
+ "title": "",
+ "abstract": "After an introduction to classical and more contemporary concepts of memory, this article addresses concise interfaces between the constitution of groups and their memory.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20130011,
+ "title": "",
+ "abstract": "Two opposite narratives in the region of K\u00e4rnten/ Carinthia in southern Austria are presented in order to provide practical examples: an official dominant historical narration and viewpoints of members of the Slovene speaking minority. \"",
+ "classification": {},
+ "tags": [
+  {
+   "id": "K\u00e4rnten/ Carinthia",
+   "mention": "K\u00e4rnten/ Carinthia",
+   "start": 42,
+   "end": 60,
+   "type": "LOC"
+  },
+  {
+   "id": "Austria",
+   "mention": "Austria",
+   "start": 73,
+   "end": 80,
+   "type": "GPE"
+  },
+  {
+   "id": "Slovene",
+   "mention": "Slovene",
+   "start": 210,
+   "end": 217,
+   "type": "NORP"
+  }
+ ]
+},
+{
+ "id": 20130012,
+ "title": "",
+ "abstract": "This is practically illustrated in the text by two 'diametrically' opposed narratives in Carinthia: the dominant \"official\" historical narrative and the Carinthian Slovene minority's view of contemporary history.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Carinthia",
+   "mention": "Carinthia",
+   "start": 90,
+   "end": 99,
+   "type": "NORP"
+  },
+  {
+   "id": "Carinthian",
+   "mention": "Carinthian",
+   "start": 154,
+   "end": 164,
+   "type": "NORP"
+  },
+  {
+   "id": "Slovene",
+   "mention": "Slovene",
+   "start": 165,
+   "end": 172,
+   "type": "NORP"
+  }
+ ]
+},
+{
+ "id": 20130021,
+ "title": "",
+ "abstract": "Real\" traumata as well as \"chosen traumata\" are being connected with transgenerational aspects on intra-familial dynamics.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20130022,
+ "title": "",
+ "abstract": "After references to the identity of young people belonging to minorities and large group identity, finally, with the inclusion of a multigenerational perspective, intrafamilial conscious and unconscious orders in families of victims of National Socialism are dealt with, whereby these are set in connection with \"chosen\" and real traumas.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "National Socialism",
+   "mention": "National Socialism",
+   "start": 237,
+   "end": 255,
+   "type": "ORG"
+  }
+ ]
+},
+{
+ "id": 20130031,
+ "title": "",
+ "abstract": "Identity concepts of young members of the minority as also concepts of large group identities widen the topic.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20130032,
+ "title": "",
+ "abstract": "In the last chapter, the individual topics are brought together once again and conclusions are drawn.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20140001,
+ "title": "",
+ "abstract": "The article represents the first empirical contribution on opportunities and constraints of interest intermediation at the sectoral level of the European Union.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "the European Union",
+   "mention": "the European Union",
+   "start": 142,
+   "end": 160,
+   "type": "ORG"
+  }
+ ]
+},
+{
+ "id": 20140002,
+ "title": "",
+ "abstract": "The article represents the first empirical contribution to the possibilities and limits of interest mediation at the sectoral level of the European Union, taking the public service as an example.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "the European Union",
+   "mention": "the European Union",
+   "start": 136,
+   "end": 154,
+   "type": "ORG"
+  }
+ ]
+},
+{
+ "id": 20140011,
+ "title": "",
+ "abstract": "Our case study takes the public service as an example.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20140012,
+ "title": "",
+ "abstract": "On the one hand, our results show that transnational organization of interests is more advanced on the part of workers han on the part of employers.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20140021,
+ "title": "",
+ "abstract": "On the one hand our results show that the transnational organization of interests has made more progress on the employees' than on the employers' side.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20140022,
+ "title": "",
+ "abstract": "On the other hand, none of the corporate actors seriously intends to surrender rights to transnational federations.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20140031,
+ "title": "",
+ "abstract": "On the other hand none of the corporate actors intends seriously to transfer national authority to the transnational associations.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20140032,
+ "title": "",
+ "abstract": "Different strategies of interest enforcement have different temporal perspectives: in the short term, lobbying will remain the most efficient form of influence.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Q24759380",
+   "mention": "remain",
+   "start": 116,
+   "end": 122,
+   "type": "Election"
+  }
+ ]
+},
+{
+ "id": 20140041,
+ "title": "",
+ "abstract": "Different strategies of interest representation will have divergent time horizons: In the short run, lobbying will remain the most efficient strategy of influence.",
+ "classification": {},
+ "tags": [
+  {
+   "id": "Q24759380",
+   "mention": "remain",
+   "start": 115,
+   "end": 121,
+   "type": "Election"
+  }
+ ]
+},
+{
+ "id": 20140042,
+ "title": "",
+ "abstract": "In the medium term, largely decentralized social dialogues may gain importance in those subsectors of the public service that perform transnational tasks.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20140051,
+ "title": "",
+ "abstract": "In the medium-term, vastly decentralized social dialogues in those parts of the public sector with transnational tasks might gain in importance.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20140052,
+ "title": "",
+ "abstract": "At most, collective bargaining could become possible in the long term, initially in the area of qualitative collective bargaining policy.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20140061,
+ "title": "",
+ "abstract": "Only in the long run, if at all, collective bargaining, first of all about qualitative matters, might be possible.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20140062,
+ "title": "",
+ "abstract": "Pragmatically motivated steps toward rapprochement between different employee organizations contribute to a remarkable reduction in differences of interest that were long considered insurmountable at the national level.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20140071,
+ "title": "",
+ "abstract": "Pragmatically oriented steps of reconciliation between different organizations of employees contribute to a remarkable reduction of differences of interests which have been seen impossible to overcome at the national level for a long time.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20150001,
+ "title": "",
+ "abstract": "This article introduces a liberal alternative to the well-known decision models under risk in the form of a rule-based fuzzy decision model.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20150002,
+ "title": "",
+ "abstract": "A more liberal alternative to the well-known decision models under risk is presented in the form of a rule-based fuzzy decision model.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20150011,
+ "title": "",
+ "abstract": "The structure of the model corresponds to a simple, knowledge-based (expert-)system, which is capable to justify its assumptions and conclusions.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20150012,
+ "title": "",
+ "abstract": "The model structure is that of a simple knowledge-based (expert) system that can justify its conclusions and model assumptions.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20150021,
+ "title": "",
+ "abstract": "On the basis of empirical data the computer program models the inference processes of human decision makers in fuzzy-categories and rules of decision.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20150022,
+ "title": "",
+ "abstract": "Based on empirical data, the computer model maps the reasoning of human decision makers into fuzzy categories and decision rules.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20150031,
+ "title": "",
+ "abstract": "The model claims to reproduce decision processes with risky alternatives more adequate than conventional models.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20150032,
+ "title": "",
+ "abstract": "It claims to be a more adequate mental model of decision processes with risky alternatives.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20150041,
+ "title": "",
+ "abstract": "In comparison with human test subjects the computer-based decisions produced strong correspondences with regard to the choice of the same alternatives.",
+ "classification": {},
+ "tags": []
+},
+{
+ "id": 20150042,
+ "title": "",
+ "abstract": "A comparison of the model decisions with subject decisions showed a high degree of agreement with respect to equal choice of alternatives.",
+ "classification": {},
+ "tags": []
+}
+]

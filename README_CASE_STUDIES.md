@@ -1,5 +1,6 @@
-# Getting Started
-This Readme belongs to our JCDL2022 submission. 
+# Case Studies JCDL2022
+This Readme belongs to our JCDL2022 paper on Nearly-Unsupervised Information Extraction Workflows. 
+Fore more information, please read:
 ```
 @inproceedings{kroll2022jcdl,
 	title = {A Library Perspective on Nearly-Unsupervised Information Extraction Workflows in Digital Libraries},
@@ -12,7 +13,7 @@ This Readme belongs to our JCDL2022 submission.
 }
 ```
 
-# Content
+## Content
 We performed case studies in three domains:
 - PubMed (10k randomly chosen abstracts that contain a drug)
 - Pollux (10k randomly chosen abstracts)
@@ -24,9 +25,15 @@ We provide the following data for each case study:
 - Used entity vocabularies
 - Used relation vocabularies
 
-Note that we selected scientists that must have an Wikipedia page and Wikidata entry.
+Note that we selected scientists that must have a Wikipedia page and Wikidata entry.
 We zipped the data directory to reduce the GitHub repository size.
-So unzip [it](case_studies/data.zip) first.
+So unzip the [data](case_studies/data.zip) first.
+The extracted folder must be located inside the [case_studies](case_studies) folder.
+
+
+Due to the size of the results, we could not upload all OpenIE6 and CoreNLP extraction results into this repository (the samples are contained).
+We made this data available at [OneDrive](https://1drv.ms/u/s!ArDgbq3ak3Zuh8x76u4UmrcZ9LrdtQ?e=A5Yzlg).
+In this folder are two files: 1. a data_all.zip with all results, and 2. a SQLite database that contained all data that we produced in our case studies.
 
 
 This repository contains:
@@ -42,7 +49,7 @@ Shortcuts for scripts:
 
 Summarized evaluation data can be found in [Summary Directory](case_studies/summary). 
 
-# Repository Organization
+## Repository Organization
 To setup the toolbox, please read the original [Readme](README.md). 
 
 The repository is organized as follows:
@@ -64,10 +71,13 @@ We also include the original .csv files exported from our case studies.
 You can find the data in the corresponding subfolders.
 The file names should be self-explaining.
 
-# Code Changes:
-We implemented to improve our toolbox:
+## Code Changes:
+We implemented the following improvements for our toolbox:
 - a subject entity filter ([Code](src/kgextractiontoolbox/extraction/loading/load_openie_extractions.py))
 - enhanced verb phrase filter options ([Code](src/kgextractiontoolbox/extraction/loading/load_openie_extractions.py))
 - improved Open IE6 handling ([Code](src/kgextractiontoolbox/extraction/openie6/main.py))
 - Open IE6 analysis ([Code](src/kgextractiontoolbox/extraction/analyze_openie_tuples.py))
 - sentence analysis ([Code](src/kgextractiontoolbox/document/count_sentences.py))
+
+# IJDL 2022 Submission
+There is a dedicated [ReadMe available](README_IDJL2022.md).
