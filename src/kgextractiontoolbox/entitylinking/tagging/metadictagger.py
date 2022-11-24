@@ -1,7 +1,7 @@
 from typing import List
 
 import kgextractiontoolbox.entitylinking.tagging.dictagger as dt
-from kgextractiontoolbox.document.document import TaggedEntity
+from kgextractiontoolbox.document.document import TaggedEntity, TaggedDocument
 
 """
 Modified version of the dict tagger, that can run on the vocabularies of multiple dicttaggers
@@ -58,6 +58,12 @@ class MetaDicTagger(dt.DictTagger):
                 if hits:
                     for desc in hits:
                         yield TaggedEntity((doc_id, start, end, term, entType, desc))
+
+    def tag_doc(self, in_doc: TaggedDocument, consider_sections=False) -> TaggedDocument:
+        doc = super().tag_doc(in_doc, consider_sections=consider_sections)
+        for tagger in self._sub_taggers:
+            tagger.custom_tag_filter_logic(doc)
+        return doc
 
     def get_types(self):
         return self.tag_types

@@ -137,6 +137,9 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
             tags = DictTagger.clean_abbreviation_tags(tags, self.config.dict_min_full_tag_len)
 
         out_doc.tags += tags
+        # Apply custom logic if applicable
+        self.custom_tag_filter_logic(out_doc)
+
         return out_doc
 
     def get_hits(self, word_tuple, pmid, abb_vocab=None, offset=0):
@@ -234,3 +237,6 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         blacklist_set = self.get_blacklist_set()
         self.desc_by_term = {k.lower().strip(): v for k, v in self.desc_by_term.items() if
                              k.lower().strip() not in blacklist_set}
+
+    def custom_tag_filter_logic(self, in_doc: TaggedDocument):
+        pass
