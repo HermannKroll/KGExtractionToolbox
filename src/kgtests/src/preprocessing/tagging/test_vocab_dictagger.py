@@ -9,9 +9,8 @@ from kgtests import util
 class TestVocabDictagger(unittest.TestCase):
     def tagfile_test(self, testfile):
         workdir = kgtests.util.make_test_tempdir()
-        args = [testfile,
-
-                *f"-c PREPTEST --loglevel DEBUG -v {util.resource_rel_path('vocabs/test_vocab.tsv')} --workdir {workdir} -w 1 -y".split()
+        args = [
+                *f"-i {testfile} -c PREPTEST --loglevel DEBUG -v {util.resource_rel_path('vocabs/test_vocab.tsv')} --workdir {workdir} -w 1 -y".split()
                 ]
         vdp.main(args)
         tags = set(util.get_tags_from_database())

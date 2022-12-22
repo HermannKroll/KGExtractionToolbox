@@ -9,6 +9,7 @@ from typing import List, Set
 
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import BULK_INSERT_AFTER_K, Document, DocTaggedBy
+from kgextractiontoolbox.backend.retrieve import iterate_over_all_documents_in_collection
 from kgextractiontoolbox.config import ENTITY_LINKING_CONFIG
 from kgextractiontoolbox.document import count
 from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
@@ -91,7 +92,7 @@ def main(arguments=None):
     parser.add_argument("-f", "--force", help="skip checking for already tagged documents", action="store_true")
     parser.add_argument("--sections", action="store_true", default=False,
                         help="Should the section texts be considered when tagging?")
-    parser.add_argument("input", help="composite document file")
+    parser.add_argument("-i", "--input", help="composite document file", required=False)
     args = parser.parse_args(arguments)
 
     conf = Config(args.config)
@@ -121,6 +122,28 @@ def main(arguments=None):
     logger = init_preprocess_logger(os.path.join(log_dir, "entitylinking.log"), args.loglevel.upper())
     init_sqlalchemy_logger(os.path.join(log_dir, "sqlalchemy.log"), args.loglevel.upper())
     logger.info(f"Project directory:{root_dir}")
+
+    input_file_given = True
+    if in_file:
+        logger.info("Reading input file and counting document ids...")
+        in_ids = count.get_document_ids(in_file)
+        number_of_docs = len(in_ids)
+
+        if number_of_docs == 0:
+            logger.info('No documents to process - stopping')
+            exit(1)
+
+        if not args.skip_load:
+            document_bulk_load(in_file, args.collection, logger=logger)
+        else:
+            logger.info("Skipping bulk load")
+    else:
+        input_file_given = False
+        logger.info('No input file given')
+        logger.info(f'Counting documents for collection: {args.collection}')
+        session = Session.get()
+        number_of_docs = Document.count_documents_in_collection(session, args.collection)
+        session.remove()
 
     logger.info('================== Preparation ==================')
     vocabs = Vocabulary(args.v__vocabulary)
@@ -159,9 +182,18 @@ def main(arguments=None):
     logger.info(f'Consider sections: {consider_sections}')
 
     def generate_tasks():
-        for doc in read_tagged_documents(in_file):
-            if doc and doc.id in document_ids and doc.has_content():
-                yield doc
+        if input_file_given:
+            for doc in read_tagged_documents(in_file):
+                if doc and doc.id in document_ids and doc.has_content():
+                    yield doc
+        else:
+            db_session = Session.get()
+            logger.info('Retrieving documents from database...')
+            for t_doc in iterate_over_all_documents_in_collection(db_session, args.collection,
+                                                                  consider_sections=consider_sections):
+                if t_doc.has_content():
+                    yield t_doc
+            db_session.remove()
 
     def do_task(in_doc: TaggedDocument):
         try:
