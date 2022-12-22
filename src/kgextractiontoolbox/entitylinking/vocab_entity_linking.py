@@ -98,8 +98,8 @@ def main(arguments=None):
     conf = Config(args.config)
 
     # create directories
-    root_dir = root_dir = os.path.abspath(args.workdir) if args.workdir else tempfile.mkdtemp()
-    log_dir = log_dir = os.path.abspath(os.path.join(root_dir, "log"))
+    root_dir = os.path.abspath(args.workdir) if args.workdir else tempfile.mkdtemp()
+    log_dir = os.path.abspath(os.path.join(root_dir, "log"))
     in_file = args.input
 
     if args.workdir and os.path.exists(root_dir):
@@ -123,27 +123,6 @@ def main(arguments=None):
     init_sqlalchemy_logger(os.path.join(log_dir, "sqlalchemy.log"), args.loglevel.upper())
     logger.info(f"Project directory:{root_dir}")
 
-    input_file_given = True
-    if in_file:
-        logger.info("Reading input file and counting document ids...")
-        in_ids = count.get_document_ids(in_file)
-        number_of_docs = len(in_ids)
-
-        if number_of_docs == 0:
-            logger.info('No documents to process - stopping')
-            exit(1)
-
-        if not args.skip_load:
-            document_bulk_load(in_file, args.collection, logger=logger)
-        else:
-            logger.info("Skipping bulk load")
-    else:
-        input_file_given = False
-        logger.info('No input file given')
-        logger.info(f'Counting documents for collection: {args.collection}')
-        session = Session.get()
-        number_of_docs = Document.count_documents_in_collection(session, args.collection)
-        session.remove()
 
     logger.info('================== Preparation ==================')
     vocabs = Vocabulary(args.v__vocabulary)
@@ -151,8 +130,42 @@ def main(arguments=None):
     vocabs.load_vocab()
     ent_types = vocabs.get_ent_types()
 
-    document_ids = find_untagged_ids(in_file, logger, args.collection, ent_types, skip_todo_check=args.force)
-    number_of_docs = len(document_ids)
+    input_file_given = True
+    in_file = args.input
+    if args.input:
+        input_file_given = True
+        document_ids = find_untagged_ids(in_file, logger, args.collection, ent_types=ent_types)  #
+        number_of_docs = len(document_ids)
+
+        if not args.skip_load:
+            document_bulk_load(in_file, args.collection, logger=logger)
+        else:
+            logger.info("Skipping bulk load")
+
+        session = Session.get()
+        logger.info(f'Getting document ids from database for collection: {args.collection}...')
+        document_ids_in_db = Document.get_document_ids_for_collection(session, args.collection)
+        logger.info(f'{len(document_ids_in_db)} found')
+        session.remove()
+    else:
+        session = Session.get()
+        logger.info(f'Getting document ids from database for collection: {args.collection}...')
+        document_ids_in_db = Document.get_document_ids_for_collection(session, args.collection)
+        logger.info(f'{len(document_ids_in_db)} found')
+
+        input_file_given = False
+        logger.info('No input file given')
+        logger.info(f'Retrieving document count for collection: {args.collection}')
+        # compute the already tagged documents
+        document_ids = document_ids_in_db
+        todo_ids = set()
+        logger.info('Retrieving documents that have been tagged before...')
+        for ent_type in ent_types:
+            todo_ids |= get_untagged_doc_ids_by_ent_type(args.collection, document_ids, ent_type, MetaDicTagger, logger)
+        document_ids = todo_ids
+        number_of_docs = len(document_ids)
+        session.remove()
+
     logger.info(f'{number_of_docs} of documents have to be processed...')
 
     if number_of_docs == 0:
@@ -160,11 +173,6 @@ def main(arguments=None):
         exit(1)
     else:
         logger.info(f"selected {number_of_docs} documents for processing")
-
-    if not args.skip_load:
-        document_bulk_load(in_file, args.collection, logger=logger)
-    else:
-        logger.info("Skipping bulk load")
 
     kwargs = dict(collection=args.collection, logger=logger, config=conf)
 
