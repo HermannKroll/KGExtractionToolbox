@@ -79,7 +79,7 @@ class Vocabulary:
         with open(output_file, 'wt') as f:
             f = csv.DictWriter(f, ["id", "type", "heading", "synonyms"], delimiter="\t")
             f.writeheader()
-            for e in self.vocabulary_entries:
+            for e in sorted(self.vocabulary_entries, key=lambda x: x.entity_id):
                 f.writerow(e.to_dict())
 
     def get_entity_heading(self, entity_id: str, entity_type: str) -> str:
