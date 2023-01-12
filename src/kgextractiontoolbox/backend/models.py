@@ -192,8 +192,8 @@ class Tag(Base, DatabaseTable):
         ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'),
                              sqlite_on_conflict='IGNORE'),
         # Todo: In real-word scenarios this index become very large
- #       UniqueConstraint('document_id', 'document_collection', 'start', 'end', 'ent_type', 'ent_id',
- #                        sqlite_on_conflict='IGNORE'),
+        UniqueConstraint('document_id', 'document_collection', 'start', 'end', 'ent_type', 'ent_id',
+                         sqlite_on_conflict='IGNORE'),
         PrimaryKeyConstraint('id', sqlite_on_conflict='IGNORE')
     )
 
