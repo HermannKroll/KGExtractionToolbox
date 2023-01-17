@@ -124,7 +124,7 @@ def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collect
 
     logging.info('Process will work in: {}'.format(working_dir))
     export(document_export_file, export_tags=True, document_ids=ids_to_process, collection=document_collection,
-           content=True, export_sections=consider_sections)
+           content=True, export_sections=consider_sections, export_format="json")
     time_exported = datetime.now()
 
     logging.info('Counting documents...')
