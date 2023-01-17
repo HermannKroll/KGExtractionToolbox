@@ -31,7 +31,7 @@ def write_doc(doc: TaggedDocument, export_format: str, f, first_doc: bool, expor
 
 
 def export(out_fn, export_tags=True, export_sections=True, export_classififcation=True, document_ids=None,
-           collection=None, content=True, logger=logging, export_format="pubtator",
+           collection=None, content=True, logger=logging, export_format="json",
            write_doc=write_doc, translate_document_ids: bool = False):
     """
     Exports tagged documents in the database as a single PubTator file
