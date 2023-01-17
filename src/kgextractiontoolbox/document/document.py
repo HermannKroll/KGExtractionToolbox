@@ -303,13 +303,16 @@ class TaggedDocument:
                     logging.debug(f'Tag position does not match to string in text ({tag_text} vs {text_text})')
 
     def _compute_nlp_indexes(self, spacy_nlp, sections=False):
-        if not self.has_content():
-            raise ValueError(f'Cannot process document ({self.id}) without title or abstract')
-            # Indexes
         self.sentence_by_id = {}  # Use to build entity->sentence index
         self.entities_by_ent_id = defaultdict(list)  # Use entity->TaggedEntity index to build Mesh->Sentence index
         self.sentences_by_ent_id = defaultdict(set)  # entity->Sentence index
         self.entities_by_sentence = defaultdict(set)  # sent->entities
+
+        if not self.has_content():
+            return
+           # raise ValueError(f'Cannot process document ({self.id}) without title or abstract')
+            # Indexes
+
 
         sentence_idx = 0
         # iterate over all text elements (title, abstract, sec1 title, sec1 text, sec2 title, ...)
