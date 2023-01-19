@@ -245,6 +245,9 @@ def main():
         logging.info(f'{len(document_ids)} were found in db')
     document_ids_to_process = retrieve_document_ids_to_process(args.collection, args.extraction_type,
                                                                document_id_filter=document_ids)
+
+    logging.info('Sorting document ids...')
+    document_ids_to_process = sorted(list(document_ids_to_process))
     num_of_chunks = int(len(document_ids_to_process) / args.batch_size) + 1
     logging.info(f'Splitting task into {num_of_chunks} chunks...')
     for idx, batch_ids in enumerate(chunks(list(document_ids_to_process), args.batch_size)):

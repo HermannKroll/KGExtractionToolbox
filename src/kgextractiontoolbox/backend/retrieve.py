@@ -28,6 +28,7 @@ def iterate_over_all_documents_in_collection(session, collection: str, document_
     doc_query = doc_query.filter(Document.collection == collection)
 
     if document_ids:
+        document_ids = sorted(list(document_ids))
         doc_query = doc_query.filter(Document.id.in_(document_ids))
 
     doc_query = doc_query.order_by(Document.id)
@@ -112,6 +113,7 @@ def retrieve_tagged_documents_from_database(session, document_ids: Set[int], doc
     """
     doc_results = {}
 
+    document_ids = sorted(list(document_ids))
     # first query document titles and abstract
     doc_query = session.query(Document).filter(and_(Document.id.in_(document_ids),
                                                     Document.collection == document_collection))
