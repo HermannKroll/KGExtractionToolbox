@@ -241,6 +241,15 @@ class DocumentTranslation(Base, DatabaseTable):
         m.update(text.encode())
         return m.hexdigest()
 
+    @staticmethod
+    def get_document_id_2_source_id_mapping(session, document_collection: str):
+        query = session.query(DocumentTranslation.document_id, DocumentTranslation.source_doc_id)
+        query = query.filter(DocumentTranslation.document_collection == document_collection)
+        docid2sourceid = {}
+        for r in query:
+            docid2sourceid[int(r.document_id)] = r.source_doc_id
+        return docid2sourceid
+
 
 class DocumentClassification(Base, DatabaseTable):
     __tablename__ = "document_classification"
