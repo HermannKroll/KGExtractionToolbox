@@ -1,6 +1,8 @@
 import argparse
 import logging
 
+from sqlalchemy import delete
+
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import Tag, Document, DocTaggedBy, DocProcessedByIE, Predication, Sentence, \
     DocumentTranslation, DocumentSection, DocumentClassification
@@ -11,32 +13,31 @@ def delete_document_collection_from_database(document_collection: str):
     session = Session.get()
 
     logging.info('Deleting doc_processed_by_ie entries...')
-    session.query(DocProcessedByIE).filter(DocProcessedByIE.document_collection == document_collection).delete()
-
-    logging.info('Deleting sentences entries...')
-    session.query(Sentence).filter(Sentence.document_collection == document_collection).delete()
+    session.execute(delete(DocProcessedByIE).where(DocProcessedByIE.document_collection == document_collection))
 
     logging.info('Deleting predication entries...')
-    session.query(Predication).filter(Predication.document_collection == document_collection).delete()
+    session.execute(delete(Predication).where(Predication.document_collection == document_collection))
+
+    logging.info('Deleting sentences entries...')
+    session.execute(delete(Sentence).where(Sentence.document_collection == document_collection))
 
     logging.info('Deleting doc_tagged_by entries...')
-    session.query(DocTaggedBy).filter(DocTaggedBy.document_collection == document_collection).delete()
+    session.execute(delete(DocTaggedBy).where(DocTaggedBy.document_collection == document_collection))
 
     logging.info('Deleting tag entries...')
-    session.query(Tag).filter(Tag.document_collection == document_collection).delete()
+    session.execute(delete(Tag).where(Tag.document_collection == document_collection))
 
     logging.info('Deleting document translation entries...')
-    session.query(DocumentTranslation).filter(DocumentTranslation.document_collection == document_collection).delete()
+    session.execute(delete(DocumentTranslation).where(DocumentTranslation.document_collection == document_collection))
 
     logging.info('Deleting document section entries...')
-    session.query(DocumentSection).filter(DocumentSection.document_collection == document_collection).delete()
+    session.execute(delete(DocumentSection).where(DocumentSection.document_collection == document_collection))
 
     logging.info('Deleting document classification entries...')
-    session.query(DocumentClassification).filter(
-        DocumentClassification.document_collection == document_collection).delete()
+    session.execute(delete(DocumentClassification).where(DocumentClassification.document_collection == document_collection))
 
     logging.info('Deleting document entries...')
-    session.query(Document).filter(Document.collection == document_collection).delete()
+    session.execute(delete(Document).where(Document.collection == document_collection))
 
     logging.info('Begin commit...')
     session.commit()
