@@ -156,15 +156,16 @@ def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, 
                     ))
 
                 # Add DocTaggedBy
-                for ent_type in tagged_ent_types:
-                    tagger_name, tagger_version = get_tagger_for_enttype(tagger_mapping, ent_type)
-                    doc_tagged_by_inserts.append(dict(
-                        document_id=doc.id,
-                        document_collection=collection,
-                        tagger_name=tagger_name,
-                        tagger_version=tagger_version,
-                        ent_type=ent_type,
-                    ))
+                if tagger_mapping:
+                    for ent_type in tagged_ent_types:
+                        tagger_name, tagger_version = get_tagger_for_enttype(tagger_mapping, ent_type)
+                        doc_tagged_by_inserts.append(dict(
+                            document_id=doc.id,
+                            document_collection=collection,
+                            tagger_name=tagger_name,
+                            tagger_version=tagger_version,
+                            ent_type=ent_type,
+                        ))
 
             if (idx + 1) % BULK_LOAD_COMMIT_AFTER == 0:
                 Document.bulk_insert_values_into_table(session, document_inserts)

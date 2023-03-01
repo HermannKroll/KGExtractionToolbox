@@ -9,6 +9,7 @@ from typing import List, Set
 
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import BULK_INSERT_AFTER_K, Document, DocTaggedBy
+from kgextractiontoolbox.backend.retrieve import iterate_over_all_documents_in_collection
 from kgextractiontoolbox.config import ENTITY_LINKING_CONFIG
 from kgextractiontoolbox.document import count
 from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
@@ -91,14 +92,14 @@ def main(arguments=None):
     parser.add_argument("-f", "--force", help="skip checking for already tagged documents", action="store_true")
     parser.add_argument("--sections", action="store_true", default=False,
                         help="Should the section texts be considered when tagging?")
-    parser.add_argument("input", help="composite document file")
+    parser.add_argument("-i", "--input", help="composite document file", required=False)
     args = parser.parse_args(arguments)
 
     conf = Config(args.config)
 
     # create directories
-    root_dir = root_dir = os.path.abspath(args.workdir) if args.workdir else tempfile.mkdtemp()
-    log_dir = log_dir = os.path.abspath(os.path.join(root_dir, "log"))
+    root_dir = os.path.abspath(args.workdir) if args.workdir else tempfile.mkdtemp()
+    log_dir = os.path.abspath(os.path.join(root_dir, "log"))
     in_file = args.input
 
     if args.workdir and os.path.exists(root_dir):
@@ -122,14 +123,49 @@ def main(arguments=None):
     init_sqlalchemy_logger(os.path.join(log_dir, "sqlalchemy.log"), args.loglevel.upper())
     logger.info(f"Project directory:{root_dir}")
 
+
     logger.info('================== Preparation ==================')
     vocabs = Vocabulary(args.v__vocabulary)
     logging.info(f"reading vocabulary, this may take a while ...")
     vocabs.load_vocab()
     ent_types = vocabs.get_ent_types()
 
-    document_ids = find_untagged_ids(in_file, logger, args.collection, ent_types, skip_todo_check=args.force)
-    number_of_docs = len(document_ids)
+    input_file_given = True
+    in_file = args.input
+    if args.input:
+        input_file_given = True
+        document_ids = find_untagged_ids(in_file, logger, args.collection, ent_types=ent_types)  #
+        number_of_docs = len(document_ids)
+
+        if not args.skip_load:
+            document_bulk_load(in_file, args.collection, logger=logger)
+        else:
+            logger.info("Skipping bulk load")
+
+        session = Session.get()
+        logger.info(f'Getting document ids from database for collection: {args.collection}...')
+        document_ids_in_db = Document.get_document_ids_for_collection(session, args.collection)
+        logger.info(f'{len(document_ids_in_db)} found')
+        session.remove()
+    else:
+        session = Session.get()
+        logger.info(f'Getting document ids from database for collection: {args.collection}...')
+        document_ids_in_db = Document.get_document_ids_for_collection(session, args.collection)
+        logger.info(f'{len(document_ids_in_db)} found')
+
+        input_file_given = False
+        logger.info('No input file given')
+        logger.info(f'Retrieving document count for collection: {args.collection}')
+        # compute the already tagged documents
+        document_ids = document_ids_in_db
+        todo_ids = set()
+        logger.info('Retrieving documents that have been tagged before...')
+        for ent_type in ent_types:
+            todo_ids |= get_untagged_doc_ids_by_ent_type(args.collection, document_ids, ent_type, MetaDicTagger, logger)
+        document_ids = todo_ids
+        number_of_docs = len(document_ids)
+        session.remove()
+
     logger.info(f'{number_of_docs} of documents have to be processed...')
 
     if number_of_docs == 0:
@@ -137,11 +173,6 @@ def main(arguments=None):
         exit(1)
     else:
         logger.info(f"selected {number_of_docs} documents for processing")
-
-    if not args.skip_load:
-        document_bulk_load(in_file, args.collection, logger=logger)
-    else:
-        logger.info("Skipping bulk load")
 
     kwargs = dict(collection=args.collection, logger=logger, config=conf)
 
@@ -159,9 +190,18 @@ def main(arguments=None):
     logger.info(f'Consider sections: {consider_sections}')
 
     def generate_tasks():
-        for doc in read_tagged_documents(in_file):
-            if doc and doc.id in document_ids and doc.has_content():
-                yield doc
+        if input_file_given:
+            for doc in read_tagged_documents(in_file):
+                if doc and doc.id in document_ids and doc.has_content():
+                    yield doc
+        else:
+            db_session = Session.get()
+            logger.info('Retrieving documents from database...')
+            for t_doc in iterate_over_all_documents_in_collection(db_session, args.collection,
+                                                                  consider_sections=consider_sections):
+                if t_doc.has_content():
+                    yield t_doc
+            db_session.remove()
 
     def do_task(in_doc: TaggedDocument):
         try:

@@ -5,11 +5,22 @@ from typing import Union
 from kgextractiontoolbox.document.document import TaggedDocument
 
 
-class Classifier:
+class BaseClassifier:
+
+    def __init__(self, classification: str):
+        self.classification = classification
+        pass
+
+    def classify_document(self, doc: TaggedDocument, consider_sections=False):
+        return NotImplementedError
+
+
+class Classifier(BaseClassifier):
+
     def __init__(self, classification, rule_path: Union[str, Path]):
+        super().__init__(classification)
         self.rules = []
         self.explanations = []
-        self.classification = classification
         self.rules, self.rules_org_str = Classifier.read_ruleset(rule_path)
 
     def classify_document(self, doc: TaggedDocument, consider_sections=False):
@@ -38,7 +49,9 @@ class Classifier:
                     matches.append(' AND '.join([rm for rm in rule_match]))
         # Execute all rules - if a rule matches then add classification
         if matches:
-            doc.classification[self.classification] = ';'.join([m for m in matches])
+            rule_expl = ';'.join([m for m in matches])
+            rule_expl = rule_expl.replace("\\b", "").replace("\\w*", "*")
+            doc.classification[self.classification] = rule_expl
         return doc
 
     @staticmethod

@@ -7,11 +7,10 @@ from kgtests import util
 
 
 class TestVocabDictagger(unittest.TestCase):
-    def tagfile_test(self, testfile):
+    def tagfile_test(self, testfile, collection):
         workdir = kgtests.util.make_test_tempdir()
-        args = [testfile,
-
-                *f"-c PREPTEST --loglevel DEBUG -v {util.resource_rel_path('vocabs/test_vocab.tsv')} --workdir {workdir} -w 1 -y".split()
+        args = [
+                *f"-i {testfile} -c {collection} --loglevel DEBUG -v {util.resource_rel_path('vocabs/test_vocab.tsv')} --workdir {workdir} -w 1 -y".split()
                 ]
         vdp.main(args)
         tags = set(util.get_tags_from_database())
@@ -22,8 +21,9 @@ class TestVocabDictagger(unittest.TestCase):
     def test_custom_abbreviations_and_synonyms(self):
         util.clear_database()
         testfile = util.resource_rel_path('infiles/test_vocab_dictpreprocess/abbreviation_test_allowed.txt')
-        self.tagfile_test(testfile)
+        self.tagfile_test(testfile, collection="test_custom_abbreviations_and_synonyms")
 
     def test_vocab_expansion(self):
         util.clear_database()
-        self.tagfile_test(util.resource_rel_path('infiles/test_vocab_dictpreprocess/expansion_test.txt'))
+        self.tagfile_test(util.resource_rel_path('infiles/test_vocab_dictpreprocess/expansion_test.txt'),
+                          collection="test_vocab_expansion")
