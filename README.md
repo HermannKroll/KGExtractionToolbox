@@ -108,18 +108,6 @@ If you would like to work with SQLite then enable the *use_SQLite* property and 
 The database schema is depicted below:
 ![DB Scheme](dbdiagram.png)
 
-## Cleaning a Document Collection 
-You can delete all information that are stored for a document collection by running:
-```
-python src/kgextractiontoolbox/backend/delete_collection.py COLLECTION
-```
-This will clean the database. 
-The script will ask you for your agreement to delete the collection. 
-We support a **--force** argument to directly delete the collection.
-```
-python src/kgextractiontoolbox/backend/delete_collection.py COLLECTION --force
-```
-
 # Toolbox Components
 Before you can use the toolbox, you must bring your documents into a compatible format and load them:
 - [0 Document Formats & Loading](README_00_DOCUMENTS.md)
@@ -137,3 +125,15 @@ How data of our toolbox can be exported is described here:
 
 
 
+
+## Cleaning a Document Collection 
+You can delete all information that are stored for a document collection by running:
+```
+python src/kgextractiontoolbox/backend/delete_collection.py COLLECTION
+```
+This will clean the database. 
+The script will ask you for your agreement to delete the collection. 
+We support a **--force** argument to directly delete the collection.
+```
+python src/kgextractiontoolbox/backend/delete_collection.py COLLECTION --force
+```
