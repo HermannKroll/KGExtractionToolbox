@@ -1,4 +1,4 @@
-# IJDL2022 Submission
+# IJDL2023 Submission
 This repository belongs to our submission to the International Journal on Digital Libraries. 
 The submission extends our previous work published at JCDL. 
 The Readme for the JCDL case studies can be found [here](README_CASE_STUDIES.md).
