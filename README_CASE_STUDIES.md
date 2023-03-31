@@ -79,5 +79,5 @@ We implemented the following improvements for our toolbox:
 - Open IE6 analysis ([Code](src/kgextractiontoolbox/extraction/analyze_openie_tuples.py))
 - sentence analysis ([Code](src/kgextractiontoolbox/document/count_sentences.py))
 
-# IJDL 2022 Submission
-There is a dedicated [ReadMe available](README_IDJL2022.md).
+# IJDL 2023 Submission
+There is a dedicated [ReadMe available](README_IJDL2023.md).
