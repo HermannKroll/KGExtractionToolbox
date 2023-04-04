@@ -77,8 +77,11 @@ class Session:
                 POSTGRES_DB=environ.get("NI_POSTGRES_DB", config["POSTGRES_DB"]),
             )
 
-    def __init__(self, connection_config, declarative_base):
-        if not self._instance:
+    def __init__(self, connection_config, declarative_base, force_create=False):
+        if not self._instance or force_create:
+            if force_create and self._instance:
+                self._instance.session.remove()
+
             self.sqlite_path = None
             self._load_config(connection_config)
             self.engine = create_engine(self.get_conn_uri())
@@ -105,9 +108,9 @@ class Session:
             )
 
     @classmethod
-    def get(cls, connection_config: str = cnf.BACKEND_CONFIG, declarative_base=Base):
-        if not cls._instance:
-            cls._instance = Session(connection_config, declarative_base)
+    def get(cls, connection_config: str = cnf.BACKEND_CONFIG, declarative_base=Base, force_create=False):
+        if not cls._instance or force_create:
+            cls._instance = Session(connection_config, declarative_base, force_create)
         return cls._instance.session
 
     @classmethod
