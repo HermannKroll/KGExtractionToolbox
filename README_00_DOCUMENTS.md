@@ -55,6 +55,17 @@ Note:
 - a document id must be an integer
 - id, title and abstracts are required
 
+### Document JSONL Format
+We also support the .jsonl format, where each document JSON is stored in a single line. 
+Files must have the suffix: .jsonl
+Here is an example of the JSONL format:
+```
+{"id": "1", "title": "Comparing Letrozole", "abstract": "Abstract 1"}
+{"id": "2", "title": "A Study Investigating", "abstract": "Abstract 2"}
+{"id": "3", "title": "Title 3", "abstract": "Abstract 3"}
+```
+
+
 ### Document PubTator Format
 The second document format is the so-called [PubTator format](https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/PubTator/tutorial/index.html). 
 A PubTator document has a document id, a document collection, a title and an abstract. 
