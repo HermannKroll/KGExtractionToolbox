@@ -20,12 +20,19 @@ def read_pubtator_documents(path, yield_paths=False):
         content = ""
         with open(path) as f:
 
-            docformat = get_doc_format(f)
+            docformat = get_doc_format(f, path)
             if docformat == DocFormat.SINGLE_JSON:
                 yield (path, f.read()) if yield_paths else f.read()
             elif docformat == DocFormat.COMPOSITE_JSON:
                 yield from map(lambda js: (path, json.dumps(js)), ijson.items(f, "item")) \
                     if yield_paths else map(json.dumps, ijson.items(f, "item"))
+            elif docformat == DocFormat.JSON_LINE:
+                for line in f:
+                    # Skip empty lines
+                    if not line.strip():
+                        continue
+                    # Each line should be a json document as its own
+                    yield (path, line.strip()) if yield_paths else line.strip()
             elif docformat == DocFormat.PUBTATOR:
                 for line in f:
                     if line.strip():

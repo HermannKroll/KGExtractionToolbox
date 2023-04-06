@@ -15,7 +15,7 @@ def get_document_ids(path: str):
                 ids.update(get_document_ids(os.path.join(path, fn)))
     else:
         with open(path) as f:
-            docformat = get_doc_format(f)
+            docformat = get_doc_format(f, path)
             if docformat == DocFormat.PUBTATOR:
                 for line in f:
                     ids.update(int(x) for x in DOCUMENT_ID.findall(line))
@@ -26,6 +26,11 @@ def get_document_ids(path: str):
                 ids.add(json.loads(f.read())["id"])
             elif docformat == DocFormat.COMPOSITE_JSON:
                 ids |= {doc["id"] for doc in ijson.items(f, "item")}
+            elif docformat == DocFormat.COMPOSITE_JSON:
+                for line in f:
+                    if not line.strip():
+                        continue
+                    ids.add(json.loads(line.strip())["id"])
     return ids
 
 
