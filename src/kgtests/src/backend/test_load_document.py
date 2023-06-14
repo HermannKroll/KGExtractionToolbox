@@ -2,7 +2,8 @@ import copy
 import unittest
 
 from kgextractiontoolbox.backend.database import Session
-from kgextractiontoolbox.backend.retrieve import retrieve_tagged_documents_from_database, iterate_over_all_documents_in_collection
+from kgextractiontoolbox.backend.retrieve import retrieve_tagged_documents_from_database, \
+    iterate_over_all_documents_in_collection
 from kgextractiontoolbox.document.document import TaggedDocument
 from kgextractiontoolbox.document.load_document import document_bulk_load
 from kgtests import util
@@ -103,3 +104,23 @@ class TestLoadDocument(unittest.TestCase):
         self.assertEqual(test_doc.abstract, db_docs[0].abstract)
         self.assertEqual(test_doc.title, db_docs[0].title)
         self.assertEqual(test_doc.sections, db_docs[0].sections)
+
+    def test_load_json_line_file(self):
+        test_path = util.get_test_resource_filepath("loading/example_json_line.jsonl")
+        document_bulk_load(test_path, "TestLoadingJsonLine")
+
+        session = Session.get()
+        db_docs = list(iterate_over_all_documents_in_collection(session, "TestLoadingJsonLine", consider_sections=True))
+        self.assertEqual(3, len(db_docs))
+
+        self.assertEqual("Comparing Letrozole", db_docs[0].title)
+        self.assertEqual("Abstract 1", db_docs[0].abstract)
+        self.assertEqual(1, db_docs[0].id)
+
+        self.assertEqual("A Study Investigating", db_docs[1].title)
+        self.assertEqual("Abstract 2", db_docs[1].abstract)
+        self.assertEqual(2, db_docs[1].id)
+
+        self.assertEqual("Title 3", db_docs[2].title)
+        self.assertEqual("Abstract 3", db_docs[2].abstract)
+        self.assertEqual(3, db_docs[2].id)

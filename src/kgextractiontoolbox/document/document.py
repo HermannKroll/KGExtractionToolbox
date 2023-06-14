@@ -11,20 +11,25 @@ from kgextractiontoolbox.document.regex import TAG_LINE_NORMAL, CONTENT_ID_TIT_A
 
 
 class DocFormat(Enum):
+    JSON_LINE = auto()
     COMPOSITE_JSON = auto()
     SINGLE_JSON = auto()
     PUBTATOR = auto()
 
 
 def get_doc_format(filehandle=None, path=None) -> DocFormat:
-    if not (bool(filehandle) ^ bool(path)):
-        raise ValueError("Either filehandle or path must be filled")
+    if not filehandle or not path:
+        raise ValueError("Filehandle or path must be filled to get the document format")
     if filehandle:
         first_char = filehandle.read(1)
         filehandle.seek(0)
     elif path:
         with open(path) as f:
             first_char = f.read(1)
+
+    path_suffix = path.split('.')[-1].lower()
+    if path_suffix == 'jsonl':
+        return DocFormat.JSON_LINE
     if first_char == "[":
         return DocFormat.COMPOSITE_JSON
     elif first_char == "{":
@@ -36,7 +41,8 @@ def get_doc_format(filehandle=None, path=None) -> DocFormat:
 
 
 def is_doc_file(fn):
-    return not fn.startswith(".") and any([fn.endswith(ext) for ext in [".txt", ".document", ".pubtator", "json"]])
+    return not fn.startswith(".") and any([fn.endswith(ext) for ext in [".txt", ".document", ".pubtator", "json",
+                                                                        ".jsonl"]])
 
 
 class TaggedEntity:

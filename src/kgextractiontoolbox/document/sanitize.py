@@ -45,7 +45,7 @@ def sanitize(input_dir_or_file, output_dir=None, delete_mismatched=False, logger
             if not ".txt" == new_filename[-4:]:
                 new_filename += ".txt"
                 sanitized_files.append(path)
-            if ILLEGAL_CHAR.search(file.title + file.abstract) or get_doc_format(open(path)) != DocFormat.PUBTATOR:
+            if ILLEGAL_CHAR.search(file.title + file.abstract) or get_doc_format(open(path), path) != DocFormat.PUBTATOR:
                 sanitized_files.append(path)
                 with open(new_filename, "w+") as nf:
                     nf.write(Document.create_pubtator(file.id, file.title, file.abstract) + "\n")
