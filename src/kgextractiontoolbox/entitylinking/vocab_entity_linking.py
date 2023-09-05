@@ -89,7 +89,6 @@ def main(arguments=None):
     group_settings.add_argument("-w", "--workers", default=1, help="Number of processes for parallelized entitylinking",
                                 type=int)
     parser.add_argument("-y", "--yes_force", help="skip prompt for workdir deletion", action="store_true")
-    parser.add_argument("-f", "--force", help="skip checking for already tagged documents", action="store_true")
     parser.add_argument("--sections", action="store_true", default=False,
                         help="Should the section texts be considered when tagging?")
     parser.add_argument("-i", "--input", help="composite document file", required=False)
