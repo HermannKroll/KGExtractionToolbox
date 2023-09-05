@@ -89,6 +89,7 @@ def main(arguments=None):
     group_settings.add_argument("-w", "--workers", default=1, help="Number of processes for parallelized entitylinking",
                                 type=int)
     parser.add_argument("-y", "--yes_force", help="skip prompt for workdir deletion", action="store_true")
+    parser.add_argument("-f", "--force", help="skip checking for already tagged documents", action="store_true")
     parser.add_argument("--sections", action="store_true", default=False,
                         help="Should the section texts be considered when tagging?")
     parser.add_argument("-i", "--input", help="composite document file", required=False)
@@ -133,8 +134,12 @@ def main(arguments=None):
     in_file = args.input
     if args.input:
         input_file_given = True
-        document_ids = find_untagged_ids(in_file, logger, args.collection, ent_types=ent_types)  #
-        number_of_docs = len(document_ids)
+        if not args.force:
+            document_ids = find_untagged_ids(in_file, logger, args.collection, ent_types=ent_types)  #
+            number_of_docs = len(document_ids)
+        else:
+            document_ids = count.get_document_ids(in_file)
+            number_of_docs = len(document_ids)
 
         if not args.skip_load:
             document_bulk_load(in_file, args.collection, logger=logger)
@@ -159,9 +164,10 @@ def main(arguments=None):
         document_ids = document_ids_in_db
         todo_ids = set()
         logger.info('Retrieving documents that have been tagged before...')
-        for ent_type in ent_types:
-            todo_ids |= get_untagged_doc_ids_by_ent_type(args.collection, document_ids, ent_type, MetaDicTagger, logger)
-        document_ids = todo_ids
+        if not args.force:
+            for ent_type in ent_types:
+                todo_ids |= get_untagged_doc_ids_by_ent_type(args.collection, document_ids, ent_type, MetaDicTagger, logger)
+            document_ids = todo_ids
         number_of_docs = len(document_ids)
         session.remove()
 
