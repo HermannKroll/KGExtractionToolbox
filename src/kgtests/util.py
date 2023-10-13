@@ -54,9 +54,25 @@ def get_tags_from_database(doc_id=None):
                             row["ent_str"], row["ent_type"], row["ent_id"]))
 
 
+def get_docs_tagged_by_from_database(doc_id=None):
+    session = Session.get()
+    if doc_id is None:
+        result = session.execute("SELECT * FROM doc_tagged_by")
+    else:
+        result = session.execute(f"SELECT * FROM doc_tagged_by WHERE document_id={doc_id}")
+    return result
+
+
 def clear_database():
     """DANGER! ONLY USE IN TESTS, NOWHERE IN PRODUCTION CODE!"""
     session = Session.get()
     if Session.is_sqlite:
         session.execute("DELETE FROM tag")
+        session.execute("DELETE FROM doc_tagged_by")
+
+
+def clear_doc_tagged_by_table():
+    """DANGER! ONLY USE IN TESTS, NOWHERE IN PRODUCTION CODE!"""
+    session = Session.get()
+    if Session.is_sqlite:
         session.execute("DELETE FROM doc_tagged_by")

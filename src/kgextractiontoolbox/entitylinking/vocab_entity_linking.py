@@ -134,8 +134,12 @@ def main(arguments=None):
     in_file = args.input
     if args.input:
         input_file_given = True
-        document_ids = find_untagged_ids(in_file, logger, args.collection, ent_types=ent_types)  #
-        number_of_docs = len(document_ids)
+        if not args.force:
+            document_ids = find_untagged_ids(in_file, logger, args.collection, ent_types=ent_types)  #
+            number_of_docs = len(document_ids)
+        else:
+            document_ids = count.get_document_ids(in_file)
+            number_of_docs = len(document_ids)
 
         if not args.skip_load:
             document_bulk_load(in_file, args.collection, logger=logger)
@@ -160,9 +164,10 @@ def main(arguments=None):
         document_ids = document_ids_in_db
         todo_ids = set()
         logger.info('Retrieving documents that have been tagged before...')
-        for ent_type in ent_types:
-            todo_ids |= get_untagged_doc_ids_by_ent_type(args.collection, document_ids, ent_type, MetaDicTagger, logger)
-        document_ids = todo_ids
+        if not args.force:
+            for ent_type in ent_types:
+                todo_ids |= get_untagged_doc_ids_by_ent_type(args.collection, document_ids, ent_type, MetaDicTagger, logger)
+            document_ids = todo_ids
         number_of_docs = len(document_ids)
         session.remove()
 
