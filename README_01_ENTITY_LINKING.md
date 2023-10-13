@@ -101,6 +101,12 @@ You can adjust the setting for the dictionary-based entity linker:
 #...
 ```
 # Stanza Named Entity Recognition
+Stanza is not installed by default. To use it, please install:
+```
+pip install stanza~=1.2.3
+```
+
+
 Before working with Stanza, you need to setup the English model. 
 Therefore, run:
 ```
