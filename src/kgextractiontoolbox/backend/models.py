@@ -159,6 +159,23 @@ class Document(Base, DatabaseTable):
         return session.query(Document).filter(Document.collection == collection).count()
 
 
+class DocumentMetadata(Base, DatabaseTable):
+    __tablename__ = 'document_metadata'
+    __table_args__ = (
+        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection')),
+        PrimaryKeyConstraint('document_id', 'document_collection', sqlite_on_conflict='IGNORE')
+    )
+
+    document_id = Column(BigInteger, nullable=False, index=True)
+    document_collection = Column(String, nullable=False, index=True)
+    document_id_original = Column(String, nullable=True)
+    authors = Column(String, nullable=True)
+    journals = Column(String, nullable=True)
+    publication_year = Column(Integer, nullable=True)
+    publication_month = Column(Integer, nullable=True)
+    publication_doi = Column(String, nullable=True)
+
+
 class Tagger(Base, DatabaseTable):
     __tablename__ = "tagger"
     __table_args__ = (
@@ -208,8 +225,8 @@ class Tag(Base, DatabaseTable):
 
     def __eq__(self, other):
         return self.ent_type == other.ent_type and self.start == other.start and self.end == other.end and \
-               self.ent_id == other.ent_id and self.ent_str == other.ent_str and \
-               self.document_id == other.document_id and self.document_collection == other.document_collection
+            self.ent_id == other.ent_id and self.ent_str == other.ent_str and \
+            self.document_id == other.document_id and self.document_collection == other.document_collection
 
     def __hash__(self):
         return hash((self.ent_type, self.start, self.end, self.ent_id, self.ent_str, self.document_id,
