@@ -59,10 +59,16 @@ def pathie_run_corenlp(core_nlp_dir: str, out_corenlp_dir: str, filelist_fn: str
     process = subprocess.Popen(sp_args, cwd=core_nlp_dir, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     start_time = datetime.now()
     print_progress_with_eta('CoreNLP running...', 0, num_files, start_time, print_every_k=1)
-    while process.poll() is None:
+    return_code = process.poll()
+    while return_code is None:
         sleep(10)
         print_progress_with_eta('CoreNLP running...', get_progress(out_corenlp_dir), num_files, start_time,
                                 print_every_k=1)
+        return_code = process.poll()
+
+    if return_code != 0:
+        raise ValueError(f'CoreNLP returned code: {return_code}. (Did you add +x permissions to run.sh?)')
+
     sys.stdout.write("\rProgress: {}/{} ... done in {}\n".format(
         get_progress(out_corenlp_dir), num_files, datetime.now() - start,
     ))
@@ -295,7 +301,7 @@ def run_pathie(input, output, workdir=None, config=NLP_CONFIG,
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("input", help="PubTator file / directory of PubTator files - PubTator files must include Tags")
+    parser.add_argument("input", help="PubTator/JSON file / directory of PubTator/JSON files - the files must include tags")
     parser.add_argument("output", help="PathIE output file")
     parser.add_argument("--workdir", help="working directory")
     parser.add_argument("--config", default=NLP_CONFIG)

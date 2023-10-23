@@ -7,7 +7,7 @@ Please carefully read our paper and the instructions below to select the tools f
 
 PathIE requires:
 - [Stanford CoreNLP](https://stanfordnlp.github.io/CoreNLP/)
-- Stanford Stanza (is already installed via Python dependencies)
+- Stanford Stanza (has to be installed via pip. See Stanza section.)
 
 OpenIE extraction can be produced by one of the following tools:
 - [Stanford CoreNLP](https://stanfordnlp.github.io/CoreNLP/)
@@ -145,7 +145,7 @@ python src/kgextractiontoolbox/extraction/pathie/main.py INPUT_DOC OUTPUT_PATHIE
 ```
 
 PathIE supports the extraction of special keywords on the dependency path of sentences. 
-Therefore, you need to design a relation vocabulary, see [Cleaning Readme](README_03_CLEANING.md).
+Therefore, you need to design a relation vocabulary, see [Cleaning Readme](README_04_CLEANING.md).
 You may use a relation vocabulary for additional keywords on the Path:
 ```
 python src/kgextractiontoolbox/extraction/pathie/main.py INPUT_DOC OUTPUT_PATHIE --relation_vocab RELATION.json
@@ -170,6 +170,12 @@ This vocabulary will enforce PathIE to extract statements between entities, if a
 Wildcards (*) are allowed in the beginning or ending of an entry (due to performance). 
 An entry might also contain a white space. 
 ### Running PathIE Stanza
+Stanza is not installed by default. To use it, please install:
+```
+pip install stanza~=1.2.3
+```
+
+
 Before working with Stanza, you need to setup the English model. 
 Therefore, run:
 ```
