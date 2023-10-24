@@ -41,13 +41,14 @@ def postgres_sanitize_str(string: str) -> str:
     return string.replace('\\', '\\\\')
 
 
-def postgres_copy_insert(session, values: List[dict], table_name: str):
+def postgres_copy_insert(session, values: List[dict], table_name: str, commit=True):
     """
     Performs a fast COPY INSERT operation for Postgres Databases
     Do not check any constraints!
     :param session: the current session object
     :param values: a list of dictionary objects (they must correspond to the table)
     :param table_name: the table name to insert into
+    :param commit: should the operation be committed?
     :return: None
     """
     for values_chunk in chunks_list(values, POSTGRES_COPY_LOAD_AFTER_K):
@@ -65,17 +66,19 @@ def postgres_copy_insert(session, values: List[dict], table_name: str):
         memory_file.seek(0)
         cursor.copy_from(memory_file, table_name, sep='\t', columns=attribute_keys)
         logging.debug('Committing...')
-        connection.commit()
+        if commit:
+            connection.commit()
         memory_file.close()
 
 
-def bulk_insert_values_to_table(session, values: List[dict], table_class, print_progress=False):
+def bulk_insert_values_to_table(session, values: List[dict], table_class, print_progress=False, commit=True):
     """
     Performs a bulk insert to a database table
     :param session: the current session object
     :param values: a list of dictionary objects that correspond to the table
     :param table_class: the table class to insert into
     :param print_progress: should the progress be printed?
+    :param commit: should the operation be committed?
     :return: None
     """
     task_size = 1 + int(len(values) / BULK_INSERT_AFTER_K)
@@ -84,7 +87,8 @@ def bulk_insert_values_to_table(session, values: List[dict], table_class, print_
         if print_progress:
             print_progress_with_eta("Inserting values...", idx, task_size, start_time, print_every_k=1)
         session.bulk_insert_mappings(table_class, chunk_values)
-        session.commit()
+        if commit:
+            session.commit()
 
 
 class DatabaseTable:
@@ -93,14 +97,15 @@ class DatabaseTable:
     """
 
     @classmethod
-    def bulk_insert_values_into_table(cls, session, values: List[dict], check_constraints=True, print_progress=False):
+    def bulk_insert_values_into_table(cls, session, values: List[dict], check_constraints=True, print_progress=False,
+                                      commit=True):
         if not values or len(values) == 0:
             return
         logging.debug(f'Inserting values into {cls.__tablename__}...')
         if session.is_postgres and not check_constraints:
-            postgres_copy_insert(session, values, cls.__tablename__)
+            postgres_copy_insert(session, values, cls.__tablename__, commit=commit)
         else:
-            bulk_insert_values_to_table(session, values, cls, print_progress)
+            bulk_insert_values_to_table(session, values, cls, print_progress, commit=commit)
         logging.debug(f'{len(values)} values have been inserted')
 
 

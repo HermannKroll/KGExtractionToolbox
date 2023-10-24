@@ -5,7 +5,7 @@ from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.retrieve import retrieve_narrative_documents_from_database
 from kgextractiontoolbox.document.load_narrative_documents import narrative_document_bulk_load
 from kgextractiontoolbox.document.narrative_document import NarrativeDocument
-from nitests import util
+from kgtests import util
 
 
 class TestLoadNarrativeDocument(unittest.TestCase):
