@@ -25,6 +25,20 @@ class TestDictagger(unittest.TestCase):
         self.assertIn(('carbon-copper', 32), indexed)
         self.assertNotIn(('carbon', 32), indexed)
 
+    def test_split_indexed_words_slash(self):
+        content = "Simvastatin/Metformin"
+        indexed = split_indexed_words(content)
+        self.assertIn(('Simvastatin', 0), indexed)
+        self.assertIn(('Metformin', 12), indexed)
+        self.assertIn(('Simvastatin/Metformin', 0), indexed)
+
+    def test_split_indexed_words_slash_not(self):
+        content = "Simvastatin/Metformin"
+        indexed = split_indexed_words(content, False)
+        self.assertNotIn(('Simvastatin', 0), indexed)
+        self.assertNotIn(('Metformin', 12), indexed)
+        self.assertIn(('Simvastatin/Metformin', 0), indexed)
+
     def test_split_indexed_words_end(self):
         content = "matica (Monimiacea) (Monimiaceae)."
         indexed = split_indexed_words(content)
