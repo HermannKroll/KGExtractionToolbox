@@ -28,11 +28,13 @@ def clean_vocab_word_by_split_rules(word: str) -> str:
     return word
 
 
-def split_indexed_words(content):
+def split_indexed_words(content, split_by_slash=True):
     words = content.split(' ')
     ind_words = []
     next_index_word = 0
     for word in words:
+        if split_by_slash and "/" in word:
+            ind_words.extend(split_indexed_words(word.replace("/", " ")))
         ind = next_index_word
         word_offset = 0
         while word and re.match(r"[^\w]", word[0]):
@@ -106,7 +108,7 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         for text_element, offset in in_doc.iterate_over_text_elements(sections=consider_sections):
             content = text_element.lower()
             # split into indexed single words
-            ind_words = split_indexed_words(content)
+            ind_words = split_indexed_words(content, split_by_slash=self.config.dict_split_by_slash)
 
             for spaces in range(self.config.dict_max_words):
                 for word_tuple in get_n_tuples(ind_words, spaces + 1):
@@ -128,7 +130,7 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
             for text_element, offset in in_doc.iterate_over_text_elements(sections=consider_sections):
                 content = text_element.lower()
                 # split into indexed single words
-                ind_words = split_indexed_words(content)
+                ind_words = split_indexed_words(content, split_by_slash=self.config.dict_split_by_slash)
                 for spaces in range(self.config.dict_max_words):
                     for word_tuple in get_n_tuples(ind_words, spaces + 1):
                         tags += self.get_hits(word_tuple, pmid, abb_vocab, offset=offset)
