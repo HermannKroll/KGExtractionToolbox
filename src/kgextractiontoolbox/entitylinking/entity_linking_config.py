@@ -62,6 +62,10 @@ class Config:
         return self.config["dict"]["max_words"]
 
     @property
+    def dict_split_by_slash(self):
+        return self.config["dict"]["split_by_slash"].strip().lower() == "true"
+
+    @property
     def dict_check_abbreviation(self):
         return self.config["dict"]["check_abbreviation"]
 

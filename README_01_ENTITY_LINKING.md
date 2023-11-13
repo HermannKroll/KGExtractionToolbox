@@ -96,7 +96,8 @@ You can adjust the setting for the dictionary-based entity linker:
     "max_words": 5, # specifies the maximal number of words an entity has 
     "check_abbreviation": "true", # check custom introduced abbreviations in brackets 
     "custom_abbreviations": "true", # check custom introduced abbreviations in brackets
-    "min_full_tag_len": 5 # may improve the quality when working with homonys. An entity is only tagged in a document when a full mention (here 5) characters was detected at least once.
+    "min_full_tag_len": 5, # may improve the quality when working with homonys. An entity is only tagged in a document when a full mention (here 5) characters was detected at least once.
+    "split_by_slash": "true" # enable word splitting rule by slash (metformin/simvastatin -> [metformin, simvastatin, metformin/simvastatin])
   }
 #...
 ```
