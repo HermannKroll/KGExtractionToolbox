@@ -28,7 +28,8 @@ ENTITY_TEST_CONFIG_CONTENT = """
     "max_words": 5,
     "check_abbreviation": "true",
     "custom_abbreviations": "true",
-    "min_full_tag_len": 5
+    "min_full_tag_len": 5,
+    "split_by_slash": "true"
   },
   "drug": {
     "check_products": 0,
