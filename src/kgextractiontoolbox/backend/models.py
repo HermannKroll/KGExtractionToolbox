@@ -163,6 +163,16 @@ class Document(Base, DatabaseTable):
     def count_documents_in_collection(session, collection: str) -> int:
         return session.query(Document).filter(Document.collection == collection).count()
 
+    @staticmethod
+    def query_highest_document_id(session, document_collection):
+        document_id = 0
+        query = session.query(Document.id)
+        query = query.filter(Document.collection == document_collection)
+        query = query.order_by(Document.id.desc()).limit(1)
+        for q in query:
+            document_id = q[0]
+        return document_id
+
 
 class DocumentMetadata(Base, DatabaseTable):
     __tablename__ = 'document_metadata'
@@ -459,6 +469,13 @@ class Sentence(Base, DatabaseTable):
         sent_query = sent_query.yield_per(bulk_query_cursor_count)
         for res in sent_query:
             yield res
+
+    @staticmethod
+    def query_highest_sentence_id(session):
+        sentence_id = 0
+        for q in session.execute(session.query(Sentence.id).order_by(Sentence.id.desc()).limit(1)):
+            sentence_id = q[0]
+        return sentence_id
 
 
 class DocProcessedByIE(Base, DatabaseTable):
