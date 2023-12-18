@@ -50,10 +50,7 @@ def load_highest_sentence_id() -> int:
     :return: highest used sentence id
     """
     session = Session.get()
-    sentence_id = 0
-    for q in session.execute(session.query(Sentence.id).order_by(Sentence.id.desc()).limit(1)):
-        sentence_id = q[0]
-    return sentence_id
+    return Sentence.query_highest_sentence_id(session)
 
 
 def clean_sentence_str(sentence: str) -> str:
