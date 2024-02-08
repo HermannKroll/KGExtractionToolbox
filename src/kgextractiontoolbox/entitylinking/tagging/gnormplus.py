@@ -7,7 +7,6 @@ from shutil import copyfile
 from time import sleep
 
 from kgextractiontoolbox.document.count import get_document_ids
-from kgextractiontoolbox.entitylinking.tagging.base import BaseTagger
 from kgextractiontoolbox.entitylinking.tagging.external_base import ExternalTaggerBase
 from kgextractiontoolbox.entitylinking.utils import get_document_id
 from kgextractiontoolbox.progress import print_progress_with_eta
@@ -118,7 +117,7 @@ class GNormPlus(ExternalTaggerBase):
                         os.kill(process.pid, signal.SIGKILL)
                         while process.poll() is None:
                             sleep(1)
-                        self.logger.warn(f"No Progress in last {self.config.tagger_one_timeout} min")
+                        self.logger.warn(f"No Progress in last {self.config.gnormplus_timeout} min")
                         no_progress = True
                         break
                 self.logger.debug("Exited with code {}".format(process.poll()))
@@ -137,10 +136,12 @@ class GNormPlus(ExternalTaggerBase):
                         self.logger.warn("Could not conserve logfile, continuing anyway")
                     self.logger.warning(f'No progress / exception. Deleting problematic file: {last_file}')
                     os.remove(last_file)
-                elif not no_progress:
+                # if there is no progress and we did not find a last file, we have to stop the process
+                elif no_progress:
                     # No file processed, assume another error
                     keep_tagging = False
-                    self.logger.error("No files processed. Assuming an unexpected exception")
+                    self.logger.error("No files processed. Assuming an unexpected exception.")
+                    self.logger.error("GNormPlus exited with code {}".format(process.poll()))
                 no_progress = False
             else:
                 keep_tagging = False
