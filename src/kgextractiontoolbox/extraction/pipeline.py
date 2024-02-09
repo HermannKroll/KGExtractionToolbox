@@ -22,7 +22,6 @@ from kgextractiontoolbox.extraction.openie.main import run_corenlp_openie
 from kgextractiontoolbox.extraction.openie51.main import openie51_run
 from kgextractiontoolbox.extraction.openie6.main import openie6_run
 from kgextractiontoolbox.extraction.pathie.main import pathie_run_corenlp, pathie_process_corenlp_output_parallelized
-from kgextractiontoolbox.extraction.pathie_stanza.main import run_stanza_pathie
 from kgextractiontoolbox.extraction.versions import PATHIE_EXTRACTION, OPENIE_EXTRACTION, PATHIE_STANZA_EXTRACTION, \
     OPENIE6_EXTRACTION, OPENIE51_EXTRACTION
 from kgextractiontoolbox.util.helpers import chunks
@@ -167,6 +166,8 @@ def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collect
             pred_vocab = relation_vocab.relation_dict if relation_vocab else None
             logging.info('Starting PathIE Stanza...')
             start = datetime.now()
+            # only import stanze if required
+            from kgextractiontoolbox.extraction.pathie_stanza.main import run_stanza_pathie
             run_stanza_pathie(document_export_file, ie_output_file, predicate_vocabulary=pred_vocab,
                               consider_sections=consider_sections)
             logging.info((" done in {}".format(datetime.now() - start)))
