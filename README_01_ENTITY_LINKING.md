@@ -174,7 +174,10 @@ tools/
   GNormPlusJava/
   TaggerOne-0.2.1/
 ```
-Both tools require a Java installation. To use TaggerOne, see its readme file. Some models must be build manually.
+Both tools require a Java installation. 
+Both tools need to be installed and compiled by hand.
+So for GNormPlus and TaggerOne, see their readme files.
+For TaggerOne, some models must be build manually.
 
 ### Tagger Configuration
 Adjust the root path configurations for both taggers in `entity_linking.json:`
