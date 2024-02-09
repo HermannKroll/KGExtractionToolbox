@@ -120,7 +120,7 @@ class GNormPlus(ExternalTaggerBase):
                         self.logger.warn(f"No Progress in last {self.config.gnormplus_timeout} min")
                         no_progress = True
                         break
-                self.logger.debug("Exited with code {}".format(process.poll()))
+                self.logger.info("Exited with code {}".format(process.poll()))
 
             if not process.poll() == 0 or no_progress:
                 # Java Exception
@@ -129,11 +129,11 @@ class GNormPlus(ExternalTaggerBase):
                     last_file_path = os.path.join(self.input_dir, last_file)
                     last_id = get_document_id(last_file_path)
                     skipped_files.append(last_file)
-                    self.logger.debug("Exception in file {}".format(last_file))
+                    self.logger.warning("Exception in file {}".format(last_file))
                     try:
                         copyfile(self.log_file, os.path.join(os.path.dirname(self.log_file), f"gnorm.{last_id}.log"))
                     except:
-                        self.logger.warn("Could not conserve logfile, continuing anyway")
+                        self.logger.warning("Could not conserve logfile, continuing anyway")
                     self.logger.warning(f'No progress / exception. Deleting problematic file: {last_file}')
                     os.remove(last_file)
                 # if there is no progress and we did not find a last file, we have to stop the process
