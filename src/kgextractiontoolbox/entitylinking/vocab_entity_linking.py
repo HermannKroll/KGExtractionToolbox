@@ -175,7 +175,7 @@ def main(arguments=None):
 
     if number_of_docs == 0:
         logger.info('No documents to process - stopping')
-        exit(1)
+        exit(0)
     else:
         logger.info(f"selected {number_of_docs} documents for processing")
 
