@@ -84,7 +84,7 @@ class Session:
 
             self.sqlite_path = None
             self._load_config(connection_config)
-            self.engine = create_engine(self.get_conn_uri())
+            self.engine = create_engine(self.get_conn_uri(), pool_pre_ping=True)
             add_engine_pidguard(self.engine)
             session_cls = sessionmaker(bind=self.engine)  # python black magic: equip self with additional functions
             self.session = scoped_session(session_cls)  # session_cls()
