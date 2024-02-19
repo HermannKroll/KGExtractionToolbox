@@ -348,3 +348,21 @@ class TestDocument(unittest.TestCase):
         doc1.clean_tags()
         # Duplicated tag should be removed
         self.assertEqual(1, len(doc1.tags))
+
+
+    def test_tagged_document_fulltext(self):
+        doc1 = TaggedDocument(id=1, title="title", abstract="abstract")
+        self.assertEqual("1|t|title\n1|a|abstract\n\n", str(doc1))
+        self.assertEqual("title abstract", doc1.get_text_content())
+
+        doc1.sections.append(DocumentSection(0, "section 1", "hallo"))
+
+        self.assertEqual("1|t|title\n1|a|abstract section 1 hallo\n\n", str(doc1))
+        self.assertEqual("title abstract", doc1.get_text_content())
+        self.assertEqual("title abstract section 1 hallo", doc1.get_text_content(sections=True))
+
+        doc1.sections.append(DocumentSection(2, "section 2", "das ist ein test"))
+
+        self.assertEqual("1|t|title\n1|a|abstract section 1 hallo section 2 das ist ein test\n\n", str(doc1))
+        self.assertEqual("title abstract", doc1.get_text_content())
+        self.assertEqual("title abstract section 1 hallo section 2 das ist ein test", doc1.get_text_content(sections=True))

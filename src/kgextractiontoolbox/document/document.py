@@ -407,10 +407,15 @@ class TaggedDocument:
     def has_content(self):
         return True if (self.title or self.abstract) else False
 
+    def get_section_full_texts(self):
+        if self.sections:
+            return ' '.join([str(sec.title) + ' ' + str(sec.text) for sec in self.sections])
+        else:
+            return None
+
     def get_text_content(self, sections=False):
         if sections and self.sections:
-            fulltext = ' '.join([str(sec.title) + ' ' + str(sec.text) for sec in self.sections])
-            return f"{self.title} {self.abstract} " + fulltext
+            return f"{self.title} {self.abstract} " + self.get_section_full_texts()
         else:
             return f"{self.title} {self.abstract}"
 
@@ -420,7 +425,7 @@ class TaggedDocument:
         return self.to_dict() == other.to_dict()
 
     def __str__(self):
-        return Document.create_pubtator(self.id, self.title, self.abstract) + "".join(
+        return Document.create_pubtator(self.id, self.title, self.abstract, self.get_section_full_texts()) + "".join(
             [str(t) for t in self.tags]) + "\n"
 
     def __repr__(self):
