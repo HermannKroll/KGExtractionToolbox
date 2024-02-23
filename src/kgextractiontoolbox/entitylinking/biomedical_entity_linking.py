@@ -154,7 +154,7 @@ def run_preprocess(input_file, collection, config, skip_load, tagger_one, gnormp
     logger.debug("Input directory: {}".format(in_dir))
     if not os.path.exists(in_dir):
         logger.error("Fatal: Input directory or file not found")
-        sys.exit(1)
+        sys.exit(-1)
 
     logger.info(f"Splitting up composite files to: {in_dir}...")
     split_composites(ext_in_dir, in_dir, logger=logger)
@@ -277,11 +277,11 @@ def main(arguments=None):
 
     if not args.tagger_one and not args.gnormplus:
         print("At least --tagger-one or --gnormplus must be specified for tagging")
-        sys.exit(1)
+        sys.exit(-1)
 
     if args.tagger_one and args.gnormplus:
         print("Choose only one tagger - Pipeline does not support both taggers in parallel")
-        sys.exit(1)
+        sys.exit(-1)
 
     run_preprocess(input_file=args.input, collection=args.collection, config=args.config,
                    skip_load=args.skip_load, tagger_one=args.tagger_one, gnormplus=args.gnormplus,

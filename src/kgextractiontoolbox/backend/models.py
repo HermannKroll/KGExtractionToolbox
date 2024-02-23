@@ -132,7 +132,7 @@ class Document(Base, DatabaseTable):
         return Document.create_pubtator(self.id, self.title, self.abstract)
 
     @staticmethod
-    def create_pubtator(did, title: str, abstract: str):
+    def create_pubtator(did, title: str, abstract: str, fulltext: str = None):
         if title:
             title = unicodedata.normalize('NFD', title)
             title = ILLEGAL_CHAR.sub("", title).strip()
@@ -143,6 +143,12 @@ class Document(Base, DatabaseTable):
             abstract = ILLEGAL_CHAR.sub("", abstract).strip()
         else:
             abstract = ""
+
+        if fulltext:
+            fulltext = unicodedata.normalize('NFD', fulltext)
+            fulltext = ILLEGAL_CHAR.sub("", fulltext).strip()
+            abstract += ' ' + fulltext
+
         return "{id}|t|{tit}\n{id}|a|{abs}\n".format(id=did, tit=title, abs=abstract)
 
     @staticmethod
