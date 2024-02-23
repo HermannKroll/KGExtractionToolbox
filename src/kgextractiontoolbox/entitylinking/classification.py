@@ -68,7 +68,7 @@ def perform_classification(classifier: BaseClassifier, document_collection: str,
 
         if number_of_docs == 0:
             logger.info('No documents to process - stopping')
-            exit(1)
+            exit(0)
 
         if not skip_load:
             document_bulk_load(in_file, document_collection, logger=logger)
