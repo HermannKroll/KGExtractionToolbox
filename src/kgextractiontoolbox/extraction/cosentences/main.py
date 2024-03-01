@@ -35,6 +35,9 @@ def extract_based_on_co_occurrences_in_sentences(spacy_nlp, document_content, co
 
         # combine all tags with all tags within that sentence
         for t1, t2 in itertools.product(tags, tags):
+            # don't extract mentions between the same entity within on sentence
+            if t1.ent_id == t2.ent_id and t1.ent_type == t2.ent_type:
+                continue
             # only extract one direction
             if t1.end > t2.start:
                 continue
@@ -44,7 +47,11 @@ def extract_based_on_co_occurrences_in_sentences(spacy_nlp, document_content, co
             # difference between entities is 10 characters -> 0.9
             confidence = round((s_len - (t2.start - t1.end)) / s_len, 2)
 
-            assert 0.0 <= confidence <= 1.0
+            # some entities might exceed the range of a sentence (due to wrong sentence splitting or bad annotation)
+            # so force confidence to be between 0..1
+            confidence = max(0.0, confidence)
+            confidence = min(1.0, confidence)
+
             tuples.append(PathIEExtraction(tagged_doc.id,
                                            t1.ent_id, t1.text, t1.ent_type,
                                            "associated", "associated",
