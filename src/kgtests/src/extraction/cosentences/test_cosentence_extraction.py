@@ -111,6 +111,51 @@ class COSentenceExtractionTest(TestCase):
         }            
         """
 
+        self.doc4_content = """
+               {
+                     "id": 1,
+                     "title": "Nanoparticles and nanoparticles. Antioxidant and copper are also important for copper das",
+                     "abstract": "",
+                     "tags": [
+                      {
+                         "id": "MESH:D053758",
+                         "mention": "nanoparticles",
+                         "start": 1,
+                         "end": 13,
+                         "type": "DosageForm"
+                       },
+                       {
+                         "id": "MESH:D053758",
+                         "mention": "nanoparticles",
+                         "start": 19,
+                         "end": 31,
+                         "type": "DosageForm"
+                       },
+                       {
+                         "id": "Antioxidants",
+                         "mention": "antioxidant",
+                         "start": 33,
+                         "end": 44,
+                         "type": "Excipient"
+                       },
+                       {
+                         "id": "CHEMBL55643",
+                         "mention": "copper",
+                         "start": 50,
+                         "end": 55,
+                         "type": "Chemical"
+                       },
+                                              {
+                         "id": "CHEMBL55643",
+                         "mention": "copper",
+                         "start": 79,
+                         "end": 85,
+                         "type": "Chemical"
+                       }
+                   ]
+               }            
+               """
+
     def test_extract_based_on_co_occurrences_in_sentences(self):
         d1_tuples = extract_based_on_co_occurrences_in_sentences(self.spacy_nlp, self.doc1_content)
         self.assertEqual(3, len(d1_tuples))
@@ -131,3 +176,13 @@ class COSentenceExtractionTest(TestCase):
         pairs = {(t.subject_id, t.object_id) for t in d3_tuples}
         self.assertIn(("This", "MESH:D053758"), pairs)
         self.assertIn(("Antioxidants", "CHEMBL55643"), pairs)
+
+    def test_extract_based_on_co_occurrences_in_sentences_no_self_extractions(self):
+        d4_tuples = extract_based_on_co_occurrences_in_sentences(self.spacy_nlp, self.doc4_content)
+        pairs = {(t.subject_id, t.object_id) for t in d4_tuples}
+        self.assertNotIn(("MESH:D053758", "MESH:D053758"), pairs)
+
+    def test_extract_based_on_co_occurrences_in_sentences_best_confidence(self):
+        d4_tuples = extract_based_on_co_occurrences_in_sentences(self.spacy_nlp, self.doc4_content)
+        self.assertEqual(1, len(d4_tuples))
+        self.assertEqual(0.89, d4_tuples[0].confidence)

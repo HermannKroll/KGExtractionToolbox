@@ -33,6 +33,8 @@ def extract_based_on_co_occurrences_in_sentences(spacy_nlp, document_content, co
     for sent_id in sorted_sentences:
         tags = tagged_doc.entities_by_sentence[sent_id]
 
+        sentence_extractions = []
+
         # combine all tags with all tags within that sentence
         for t1, t2 in itertools.product(tags, tags):
             # don't extract mentions between the same entity within on sentence
@@ -52,11 +54,21 @@ def extract_based_on_co_occurrences_in_sentences(spacy_nlp, document_content, co
             confidence = max(0.0, confidence)
             confidence = min(1.0, confidence)
 
-            tuples.append(PathIEExtraction(tagged_doc.id,
-                                           t1.ent_id, t1.text, t1.ent_type,
-                                           "associated", "associated",
-                                           t2.ent_id, t2.text, t2.ent_type,
-                                           confidence, tagged_doc.sentence_by_id[sent_id].text))
+            sentence_extractions.append(PathIEExtraction(tagged_doc.id,
+                                                         t1.ent_id, t1.text, t1.ent_type,
+                                                         "associated", "associated",
+                                                         t2.ent_id, t2.text, t2.ent_type,
+                                                         confidence, tagged_doc.sentence_by_id[sent_id].text))
+
+        # only keep tuples with the best confidence per sentence
+        # sort by confidence desc
+        sentence_extractions.sort(key=lambda x: x.confidence, reverse=True)
+        considered = set()
+        for t in sentence_extractions:
+            key = (t.subject_id, t.subject_type, t.object_id, t.object_type)
+            if key not in considered:
+                considered.add(key)
+                tuples.append(t)
 
     return tuples
 
