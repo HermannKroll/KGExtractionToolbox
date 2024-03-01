@@ -1,10 +1,8 @@
 import unittest
 
 import kgextractiontoolbox.document.document as doc
-from kgextractiontoolbox.document.extract import read_tagged_documents
 from kgextractiontoolbox.entitylinking.tagging.dictagger import split_indexed_words, DictTagger
 from kgextractiontoolbox.entitylinking.tagging.vocabulary import expand_vocabulary_term
-from kgtests.util import create_test_kwargs, get_test_resource_filepath, resource_rel_path
 
 
 class TestDictagger(unittest.TestCase):
