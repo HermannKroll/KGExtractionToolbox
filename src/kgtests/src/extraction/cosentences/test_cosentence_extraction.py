@@ -156,6 +156,37 @@ class COSentenceExtractionTest(TestCase):
                }            
                """
 
+        self.doc5_content = """
+                       {
+                             "id": 1,
+                             "title": "Nanoparticles and nanoparticlesI a nanoparticles",
+                             "abstract": "",
+                             "tags": [
+                              {
+                                 "id": "A",
+                                 "mention": "nanoparticles",
+                                 "start": 1,
+                                 "end": 13,
+                                 "type": "DosageForm"
+                               },
+                               {
+                                 "id": "B",
+                                 "mention": "nanoparticles",
+                                 "start": 19,
+                                 "end": 32,
+                                 "type": "DosageForm"
+                               },
+                               {
+                                 "id": "A",
+                                 "mention": "nanoparticles",
+                                 "start": 36,
+                                 "end": 47,
+                                 "type": "DosageForm"
+                               }
+                           ]
+                       }            
+                       """
+
     def test_extract_based_on_co_occurrences_in_sentences(self):
         d1_tuples = extract_based_on_co_occurrences_in_sentences(self.spacy_nlp, self.doc1_content)
         self.assertEqual(3, len(d1_tuples))
@@ -186,3 +217,8 @@ class COSentenceExtractionTest(TestCase):
         d4_tuples = extract_based_on_co_occurrences_in_sentences(self.spacy_nlp, self.doc4_content)
         self.assertEqual(1, len(d4_tuples))
         self.assertEqual(0.89, d4_tuples[0].confidence)
+
+    def test_extract_based_on_co_occurrences_in_sentences_no_duplicated_extractions(self):
+        d5_tuples = extract_based_on_co_occurrences_in_sentences(self.spacy_nlp, self.doc5_content)
+        self.assertEqual(1, len(d5_tuples))
+        self.assertEqual(0.92, d5_tuples[0].confidence)
