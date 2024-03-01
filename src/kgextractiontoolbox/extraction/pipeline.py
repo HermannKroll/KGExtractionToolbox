@@ -216,7 +216,7 @@ def main():
     parser.add_argument("-et", "--extraction_type", required=True, help="the extraction method",
                         choices=list(
                             [OPENIE_EXTRACTION, OPENIE51_EXTRACTION, OPENIE6_EXTRACTION, PATHIE_EXTRACTION,
-                             PATHIE_STANZA_EXTRACTION]))
+                             PATHIE_STANZA_EXTRACTION, COSENTENCE_EXTRACTION]))
     parser.add_argument("-c", "--collection", required=True, help="Name of the given document collection")
     parser.add_argument("--config", help="OpenIE / PathIE Configuration file", default=NLP_CONFIG)
     parser.add_argument("-w", "--workers", help="number of parallel workers", default=1, type=int)
