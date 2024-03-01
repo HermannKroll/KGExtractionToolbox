@@ -15,6 +15,7 @@ from kgextractiontoolbox.cleaning.relation_vocabulary import RelationVocabulary
 from kgextractiontoolbox.config import NLP_CONFIG
 from kgextractiontoolbox.document.count import count_documents
 from kgextractiontoolbox.document.export import export
+from kgextractiontoolbox.extraction.cosentences.main import run_co_occurrences_in_sentences
 from kgextractiontoolbox.extraction.extraction_utils import filter_and_write_documents_to_tempdir
 from kgextractiontoolbox.extraction.loading.load_openie_extractions import OpenIEEntityFilterMode, load_openie_tuples
 from kgextractiontoolbox.extraction.loading.load_pathie_extractions import load_pathie_extractions
@@ -23,7 +24,7 @@ from kgextractiontoolbox.extraction.openie51.main import openie51_run
 from kgextractiontoolbox.extraction.openie6.main import openie6_run
 from kgextractiontoolbox.extraction.pathie.main import pathie_run_corenlp, pathie_process_corenlp_output_parallelized
 from kgextractiontoolbox.extraction.versions import PATHIE_EXTRACTION, OPENIE_EXTRACTION, PATHIE_STANZA_EXTRACTION, \
-    OPENIE6_EXTRACTION, OPENIE51_EXTRACTION
+    OPENIE6_EXTRACTION, OPENIE51_EXTRACTION, COSENTENCE_EXTRACTION
 from kgextractiontoolbox.util.helpers import chunks
 
 DOCUMENTS_TO_PROCESS_IN_ONE_BATCH = 500000
@@ -172,6 +173,12 @@ def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collect
                               consider_sections=consider_sections)
             logging.info((" done in {}".format(datetime.now() - start)))
             load_pathie_extractions(ie_output_file, document_collection, PATHIE_STANZA_EXTRACTION)
+        elif extraction_type == COSENTENCE_EXTRACTION:
+            logging.info('Starting Co-Occurrence-based sentence extraction method...')
+            start = datetime.now()
+            run_co_occurrences_in_sentences(document_export_file, ie_output_file, consider_sections=consider_sections)
+            logging.info((" done in {}".format(datetime.now() - start)))
+            load_pathie_extractions(ie_output_file, document_collection, COSENTENCE_EXTRACTION)
         elif extraction_type in [OPENIE_EXTRACTION, OPENIE51_EXTRACTION, OPENIE6_EXTRACTION]:
             no_entity_filter = False
             if entity_filter == OpenIEEntityFilterMode.NO_ENTITY_FILTER:
