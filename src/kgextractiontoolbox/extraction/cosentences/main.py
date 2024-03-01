@@ -65,9 +65,9 @@ def extract_based_on_co_occurrences_in_sentences(spacy_nlp, document_content, co
         sentence_extractions.sort(key=lambda x: x.confidence, reverse=True)
         considered = set()
         for t in sentence_extractions:
-            key = (t.subject_id, t.subject_type, t.subject_str, t.object_id, t.object_type, t.object_str)
+            key = (t.subject_id, t.subject_type, t.object_id, t.object_type)
             if key not in considered:
-                rev_key = (t.object_id, t.object_type, t.object_str, t.subject_id, t.subject_type, t.subject_str)
+                rev_key = (t.object_id, t.object_type, t.subject_id, t.subject_type)
                 considered.add(key)
                 considered.add(rev_key)
                 tuples.append(t)
