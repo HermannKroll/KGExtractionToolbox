@@ -176,7 +176,8 @@ def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collect
         elif extraction_type == COSENTENCE_EXTRACTION:
             logging.info('Starting Co-Occurrence-based sentence extraction method...')
             start = datetime.now()
-            run_co_occurrences_in_sentences(document_export_file, ie_output_file, consider_sections=consider_sections)
+            run_co_occurrences_in_sentences(document_export_file, ie_output_file, consider_sections=consider_sections,
+                                            workers=workers)
             logging.info((" done in {}".format(datetime.now() - start)))
             load_pathie_extractions(ie_output_file, document_collection, COSENTENCE_EXTRACTION)
         elif extraction_type in [OPENIE_EXTRACTION, OPENIE51_EXTRACTION, OPENIE6_EXTRACTION]:
