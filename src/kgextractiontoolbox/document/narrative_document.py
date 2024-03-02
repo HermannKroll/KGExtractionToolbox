@@ -1,6 +1,7 @@
 import json
 from typing import List
 
+from kgextractiontoolbox.backend.models import DocumentSection
 from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
 
 
@@ -84,7 +85,9 @@ class NarrativeDocument(TaggedDocument):
                  metadata: NarrativeDocumentMetadata = None,
                  tags: List[TaggedEntity] = [],
                  sentences: List[DocumentSentence] = [],
-                 extracted_statements: List[StatementExtraction] = []):
+                 extracted_statements: List[StatementExtraction] = [],
+                 classification={},
+                 sections: List[DocumentSection] = []):
         super().__init__(id=document_id, title=title, abstract=abstract, ignore_tags=False)
         self.tags = tags
         if self.tags:
@@ -92,6 +95,8 @@ class NarrativeDocument(TaggedDocument):
         self.metadata = metadata
         self.sentences = sentences
         self.extracted_statements = extracted_statements
+        self.classification = classification
+        self.sections = sections
 
     def load_from_json(self, json_str: str, ignore_tags=False):
         super().load_from_json(json_str=json_str, ignore_tags=ignore_tags)
@@ -104,7 +109,7 @@ class NarrativeDocument(TaggedDocument):
                                                       publication_year=md.get("publication_year", None),
                                                       publication_month=md.get("publication_month", None))
 
-    def to_dict(self):
+    def to_dict(self, export_content=True, export_tags=True, export_sections=True, export_classification=True):
         """
         {
           "id":1496277,
@@ -152,7 +157,10 @@ class NarrativeDocument(TaggedDocument):
         }
         :return:
         """
-        tagged_dict = super().to_dict()
+        tagged_dict = super().to_dict(export_content=export_content,
+                                      export_tags=export_tags,
+                                      export_sections=export_sections,
+                                      export_classification=export_classification)
         if self.metadata:
             tagged_dict["metadata"] = self.metadata.to_dict()
         if self.sentences:
