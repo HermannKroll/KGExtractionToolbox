@@ -26,7 +26,7 @@ def get_document_ids(path: str):
                 ids.add(json.loads(f.read())["id"])
             elif docformat == DocFormat.COMPOSITE_JSON:
                 ids |= {doc["id"] for doc in ijson.items(f, "item")}
-            elif docformat == DocFormat.COMPOSITE_JSON:
+            elif docformat == DocFormat.JSON_LINE:
                 for line in f:
                     if not line.strip():
                         continue
