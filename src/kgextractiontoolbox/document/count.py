@@ -1,4 +1,3 @@
-import ijson
 import json
 import os
 from argparse import ArgumentParser
@@ -25,7 +24,7 @@ def get_document_ids(path: str):
             elif docformat == DocFormat.SINGLE_JSON:
                 ids.add(json.loads(f.read())["id"])
             elif docformat == DocFormat.COMPOSITE_JSON:
-                ids |= {doc["id"] for doc in ijson.items(f, "item")}
+                ids |= {doc["id"] for doc in json.load(f)}
             elif docformat == DocFormat.JSON_LINE:
                 for line in f:
                     if not line.strip():
