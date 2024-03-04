@@ -33,3 +33,11 @@ class TestExport(unittest.TestCase):
         export(outfile, export_tags=True, export_format="json", collection="TEST_EXPORT")
         with open(outfile) as of, open(testfile) as tf:
             self.assertEqual(tf.read(), of.read())
+
+    def test_export_json_line(self):
+        outfile = util.tmp_rel_path("export_out")
+        testfile = util.get_test_resource_filepath("infiles/test_export/out/jsonl.txt")
+
+        export(outfile, export_tags=True, export_format="jsonl", collection="TEST_EXPORT")
+        with open(outfile) as of, open(testfile) as tf:
+            self.assertEqual(tf.read().replace(' ', ''), of.read().replace(' ', ''))

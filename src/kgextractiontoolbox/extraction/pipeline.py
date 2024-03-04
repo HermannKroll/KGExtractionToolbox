@@ -15,6 +15,7 @@ from kgextractiontoolbox.cleaning.relation_vocabulary import RelationVocabulary
 from kgextractiontoolbox.config import NLP_CONFIG
 from kgextractiontoolbox.document.count import count_documents
 from kgextractiontoolbox.document.export import export
+from kgextractiontoolbox.extraction.cosentences.main import run_co_occurrences_in_sentences
 from kgextractiontoolbox.extraction.extraction_utils import filter_and_write_documents_to_tempdir
 from kgextractiontoolbox.extraction.loading.load_openie_extractions import OpenIEEntityFilterMode, load_openie_tuples
 from kgextractiontoolbox.extraction.loading.load_pathie_extractions import load_pathie_extractions
@@ -23,7 +24,7 @@ from kgextractiontoolbox.extraction.openie51.main import openie51_run
 from kgextractiontoolbox.extraction.openie6.main import openie6_run
 from kgextractiontoolbox.extraction.pathie.main import pathie_run_corenlp, pathie_process_corenlp_output_parallelized
 from kgextractiontoolbox.extraction.versions import PATHIE_EXTRACTION, OPENIE_EXTRACTION, PATHIE_STANZA_EXTRACTION, \
-    OPENIE6_EXTRACTION, OPENIE51_EXTRACTION
+    OPENIE6_EXTRACTION, OPENIE51_EXTRACTION, COSENTENCE_EXTRACTION
 from kgextractiontoolbox.util.helpers import chunks
 
 DOCUMENTS_TO_PROCESS_IN_ONE_BATCH = 500000
@@ -112,7 +113,7 @@ def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collect
 
     time_start = datetime.now()
     working_dir = tempfile.mkdtemp()
-    document_export_file = os.path.join(working_dir, 'document_export.pubtator')
+    document_export_file = os.path.join(working_dir, 'document_export.jsonl')
     ie_input_dir = os.path.join(working_dir, 'ie')
     ie_filelist_file = os.path.join(working_dir, 'ie_filelist.txt')
     ie_output_file = os.path.join(working_dir, 'ie.output')
@@ -123,7 +124,7 @@ def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collect
 
     logging.info('Process will work in: {}'.format(working_dir))
     export(document_export_file, export_tags=True, document_ids=ids_to_process, collection=document_collection,
-           content=True, export_sections=consider_sections, export_format="json")
+           content=True, export_sections=consider_sections, export_format="jsonl")
     time_exported = datetime.now()
 
     logging.info('Counting documents...')
@@ -172,6 +173,13 @@ def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collect
                               consider_sections=consider_sections)
             logging.info((" done in {}".format(datetime.now() - start)))
             load_pathie_extractions(ie_output_file, document_collection, PATHIE_STANZA_EXTRACTION)
+        elif extraction_type == COSENTENCE_EXTRACTION:
+            logging.info('Starting Co-Occurrence-based sentence extraction method...')
+            start = datetime.now()
+            run_co_occurrences_in_sentences(document_export_file, ie_output_file, consider_sections=consider_sections,
+                                            workers=workers)
+            logging.info((" done in {}".format(datetime.now() - start)))
+            load_pathie_extractions(ie_output_file, document_collection, COSENTENCE_EXTRACTION)
         elif extraction_type in [OPENIE_EXTRACTION, OPENIE51_EXTRACTION, OPENIE6_EXTRACTION]:
             no_entity_filter = False
             if entity_filter == OpenIEEntityFilterMode.NO_ENTITY_FILTER:
@@ -209,7 +217,7 @@ def main():
     parser.add_argument("-et", "--extraction_type", required=True, help="the extraction method",
                         choices=list(
                             [OPENIE_EXTRACTION, OPENIE51_EXTRACTION, OPENIE6_EXTRACTION, PATHIE_EXTRACTION,
-                             PATHIE_STANZA_EXTRACTION]))
+                             PATHIE_STANZA_EXTRACTION, COSENTENCE_EXTRACTION]))
     parser.add_argument("-c", "--collection", required=True, help="Name of the given document collection")
     parser.add_argument("--config", help="OpenIE / PathIE Configuration file", default=NLP_CONFIG)
     parser.add_argument("-w", "--workers", help="number of parallel workers", default=1, type=int)

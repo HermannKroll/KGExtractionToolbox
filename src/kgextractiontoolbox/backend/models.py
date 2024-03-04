@@ -265,6 +265,7 @@ class DocumentTranslation(Base, DatabaseTable):
     __tablename__ = "document_translation"
     __table_args__ = (
         PrimaryKeyConstraint('document_id', 'document_collection', sqlite_on_conflict='IGNORE'),
+        UniqueConstraint('source_doc_id', 'document_collection', sqlite_on_conflict='IGNORE'),
     )
     document_id = Column(BigInteger)
     document_collection = Column(String)

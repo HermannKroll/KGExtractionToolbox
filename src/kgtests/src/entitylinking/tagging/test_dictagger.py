@@ -1,10 +1,8 @@
 import unittest
 
 import kgextractiontoolbox.document.document as doc
-from kgextractiontoolbox.document.extract import read_tagged_documents
 from kgextractiontoolbox.entitylinking.tagging.dictagger import split_indexed_words, DictTagger
 from kgextractiontoolbox.entitylinking.tagging.vocabulary import expand_vocabulary_term
-from kgtests.util import create_test_kwargs, get_test_resource_filepath, resource_rel_path
 
 
 class TestDictagger(unittest.TestCase):
@@ -17,6 +15,9 @@ class TestDictagger(unittest.TestCase):
         self.assertIn('color', expand_vocabulary_term('colour'))
         self.assertIn('colours', expand_vocabulary_term('colour'))
 
+        self.assertIn("non-small-cell-lung-cancer", list(expand_vocabulary_term("non-small cell lung cancer")))
+        self.assertIn("non small cell lung cancer", list(expand_vocabulary_term("non-small cell lung cancer")))
+
     def test_split_indexed_words(self):
         content = "This is a water-induced, foobar carbon-copper:"
         indexed = split_indexed_words(content)
@@ -24,6 +25,14 @@ class TestDictagger(unittest.TestCase):
         self.assertIn(('water', 10), indexed)
         self.assertIn(('carbon-copper', 32), indexed)
         self.assertNotIn(('carbon', 32), indexed)
+
+    def test_split_indexed_words_with_multiple_minus(self):
+        content_1 = "non-small cell lung cancer"
+        indexed_1 = split_indexed_words(content_1)
+
+        content_2 = "non-small-cell lung cancer"
+        indexed_2 = split_indexed_words(content_2)
+        self.assertNotEqual(indexed_1, indexed_2)
 
     def test_split_indexed_words_slash(self):
         content = "Simvastatin/Metformin"

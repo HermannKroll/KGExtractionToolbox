@@ -26,6 +26,11 @@ def write_doc(doc: TaggedDocument, export_format: str, f, first_doc: bool, expor
             f.write(",\n")
         json.dump(doc.to_dict(export_content=export_content, export_tags=export_tags, export_sections=export_sections,
                               export_classification=export_classification), f, indent=1)
+    elif export_format == "jsonl":
+        if not first_doc:
+            f.write('\n')
+        json.dump(doc.to_dict(export_content=export_content, export_tags=export_tags, export_sections=export_sections,
+                              export_classification=export_classification), f)
     elif export_format == "pubtator":
         f.write(str(doc))
 
@@ -48,6 +53,9 @@ def export(out_fn, export_tags=True, export_sections=True, export_classififcatio
     :param translate_document_ids: if true document translations (source ids) from DocumentTranslation are queried
     :return:
     """
+    if export_format not in ["pubtator", "json", "jsonl"]:
+        raise ValueError(f"Export format {export_format} not supported (supported: pubtator, json, jsonl)")
+
     logger.info("Beginning export...")
     if export_format == "pubator" and export_sections and export_classififcation:
         raise ValueError("Pubtator format does not support document sections and classifications")
