@@ -4,7 +4,7 @@ from typing import List, Set
 
 import kgextractiontoolbox.document.document
 from kgextractiontoolbox.backend.models import Document, DocumentClassification, Tag, DocumentSection, \
-    DocumentMetadata, Predication, Sentence
+    DocumentMetadata, Predication, Sentence, BULK_QUERY_CURSOR_COUNT_DEFAULT
 from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
 from kgextractiontoolbox.document.narrative_document import NarrativeDocument, NarrativeDocumentMetadata, \
     StatementExtraction, DocumentSentence
@@ -60,6 +60,7 @@ def iterate_over_all_documents_in_collection(session, collection: str, document_
             doc_query = doc_query.filter(Document.id.in_(document_ids))
 
     doc_query = doc_query.order_by(Document.id)
+    doc_query = doc_query.yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
 
     if consider_tag:
         tag_query = session.query(Tag)
@@ -72,6 +73,8 @@ def iterate_over_all_documents_in_collection(session, collection: str, document_
                 tag_query = tag_query.filter(Tag.document_id.in_(document_ids))
 
         tag_query = tag_query.order_by(Tag.document_id)
+        doc_query = doc_query.yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
+
         tag_query = iter(tag_query)
         current_tag = next(tag_query, None)
 
@@ -86,6 +89,7 @@ def iterate_over_all_documents_in_collection(session, collection: str, document_
                 class_query = class_query.filter(DocumentClassification.document_id.in_(document_ids))
 
         class_query = class_query.order_by(DocumentClassification.document_id)
+        class_query = class_query.yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
 
         class_query = iter(class_query)
         current_class = next(class_query, None)
@@ -101,6 +105,7 @@ def iterate_over_all_documents_in_collection(session, collection: str, document_
                 sec_query = sec_query.filter(DocumentSection.document_id.in_(document_ids))
 
         sec_query = sec_query.order_by(DocumentSection.document_id)
+        sec_query = sec_query.yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
         sec_query = iter(sec_query)
         current_sec = next(sec_query, None)
 
