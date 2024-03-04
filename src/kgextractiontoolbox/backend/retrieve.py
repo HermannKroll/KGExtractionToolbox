@@ -73,7 +73,7 @@ def iterate_over_all_documents_in_collection(session, collection: str, document_
                 tag_query = tag_query.filter(Tag.document_id.in_(document_ids))
 
         tag_query = tag_query.order_by(Tag.document_id)
-        doc_query = doc_query.yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
+        tag_query = tag_query.yield_per(BULK_QUERY_CURSOR_COUNT_DEFAULT)
 
         tag_query = iter(tag_query)
         current_tag = next(tag_query, None)
