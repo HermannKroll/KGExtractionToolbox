@@ -71,6 +71,7 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         self.short_name, self.long_name, self.version = short_name, long_name, version
         self.desc_by_term = {}
         self.blacklist_file = blacklist_file
+        self.clean_abbreviation_tags_function = DictTagger.clean_abbreviation_tags
 
     def get_types(self):
         return self.tag_types
@@ -136,7 +137,7 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
                         tags += self.get_hits(word_tuple, pmid, abb_vocab, offset=offset)
 
         if self.config.dict_check_abbreviation:
-            tags = DictTagger.clean_abbreviation_tags(tags, self.config.dict_min_full_tag_len)
+            tags = self.clean_abbreviation_tags_function(tags, self.config.dict_min_full_tag_len)
 
         out_doc.tags += tags
         # Apply custom logic if applicable
