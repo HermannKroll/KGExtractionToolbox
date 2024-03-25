@@ -25,7 +25,7 @@ class MetaDicTagger(dt.DictTagger):
 
     def add_tagger(self, tagger: dt.DictTagger):
         self._sub_taggers.append(tagger)
-        self.tag_types |= set(tagger.get_types())
+        self.tag_types = set(self.tag_types).union(tagger.get_types())
 
     def prepare(self, resume=False):
         for tagger in self._sub_taggers:
