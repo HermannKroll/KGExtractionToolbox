@@ -231,11 +231,10 @@ class Tag(Base, DatabaseTable):
                              sqlite_on_conflict='IGNORE'),
         # Todo: In real-word scenarios this index become very large
         UniqueConstraint('document_id', 'document_collection', 'start', 'end', 'ent_type', 'ent_id',
-                         sqlite_on_conflict='IGNORE'),
-        PrimaryKeyConstraint('id', sqlite_on_conflict='IGNORE')
+                         sqlite_on_conflict='IGNORE')
     )
 
-    id = Column(BigInteger)
+    id = Column(BigInteger().with_variant(Integer, "sqlite"), autoincrement=True, primary_key=True)
     ent_type = Column(String, nullable=False)
     start = Column(Integer, nullable=False)
     end = Column(Integer, nullable=False)
