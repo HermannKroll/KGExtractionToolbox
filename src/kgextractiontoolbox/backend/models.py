@@ -235,7 +235,7 @@ class Tag(Base, DatabaseTable):
         PrimaryKeyConstraint('id', sqlite_on_conflict='IGNORE')
     )
 
-    id = Column(Integer)
+    id = Column(BigInteger)
     ent_type = Column(String, nullable=False)
     start = Column(Integer, nullable=False)
     end = Column(Integer, nullable=False)
