@@ -1,8 +1,5 @@
 import json
-from typing import List
-
-from kgextractiontoolbox.backend.models import DocumentSection
-from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
+from kgextractiontoolbox.document.document import TaggedDocument
 
 
 class DocumentSentence:
@@ -19,7 +16,7 @@ class StatementExtraction:
 
     def __init__(self, subject_id: str, subject_type: str, subject_str: str,
                  predicate: str, relation: str, object_id: str, object_type: str, object_str: str,
-                 sentence_id: int, confidence: float=-1):
+                 sentence_id: int, confidence: float = -1):
         self.subject_id = subject_id
         self.subject_type = subject_type
         self.subject_str = subject_str
@@ -50,8 +47,8 @@ class NarrativeDocumentMetadata:
 
     def __eq__(self, other):
         return self.publication_year == other.publication_year and self.publication_month == other.publication_month \
-               and self.authors == other.authors and self.journals == other.journals \
-               and self.publication_doi == other.publication_doi
+            and self.authors == other.authors and self.journals == other.journals \
+            and self.publication_doi == other.publication_doi
 
     def __init__(self, publication_year: int, publication_month: int, authors: str, journals: str,
                  publication_doi: str):
@@ -83,12 +80,22 @@ class NarrativeDocument(TaggedDocument):
 
     def __init__(self, document_id: int = None, title: str = None, abstract: str = None,
                  metadata: NarrativeDocumentMetadata = None,
-                 tags: List[TaggedEntity] = [],
-                 sentences: List[DocumentSentence] = [],
-                 extracted_statements: List[StatementExtraction] = [],
-                 classification={},
-                 sections: List[DocumentSection] = []):
+                 tags=None,
+                 sentences=None,
+                 extracted_statements=None,
+                 classification=None,
+                 sections=None):
         super().__init__(id=document_id, title=title, abstract=abstract, ignore_tags=False)
+        if sections is None:
+            sections = []
+        if classification is None:
+            classification = {}
+        if extracted_statements is None:
+            extracted_statements = []
+        if sentences is None:
+            sentences = []
+        if tags is None:
+            tags = []
         self.tags = tags
         if self.tags:
             self.sort_tags()
