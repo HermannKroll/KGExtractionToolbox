@@ -101,7 +101,7 @@ def main():
     parser.add_argument("-c", "--collection", help="Collection(s)", default=None)
     parser.add_argument("-d", "--document", action="store_true", help="Export content of document")
     parser.add_argument("-t", "--tag", action='store_true', help="export tags")
-    parser.add_argument("--format", "-f", help='export format', choices=['json', 'pubtator'], default='json')
+    parser.add_argument("--format", "-f", help='export format', choices=['json', 'pubtator', 'jsonl'], default='jsonl')
     parser.add_argument("--translate_ids", help="force the translation of document ids via DocumentTranslation",
                         required=False, action="store_true")
 
