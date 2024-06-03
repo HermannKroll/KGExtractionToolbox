@@ -10,3 +10,6 @@
 3|t|trailing document with no tags
 3|a|lorem ipsum dolor sit amet
 
+4|t|document with classification
+4|a|lorem ipsum dolor sit amet
+

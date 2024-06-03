@@ -112,6 +112,10 @@ PubTator (tags + document content):
 100	628	634	merkel	Person	Q2
 100	829	835	merkel	Person	Q2
 ```
+As described in the classification README, document classifications can be included in the export using the `--classification` flag:
+```
+python src/kgextractiontoolbox/document/export.py -d -t EXPORT_FILE --format JSON --collection COLLECTION --classification
+```
 
 
 
