@@ -3,6 +3,7 @@
  "id": 1,
  "title": "title1",
  "abstract": "First export document containing simvastatin and diabetes mellitus.",
+ "classification": {},
  "tags": [
   {
    "id": "CHEMBL1064",
@@ -24,6 +25,7 @@
  "id": 2,
  "title": "title2",
  "abstract": "Second export document containing paracetamol",
+ "classification": {},
  "tags": [
   {
    "id": "CHEMBL112",
@@ -38,12 +40,16 @@
  "id": 3,
  "title": "trailing document with no tags",
  "abstract": "lorem ipsum dolor sit amet",
+ "classification": {},
  "tags": []
 },
 {
  "id": 4,
  "title": "document with classification",
  "abstract": "lorem ipsum dolor sit amet",
+ "classification": {
+  "test_class": "example_value"
+ },
  "tags": []
 }
 ]

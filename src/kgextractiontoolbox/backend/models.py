@@ -231,11 +231,10 @@ class Tag(Base, DatabaseTable):
                              sqlite_on_conflict='IGNORE'),
         # Todo: In real-word scenarios this index become very large
         UniqueConstraint('document_id', 'document_collection', 'start', 'end', 'ent_type', 'ent_id',
-                         sqlite_on_conflict='IGNORE'),
-        PrimaryKeyConstraint('id', sqlite_on_conflict='IGNORE')
+                         sqlite_on_conflict='IGNORE')
     )
 
-    id = Column(Integer)
+    id = Column(BigInteger().with_variant(Integer, "sqlite"), autoincrement=True, primary_key=True)
     ent_type = Column(String, nullable=False)
     start = Column(Integer, nullable=False)
     end = Column(Integer, nullable=False)
@@ -347,7 +346,8 @@ class Predication(Base, DatabaseTable):
     object_str = Column(String, nullable=False)
     object_type = Column(String, nullable=False)
     confidence = Column(Float, nullable=True)
-    sentence_id = Column(BigInteger, nullable=False)
+    # required index if tables get large and sentences are deleted (foreign key check is speeded up in this way)
+    sentence_id = Column(BigInteger, nullable=False, index=True)
     extraction_type = Column(String, nullable=False)
 
     def __str__(self):

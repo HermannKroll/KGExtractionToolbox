@@ -1,0 +1,7 @@
+{
+  "id": 4,
+  "title": "document with classification",
+  "abstract": "lorem ipsum dolor sit amet",
+  "classification": {"test_class": "example_value"},
+  "tags": []
+}

@@ -12,13 +12,6 @@ class MetaDicTagger(dt.DictTagger):
     __name__ = "MetaDicTagger"
     __version__ = "1.0"
 
-    def _index_from_source(self):
-        """
-        Unused
-        :return:
-        """
-        pass
-
     def __init__(self, vocabulary=None, *args, **kwargs):
         super().__init__(short_name="meTa", long_name="meta dict tagger", version=None, tag_types=None,
                          *args, **kwargs)
@@ -32,7 +25,7 @@ class MetaDicTagger(dt.DictTagger):
 
     def add_tagger(self, tagger: dt.DictTagger):
         self._sub_taggers.append(tagger)
-        self.tag_types |= set(tagger.get_types())
+        self.tag_types = set(self.tag_types).union(tagger.get_types())
 
     def prepare(self, resume=False):
         for tagger in self._sub_taggers:
@@ -67,10 +60,3 @@ class MetaDicTagger(dt.DictTagger):
 
     def get_types(self):
         return self.tag_types
-
-
-class MetaDicTaggerFactory:
-
-    def __init__(self, tag_types, tagger_kwargs):
-        self.tag_types = tag_types
-        self.tagger_kwargs = tagger_kwargs

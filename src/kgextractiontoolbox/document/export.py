@@ -35,7 +35,7 @@ def write_doc(doc: TaggedDocument, export_format: str, f, first_doc: bool, expor
         f.write(str(doc))
 
 
-def export(out_fn, export_tags=True, export_sections=True, export_classififcation=True, document_ids=None,
+def export(out_fn, export_tags=True, export_sections=True, export_classification=False, document_ids=None,
            collection=None, content=True, logger=logging, export_format="json",
            write_doc=write_doc, translate_document_ids: bool = False):
     """
@@ -43,7 +43,7 @@ def export(out_fn, export_tags=True, export_sections=True, export_classififcatio
     :param out_fn: path of file
     :param export_tags: if true document tags will be exported
     :param export_sections: if true document sections will be exported
-    :param export_classififcation: if true document classifications will be exported
+    :param export_classification: if true document classifications will be exported
     :param document_ids: set of document ids which should be exported, None = All
     :param collection: document collection which should be exported, None = All
     :param content: if true, title and abstract are exported as well, if false only tags are exported
@@ -57,7 +57,7 @@ def export(out_fn, export_tags=True, export_sections=True, export_classififcatio
         raise ValueError(f"Export format {export_format} not supported (supported: pubtator, json, jsonl)")
 
     logger.info("Beginning export...")
-    if export_format == "pubator" and export_sections and export_classififcation:
+    if export_format == "pubator" and export_sections and export_classification:
         raise ValueError("Pubtator format does not support document sections and classifications")
     if document_ids is None:
         document_ids = []
@@ -76,7 +76,7 @@ def export(out_fn, export_tags=True, export_sections=True, export_classififcatio
 
     t_docs = iterate_over_all_documents_in_collection(session, collection=collection, document_ids=document_ids,
                                                       consider_tag=export_tags, consider_sections=export_sections,
-                                                      consider_classification=export_classififcation)
+                                                      consider_classification=export_classification)
 
     first_doc = True
     with open(out_fn, "w") as f:
@@ -88,7 +88,7 @@ def export(out_fn, export_tags=True, export_sections=True, export_classififcatio
             if translate_document_ids:
                 res.id = doc_id_2_source_id[res.id]
             write_doc(res, export_format, f, first_doc, export_content=content, export_tags=export_tags,
-                      export_sections=export_sections, export_classification=export_classififcation)
+                      export_sections=export_sections, export_classification=export_classification)
         if export_format == "json":
             f.write("\n]\n")
 
@@ -101,9 +101,11 @@ def main():
     parser.add_argument("-c", "--collection", help="Collection(s)", default=None)
     parser.add_argument("-d", "--document", action="store_true", help="Export content of document")
     parser.add_argument("-t", "--tag", action='store_true', help="export tags")
-    parser.add_argument("--format", "-f", help='export format', choices=['json', 'pubtator'], default='json')
+    parser.add_argument("--format", "-f", help='export format', choices=['json', 'pubtator', 'jsonl'], default='jsonl')
     parser.add_argument("--translate_ids", help="force the translation of document ids via DocumentTranslation",
                         required=False, action="store_true")
+    parser.add_argument("-dc", "--classification", help="export classification", required=False, action="store_true")
+
 
     parser.add_argument("--sqllog", action="store_true", help='logs sql commands')
     args = parser.parse_args()
@@ -133,7 +135,7 @@ def main():
     else:
         document_ids = None
 
-    export(args.output, export_tags=export_tags,
+    export(args.output, export_tags=export_tags, export_classification= args.classification,
            document_ids=document_ids, collection=args.collection, content=args.document,
            logger=logging, export_format=args.format, translate_document_ids=args.translate_ids)
     logging.info('Finished')

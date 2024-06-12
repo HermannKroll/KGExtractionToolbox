@@ -41,3 +41,18 @@ class TestExport(unittest.TestCase):
         export(outfile, export_tags=True, export_format="jsonl", collection="TEST_EXPORT")
         with open(outfile) as of, open(testfile) as tf:
             self.assertEqual(tf.read().replace(' ', ''), of.read().replace(' ', ''))
+
+    def test_export_classification(self):
+        outfile_classification = util.tmp_rel_path("export_out")
+        testfile_classification = util.get_test_resource_filepath("infiles/test_export/out/classification.txt")
+
+        export(outfile_classification, export_tags=True, export_format="json", export_classification=True, collection="TEST_EXPORT")
+        with open(outfile_classification) as of, open(testfile_classification) as tf:
+            self.assertEqual(tf.read(), of.read())
+
+        outfile_no_classification = util.tmp_rel_path("export_out")
+        testfile_no_classification = util.get_test_resource_filepath("infiles/test_export/out/no_classification.txt")
+
+        export(outfile_no_classification, export_tags=True, export_format="json", collection="TEST_EXPORT")
+        with open(outfile_no_classification) as of, open(testfile_no_classification) as tf:
+            self.assertEqual(tf.read(), of.read())
