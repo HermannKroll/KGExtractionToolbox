@@ -5,6 +5,8 @@ The toolbox utilizes three external tools to extract statements from natural lan
 We do not require the installation of all tools. 
 Please carefully read our paper and the instructions below to select the tools for your purposes.
 
+COSentence (Sentence-Co-Occurrence-based extraction) does not require an additional tool. 
+
 PathIE requires:
 - [Stanford CoreNLP](https://stanfordnlp.github.io/CoreNLP/)
 - Stanford Stanza (has to be installed via pip. See Stanza section.)
@@ -90,6 +92,7 @@ We support the following methods:
 - OpenIE
 - OpenIE51
 - OpenIE6
+- COSentence (Sentence-Co-Occurrence-based Extraction)
 
 If you use an OpenIE method, then you must specify the corresponding entity filtering:
 - no_entity_filter (do not filter OpenIE methods)
@@ -203,7 +206,21 @@ You can force Stanza to run in CPU mode by using the **--cpu** flag.
 python src/kgextractiontoolbox/extraction/pathie_stanza/main.py INPUT_DOC OUTPUT_PATHIE --CPU --relation_vocab RELATION.json
 ```
 
-### PathIE Output Format
+### COSentence (Sentence-Co-Occurrence-based Extraction)
+COSentence works similar to PathIE but does not require any additional setup. Just run:
+```
+python src/kgextractiontoolbox/extraction/cosentences/main.py INPUT OUTPUT
+```
+
+Note that the INPUT file must again contain the document entity annotations (similar to PathIE).
+
+You can additionally control the number of parallel workers or whether sections of documents should be considered:
+```
+python src/kgextractiontoolbox/extraction/cosentences/main.py INPUT OUTPUT --sections -w 10
+```
+
+
+### PathIE / COSentence Output Format
 The following section shows some PathIE example files. Note, that PathIE do not mirror the extractions in its output.
 If you use the output in your application, you might have to mirror (swap subject and object)
  the extractions. 
