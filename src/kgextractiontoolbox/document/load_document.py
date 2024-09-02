@@ -9,6 +9,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Tuple, Dict, Union
 
+from sqlalchemy import delete
+
 import kgextractiontoolbox.document.doctranslation as dc
 import kgextractiontoolbox.document.jsonconverter as jc
 from kgextractiontoolbox.backend.database import Session
@@ -62,7 +64,7 @@ def insert_taggers(*tagger_list):
 
 
 def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, logger=logging, ignore_tags=True,
-                       artificial_document_ids=False):
+                       artificial_document_ids=False, replace_existing=False):
     """
     Bulk load a file in PubTator/JSON Format or a directory of PubTator/JSON files into the database.
     Iterate over PubTator/JSON documents and add Document, Tag and DocTaggedBy objects.
@@ -72,6 +74,7 @@ def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, 
     :param ignore_tags: if true no tags will be inserted
     :param logging logger: a logging instance to be used
     :param artificial_document_ids: Forces to generate artificial document ids (e.g. for non-int ids)
+    :param bool replace_existing: If true, replaces existing documents in the database
     :return:
     """
     if artificial_document_ids:
@@ -100,6 +103,22 @@ def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, 
         logger.info('{} documents are already inserted'.format(len(db_doc_ids)))
         start_time = datetime.now()
 
+        if replace_existing:
+            logger.info("Replacing existing documents in the database...")
+            docs_to_delete = set()
+            for pubtator_content in read_pubtator_documents(path):
+                doc = TaggedDocument(pubtator_content, ignore_tags=ignore_tags)
+                if doc.id in db_doc_ids:
+                    docs_to_delete.add(doc.id)
+            if docs_to_delete:
+                logger.info(f"Deleting {len(docs_to_delete)} documents...")
+                print("deleting")
+                session.query(Document).filter(Document.id.in_(docs_to_delete)).filter_by(collection=collection).delete()
+                session.commit()
+
+                logger.info("Deletion complete.")
+                db_doc_ids.difference_update(docs_to_delete)
+
         document_inserts = []
         document_classification = []
         document_sections = []
@@ -109,6 +128,7 @@ def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, 
         for idx, pubtator_content in enumerate(read_pubtator_documents(path)):
             doc = TaggedDocument(pubtator_content, ignore_tags=ignore_tags)
             tagged_ent_types = set()
+
             # Add document if its not already included
             if doc.id not in db_doc_ids and doc.has_content():
                 db_doc_ids.add(doc.id)
@@ -202,6 +222,8 @@ def main(args=None):
     parser.add_argument("--ignore_tags", action="store_true", help="Will ignore all tags in this document")
     parser.add_argument("--logsql", action="store_true", help='logs sql statements')
     parser.add_argument("--artificial_document_ids", action="store_true", help="generates artificial document ids")
+    parser.add_argument("--replace_existing", action="store_true",
+                        help="Replace existing documents if found in the database")
     args = parser.parse_args(args)
 
     tagger_mapping = None
@@ -222,7 +244,7 @@ def main(args=None):
                             level=logging.INFO)
 
     document_bulk_load(args.input, args.collection, tagger_mapping, ignore_tags=args.ignore_tags,
-                       artificial_document_ids=args.artificial_document_ids)
+                       artificial_document_ids=args.artificial_document_ids, replace_existing=args.replace_existing)
 
 
 if __name__ == "__main__":

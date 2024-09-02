@@ -19,7 +19,8 @@ from kgextractiontoolbox.document.narrative_document import NarrativeDocument
 
 def narrative_document_bulk_load(path: Union[Path, str], collection: str, tagger_mapping=None,
                                  logger=logging,
-                                 artificial_document_ids: bool = False):
+                                 artificial_document_ids: bool = False,
+                                 replace_existing = False):
     """
     Loads a set of narrative document documents from a JSON into our database
     :param path: to a json file or directory of json files
@@ -27,6 +28,7 @@ def narrative_document_bulk_load(path: Union[Path, str], collection: str, tagger
     :param tagger_mapping: tagger mapping if desired (optional)
     :param logger: logging class
     :param artificial_document_ids: Forces to generate artificial document ids (e.g. for non-int ids)
+    :param bool replace_existing: If true, replaces existing documents in the database
     :return: None
     """
     if artificial_document_ids:
@@ -40,7 +42,7 @@ def narrative_document_bulk_load(path: Union[Path, str], collection: str, tagger
             raise ValueError(f'Only JSON format is supported: {path}')
 
         # First call toolbox loading of document abstracts, tags, sections, etc
-        ld.document_bulk_load(path, collection, tagger_mapping=tagger_mapping, logger=logger, ignore_tags=False)
+        ld.document_bulk_load(path, collection, tagger_mapping=tagger_mapping, logger=logger, ignore_tags=False, replace_existing=replace_existing)
 
         # Load metadata stuff
         session = Session.get()
@@ -77,6 +79,8 @@ def main(args=None):
                                                    "to tuple with tagger name and tagger version")
     parser.add_argument("--logsql", action="store_true", help='logs sql statements')
     parser.add_argument("--artifical_document_ids", action="store_true", help="generates artifical document ids")
+    parser.add_argument("--replace_existing", action="store_true",
+                        help="Replace existing documents if found in the database")
     args = parser.parse_args(args)
 
     tagger_mapping = None
@@ -97,7 +101,7 @@ def main(args=None):
                             level=logging.INFO)
 
     narrative_document_bulk_load(args.input, args.collection, tagger_mapping,
-                                 artificial_document_ids=args.artificial_document_ids)
+                                 artificial_document_ids=args.artificial_document_ids, replace_existing=args.replace_existing)
 
 
 if __name__ == "__main__":

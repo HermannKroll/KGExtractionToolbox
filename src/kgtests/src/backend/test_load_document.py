@@ -1,5 +1,9 @@
 import copy
+import json
 import unittest
+
+from sqlalchemy import event
+from sqlalchemy.engine import Engine
 
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.retrieve import retrieve_tagged_documents_from_database, \
@@ -10,7 +14,6 @@ from kgtests import util
 
 
 class TestLoadDocument(unittest.TestCase):
-
     def test_document_comparison(self):
         test_path = util.get_test_resource_filepath("loading/example_doc_sections.json")
         document_bulk_load(test_path, "TestLoading1")
@@ -124,3 +127,42 @@ class TestLoadDocument(unittest.TestCase):
         self.assertEqual("Title 3", db_docs[2].title)
         self.assertEqual("Abstract 3", db_docs[2].abstract)
         self.assertEqual(3, db_docs[2].id)
+
+    def test_replace_existing_document(self):
+        test_path = util.get_test_resource_filepath("loading/example_doc_classification.json")
+        document_bulk_load(test_path, "TestLoadingReplace")
+
+
+        with open(test_path, 'rt') as f:
+            doc_content = f.read()
+        test_doc = TaggedDocument(doc_content)
+
+        session = Session.get()
+        db_docs = retrieve_tagged_documents_from_database(session, {test_doc.id}, "TestLoadingReplace")
+
+        self.assertEqual(1, len(db_docs))
+        self.assertEqual(test_doc, db_docs[0])
+
+        modified_doc_content = copy.deepcopy(test_doc)
+        modified_doc_content.title = "Modified " + test_doc.title
+        modified_doc_content.abstract = "Modified " + test_doc.abstract
+        modified_doc_content.sections[0].text = "Modified " + test_doc.sections[0].text
+        modified_doc_content.classification[next(iter(modified_doc_content.classification))] = "Modified " + \
+                                                                                               modified_doc_content.classification[
+                                                                                                   next(iter(
+                                                                                                       modified_doc_content.classification))]
+
+        modified_test_path = util.tmp_rel_path("modified_doc.json")
+        with open(modified_test_path, 'w') as f:
+            json.dump(modified_doc_content.to_dict(), f)
+
+        document_bulk_load(modified_test_path, "TestLoadingReplace", replace_existing=True)
+
+        db_docs_after_replace = retrieve_tagged_documents_from_database(session, {modified_doc_content.id},
+                                                                        "TestLoadingReplace")
+
+        self.assertEqual(1, len(db_docs_after_replace))
+        self.assertEqual(modified_doc_content.title, db_docs_after_replace[0].title)
+        self.assertEqual(modified_doc_content.abstract, db_docs_after_replace[0].abstract)
+        self.assertEqual(modified_doc_content.sections, db_docs_after_replace[0].sections)
+        self.assertEqual(modified_doc_content.classification, db_docs_after_replace[0].classification)
