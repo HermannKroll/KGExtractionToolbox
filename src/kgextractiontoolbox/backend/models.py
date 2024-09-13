@@ -7,8 +7,10 @@ from io import StringIO
 from typing import List, Tuple, Set
 
 from sqlalchemy import Column, String, Integer, DateTime, ForeignKeyConstraint, PrimaryKeyConstraint, \
-    BigInteger, UniqueConstraint, Float, func
+    BigInteger, UniqueConstraint, Float, func, event
+from sqlalchemy.engine import Engine
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship, backref
 
 from kgextractiontoolbox.document.regex import ILLEGAL_CHAR
 from kgextractiontoolbox.progress import print_progress_with_eta
@@ -122,6 +124,8 @@ class Document(Base, DatabaseTable):
 
     date_inserted = Column(DateTime, nullable=False, default=datetime.now)
 
+    sections = relationship("DocumentSection", backref="document", passive_deletes="True")
+
     def __str__(self):
         return "{}{}".format(self.collection, self.id)
 
@@ -183,7 +187,7 @@ class Document(Base, DatabaseTable):
 class DocumentMetadata(Base, DatabaseTable):
     __tablename__ = 'document_metadata'
     __table_args__ = (
-        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection')),
+        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'), ondelete='CASCADE'),
         PrimaryKeyConstraint('document_id', 'document_collection', sqlite_on_conflict='IGNORE')
     )
 
@@ -210,7 +214,7 @@ class DocTaggedBy(Base, DatabaseTable):
     __tablename__ = "doc_tagged_by"
     __table_args__ = (
         ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection')
-                             , sqlite_on_conflict='IGNORE'),
+                             , sqlite_on_conflict='IGNORE', ondelete='CASCADE'),
         ForeignKeyConstraint(('tagger_name', 'tagger_version'), ('tagger.name', 'tagger.version')
                              , sqlite_on_conflict='IGNORE'),
         PrimaryKeyConstraint('document_id', 'document_collection', 'tagger_name', 'tagger_version', 'ent_type'
@@ -228,7 +232,7 @@ class Tag(Base, DatabaseTable):
     __tablename__ = "tag"
     __table_args__ = (
         ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'),
-                             sqlite_on_conflict='IGNORE'),
+                             sqlite_on_conflict='IGNORE', ondelete='CASCADE'),
         # Todo: In real-word scenarios this index become very large
         UniqueConstraint('document_id', 'document_collection', 'start', 'end', 'ent_type', 'ent_id',
                          sqlite_on_conflict='IGNORE')
@@ -264,7 +268,7 @@ class DocumentTranslation(Base, DatabaseTable):
     __tablename__ = "document_translation"
     __table_args__ = (
         PrimaryKeyConstraint('document_id', 'document_collection', sqlite_on_conflict='IGNORE'),
-        UniqueConstraint('source_doc_id', 'document_collection', sqlite_on_conflict='IGNORE'),
+        UniqueConstraint('source_doc_id', 'document_collection', sqlite_on_conflict='IGNORE')
     )
     document_id = Column(BigInteger)
     document_collection = Column(String)
@@ -293,7 +297,7 @@ class DocumentClassification(Base, DatabaseTable):
     __tablename__ = "document_classification"
     __table_args__ = (
         PrimaryKeyConstraint('document_id', 'document_collection', 'classification', sqlite_on_conflict='IGNORE'),
-        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'))
+        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'), ondelete='CASCADE')
     )
     document_id = Column(BigInteger, index=True)
     document_collection = Column(String, index=True)
@@ -316,7 +320,7 @@ class DocumentSection(Base, DatabaseTable):
     __tablename__ = "document_section"
     __table_args__ = (
         PrimaryKeyConstraint('document_id', 'document_collection', 'position', sqlite_on_conflict='IGNORE'),
-        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'))
+        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'), ondelete='CASCADE')
     )
     document_id = Column(BigInteger)
     document_collection = Column(String)
@@ -328,7 +332,7 @@ class DocumentSection(Base, DatabaseTable):
 class Predication(Base, DatabaseTable):
     __tablename__ = "predication"
     __table_args__ = (
-        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection')),
+        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'), ondelete='CASCADE'),
         ForeignKeyConstraint(('sentence_id',), ('sentence.id',)),
         PrimaryKeyConstraint('id', sqlite_on_conflict='IGNORE')
     )
@@ -488,10 +492,17 @@ class Sentence(Base, DatabaseTable):
 class DocProcessedByIE(Base, DatabaseTable):
     __tablename__ = "doc_processed_by_ie"
     __table_args__ = (
-        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection')),
+        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'), ondelete='CASCADE'),
         PrimaryKeyConstraint('document_id', 'document_collection', 'extraction_type', sqlite_on_conflict='IGNORE')
     )
     document_id = Column(BigInteger)
     document_collection = Column(String)
     extraction_type = Column(String)
     date_inserted = Column(DateTime, nullable=False, default=datetime.now)
+
+
+@event.listens_for(Engine, "connect")
+def set_sqlite_pragma(dbapi_connection, connection_record):
+    cursor = dbapi_connection.cursor()
+    cursor.execute("PRAGMA foreign_keys=ON")
+    cursor.close()
