@@ -7,7 +7,7 @@ from kgextractiontoolbox.extraction.loading.load_openie_extractions import load_
     get_subject_and_object_entities, clean_tuple_predicate_based
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import Predication
-from kgextractiontoolbox.document.load_document import document_bulk_load
+from kgextractiontoolbox.document.load_document import document_bulk_load, insert_taggers
 from kgtests import util
 
 
@@ -16,6 +16,7 @@ class LoadExtractionsTestCase(TestCase):
     def setUp(self) -> None:
         documents_file = util.get_test_resource_filepath("extraction/documents_1.pubtator")
         test_mapping = {"Chemical": ("Chemical", "1.0"), "Disease": ("Diseasetagger", "1.0")}
+        insert_taggers(*[(name, version) for name, version in test_mapping.values()])
         document_bulk_load(documents_file, "Test_Load_OpenIE_1", tagger_mapping=test_mapping, ignore_tags=False)
 
     def test_detect_subjects_and_objects(self):

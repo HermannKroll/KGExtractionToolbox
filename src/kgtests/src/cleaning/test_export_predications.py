@@ -13,7 +13,8 @@ class ExportPredicationsTest(unittest.TestCase):
     def setUp(self) -> None:
         session = Session.get()
         documents = [dict(id=1, collection="Test_Export", title="ABC", abstract=""),
-                     dict(id=2, collection="Test_Export", title="DEF", abstract="")]
+                     dict(id=2, collection="Test_Export", title="DEF", abstract=""),
+                     dict(id=2, collection="Test_Export_Not", title="DEF", abstract="")]
         Document.bulk_insert_values_into_table(session, documents)
 
         sentences = [dict(id=11, document_collection="Test_Export", text="Hello", md5hash="1"),
