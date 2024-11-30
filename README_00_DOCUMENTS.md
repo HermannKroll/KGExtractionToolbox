@@ -21,7 +21,7 @@ If you don't want to include tags, use the **--ignore_tags** argument.
 python src/kgextractiontoolbox/documents/load_document.py DOCUMENTS.json --collection COLLECTION --ignore_tags
 ```
 
-A document file may contain only annotations (exported by our toolbox; see [export](README_04_EXPORT.md)).
+A document file may contain only annotations (exported by our toolbox; see [export](README_05_EXPORT.md)).
 The toolbox will only load these annotations if the corresponding documents with titles or abstracts have been inserted into the database.
 
 ### Updating Existing Documents
