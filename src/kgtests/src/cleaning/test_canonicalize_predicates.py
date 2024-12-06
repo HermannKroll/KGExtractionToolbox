@@ -15,7 +15,9 @@ class CanonicalizePredicateTestCase(unittest.TestCase):
     def setUp(self) -> None:
         session = Session.get()
         documents = [dict(id=1, collection="Test_Canonicalize", title="ABC", abstract=""),
-                     dict(id=2, collection="Test_Canonicalize", title="DEF", abstract="")]
+                     dict(id=2, collection="Test_Canonicalize", title="DEF", abstract=""),
+                     dict(id=7, collection="Test_Canonicalize", title="GHI", abstract=""),
+                     dict(id=7, collection="Test_Canonicalize_Wrong", title="GHI", abstract="")]
         Document.bulk_insert_values_into_table(session, documents)
 
         sentences = [dict(id=1, document_collection="Test_Canonicalize", text="Hello", md5hash="1"),

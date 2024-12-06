@@ -1,13 +1,14 @@
 import unittest
 
 from kgextractiontoolbox.document.export import export
-from kgextractiontoolbox.document.load_document import document_bulk_load
+from kgextractiontoolbox.document.load_document import document_bulk_load, insert_taggers
 from kgextractiontoolbox.backend.database import Session
 from kgtests import util
 
 
 def setup_module(module):
     test_mapping = {"Drug": ("Drugtagger", "1.0"), "Disease": ("Diseasetagger", "1.0")}
+    insert_taggers(*[(name, version) for name, version in test_mapping.values()])
     document_bulk_load(util.get_test_resource_filepath("infiles/test_export/in/"), "TEST_EXPORT", test_mapping,
                        ignore_tags=False)
     session = Session.get()

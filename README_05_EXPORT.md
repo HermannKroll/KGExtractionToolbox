@@ -119,6 +119,72 @@ python src/kgextractiontoolbox/document/export.py -d -t EXPORT_FILE --format JSO
 
 
 
+# NarrativeDocument Export
+To export all documents from the database in JSON format, a corresponding script exists.
+A collection can be passed as a parameter to specify the respective document collection to export.
+
+Export documents in a single file by running:
+```
+python src/kgextractiontoolbox/extraction/export_narrative_documents.py OUTPUT --collection COLLECTION [--sqllog]
+```
+- `OUTPUT` specifies the target location and filename of the exported documents.
+- `COLLECTION` specifies the document collection or if not provided every document collection present.
+- `--sqllog` enables logging of the SQL commands executed.
+
+An example export could look like.
+```json
+[
+  {
+    "id": 1496277,
+    "title": "[Rhabdomyolysis due to simvastin. Apropos of a case with review of the literature].",
+    "abstract": "A new case of simvastatin-induced acute rhabdomyolysis with heart failure after initiation of treatment with fusidic acid is reported. In most reported instances, statin treatment was initially well tolerated with muscle toxicity developing only after addition of another drug. The mechanism of this muscle toxicity is unelucidated but involvement of a decrease in tissue Co enzyme Q is strongly suspected.",
+    "classification": {
+      "Pharmaceutical": "drug:drug(356, 360);toxi*:toxicity(305, 313)"
+    },
+    "tags": [
+      {
+        "id": "MESH:D012206",
+        "mention": "rhabdomyolysis",
+        "start": 1,
+        "end": 15,
+        "type": "Disease"
+      },
+      ...
+    ],
+    "metadata": {
+      "publication_year": 1992,
+      "publication_month": 4,
+      "authors": "Dromer, C | Vedrenne, C | Billey, T | Pages, M | Fourni\u00e9, B | Fourni\u00e9, A",
+      "journals": "Revue du rhumatisme et des maladies osteo-articulaires, Vol. 59 No. 4 (Apr 1992)",
+      "doi": "https://www.pubpharm.de/vufind/Search/Results?lookfor=NLM1496277"
+    },
+    "sentences": [
+      {
+        "id": 2456018,
+        "text": "A new case of simvastatin-induced acute rhabdomyolysis with heart failure after initiation of treatment with fusidic acid is reported."
+      },
+      ...
+    ],
+    "statements": [
+      {
+        "subject_id": "CHEMBL374975",
+        "subject_type": "Drug",
+        "subject_str": "fusidic acid",
+        "predicate": "treatment",
+        "relation": "treats",
+        "object_id": "MESH:D006333",
+        "object_type": "Disease",
+        "object_str": "heart failure",
+        "sentence_id": 2456018
+      },
+      ...
+    ]
+  }, ...
+]
+```
+
+Please note, that the document collection of the document is not part of the output and therefore cannot be restored automatically.
+
 # Statement Export
 Finally, you may want to export the statement extractions from our database. 
 We assume in the following that you have already done the extraction and cleaning.

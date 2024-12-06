@@ -21,9 +21,17 @@ If you don't want to include tags, use the **--ignore_tags** argument.
 python src/kgextractiontoolbox/documents/load_document.py DOCUMENTS.json --collection COLLECTION --ignore_tags
 ```
 
-A document file may contain only annotations (exported by our toolbox; see [export](README_04_EXPORT.md)).
+A document file may contain only annotations (exported by our toolbox; see [export](README_05_EXPORT.md)).
 The toolbox will only load these annotations if the corresponding documents with titles or abstracts have been inserted into the database.
 
+### Updating Existing Documents
+By default, if a document already exists in the database, the loading script will skip it and not make any changes. However, if you have modified documents that need to replace the existing ones in the database (e.g., updated content, new sections, corrected data), you can use the --replace_existing parameter. This parameter tells the script to replace any existing documents in the database with the new ones provided.
+
+To replace existing documents, use the following command:
+```
+python src/kgextractiontoolbox/documents/load_document.py DOCUMENTS.json --collection COLLECTION --replace_existing
+
+```
 
 ### Document JSON Format
 Here is an example of our JSON format:
