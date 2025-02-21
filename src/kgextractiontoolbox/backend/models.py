@@ -1,4 +1,5 @@
 import hashlib
+import json
 import logging
 import unicodedata
 from collections import namedtuple
@@ -7,7 +8,7 @@ from io import StringIO
 from typing import List, Tuple, Set
 
 from sqlalchemy import Column, String, Integer, DateTime, ForeignKeyConstraint, PrimaryKeyConstraint, \
-    BigInteger, UniqueConstraint, Float, func, event
+    BigInteger, UniqueConstraint, Float, func, event, delete, insert
 from sqlalchemy.engine import Engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, backref
@@ -500,6 +501,26 @@ class DocProcessedByIE(Base, DatabaseTable):
     extraction_type = Column(String)
     date_inserted = Column(DateTime, nullable=False, default=datetime.now)
 
+class EntityResolverData(Base, DatabaseTable):
+    __tablename__ = "entity_resolver_data"
+    __table_args__ = ()
+
+    name = Column(String, primary_key=True)
+    data = Column(String)
+
+    @staticmethod
+    def overwrite_resolver_data(session, name, json_data):
+        session.execute(delete(EntityResolverData).where(EntityResolverData.name == name))
+        session.execute(insert(EntityResolverData).values(name=name, data=json_data))
+        session.commit()
+
+    @staticmethod
+    def load_data_from_json(session, name):
+        rows = session.query(EntityResolverData).filter(EntityResolverData.name == name).all()
+        if len(rows) == 1:
+            return json.loads(rows[0].data)
+        else:
+            return {}
 
 @event.listens_for(Engine, "connect")
 def set_sqlite_pragma(dbapi_connection, connection_record):
