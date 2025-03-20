@@ -34,7 +34,8 @@ def read_pathie_extractions_tsv(pathie_tsv_file: str, load_symmetric=True):
     return extractions
 
 
-def load_pathie_extractions(pathie_tsv_file: str, document_collection, extraction_type, load_symmetric=True):
+def load_pathie_extractions(pathie_tsv_file: str, document_collection, extraction_type, load_symmetric=True,
+                            cleaning_function: callable = None):
     """
     Wrapper to load PathIE extractions into the database
     uses fast mode if postgres connection
@@ -43,11 +44,16 @@ def load_pathie_extractions(pathie_tsv_file: str, document_collection, extractio
     :param document_collection: the document collection
     :param extraction_type: PathIE extraction type
     :param load_symmetric: should the extraction be loaded symmetricly (s,p,o) and (o,p,s)?
+    :param cleaning_function: function to clean the extractions (takes a list of predications and must return another list)
     :return:
     """
     logging.info(f'Reading extraction from {pathie_tsv_file}...')
     predications = read_pathie_extractions_tsv(pathie_tsv_file, load_symmetric=load_symmetric)
     logging.info('{} extractions read'.format(len(predications)))
+    if cleaning_function:
+        logging.info('Applying cleaning function before loading...')
+        predications = cleaning_function(predications)
+
     logging.info('Inserting {} predications'.format(len(predications)))
     clean_and_load_predications_into_db(predications, document_collection, extraction_type)
     logging.info('finished')
