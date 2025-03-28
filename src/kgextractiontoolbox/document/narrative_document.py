@@ -42,7 +42,7 @@ class StatementExtraction:
         }
 
     def __str__(self):
-        return f'<{self.subject_id} ({self.subject_type}) ({self.relation}) {self.object_id} ({self.object_type})>'
+        return f'<{self.subject_id} ({self.subject_type}), {self.relation}, {self.object_id} ({self.object_type})>'
 
     def __repr__(self):
         return str(self)
