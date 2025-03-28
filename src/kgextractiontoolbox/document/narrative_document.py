@@ -1,7 +1,6 @@
 import json
 from kgextractiontoolbox.document.document import TaggedDocument
 
-
 class DocumentSentence:
 
     def __init__(self, sentence_id: str, text: str):
@@ -41,6 +40,13 @@ class StatementExtraction:
             "sentence_id": self.sentence_id,
             "confidence": self.confidence
         }
+
+    def __str__(self):
+        return f'<{self.subject_id} ({self.subject_type}) ({self.relation}) {self.object_id} ({self.object_type})>'
+
+    def __repr__(self):
+        return str(self)
+
 
 
 class NarrativeDocumentMetadata:
