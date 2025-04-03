@@ -10,7 +10,7 @@ from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.config import ENTITY_LINKING_CONFIG
 from kgextractiontoolbox.document import count
 from kgextractiontoolbox.document.document import TaggedDocument
-from kgextractiontoolbox.document.extract import read_pubtator_documents
+from kgextractiontoolbox.document.extract import read_documents
 from kgextractiontoolbox.document.load_document import document_bulk_load
 from kgextractiontoolbox.entitylinking.biomedical_entity_linking import get_untagged_doc_ids_by_tagger
 from kgextractiontoolbox.entitylinking.entity_linking_config import Config
@@ -89,7 +89,7 @@ def main(arguments=None):
 
     def generate_tasks():
         document_batch = []
-        for doc in read_pubtator_documents(in_file):
+        for doc in read_documents(in_file):
             t_doc = TaggedDocument(doc, ignore_tags=True)
             if t_doc and t_doc.id in document_ids and t_doc.has_content():
                 document_batch.append(t_doc)

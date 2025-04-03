@@ -1,7 +1,7 @@
 import os
 from argparse import ArgumentParser
 
-from kgextractiontoolbox.document.extract import read_pubtator_documents
+from kgextractiontoolbox.document.extract import read_documents
 from kgextractiontoolbox.document.regex import DOCUMENT_ID
 
 
@@ -22,7 +22,7 @@ def split(filename, out_dir, batch_size=1, logger=None, document_prefix=""):
     docs_in_batch = 0
     if logger: logger.debug('splitting file (batch size is {})...'.format(batch_size))
     doc_group_content = []
-    for doc_content in read_pubtator_documents(filename):
+    for doc_content in read_documents(filename):
         docs_in_batch += 1
         doc_group_content.append(doc_content)
         if docs_in_batch >= batch_size:

@@ -10,7 +10,7 @@ from spacy.lang.en import English
 
 from kgextractiontoolbox.document.count import count_documents
 from kgextractiontoolbox.document.document import TaggedDocument
-from kgextractiontoolbox.document.extract import read_pubtator_documents
+from kgextractiontoolbox.document.extract import read_documents
 from kgextractiontoolbox.extraction.pathie.core import PathIEExtraction
 
 
@@ -131,7 +131,7 @@ def run_co_occurrences_in_sentences(input_file, output, workers=1, consider_sect
     result_queue = multiprocessing.Queue()
     # init the task
     no_tasks = 0
-    for content in read_pubtator_documents(input_file):
+    for content in read_documents(input_file):
         task_queue.put(content)
         no_tasks += 1
 

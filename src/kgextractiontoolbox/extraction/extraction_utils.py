@@ -8,7 +8,7 @@ from time import sleep
 from spacy.lang.en import English
 
 from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
-from kgextractiontoolbox.document.extract import read_pubtator_documents
+from kgextractiontoolbox.document.extract import read_documents
 from kgextractiontoolbox.progress import print_progress_with_eta
 
 
@@ -65,7 +65,7 @@ def filter_document_sentences_without_tags(doc_len: int, input_file: str, spacy_
     doc2tags = dict()
     doc2sentences = dict()
     start_time = datetime.now()
-    for idx, pubtator_content in enumerate(read_pubtator_documents(input_file)):
+    for idx, pubtator_content in enumerate(read_documents(input_file)):
         print_progress_with_eta('filtering documents...', idx, doc_len, start_time, print_every_k=100)
         doc_id, filtered_content, tag_terms = filter_document_content(pubtator_content, spacy_nlp,
                                                                       consider_sections=consider_sections)
@@ -135,7 +135,7 @@ def filter_document_sentences_without_tags_parallelized(doc_len: int, input_file
         task_queue = multiprocessing.Queue()
 
         start_time = datetime.now()
-        for idx, pubtator_content in enumerate(read_pubtator_documents(input_file)):
+        for idx, pubtator_content in enumerate(read_documents(input_file)):
             print_progress_with_eta('adding documents...', idx, doc_len, start_time, print_every_k=100)
             task_queue.put(pubtator_content)
 

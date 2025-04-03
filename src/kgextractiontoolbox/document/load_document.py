@@ -18,7 +18,7 @@ from kgextractiontoolbox.backend.models import Document, Tag, Tagger, DocTaggedB
     DocumentClassification
 from kgextractiontoolbox.document.count import count_documents
 from kgextractiontoolbox.document.document import TaggedDocument
-from kgextractiontoolbox.document.extract import read_pubtator_documents
+from kgextractiontoolbox.document.extract import read_documents
 from kgextractiontoolbox.progress import print_progress_with_eta
 
 BULK_LOAD_COMMIT_AFTER = 50000
@@ -106,7 +106,7 @@ def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, 
         if replace_existing:
             logger.info("Replacing existing documents in the database...")
             docs_to_delete = set()
-            for pubtator_content in read_pubtator_documents(path):
+            for pubtator_content in read_documents(path):
                 doc = TaggedDocument(pubtator_content, ignore_tags=ignore_tags)
                 if doc.id in db_doc_ids:
                     docs_to_delete.add(doc.id)
@@ -124,7 +124,7 @@ def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, 
         tag_inserts = []
 
         doc_tagged_by_inserts = []
-        for idx, pubtator_content in enumerate(read_pubtator_documents(path)):
+        for idx, pubtator_content in enumerate(read_documents(path)):
             doc = TaggedDocument(pubtator_content, ignore_tags=ignore_tags)
             tagged_ent_types = set()
 

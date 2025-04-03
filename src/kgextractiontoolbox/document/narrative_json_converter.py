@@ -7,13 +7,13 @@ from typing import Union, Iterator
 import kgextractiontoolbox.document.count as c
 import kgextractiontoolbox.document.doctranslation as dt
 import kgextractiontoolbox.document.narrative_document as nd
-from kgextractiontoolbox.document.extract import read_pubtator_documents
+from kgextractiontoolbox.document.extract import read_documents
 
 
 class NarrativeJSONConverter(dt.DocumentTranslationLoader):
 
     def read_sourced_documents(self, file: Union[Path, str]) -> Iterator[dt.SourcedDocument]:
-        for content in read_pubtator_documents(file):
+        for content in read_documents(file):
             doc = nd.NarrativeDocument()
             doc.load_from_json(content)
             basename = os.path.basename(file)

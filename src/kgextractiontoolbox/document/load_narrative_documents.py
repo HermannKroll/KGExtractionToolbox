@@ -11,7 +11,7 @@ import kgextractiontoolbox.document.load_document as ld
 import kgextractiontoolbox.document.narrative_json_converter as jc
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.document.count import count_documents
-from kgextractiontoolbox.document.extract import read_pubtator_documents
+from kgextractiontoolbox.document.extract import read_documents
 from kgextractiontoolbox.progress import Progress
 from kgextractiontoolbox.backend.models import DocumentMetadata
 from kgextractiontoolbox.document.narrative_document import NarrativeDocument
@@ -49,7 +49,7 @@ def narrative_document_bulk_load(path: Union[Path, str], collection: str, tagger
         n_docs = count_documents(path)
         progress = Progress(n_docs, print_every=1000, text="Loading narrative information")
         metadata_to_insert = []
-        for idx, json_content in enumerate(read_pubtator_documents(path)):
+        for idx, json_content in enumerate(read_documents(path)):
             progress.print_progress(idx)
             doc = NarrativeDocument()
             doc.load_from_json(json_content)
