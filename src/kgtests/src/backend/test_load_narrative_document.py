@@ -117,3 +117,44 @@ class TestLoadNarrativeDocument(unittest.TestCase):
         self.assertEqual(test_doc.title, db_docs[0].title)
         self.assertEqual(test_doc.metadata, db_docs[0].metadata)
         self.assertEqual(test_doc.sections, db_docs[0].sections)
+
+    def test_replace_existing_document_artifical_id(self):
+        test_path = util.get_test_resource_filepath("narrative_documents/example1.json")
+        narrative_document_bulk_load(test_path, "TestLoadingNarrative4", artificial_document_ids=True)
+
+        # parsed json document
+        with open(test_path, 'rt') as f:
+            doc_content = f.read()
+        test_doc = NarrativeDocument()
+        test_doc.load_from_json(doc_content)
+
+        session = Session.get()
+        db_docs = retrieve_narrative_documents_from_database(session, {0}, "TestLoadingNarrative4")
+        self.assertEqual(1, len(db_docs))
+        self.assertEqual(test_doc, db_docs[0])
+        self.assertEqual(test_doc.id, db_docs[0].id)
+        self.assertEqual(test_doc.abstract, db_docs[0].abstract)
+        self.assertEqual(test_doc.title, db_docs[0].title)
+        self.assertEqual(test_doc.metadata, db_docs[0].metadata)
+        self.assertEqual(test_doc.sections, db_docs[0].sections)
+
+        # now replace the document with another document that has the same id
+        test_path = util.get_test_resource_filepath("narrative_documents/example1_changed.json")
+        narrative_document_bulk_load(test_path, "TestLoadingNarrative4", artificial_document_ids=True,
+                                     replace_existing=True)
+
+        # parsed json document
+        with open(test_path, 'rt') as f:
+            doc_content = f.read()
+        test_doc = NarrativeDocument()
+        test_doc.load_from_json(doc_content)
+
+        session = Session.get()
+        db_docs = retrieve_narrative_documents_from_database(session, {0}, "TestLoadingNarrative3")
+        self.assertEqual(1, len(db_docs))
+        self.assertEqual(test_doc, db_docs[0])
+        self.assertEqual(test_doc.id, db_docs[0].id)
+        self.assertEqual(test_doc.abstract, db_docs[0].abstract)
+        self.assertEqual(test_doc.title, db_docs[0].title)
+        self.assertEqual(test_doc.metadata, db_docs[0].metadata)
+        self.assertEqual(test_doc.sections, db_docs[0].sections)
