@@ -112,7 +112,6 @@ def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, 
                     docs_to_delete.add(doc.id)
             if docs_to_delete:
                 logger.info(f"Deleting {len(docs_to_delete)} documents...")
-                print("deleting")
                 session.query(Document).filter(Document.id.in_(docs_to_delete)).filter_by(collection=collection).delete()
                 session.commit()
 
