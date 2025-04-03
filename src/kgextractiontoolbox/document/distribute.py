@@ -1,5 +1,4 @@
 import logging
-import math
 import os
 from collections import defaultdict
 from shutil import copy
