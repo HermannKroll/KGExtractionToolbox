@@ -122,7 +122,7 @@ class Document(Base, DatabaseTable):
     title = Column(String, nullable=False)
     abstract = Column(String, nullable=False)
     fulltext = Column(String)
-
+    source_id = Column(String, nullable=True)
     date_inserted = Column(DateTime, nullable=False, default=datetime.now)
 
     sections = relationship("DocumentSection", backref="document", passive_deletes="True")
@@ -183,6 +183,15 @@ class Document(Base, DatabaseTable):
         for q in query:
             document_id = q[0]
         return document_id
+
+    @staticmethod
+    def query_document_id_2_source_id_mapping(session, document_collection: str):
+        query = session.query(Document.id, Document.source_id)
+        query = query.filter(Document.collection == document_collection)
+        docid2sourceid = {}
+        for r in query:
+            docid2sourceid[int(r.id)] = r.source_id
+        return docid2sourceid
 
 
 class DocumentMetadata(Base, DatabaseTable):
@@ -264,34 +273,6 @@ class Tag(Base, DatabaseTable):
     def to_pubtator(self):
         return Tag.create_pubtator(self.document_id, self.start, self.end, self.ent_str, self.ent_type, self.ent_id)
 
-
-class DocumentTranslation(Base, DatabaseTable):
-    __tablename__ = "document_translation"
-    __table_args__ = (
-        PrimaryKeyConstraint('document_id', 'document_collection', sqlite_on_conflict='IGNORE'),
-        UniqueConstraint('source_doc_id', 'document_collection', sqlite_on_conflict='IGNORE')
-    )
-    document_id = Column(BigInteger)
-    document_collection = Column(String)
-    source_doc_id = Column(String, nullable=False)
-    md5 = Column(String, nullable=False)
-    date_inserted = Column(DateTime, nullable=False, default=datetime.now)
-    source = Column(String)
-
-    @staticmethod
-    def text_to_md5_hash(text: str) -> str:
-        m = hashlib.md5()
-        m.update(text.encode())
-        return m.hexdigest()
-
-    @staticmethod
-    def get_document_id_2_source_id_mapping(session, document_collection: str):
-        query = session.query(DocumentTranslation.document_id, DocumentTranslation.source_doc_id)
-        query = query.filter(DocumentTranslation.document_collection == document_collection)
-        docid2sourceid = {}
-        for r in query:
-            docid2sourceid[int(r.document_id)] = r.source_doc_id
-        return docid2sourceid
 
 
 class DocumentClassification(Base, DatabaseTable):

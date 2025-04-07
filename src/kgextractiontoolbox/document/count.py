@@ -22,9 +22,15 @@ def get_document_ids(path: str):
                     if len(ids) == 0:
                         ids.update(int(x) for x in TAG_DOCUMENT_ID.findall(line))
             elif docformat == DocFormat.SINGLE_JSON:
-                ids.add(json.loads(f.read())["id"])
+                json_data = json.loads(f.read())
+                if "id" in json_data:
+                    ids.add(json_data["id"])
+                elif "source_id" in json_data:
+                    ids.add(json_data["source_id"])
+                else:
+                    raise ValueError('JSON documents must contain "id" or "source_id"')
             elif docformat == DocFormat.COMPOSITE_JSON:
-                ids |= {doc["id"] for doc in json.load(f)}
+                ids |= {doc["id"] if "id" in doc else doc["source_id"] for doc in json.load(f)}
             elif docformat == DocFormat.JSON_LINE:
                 for line in f:
                     if not line.strip():

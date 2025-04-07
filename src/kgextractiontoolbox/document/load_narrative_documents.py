@@ -1,26 +1,21 @@
 import argparse
 import logging
-import os
-import shutil
-import tempfile
 from pathlib import Path
 from typing import Union
 
-import kgextractiontoolbox.document.doctranslation as dc
 import kgextractiontoolbox.document.load_document as ld
-import kgextractiontoolbox.document.narrative_json_converter as jc
 from kgextractiontoolbox.backend.database import Session
+from kgextractiontoolbox.backend.models import DocumentMetadata, Document
 from kgextractiontoolbox.document.count import count_documents
 from kgextractiontoolbox.document.extract import read_documents
-from kgextractiontoolbox.progress import Progress
-from kgextractiontoolbox.backend.models import DocumentMetadata
 from kgextractiontoolbox.document.narrative_document import NarrativeDocument
+from kgextractiontoolbox.progress import Progress
 
 
 def narrative_document_bulk_load(path: Union[Path, str], collection: str, tagger_mapping=None,
                                  logger=logging,
                                  artificial_document_ids: bool = False,
-                                 replace_existing = False):
+                                 replace_existing=False):
     """
     Loads a set of narrative document documents from a JSON into our database
     :param path: to a json file or directory of json files
@@ -31,44 +26,51 @@ def narrative_document_bulk_load(path: Union[Path, str], collection: str, tagger
     :param bool replace_existing: If true, replaces existing documents in the database
     :return: None
     """
+
+    # First call toolbox loading of document abstracts, tags, sections, etc
+    ld.document_bulk_load(path, collection, tagger_mapping=tagger_mapping, logger=logger, ignore_tags=False,
+                          replace_existing=replace_existing,
+                          artificial_document_ids=artificial_document_ids)
+
+    # we need to load the translation table from source ids to artificial db ids
+    doc_source_id2art_id = {}
     if artificial_document_ids:
-        temp_dir = tempfile.mkdtemp()
-        out = os.path.join(temp_dir, "outfile.json")
-        dc.run_document_translation(path, out, jc.NarrativeJSONConverter, collection, load_function=narrative_document_bulk_load)
-        shutil.rmtree(temp_dir)
-    else:
-        path_str = str(path).lower()
-        if not path_str.endswith('.json'):
-            raise ValueError(f'Only JSON format is supported: {path}')
-
-        # First call toolbox loading of document abstracts, tags, sections, etc
-        ld.document_bulk_load(path, collection, tagger_mapping=tagger_mapping, logger=logger, ignore_tags=False, replace_existing=replace_existing)
-
-        # Load metadata stuff
         session = Session.get()
-        n_docs = count_documents(path)
-        progress = Progress(n_docs, print_every=1000, text="Loading narrative information")
-        metadata_to_insert = []
-        for idx, json_content in enumerate(read_documents(path)):
-            progress.print_progress(idx)
-            doc = NarrativeDocument()
-            doc.load_from_json(json_content)
+        logger.info('Retrieving source id to art doc id table from database...')
+        query = session.query(Document.source_id, Document.id).filter(Document.collection == collection)
+        for row in query:
+            if row.source_id:
+                doc_source_id2art_id[row.source_id] = row.id
 
-            if doc.metadata:
-                metadata_to_insert.append(dict(document_id=doc.id,
-                                               document_collection=collection,
-                                               authors=doc.metadata.authors,
-                                               journals=doc.metadata.journals,
-                                               publication_year=doc.metadata.publication_year,
-                                               publication_month=doc.metadata.publication_month,
-                                               publication_doi=doc.metadata.publication_doi))
+    # Load metadata stuff
+    session = Session.get()
+    n_docs = count_documents(path)
+    progress = Progress(n_docs, print_every=1000, text="Loading narrative information")
+    metadata_to_insert = []
+    for idx, json_content in enumerate(read_documents(path)):
+        progress.print_progress(idx)
+        doc = NarrativeDocument()
+        doc.load_from_json(json_content)
 
-            if idx % ld.BULK_LOAD_COMMIT_AFTER == 0:
-                DocumentMetadata.bulk_insert_values_into_table(session=session, values=metadata_to_insert)
-                metadata_to_insert.clear()
+        if artificial_document_ids:
+            # translate the id's here
+            doc.id = doc_source_id2art_id[doc.source_id]
 
-        DocumentMetadata.bulk_insert_values_into_table(session=session, values=metadata_to_insert)
-        logger.info('Finished insert')
+        if doc.metadata:
+            metadata_to_insert.append(dict(document_id=doc.id,
+                                           document_collection=collection,
+                                           authors=doc.metadata.authors,
+                                           journals=doc.metadata.journals,
+                                           publication_year=doc.metadata.publication_year,
+                                           publication_month=doc.metadata.publication_month,
+                                           publication_doi=doc.metadata.publication_doi))
+
+        if idx % ld.BULK_LOAD_COMMIT_AFTER == 0:
+            DocumentMetadata.bulk_insert_values_into_table(session=session, values=metadata_to_insert)
+            metadata_to_insert.clear()
+
+    DocumentMetadata.bulk_insert_values_into_table(session=session, values=metadata_to_insert)
+    logger.info('Finished insert')
 
 
 def main(args=None):
@@ -101,7 +103,8 @@ def main(args=None):
                             level=logging.INFO)
 
     narrative_document_bulk_load(args.input, args.collection, tagger_mapping,
-                                 artificial_document_ids=args.artificial_document_ids, replace_existing=args.replace_existing)
+                                 artificial_document_ids=args.artificial_document_ids,
+                                 replace_existing=args.replace_existing)
 
 
 if __name__ == "__main__":

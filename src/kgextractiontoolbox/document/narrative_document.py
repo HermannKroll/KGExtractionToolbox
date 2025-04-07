@@ -90,8 +90,9 @@ class NarrativeDocument(TaggedDocument):
                  sentences=None,
                  extracted_statements=None,
                  classification=None,
-                 sections=None):
-        super().__init__(id=document_id, title=title, abstract=abstract, ignore_tags=False)
+                 sections=None,
+                 source_id=None):
+        super().__init__(id=document_id, title=title, abstract=abstract, ignore_tags=False, source_id=source_id)
         if sections is None:
             sections = []
         if classification is None:

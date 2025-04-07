@@ -97,13 +97,12 @@ class TestLoadDocument(unittest.TestCase):
         # parsed json document
         with open(test_path, 'rt') as f:
             doc_content = f.read()
-        test_doc = TaggedDocument(doc_content)
+        test_doc = TaggedDocument(doc_content, id=1)
 
         session = Session.get()
         db_docs = list(iterate_over_all_documents_in_collection(session, "TestLoading4", consider_sections=True))
         self.assertEqual(1, len(db_docs))
-        self.assertNotEqual(test_doc, db_docs[0])
-        self.assertNotEqual(test_doc.id, db_docs[0].id)
+        self.assertEqual(test_doc, db_docs[0])
         self.assertEqual(test_doc.abstract, db_docs[0].abstract)
         self.assertEqual(test_doc.title, db_docs[0].title)
         self.assertEqual(test_doc.sections, db_docs[0].sections)

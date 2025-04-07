@@ -1,18 +1,13 @@
 import argparse
 import json
 import logging
-import os
-import shutil
 import sys
-import tempfile
 from datetime import datetime
 from pathlib import Path
 from typing import Tuple, Dict, Union
 
-from sqlalchemy import delete
+from sqlalchemy import func
 
-import kgextractiontoolbox.document.doctranslation as dc
-import kgextractiontoolbox.document.jsonconverter as jc
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import Document, Tag, Tagger, DocTaggedBy, DocumentSection, \
     DocumentClassification
@@ -77,139 +72,183 @@ def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, 
     :param bool replace_existing: If true, replaces existing documents in the database
     :return:
     """
+
+    session = Session.get()
+    if tagger_mapping is None:
+        logger.info("No tagger mapping provided.")
+    logger.info('Bulk loading documents into database...')
+    sys.stdout.write("Counting documents ...")
+    sys.stdout.flush()
+    n_docs = count_documents(path)
+    sys.stdout.write("\rCounting documents ... found {}\n".format(n_docs))
+    sys.stdout.flush()
+    logger.info("Found {} documents".format(n_docs))
+
+    logger.info('Retrieving document ids from database...')
     if artificial_document_ids:
-        temp_dir = tempfile.mkdtemp()
-        out = os.path.join(temp_dir, "outfile.json")
-        dc.run_document_translation(path, out, jc.JSONConverter, collection, load_function=document_bulk_load)
-        shutil.rmtree(temp_dir)
+        query = session.query(Document.source_id)
     else:
-        session = Session.get()
-        if tagger_mapping is None:
-            logger.info("No tagger mapping provided.")
-        logger.info('Bulk loading documents into database...')
-        sys.stdout.write("Counting documents ...")
-        sys.stdout.flush()
-        n_docs = count_documents(path)
-        sys.stdout.write("\rCounting documents ... found {}\n".format(n_docs))
-        sys.stdout.flush()
-        logger.info("Found {} documents".format(n_docs))
+        query = session.query(Document.id)
 
-        logger.info('Retrieving document ids from database...')
-        query = session.query(Document.id).filter_by(collection=collection)
+    query = query.filter_by(collection=collection)
 
-        db_doc_ids = set()
-        for r in session.execute(query):
-            db_doc_ids.add(r[0])
-        logger.info('{} documents are already inserted'.format(len(db_doc_ids)))
-        start_time = datetime.now()
+    db_doc_ids = set()
+    for r in session.execute(query):
+        if artificial_document_ids:
+            # take the source ids
+            db_doc_ids.add(r.source_id)
+        else:
+            # take the DB id as it
+            db_doc_ids.add(r.id)
+    logger.info('{} documents are already inserted'.format(len(db_doc_ids)))
+    start_time = datetime.now()
 
-        if replace_existing:
-            logger.info("Replacing existing documents in the database...")
-            docs_to_delete = set()
-            for pubtator_content in read_documents(path):
-                doc = TaggedDocument(pubtator_content, ignore_tags=ignore_tags)
-                if doc.id in db_doc_ids:
-                    docs_to_delete.add(doc.id)
-            if docs_to_delete:
-                logger.info(f"Deleting {len(docs_to_delete)} documents...")
-                session.query(Document).filter(Document.id.in_(docs_to_delete)).filter_by(collection=collection).delete()
-                session.commit()
-
-                logger.info("Deletion complete.")
-                db_doc_ids.difference_update(docs_to_delete)
-
-        document_inserts = []
-        document_classification = []
-        document_sections = []
-        tag_inserts = []
-
-        doc_tagged_by_inserts = []
-        for idx, pubtator_content in enumerate(read_documents(path)):
+    if replace_existing:
+        logger.info("Replacing existing documents in the database...")
+        docs_to_delete = set()
+        for pubtator_content in read_documents(path):
             doc = TaggedDocument(pubtator_content, ignore_tags=ignore_tags)
-            tagged_ent_types = set()
+            if artificial_document_ids and doc.source_id in db_doc_ids:
+                if not doc.source_id:
+                    raise ValueError(
+                        f'When using artificial doc ids, source id must be provided (missing for {doc.id})')
+                docs_to_delete.add(doc.source_id)
 
-            # Add document if its not already included
-            if doc.id not in db_doc_ids and doc.has_content():
-                db_doc_ids.add(doc.id)
-                document_inserts.append(dict(
-                    collection=collection,
-                    id=doc.id,
-                    title=doc.title,
-                    abstract=doc.abstract,
+            if not artificial_document_ids and doc.id in db_doc_ids:
+                docs_to_delete.add(doc.id)
+
+        if len(docs_to_delete) > 0:
+            logger.info(f"Deleting {len(docs_to_delete)} documents from {collection}...")
+            query = session.query(Document)
+            if artificial_document_ids:
+                query = query.filter(Document.source_id.in_(docs_to_delete))
+            else:
+                query = query.filter(Document.id.in_(docs_to_delete))
+
+            query.filter_by(collection=collection).delete()
+            session.commit()
+
+            logger.info("Deletion complete.")
+            db_doc_ids.difference_update(docs_to_delete)
+
+    document_inserts = []
+    document_classification = []
+    document_sections = []
+    tag_inserts = []
+
+    current_artificial_no = 1
+    if artificial_document_ids:
+        logger.info(f'Retrieving the highest document id for collection {collection}...')
+        session = Session.get()
+        current_artificial_no = session.query(func.max(Document.id)).filter(Document.collection == collection).scalar()
+        # it's important to start at 1 to distinguish between 0 and None
+        if current_artificial_no is None:
+            current_artificial_no = 1
+        else:
+            current_artificial_no += 1
+        logger.info(f'Next highest document id for collection {collection} is {current_artificial_no}')
+
+    doc_tagged_by_inserts = []
+    for idx, pubtator_content in enumerate(read_documents(path)):
+        tagged_ent_types = set()
+
+        if artificial_document_ids:
+            # we need to the artificial document id here to overwrite the real id from the file
+            # the real id should be stored as the source_id key
+            doc = TaggedDocument(pubtator_content, id=current_artificial_no, ignore_tags=ignore_tags)
+            current_artificial_no += 1
+        else:
+            doc = TaggedDocument(pubtator_content, ignore_tags=ignore_tags)
+
+        if not doc.has_content():
+            logger.warning(f"Document {collection} {doc.id} is not inserted into DB (no title and no abstract)")
+
+        # Add document if it's not already included
+        if artificial_document_ids:
+            if not doc.source_id:
+                raise ValueError(f'When using artificial doc ids, source id must be provided (missing for {doc.id})')
+            doc_id = doc.source_id
+        else:
+            doc_id = doc.id
+
+        if doc_id not in db_doc_ids and doc.has_content():
+            db_doc_ids.add(doc_id)
+            document_inserts.append(dict(
+                collection=collection,
+                id=doc.id,
+                title=doc.title,
+                abstract=doc.abstract,
+                source_id=doc.source_id,
+            ))
+
+        if doc.classification:
+            # add document classifications
+            for d_class, d_explanation in doc.classification.items():
+                document_classification.append(dict(document_id=doc.id,
+                                                    document_collection=collection,
+                                                    classification=d_class,
+                                                    explanation=d_explanation))
+
+        if doc.sections:
+            # add document sections
+            for sec in doc.sections:
+                document_sections.append(dict(document_id=doc.id,
+                                              document_collection=collection,
+                                              position=sec.position,
+                                              title=sec.title,
+                                              text=sec.text))
+
+        if doc.tags and not ignore_tags:
+            # Add tags
+            for tag in doc.tags:
+                tagged_ent_types.add(tag.ent_type)
+
+                tag_inserts.append(dict(
+                    ent_type=tag.ent_type,
+                    start=tag.start,
+                    end=tag.end,
+                    ent_id=tag.ent_id,
+                    ent_str=tag.text,
+                    document_id=tag.document,
+                    document_collection=collection,
                 ))
 
-            if doc.id not in db_doc_ids:
-                logger.warning(
-                    "Document {} {} is not inserted into DB (no title and no abstract)".format(collection, doc.id))
-
-            if doc.classification:
-                # add document classifications
-                for d_class, d_explanation in doc.classification.items():
-                    document_classification.append(dict(document_id=doc.id,
-                                                        document_collection=collection,
-                                                        classification=d_class,
-                                                        explanation=d_explanation))
-
-            if doc.sections:
-                # add document sections
-                for sec in doc.sections:
-                    document_sections.append(dict(document_id=doc.id,
-                                                  document_collection=collection,
-                                                  position=sec.position,
-                                                  title=sec.title,
-                                                  text=sec.text))
-
-            if doc.tags and not ignore_tags and doc.id in db_doc_ids:
-                # Add tags
-                for tag in doc.tags:
-                    tagged_ent_types.add(tag.ent_type)
-
-                    tag_inserts.append(dict(
-                        ent_type=tag.ent_type,
-                        start=tag.start,
-                        end=tag.end,
-                        ent_id=tag.ent_id,
-                        ent_str=tag.text,
-                        document_id=tag.document,
+            # Add DocTaggedBy
+            if tagger_mapping:
+                for ent_type in tagged_ent_types:
+                    tagger_name, tagger_version = get_tagger_for_enttype(tagger_mapping, ent_type)
+                    doc_tagged_by_inserts.append(dict(
+                        document_id=doc.id,
                         document_collection=collection,
+                        tagger_name=tagger_name,
+                        tagger_version=tagger_version,
+                        ent_type=ent_type,
                     ))
 
-                # Add DocTaggedBy
-                if tagger_mapping:
-                    for ent_type in tagged_ent_types:
-                        tagger_name, tagger_version = get_tagger_for_enttype(tagger_mapping, ent_type)
-                        doc_tagged_by_inserts.append(dict(
-                            document_id=doc.id,
-                            document_collection=collection,
-                            tagger_name=tagger_name,
-                            tagger_version=tagger_version,
-                            ent_type=ent_type,
-                        ))
+        if (idx + 1) % BULK_LOAD_COMMIT_AFTER == 0:
+            Document.bulk_insert_values_into_table(session, document_inserts)
+            Tag.bulk_insert_values_into_table(session, tag_inserts)
+            DocTaggedBy.bulk_insert_values_into_table(session, doc_tagged_by_inserts)
+            DocumentSection.bulk_insert_values_into_table(session, document_sections)
+            DocumentClassification.bulk_insert_values_into_table(session, document_classification)
 
-            if (idx + 1) % BULK_LOAD_COMMIT_AFTER == 0:
-                Document.bulk_insert_values_into_table(session, document_inserts)
-                Tag.bulk_insert_values_into_table(session, tag_inserts)
-                DocTaggedBy.bulk_insert_values_into_table(session, doc_tagged_by_inserts)
-                DocumentSection.bulk_insert_values_into_table(session, document_sections)
-                DocumentClassification.bulk_insert_values_into_table(session, document_classification)
+            document_inserts = []
+            tag_inserts = []
+            doc_tagged_by_inserts = []
+            document_sections = []
+            document_classification = []
 
-                document_inserts = []
-                tag_inserts = []
-                doc_tagged_by_inserts = []
-                document_sections = []
-                document_classification = []
+        print_progress_with_eta("Adding documents", idx, n_docs, start_time,
+                                print_every_k=PRINT_ETA_EVERY_K_DOCUMENTS)
 
-            print_progress_with_eta("Adding documents", idx, n_docs, start_time,
-                                    print_every_k=PRINT_ETA_EVERY_K_DOCUMENTS)
+    Document.bulk_insert_values_into_table(session, document_inserts)
+    Tag.bulk_insert_values_into_table(session, tag_inserts)
+    DocTaggedBy.bulk_insert_values_into_table(session, doc_tagged_by_inserts)
+    DocumentSection.bulk_insert_values_into_table(session, document_sections)
+    DocumentClassification.bulk_insert_values_into_table(session, document_classification)
 
-        Document.bulk_insert_values_into_table(session, document_inserts)
-        Tag.bulk_insert_values_into_table(session, tag_inserts)
-        DocTaggedBy.bulk_insert_values_into_table(session, doc_tagged_by_inserts)
-        DocumentSection.bulk_insert_values_into_table(session, document_sections)
-        DocumentClassification.bulk_insert_values_into_table(session, document_classification)
-
-        sys.stdout.write("\rAdding documents ... done in {}\n".format(datetime.now() - start_time))
-        logger.info("Added {} documents in {}".format(n_docs, datetime.now() - start_time))
+    sys.stdout.write("\rAdding documents ... done in {}\n".format(datetime.now() - start_time))
+    logger.info("Added {} documents in {}".format(n_docs, datetime.now() - start_time))
 
 
 def main(args=None):

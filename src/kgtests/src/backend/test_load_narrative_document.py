@@ -2,7 +2,8 @@ import copy
 import unittest
 
 from kgextractiontoolbox.backend.database import Session
-from kgextractiontoolbox.backend.retrieve import retrieve_narrative_documents_from_database
+from kgextractiontoolbox.backend.retrieve import retrieve_narrative_documents_from_database, \
+    iterate_over_all_documents_in_collection
 from kgextractiontoolbox.document.load_narrative_documents import narrative_document_bulk_load
 from kgextractiontoolbox.document.narrative_document import NarrativeDocument
 from kgtests import util
@@ -118,7 +119,7 @@ class TestLoadNarrativeDocument(unittest.TestCase):
         self.assertEqual(test_doc.metadata, db_docs[0].metadata)
         self.assertEqual(test_doc.sections, db_docs[0].sections)
 
-    def test_replace_existing_document_artifical_id(self):
+    def test_replace_existing_document_artificial_id(self):
         test_path = util.get_test_resource_filepath("narrative_documents/example1.json")
         narrative_document_bulk_load(test_path, "TestLoadingNarrative4", artificial_document_ids=True)
 
@@ -127,9 +128,11 @@ class TestLoadNarrativeDocument(unittest.TestCase):
             doc_content = f.read()
         test_doc = NarrativeDocument()
         test_doc.load_from_json(doc_content)
+        # we will generate the art id 1
+        test_doc.id = 1
 
         session = Session.get()
-        db_docs = retrieve_narrative_documents_from_database(session, {0}, "TestLoadingNarrative4")
+        db_docs = retrieve_narrative_documents_from_database(session,  {1}, "TestLoadingNarrative4")
         self.assertEqual(1, len(db_docs))
         self.assertEqual(test_doc, db_docs[0])
         self.assertEqual(test_doc.id, db_docs[0].id)
@@ -148,9 +151,11 @@ class TestLoadNarrativeDocument(unittest.TestCase):
             doc_content = f.read()
         test_doc = NarrativeDocument()
         test_doc.load_from_json(doc_content)
+        # we will generate the art id 1
+        test_doc.id = 1
 
         session = Session.get()
-        db_docs = retrieve_narrative_documents_from_database(session, {0}, "TestLoadingNarrative3")
+        db_docs = retrieve_narrative_documents_from_database(session,  {1}, "TestLoadingNarrative4")
         self.assertEqual(1, len(db_docs))
         self.assertEqual(test_doc, db_docs[0])
         self.assertEqual(test_doc.id, db_docs[0].id)

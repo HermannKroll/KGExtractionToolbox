@@ -110,8 +110,7 @@ def iterate_over_all_documents_in_collection(session, collection: str, document_
         current_sec = next(sec_query, None)
 
     for res in doc_query:
-        t_doc = TaggedDocument(id=res.id, title=res.title,
-                               abstract=res.abstract)
+        t_doc = TaggedDocument(id=res.id, title=res.title, abstract=res.abstract, source_id=res.source_id)
 
         if consider_tag:
             while current_tag and t_doc.id == current_tag.document_id:
@@ -173,7 +172,7 @@ def retrieve_tagged_documents_from_database(session, document_ids: Set[int], doc
     for res in doc_query:
         if enable_range_mode and res.id not in document_ids_set:
             continue
-        doc_results[res.id] = TaggedDocument(id=res.id, title=res.title, abstract=res.abstract)
+        doc_results[res.id] = TaggedDocument(id=res.id, title=res.title, abstract=res.abstract, source_id=res.source_id)
 
     # Next query the classification information
     classification_query = session.query(DocumentClassification)
@@ -256,7 +255,8 @@ def retrieve_narrative_documents_from_database(session, document_ids: Set[int], 
                                            abstract=d.abstract,
                                            tags=d.tags,
                                            classification=d.classification,
-                                           sections=d.sections) for d in tagged_docs}
+                                           sections=d.sections,
+                                           source_id=d.source_id) for d in tagged_docs}
 
     document_ids = sorted(list(document_ids))
     enable_range_mode, lowest_id, highest_id = should_use_range_mode(document_ids)
