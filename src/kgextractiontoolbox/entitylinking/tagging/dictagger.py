@@ -72,6 +72,7 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         self.desc_by_term = {}
         self.blacklist_file = blacklist_file
         self.clean_abbreviation_tags_function = DictTagger.clean_abbreviation_tags
+        self.dict_max_words = None
 
     def get_types(self):
         return self.tag_types
@@ -82,7 +83,7 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
                 blacklist = f.read().splitlines()
             blacklist_set = set()
             for s in blacklist:
-                s_lower = s.lower().strip()
+                s_lower = self.normalize_term(s)
                 blacklist_set.add(s_lower)
                 blacklist_set.add('{}s'.format(s_lower))
                 blacklist_set.add('{}e'.format(s_lower))
@@ -100,6 +101,9 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         :param consider_sections: should fulltexts be considered?
         :return: the modified in_doc
         """
+        if self.dict_max_words is None:
+            self.dict_max_words = max((len(norm.split()) for norm in self.desc_by_term), default=0)
+            self.logger.info(f'dict_max_words set to {self.dict_max_words}')
         and_check_range = 5
         connector_words = {"and", "or"}
         abb_vocab = dict()
@@ -107,11 +111,11 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         pmid = in_doc.id
         tags = []
         for text_element, offset in in_doc.iterate_over_text_elements(sections=consider_sections):
-            content = text_element.lower()
+            content = self.normalize_term(text_element)
             # split into indexed single words
             ind_words = split_indexed_words(content, split_by_slash=self.config.dict_split_by_slash)
 
-            for spaces in range(self.config.dict_max_words):
+            for spaces in range(self.dict_max_words):
                 for word_tuple in get_n_tuples(ind_words, spaces + 1):
                     hits = self.get_hits(word_tuple, pmid, offset=offset)
                     tags += hits
@@ -132,9 +136,9 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
                 content = text_element.lower()
                 # split into indexed single words
                 ind_words = split_indexed_words(content, split_by_slash=self.config.dict_split_by_slash)
-                for spaces in range(self.config.dict_max_words):
+                for spaces in range(self.dict_max_words):
                     for word_tuple in get_n_tuples(ind_words, spaces + 1):
-                        tags += self.get_hits(word_tuple, pmid, abb_vocab, offset=offset)
+                        tags += self.get_hits(word_tuple, pmid, abb_vocab=abb_vocab, offset=offset)
 
         if self.config.dict_check_abbreviation:
             tags = self.clean_abbreviation_tags_function(tags, self.config.dict_min_full_tag_len)
@@ -142,6 +146,11 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         out_doc.tags += tags
         # Apply custom logic if applicable
         self.custom_tag_filter_logic(out_doc)
+
+        # select original text without any normalization
+        doc_text = out_doc.get_text_content(sections=consider_sections)
+        for t in out_doc.tags:
+            t.text = doc_text[t.start:t.end]
 
         return out_doc
 
@@ -236,10 +245,14 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
                 tags_cleaned.extend(tags)
         return tags_cleaned
 
+    @staticmethod
+    def normalize_term(term):
+        return term.lower().replace('-', ' ')
+
     def prepare(self):
-        blacklist_set = self.get_blacklist_set()
-        self.desc_by_term = {k.lower().strip(): v for k, v in self.desc_by_term.items() if
-                             k.lower().strip() not in blacklist_set}
+        blacklist = self.get_blacklist_set()
+        self.desc_by_term = {norm: v for k, v in self.desc_by_term.items()
+                             if (norm := self.normalize_term(k)) not in blacklist}
 
     def custom_tag_filter_logic(self, in_doc: TaggedDocument):
         pass
