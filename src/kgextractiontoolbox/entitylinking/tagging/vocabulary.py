@@ -124,16 +124,10 @@ def expand_vocabulary_term(term: str, minimum_len_to_expand=3, depth=0) -> str:
         if term.endswith('our') and len(term) > 3:
             yield term[:-3] + "or"
         if "-" in term:
-            yield term.replace("-", " ")
-            if depth == 0:
-                yield from expand_vocabulary_term(term.replace("-", " "), depth=1)
             yield term.replace("-", "")
             if depth == 0:
                 yield from expand_vocabulary_term(term.replace("-", ""), depth=1)
         if " " in term:
-            yield term.replace(" ", "-")
-            if depth == 0:
-                yield from expand_vocabulary_term(term.replace(" ", "-"), depth=1)
             yield term.replace(" ", "")
             if depth == 0:
                 yield from expand_vocabulary_term(term.replace(" ", ""), depth=1)
