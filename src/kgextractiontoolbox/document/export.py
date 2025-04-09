@@ -121,7 +121,7 @@ def main():
 
     export(args.output, export_tags=export_tags, export_classification=args.classification,
            document_ids=document_ids, collection=args.collection, content=args.document,
-           logger=logging, export_format=args.format, translate_document_ids=args.translate_ids)
+           logger=logging, export_format=args.format)
     logging.info('Finished')
 
 
