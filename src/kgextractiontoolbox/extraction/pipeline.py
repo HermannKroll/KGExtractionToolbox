@@ -190,6 +190,8 @@ def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collect
             load_pathie_extractions(ie_output_file, document_collection, COSENTENCE_EXTRACTION,
                                     cleaning_function=cleaning_function)
         elif extraction_type in [OPENIE_EXTRACTION, OPENIE51_EXTRACTION, OPENIE6_EXTRACTION]:
+            if entity_filter is None:
+                raise ValueError('Entity Filter must be specified')
             no_entity_filter = False
             if entity_filter == OpenIEEntityFilterMode.NO_ENTITY_FILTER:
                 no_entity_filter = True
@@ -222,7 +224,7 @@ def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collect
 
 
 def invoke_pipeline_start(relation_vocab_path: str, idfile: str, collection: str, extraction_type: str, batch_size: int,
-                          config: str, sections: bool, workers: int, entity_filter: OpenIEEntityFilterMode,
+                          config: str, sections: bool, workers: int, entity_filter: OpenIEEntityFilterMode = None,
                           cleaning_function: callable = None):
     """
     Invokes the start of our extraction pipeline
