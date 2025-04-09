@@ -80,7 +80,7 @@ def main(args=None):
     parser.add_argument("-t", "--tagger-map", help="JSON file containing mapping from entity type "
                                                    "to tuple with tagger name and tagger version")
     parser.add_argument("--logsql", action="store_true", help='logs sql statements')
-    parser.add_argument("--artifical_document_ids", action="store_true", help="generates artifical document ids")
+    parser.add_argument("--artificial_document_ids", action="store_true", help="generates artifical document ids")
     parser.add_argument("--replace_existing", action="store_true",
                         help="Replace existing documents if found in the database")
     args = parser.parse_args(args)
