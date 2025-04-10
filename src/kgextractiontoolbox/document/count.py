@@ -35,7 +35,8 @@ def get_document_ids(path: str):
                 for line in f:
                     if not line.strip():
                         continue
-                    ids.add(json.loads(line.strip())["id"])
+                    json_data = json.loads(line)
+                    ids.add(json_data["id"] if "id" in json_data else json_data["source_id"])
     return ids
 
 
