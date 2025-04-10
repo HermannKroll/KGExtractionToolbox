@@ -1,4 +1,5 @@
 import argparse
+import json
 import logging
 from pathlib import Path
 from typing import Union
@@ -49,12 +50,14 @@ def narrative_document_bulk_load(path: Union[Path, str], collection: str, tagger
     metadata_to_insert = []
     for idx, json_content in enumerate(read_documents(path)):
         progress.print_progress(idx)
-        doc = NarrativeDocument()
-        doc.load_from_json(json_content)
-
+        # if artificial document ids are generated, we need to set the generated id before loading from JSON
         if artificial_document_ids:
-            # translate the id's here
-            doc.id = doc_source_id2art_id[doc.source_id]
+            json_data = json.loads(json_content)
+            doc = NarrativeDocument(document_id=doc_source_id2art_id[json_data["source_id"]])
+        else:
+            doc = NarrativeDocument()
+
+        doc.load_from_json(json_content)
 
         if doc.metadata:
             metadata_to_insert.append(dict(document_id=doc.id,
