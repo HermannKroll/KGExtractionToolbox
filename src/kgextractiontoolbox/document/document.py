@@ -194,11 +194,16 @@ class TaggedDocument:
         """
         doc_dict = json.loads(json_str)
         # if the document id has been set already, we do not load id
-        if not self.id:
-            self.id = doc_dict["id"]
+        if self.id is None:
+            # id can be optional if a source id exists
+            self.id = doc_dict.get("id")
+
 
         self.title, self.abstract = doc_dict.get("title"), doc_dict.get("abstract")
         self.source_id = doc_dict.get("source_id")
+
+        if self.id is None and self.source_id is None:
+            raise ValueError(f'Document id OR source id are missing in {json_str}')
 
         if "tags" in doc_dict and not ignore_tags:
             self.tags = [
