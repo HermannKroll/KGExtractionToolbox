@@ -10,11 +10,12 @@ from sqlalchemy import func
 
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import Document, Tag, Tagger, DocTaggedBy, DocumentSection, \
-    DocumentClassification
+    DocumentClassification, BULK_MAX_NO_OF_IN_VALUES
 from kgextractiontoolbox.document.count import count_documents
 from kgextractiontoolbox.document.document import TaggedDocument
 from kgextractiontoolbox.document.extract import read_documents
 from kgextractiontoolbox.progress import print_progress_with_eta
+from kgextractiontoolbox.util.helpers import chunks
 
 BULK_LOAD_COMMIT_AFTER = 50000
 PRINT_ETA_EVERY_K_DOCUMENTS = 100
@@ -119,14 +120,15 @@ def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, 
 
         if len(docs_to_delete) > 0:
             logger.info(f"Deleting {len(docs_to_delete)} documents from {collection}...")
-            query = session.query(Document)
-            if artificial_document_ids:
-                query = query.filter(Document.source_id.in_(docs_to_delete))
-            else:
-                query = query.filter(Document.id.in_(docs_to_delete))
+            for ids_to_delete in chunks(list(docs_to_delete), BULK_MAX_NO_OF_IN_VALUES):
+                query = session.query(Document)
+                if artificial_document_ids:
+                    query = query.filter(Document.source_id.in_(ids_to_delete))
+                else:
+                    query = query.filter(Document.id.in_(ids_to_delete))
 
-            query.filter_by(collection=collection).delete()
-            session.commit()
+                query.filter_by(collection=collection).delete()
+                session.commit()
 
             logger.info("Deletion complete.")
             db_doc_ids.difference_update(docs_to_delete)

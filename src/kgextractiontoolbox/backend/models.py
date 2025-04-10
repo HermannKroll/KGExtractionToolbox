@@ -17,6 +17,7 @@ from kgextractiontoolbox.document.regex import ILLEGAL_CHAR
 from kgextractiontoolbox.progress import print_progress_with_eta
 
 Base = declarative_base()
+BULK_MAX_NO_OF_IN_VALUES = 1000000
 BULK_INSERT_AFTER_K = 100000
 POSTGRES_COPY_LOAD_AFTER_K = 1000000
 
