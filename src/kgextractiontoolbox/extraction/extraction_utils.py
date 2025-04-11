@@ -26,6 +26,10 @@ def filter_document_content(pubtator_content: str, spacy_nlp, consider_sections=
     tag_terms = set()
     tag_original_character_offset = 0
 
+    # we can only extract statements if more than two statements are present
+    if len(tagged_doc.tags) < 2:
+        return doc_id, filtered_content, tag_terms
+
     sorted_sentences = sorted(tagged_doc.sentence_by_id.keys())
     for sent in sorted_sentences:
         tags = tagged_doc.entities_by_sentence[sent]

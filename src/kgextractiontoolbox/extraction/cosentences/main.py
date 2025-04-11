@@ -27,6 +27,10 @@ def extract_based_on_co_occurrences_in_sentences(spacy_nlp, document_content, co
     # initialize the document + create all nlp indexes by setting spacy nlp in sentence
     tagged_doc = TaggedDocument(document_content, spacy_nlp=spacy_nlp, sections=consider_sections)
 
+    # we can only extract statements if more than two statements are present
+    if len(tagged_doc.tags) < 2:
+        return []
+
     tuples = []
     # get the sentences
     sorted_sentences = sorted(tagged_doc.sentence_by_id.keys())
