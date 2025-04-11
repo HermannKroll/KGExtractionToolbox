@@ -4,10 +4,11 @@ from typing import List, Set
 
 import kgextractiontoolbox.document.document
 from kgextractiontoolbox.backend.models import Document, DocumentClassification, Tag, DocumentSection, \
-    DocumentMetadata, Predication, Sentence, BULK_QUERY_CURSOR_COUNT_DEFAULT
+    DocumentMetadata, Predication, Sentence, BULK_QUERY_CURSOR_COUNT_DEFAULT, BULK_MAX_NO_OF_IN_VALUES
 from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
 from kgextractiontoolbox.document.narrative_document import NarrativeDocument, NarrativeDocumentMetadata, \
     StatementExtraction, DocumentSentence
+from kgextractiontoolbox.util.helpers import chunks
 
 
 def should_use_range_mode(document_ids: List[int]) -> (bool, int, int):
@@ -155,86 +156,86 @@ def retrieve_tagged_documents_from_database(session, document_ids: Set[int], doc
     :return: a list of TaggedDocuments
     """
     doc_results = {}
+    document_ids_input = sorted(list(document_ids))
+    for document_ids_chunk in chunks(document_ids_input, BULK_MAX_NO_OF_IN_VALUES):
+        enable_range_mode, lowest_id, highest_id = should_use_range_mode(document_ids_chunk)
 
-    document_ids = sorted(list(document_ids))
-    enable_range_mode, lowest_id, highest_id = should_use_range_mode(document_ids)
+        # first query document titles and abstract
+        doc_query = session.query(Document)
+        doc_query = doc_query.filter(Document.collection == document_collection)
+        if enable_range_mode:
+            # ensure that we have ids here
+            document_ids_set = set({int(did) for did in document_ids_chunk})
+            doc_query = doc_query.filter(Document.id.between(lowest_id, highest_id))
+        else:
+            doc_query = doc_query.filter(Document.id.in_(document_ids_chunk))
 
-    # first query document titles and abstract
-    doc_query = session.query(Document)
-    doc_query = doc_query.filter(Document.collection == document_collection)
-    if enable_range_mode:
-        # ensure that we have ids here
-        document_ids_set = set({int(did) for did in document_ids})
-        doc_query = doc_query.filter(Document.id.between(lowest_id, highest_id))
-    else:
-        doc_query = doc_query.filter(Document.id.in_(document_ids))
+        for res in doc_query:
+            if enable_range_mode and res.id not in document_ids_set:
+                continue
+            doc_results[res.id] = TaggedDocument(id=res.id, title=res.title, abstract=res.abstract, source_id=res.source_id)
 
-    for res in doc_query:
-        if enable_range_mode and res.id not in document_ids_set:
-            continue
-        doc_results[res.id] = TaggedDocument(id=res.id, title=res.title, abstract=res.abstract, source_id=res.source_id)
-
-    # Next query the classification information
-    classification_query = session.query(DocumentClassification)
-    classification_query = classification_query.filter(
-        DocumentClassification.document_collection == document_collection)
-
-    if enable_range_mode:
+        # Next query the classification information
+        classification_query = session.query(DocumentClassification)
         classification_query = classification_query.filter(
-            DocumentClassification.document_id.between(lowest_id, highest_id))
-    else:
-        classification_query = classification_query.filter(DocumentClassification.document_id.in_(document_ids))
+            DocumentClassification.document_collection == document_collection)
 
-    doc2classification = defaultdict(set)
-    for res in classification_query:
-        if enable_range_mode and res.document_id not in document_ids_set:
-            continue
-        doc2classification[res.document_id].add((res.classification, res.explanation))
+        if enable_range_mode:
+            classification_query = classification_query.filter(
+                DocumentClassification.document_id.between(lowest_id, highest_id))
+        else:
+            classification_query = classification_query.filter(DocumentClassification.document_id.in_(document_ids_chunk))
 
-    # Query for Document sections
-    sec_query = session.query(DocumentSection)
-    sec_query = sec_query.filter(DocumentSection.document_collection == document_collection)
+        doc2classification = defaultdict(set)
+        for res in classification_query:
+            if enable_range_mode and res.document_id not in document_ids_set:
+                continue
+            doc2classification[res.document_id].add((res.classification, res.explanation))
 
-    if enable_range_mode:
-        sec_query = sec_query.filter(DocumentSection.document_id.between(lowest_id, highest_id))
-    else:
-        sec_query = sec_query.filter(DocumentSection.document_id.in_(document_ids))
+        # Query for Document sections
+        sec_query = session.query(DocumentSection)
+        sec_query = sec_query.filter(DocumentSection.document_collection == document_collection)
 
-    for res_sec in sec_query:
-        if enable_range_mode and res_sec.document_id not in document_ids_set:
-            continue
+        if enable_range_mode:
+            sec_query = sec_query.filter(DocumentSection.document_id.between(lowest_id, highest_id))
+        else:
+            sec_query = sec_query.filter(DocumentSection.document_id.in_(document_ids_chunk))
 
-        doc_results[res_sec.document_id].sections.append(kgextractiontoolbox.document.document.DocumentSection(
-            position=res_sec.position,
-            title=res_sec.title,
-            text=res_sec.text
-        ))
+        for res_sec in sec_query:
+            if enable_range_mode and res_sec.document_id not in document_ids_set:
+                continue
 
-    # Next query for all tagged entities in that document
-    tag_query = session.query(Tag)
-    tag_query = tag_query.filter(Tag.document_collection == document_collection)
-    if enable_range_mode:
-        tag_query = tag_query.filter(Tag.document_id.between(lowest_id, highest_id))
-    else:
-        tag_query = tag_query.filter(Tag.document_id.in_(document_ids))
+            doc_results[res_sec.document_id].sections.append(kgextractiontoolbox.document.document.DocumentSection(
+                position=res_sec.position,
+                title=res_sec.title,
+                text=res_sec.text
+            ))
 
-    tag_result = defaultdict(list)
-    for res in tag_query:
-        if enable_range_mode and res.document_id not in document_ids_set:
-            continue
+        # Next query for all tagged entities in that document
+        tag_query = session.query(Tag)
+        tag_query = tag_query.filter(Tag.document_collection == document_collection)
+        if enable_range_mode:
+            tag_query = tag_query.filter(Tag.document_id.between(lowest_id, highest_id))
+        else:
+            tag_query = tag_query.filter(Tag.document_id.in_(document_ids_chunk))
 
-        tag_result[res.document_id].append(TaggedEntity(document=res.document_id,
-                                                        start=res.start,
-                                                        end=res.end,
-                                                        ent_id=res.ent_id,
-                                                        ent_type=res.ent_type,
-                                                        text=res.ent_str))
-    for doc_id, tags in tag_result.items():
-        doc_results[doc_id].tags = tags
-        doc_results[doc_id].remove_duplicates_and_sort_tags()
+        tag_result = defaultdict(list)
+        for res in tag_query:
+            if enable_range_mode and res.document_id not in document_ids_set:
+                continue
 
-    for doc_id, classification in doc2classification.items():
-        doc_results[doc_id].classification = {d_class: d_expl for d_class, d_expl in classification}
+            tag_result[res.document_id].append(TaggedEntity(document=res.document_id,
+                                                            start=res.start,
+                                                            end=res.end,
+                                                            ent_id=res.ent_id,
+                                                            ent_type=res.ent_type,
+                                                            text=res.ent_str))
+        for doc_id, tags in tag_result.items():
+            doc_results[doc_id].tags = tags
+            doc_results[doc_id].remove_duplicates_and_sort_tags()
+
+        for doc_id, classification in doc2classification.items():
+            doc_results[doc_id].classification = {d_class: d_expl for d_class, d_expl in classification}
 
     return list(doc_results.values())
 
@@ -258,64 +259,65 @@ def retrieve_narrative_documents_from_database(session, document_ids: Set[int], 
                                            sections=d.sections,
                                            source_id=d.source_id) for d in tagged_docs}
 
-    document_ids = sorted(list(document_ids))
-    enable_range_mode, lowest_id, highest_id = should_use_range_mode(document_ids)
+    document_ids_input = sorted(list(document_ids))
+    for document_ids_chunk in chunks(document_ids_input, BULK_MAX_NO_OF_IN_VALUES):
+        enable_range_mode, lowest_id, highest_id = should_use_range_mode(document_ids_chunk)
 
-    # Next query the metadata information
-    metadata_query = session.query(DocumentMetadata)
-    metadata_query = metadata_query.filter(DocumentMetadata.document_collection == document_collection)
-    if enable_range_mode:
-        metadata_query = metadata_query.filter(DocumentMetadata.document_id.between(lowest_id, highest_id))
-    else:
-        metadata_query = metadata_query.filter(DocumentMetadata.document_id.in_(document_ids))
+        # Next query the metadata information
+        metadata_query = session.query(DocumentMetadata)
+        metadata_query = metadata_query.filter(DocumentMetadata.document_collection == document_collection)
+        if enable_range_mode:
+            metadata_query = metadata_query.filter(DocumentMetadata.document_id.between(lowest_id, highest_id))
+        else:
+            metadata_query = metadata_query.filter(DocumentMetadata.document_id.in_(document_ids_chunk))
 
-    doc2metadata = {}
-    for res in metadata_query:
-        if enable_range_mode and res.document_id not in doc_results:
-            continue
-        metadata = NarrativeDocumentMetadata(publication_year=res.publication_year,
-                                             publication_month=res.publication_month,
-                                             authors=res.authors,
-                                             journals=res.journals,
-                                             publication_doi=res.publication_doi)
-        doc2metadata[res.document_id] = metadata
+        doc2metadata = {}
+        for res in metadata_query:
+            if enable_range_mode and res.document_id not in doc_results:
+                continue
+            metadata = NarrativeDocumentMetadata(publication_year=res.publication_year,
+                                                 publication_month=res.publication_month,
+                                                 authors=res.authors,
+                                                 journals=res.journals,
+                                                 publication_doi=res.publication_doi)
+            doc2metadata[res.document_id] = metadata
 
-    # Next query for extracted statements
-    es_query = session.query(Predication)
-    es_query = es_query.filter(Predication.document_collection == document_collection)
-    es_query = es_query.filter(Predication.document_id.in_(document_ids))
+        # Next query for extracted statements
+        es_query = session.query(Predication)
+        es_query = es_query.filter(Predication.document_collection == document_collection)
+        es_query = es_query.filter(Predication.document_id.in_(document_ids_chunk))
 
-    es_for_doc = defaultdict(list)
-    sentence_ids = set()
-    sentenceid2doc = defaultdict(set)
-    for res in es_query:
-        es_for_doc[res.document_id].append(StatementExtraction(subject_id=res.subject_id,
-                                                               subject_type=res.subject_type,
-                                                               subject_str=res.subject_str,
-                                                               predicate=res.predicate,
-                                                               relation=res.relation,
-                                                               object_id=res.object_id,
-                                                               object_type=res.object_type,
-                                                               object_str=res.object_str,
-                                                               sentence_id=res.sentence_id,
-                                                               confidence=res.confidence))
-        sentence_ids.add(res.sentence_id)
-        sentenceid2doc[res.sentence_id].add(res.document_id)
+        es_for_doc = defaultdict(list)
+        sentence_ids = set()
+        sentenceid2doc = defaultdict(set)
+        for res in es_query:
+            es_for_doc[res.document_id].append(StatementExtraction(subject_id=res.subject_id,
+                                                                   subject_type=res.subject_type,
+                                                                   subject_str=res.subject_str,
+                                                                   predicate=res.predicate,
+                                                                   relation=res.relation,
+                                                                   object_id=res.object_id,
+                                                                   object_type=res.object_type,
+                                                                   object_str=res.object_str,
+                                                                   sentence_id=res.sentence_id,
+                                                                   confidence=res.confidence))
+            sentence_ids.add(res.sentence_id)
+            sentenceid2doc[res.sentence_id].add(res.document_id)
 
-    for doc_id, extractions in es_for_doc.items():
-        doc_results[doc_id].extracted_statements = extractions
+        for doc_id, extractions in es_for_doc.items():
+            doc_results[doc_id].extracted_statements = extractions
 
-    # Last query for document sentences
-    sentence_query = session.query(Sentence).filter(Sentence.id.in_(sentence_ids))
-    doc2sentences = defaultdict(list)
-    for res in sentence_query:
-        for doc_id in sentenceid2doc[res.id]:
-            doc2sentences[doc_id].append(DocumentSentence(sentence_id=res.id, text=res.text))
+        # Last query for document sentences
+        sentence_query = session.query(Sentence).filter(Sentence.id.in_(sentence_ids))
+        doc2sentences = defaultdict(list)
+        for res in sentence_query:
+            for doc_id in sentenceid2doc[res.id]:
+                doc2sentences[doc_id].append(DocumentSentence(sentence_id=res.id, text=res.text))
 
-    for doc_id, sentences in doc2sentences.items():
-        doc_results[doc_id].sentences = sentences
+        for doc_id, sentences in doc2sentences.items():
+            doc_results[doc_id].sentences = sentences
 
-    for doc_id, metadata in doc2metadata.items():
-        doc_results[doc_id].metadata = metadata
+        for doc_id, metadata in doc2metadata.items():
+            doc_results[doc_id].metadata = metadata
 
     return list(doc_results.values())
