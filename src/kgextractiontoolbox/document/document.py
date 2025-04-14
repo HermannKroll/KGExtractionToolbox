@@ -141,7 +141,7 @@ class TaggedDocument:
             if str_format == "pt":
                 if source_id:
                     raise ValueError(f'Artificial document ids are not supported for PubTator files ({self.id})')
-                self.load_from_pubtator(pubtator_content=from_str, ignore_tags=ignore_tags)
+                self.load_from_pubtator(document_content=from_str, ignore_tags=ignore_tags)
             elif str_format == "json":
                 self.load_from_json(json_str=from_str, ignore_tags=ignore_tags)
 
@@ -164,14 +164,14 @@ class TaggedDocument:
         if spacy_nlp:
             self._compute_nlp_indexes(spacy_nlp, sections=sections)
 
-    def load_from_pubtator(self, pubtator_content: str, ignore_tags=False):
+    def load_from_pubtator(self, document_content: str, ignore_tags=False):
         """
         Loads a TaggedDocument from a PubTator str
-        :param pubtator_content: the pubtator content
+        :param document_content: the pubtator content
         :param ignore_tags: should tags be ignored?
         :return: None
         """
-        match = CONTENT_ID_TIT_ABS.match(pubtator_content)
+        match = CONTENT_ID_TIT_ABS.match(document_content)
         if match:
             self.id, self.title, self.abstract = match.group(1, 2, 3)
             self.title = self.title.strip()
@@ -180,8 +180,8 @@ class TaggedDocument:
         else:
             self.id, self.title, self.abstract = None, None, None
 
-        if pubtator_content and not ignore_tags:
-            self.tags = [TaggedEntity(t) for t in TAG_LINE_NORMAL.findall(pubtator_content)]
+        if document_content and not ignore_tags:
+            self.tags = [TaggedEntity(t) for t in TAG_LINE_NORMAL.findall(document_content)]
             if not self.id and self.tags:
                 self.id = self.tags[0].document
 

@@ -107,8 +107,8 @@ def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, 
     if replace_existing:
         logger.info("Replacing existing documents in the database...")
         docs_to_delete = set()
-        for pubtator_content in read_documents(path):
-            doc = TaggedDocument(pubtator_content, ignore_tags=ignore_tags)
+        for document_content in read_documents(path):
+            doc = TaggedDocument(document_content, ignore_tags=ignore_tags)
             if artificial_document_ids and doc.source_id in db_doc_ids:
                 if not doc.source_id:
                     raise ValueError(
@@ -151,16 +151,16 @@ def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, 
         logger.info(f'Next highest document id for collection {collection} is {current_artificial_no}')
 
     doc_tagged_by_inserts = []
-    for idx, pubtator_content in enumerate(read_documents(path)):
+    for idx, document_content in enumerate(read_documents(path)):
         tagged_ent_types = set()
 
         if artificial_document_ids:
             # we need to the artificial document id here to overwrite the real id from the file
             # the real id should be stored as the source_id key
-            doc = TaggedDocument(pubtator_content, id=current_artificial_no, ignore_tags=ignore_tags)
+            doc = TaggedDocument(document_content, id=current_artificial_no, ignore_tags=ignore_tags)
             current_artificial_no += 1
         else:
-            doc = TaggedDocument(pubtator_content, ignore_tags=ignore_tags)
+            doc = TaggedDocument(document_content, ignore_tags=ignore_tags)
 
         if not doc.has_content():
             logger.warning(f"Document {collection} {doc.id} is not inserted into DB (no title and no abstract)")
