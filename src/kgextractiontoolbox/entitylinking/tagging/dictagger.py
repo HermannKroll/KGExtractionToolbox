@@ -108,7 +108,7 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         connector_words = {"and", "or"}
         abb_vocab = dict()
         out_doc = in_doc
-        pmid = in_doc.id
+        docid = in_doc.id
         tags = []
         for text_element, offset in in_doc.iterate_over_text_elements(sections=consider_sections):
             content = self.normalize_term(text_element)
@@ -117,7 +117,7 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
 
             for spaces in range(self.dict_max_words):
                 for word_tuple in get_n_tuples(ind_words, spaces + 1):
-                    hits = self.get_hits(word_tuple, pmid, offset=offset)
+                    hits = self.get_hits(word_tuple, docid, offset=offset)
                     tags += hits
 
                     if self.config.custom_abbreviations and hits:
@@ -138,7 +138,7 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
                 ind_words = split_indexed_words(content, split_by_slash=self.config.dict_split_by_slash)
                 for spaces in range(self.dict_max_words):
                     for word_tuple in get_n_tuples(ind_words, spaces + 1):
-                        tags += self.get_hits(word_tuple, pmid, abb_vocab=abb_vocab, offset=offset)
+                        tags += self.get_hits(word_tuple, docid, abb_vocab=abb_vocab, offset=offset)
 
         if self.config.dict_check_abbreviation:
             tags = self.clean_abbreviation_tags_function(tags, self.config.dict_min_full_tag_len)
@@ -154,14 +154,14 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
 
         return out_doc
 
-    def get_hits(self, word_tuple, pmid, abb_vocab=None, offset=0):
+    def get_hits(self, word_tuple, docid, abb_vocab=None, offset=0):
         words, indexes = zip(*word_tuple)
         term = " ".join(words)
         if not term:
             return []
         start = indexes[0] + offset
         end = indexes[-1] + len(words[-1]) + offset
-        hits = list(self.generate_tagged_entities(end, pmid, start, term, tmp_vocab=abb_vocab))
+        hits = list(self.generate_tagged_entities(end, docid, start, term, tmp_vocab=abb_vocab))
         return hits
 
     connector_words = {"and", "or"}
@@ -193,14 +193,14 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         with open(out_file, "w+") as f:
             f.write(str(result))
 
-    def generate_tag_lines(self, end, pmid, start, term):
+    def generate_tag_lines(self, end, docid, start, term):
         hits = self._get_term(term)
         # print(f"Found {hits} for '{term}'")
         if hits:
             for desc in hits:
-                yield pmid, start, end, term, self.tag_types[0], desc
+                yield docid, start, end, term, self.tag_types[0], desc
 
-    def generate_tagged_entities(self, end, pmid, start, term, tmp_vocab=None):
+    def generate_tagged_entities(self, end, docid, start, term, tmp_vocab=None):
         hits = set()
         if tmp_vocab:
             tmp_hit = tmp_vocab.get(term)
@@ -212,7 +212,7 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         # print(f"Found {hits} for '{term}'")
         if hits:
             for desc in hits:
-                yield TaggedEntity((pmid, start, end, term, self.tag_types[0], desc))
+                yield TaggedEntity((docid, start, end, term, self.tag_types[0], desc))
 
     def _get_term(self, term):
         hits = self.desc_by_term.get(term)
