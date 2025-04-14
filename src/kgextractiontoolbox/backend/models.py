@@ -172,6 +172,15 @@ class Document(Base, DatabaseTable):
         return ids
 
     @staticmethod
+    def get_source_document_ids_for_collection(session, collection: str) -> Set[int]:
+        query = session.query(Document.source_id).filter(Document.collection == collection)
+        ids = set()
+        for r in query:
+            ids.add(r.source_id)
+        return ids
+
+
+    @staticmethod
     def count_documents_in_collection(session, collection: str) -> int:
         return session.query(Document).filter(Document.collection == collection).count()
 
