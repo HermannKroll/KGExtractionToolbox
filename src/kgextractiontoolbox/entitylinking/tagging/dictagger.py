@@ -1,4 +1,3 @@
-import itertools as it
 import os.path
 import re
 from abc import ABCMeta
@@ -104,8 +103,6 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         if self.dict_max_words is None:
             self.dict_max_words = max((len(norm.split()) for norm in self.desc_by_term), default=0)
             self.logger.info(f'dict_max_words set to {self.dict_max_words}')
-        and_check_range = 5
-        connector_words = {"and", "or"}
         abb_vocab = dict()
         out_doc = in_doc
         docid = in_doc.id
@@ -165,26 +162,6 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         return hits
 
     connector_words = {"and", "or"}
-
-    @staticmethod
-    def conjunction_product(token_seq, seperated=False):
-        """
-        split token_seq at last conn_word, return product of all sub token sequences. Exclude connector words.
-        :param seperated: return left_tuples, right_tuples instead of left_tuples+right_tuples
-        """
-        cwords_indexes = [n for n, (w, i) in enumerate(token_seq) if w in DictTagger.connector_words]
-
-        if not cwords_indexes:  # or max(cwords_indexes) in [0, len(token_seq)-1]:
-            return []
-        left = token_seq[:max(cwords_indexes)]
-        right = token_seq[max(cwords_indexes):]
-
-        left = [(w, i) for w, i in left if w not in DictTagger.connector_words]
-        right = [(w, i) for w, i in right if w not in DictTagger.connector_words]
-
-        left_tuples = [[]] + [t for n in range(0, len(left) + 1) for t in list(get_n_tuples(left, n))]
-        right_tuples = [[]] + [t for n in range(0, len(right) + 1) for t in list(get_n_tuples(right, n))]
-        yield from [(lt, rt) for lt, rt in it.product(left_tuples, right_tuples) if lt + rt]
 
     def _tag(self, in_file, out_file):
         with open(in_file) as f:
