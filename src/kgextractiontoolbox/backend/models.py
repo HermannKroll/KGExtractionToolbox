@@ -1,5 +1,4 @@
 import json
-import json
 import logging
 import unicodedata
 from collections import namedtuple
