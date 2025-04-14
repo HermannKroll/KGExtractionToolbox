@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from kgextractiontoolbox.extraction.analyze_openie_tuples import check_is_complex
+from kgextractiontoolbox.analysis.analyze_openie_tuples import check_is_complex
 
 
 class OpenIEAnalysisTest(TestCase):

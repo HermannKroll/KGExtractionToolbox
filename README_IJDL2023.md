@@ -23,14 +23,14 @@ In this folder are two files: 1. a data_all.zip with all results, and 2. a SQLit
 
 ## 1. Analysis of noun phrase complexity
 The first case study was motivated by analyzing the OpenIE noun phrase complexity in more detail. 
-In our original paper, we just developed an [own heuristic](src/kgextractiontoolbox/extraction/analyze_openie_tuples.py).
+In our original paper, we just developed an [own heuristic](src/kgextractiontoolbox/analysis/analyze_openie_tuples.py).
 Here, we compared this heuristic to POS-tagged and Sentence-length-based methods.
 
 We developed additional scripts to analyze the noun phrase complexity in more detail.
 The scripts can be found [here](case_studies/complexity).
 First, the OpenIE 6 extraction must be performed. 
 Then its results can be analyzed.
-The actual logic to analyze the results can be found [here (Python Code)](src/kgextractiontoolbox/extraction/analyze_openie_tuples_complex.py).
+The actual logic to analyze the results can be found [here (Python Code)](src/kgextractiontoolbox/analysis/analyze_openie_tuples_complex.py).
 
 The results can be found here: [CoreNLP OpenIE](case_studies/complexity/results/corenlp_results.txt) and [OpenIE6](case_studies/complexity/results/corenlp_results.txt).
 
@@ -45,7 +45,7 @@ The idea here was to analyze how well methods like [CESI](https://github.com/mal
 Therefore, we read the code of the CESI repository and developed a clustering-based verb phrase canonicalization in a similar way.
 
 The Python Code for our advanced clustering-based verb phrase canonicalization was integrated into the toolbox.
-There are two scripts: [1. do the actual canonicalization](src/kgextractiontoolbox/cleaning/canonicalize_predicates_by_clustering.py) and [2. a clustering analysis script](src/kgextractiontoolbox/cleaning/canonicalize_predicates_by_clustering_analysis.py). 
+There are two scripts: [1. do the actual canonicalization](src/kgextractiontoolbox/cleaning/canonicalize_predicates_by_clustering.py) and [2. a clustering analysis script](src/kgextractiontoolbox/analysis/canonicalize_predicates_by_clustering_analysis.py). 
 
 The scripts and produced data can be found [here](case_studies/canonicalization_advanced).
 

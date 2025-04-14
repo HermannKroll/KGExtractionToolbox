@@ -76,8 +76,8 @@ We implemented the following improvements for our toolbox:
 - a subject entity filter ([Code](src/kgextractiontoolbox/extraction/loading/load_openie_extractions.py))
 - enhanced verb phrase filter options ([Code](src/kgextractiontoolbox/extraction/loading/load_openie_extractions.py))
 - improved Open IE6 handling ([Code](src/kgextractiontoolbox/extraction/openie6/main.py))
-- Open IE6 analysis ([Code](src/kgextractiontoolbox/extraction/analyze_openie_tuples.py))
-- sentence analysis ([Code](src/kgextractiontoolbox/document/count_sentences.py))
+- Open IE6 analysis ([Code](src/kgextractiontoolbox/analysis/analyze_openie_tuples.py))
+- sentence analysis ([Code](src/kgextractiontoolbox/analysis/count_sentences.py))
 
 # IJDL 2023 Submission
 There is a dedicated [ReadMe available](README_IJDL2023.md).
