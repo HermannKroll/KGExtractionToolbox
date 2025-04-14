@@ -22,7 +22,7 @@ def filter_and_sanitize(in_file: str, out_file: str, filter_ids, logger=logging,
                 f.write(Document.create_pubtator(tdoc.id, tdoc.title, tdoc.abstract) + "\n")
 
 
-def sanitize(input_dir_or_file, output_dir=None, delete_mismatched=False, logger=logging):
+def sanitize(input_dir_or_file, output_dir=None, delete_mismatched=False):
     """
     Removes all "|" characters from document files and cast out files lacking abstracts.
     :param input_dir_or_file: Input directory containing document files or single document file

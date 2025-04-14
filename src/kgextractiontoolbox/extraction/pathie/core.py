@@ -237,7 +237,6 @@ def pathie_extract_facts_from_sentence(doc_id: int, doc_tags: [TaggedEntity],
     # perform the extraction
     # PathIE performs a nested loop search upon the entity start tokens and computes shortest path between them
     # if a verb, keyword or keyphrase appears on the path, a fact will be extracted
-    sent_len = len(idx2token)
     for e1_idx, (e1_tag, e1_token_ids) in enumerate(tag_sequences):
         for e1_tok_id in e1_token_ids:
             for e2_idx, (e2_tag, e2_token_ids) in enumerate(tag_sequences):

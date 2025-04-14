@@ -8,14 +8,6 @@ from kgextractiontoolbox.util.multiprocessing.WorkerProcess import WorkerProcess
 
 class ProducerWorker(WorkerProcess):
     def __init__(self, task_queue: multiprocessing.Queue, produce, no_workers: int, max_tasks: int = 1000, ):
-        """
-
-        :param task_queue:
-        :param produce:
-        :param max_tasks:
-        :param prepare:
-        :param shutdown:
-        """
         super().__init__()
 
         self.task_queue = task_queue

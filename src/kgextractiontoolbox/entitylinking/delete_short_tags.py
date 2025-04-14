@@ -1,7 +1,7 @@
 import logging
 from argparse import ArgumentParser
 
-from sqlalchemy import func, and_
+from sqlalchemy import func
 
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import Tag

@@ -124,7 +124,7 @@ def perform_classification(classifier: BaseClassifier, document_collection: str,
     task_queue = multiprocessing.Queue()
     result_queue = multiprocessing.Queue()
     producer = ProducerWorker(task_queue, generate_tasks, workers, max_tasks=100000)
-    process_workers = [Worker(task_queue, result_queue, do_task) for n in range(workers)]
+    process_workers = [Worker(task_queue, result_queue, do_task) for _ in range(workers)]
     consumer = ConsumerWorker(result_queue, consume_task, workers)
 
     producer.start()

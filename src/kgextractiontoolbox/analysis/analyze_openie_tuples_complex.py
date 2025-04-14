@@ -1,17 +1,12 @@
-import itertools
 import logging
-import multiprocessing
 import re
 from argparse import ArgumentParser
-from collections import defaultdict
 from typing import List
-import nltk
+
 import spacy
 
 from kgextractiontoolbox.extraction.loading.load_openie_extractions import read_stanford_openie_input, OPENIE_TUPLE
 from kgextractiontoolbox.progress import Progress
-from kgextractiontoolbox.util.multiprocessing.ConsumerWorker import ConsumerWorker
-from kgextractiontoolbox.util.multiprocessing.Worker import Worker, SHUTDOWN_SIGNAL
 
 COMPLEX_REGEX_PUNCTUATION = re.compile(r'[,.;|&:?!]+', re.IGNORECASE)
 COMPLEX_REGEX_WORDS = re.compile(r'[^\w](and|or|that|which|who|what|because|de|thus|hence)+[^\w]', re.IGNORECASE)
@@ -150,7 +145,6 @@ def analyze_openie_tuples(tuples: List[OPENIE_TUPLE]):
 
     # Todo needs: python3 -m spacy download en_core_web_sm
     nlp = spacy.load("en_core_web_sm")
-
 
     tuple_count = 0
     doc_ids = set()

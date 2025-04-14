@@ -154,7 +154,7 @@ def filter_document_sentences_without_tags_parallelized(doc_len: int, input_file
 
         logging.debug('Collecting results...')
         doc2sentences, doc2tags = dict(), dict()
-        for p in processes:
+        for _ in processes:
             task_doc2sentences, task_doc2tags = result_queue.get()
             doc2sentences.update(task_doc2sentences)
             doc2tags.update(task_doc2tags)

@@ -257,7 +257,7 @@ class TaggedDocument:
                 ent_ids = ent_id.split('|')
                 # if we do not have a concrete explanation (then duplicate the original string)
                 if len(ent_ids) != len(ent_str_split):
-                    ent_str_split = [t.text for i in range(0, len(ent_ids))]
+                    ent_str_split = [t.text for _ in range(0, len(ent_ids))]
                 for e_id, e_str in zip(ent_ids, ent_str_split):
                     # find the new start and end
                     e_start = t.start + t.text.find(e_str)

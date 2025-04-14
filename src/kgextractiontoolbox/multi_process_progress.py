@@ -25,10 +25,10 @@ class MultiProcessProgress(multiprocessing.Process):
                  print_fnc: Optional[Callable[[str], None]] = None):
         """
         Create a Progress object
-        :param total: total number of items to process
-        :type total: int
-        :param print_every: update/print progress to terminal every k items
-        :type print_every: int
+        :param total_task_sizes: total number of items per worker
+        :type total_task_sizes: list of ints
+        :param print_every_x_seconds: update/print progress to terminal every k items
+        :type print_every_x_seconds: int
         :param text: The text to be displayed before the progress
         :type text: str
         :param print_fnc: Can be a custom function for printing the progress string

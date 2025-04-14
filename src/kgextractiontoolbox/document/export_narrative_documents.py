@@ -12,6 +12,7 @@ def export_narrative_documents(out_fn, collection=None, format="jsonl"):
     Exports tagged documents in the database as a single PubTator file
     :param out_fn: path of file
     :param collection: document collection which should be exported, None = All
+    :param format: export format (json or jsonl are supported)
     :return:
     """
     session = SessionExtended.get()

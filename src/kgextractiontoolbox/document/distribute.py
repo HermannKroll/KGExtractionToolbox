@@ -25,12 +25,11 @@ def create_parallel_dirs(root, number, prefix, *subdirs):
                 os.makedirs(subdir_path)
 
 
-def split_composites(input_dir_or_file, output_dir=None, delete_composites=False, logger=logging):
+def split_composites(input_dir_or_file, output_dir=None):
     """
     Splits all composite document files in input_dir into single files in output_dir
     :param input_dir_or_file: The directory containing the composite files to split or a single composite
     :param output_dir: The directory to put the single document files. Default is input_dir.
-    :param delete_composites: If set to true, all composite files are deleted after splitting
     """
     if not output_dir:
         output_dir = input_dir_or_file if os.path.isdir(input_dir_or_file) else os.path.dirname(input_dir_or_file)
@@ -57,7 +56,7 @@ def distribute_workload(input_dir, output_root, workers_number: int, subdirs_nam
     paths = (os.path.join(input_dir, file) for file in os.listdir(input_dir))
     file_sizes = {path: os.path.getsize(path) for path in paths if os.path.isfile(path)}
     file_sizes = {file: size for file, size in sorted(file_sizes.items(), key=lambda item: item[1])}
-    distribution = [[] for i in range(workers_number)]
+    distribution = [[] for _ in range(workers_number)]
 
     for file, size in file_sizes.items():
         min(distribution, key=lambda l: len(l)).append(file)

@@ -154,7 +154,7 @@ def run_co_occurrences_in_sentences(input_file, output, workers=1, consider_sect
         writer.writerow(['document id', 'subject id', 'subject str', 'subject type', 'predicate',
                          'predicate lemmatized', 'object id', 'object str', 'object type',
                          'confidence', 'sentence'])
-        for p in processes:
+        for _ in processes:
             extracted_tuples = result_queue.get()
             for e_tuple in extracted_tuples:
                 writer.writerow([str(t) for t in e_tuple])
