@@ -224,7 +224,7 @@ def process_documents_ids_in_pipeline(ids_to_process: Set[int], document_collect
 
 
 def invoke_pipeline_start(relation_vocab_path: str, idfile: str, collection: str, extraction_type: str, batch_size: int,
-                          config: str, sections: bool, workers: int, entity_filter: OpenIEEntityFilterMode = None,
+                          config: str, sections: bool, workers: int, entity_filter: OpenIEEntityFilterMode = OpenIEEntityFilterMode.PARTIAL_ENTITY_FILTER,
                           cleaning_function: callable = None):
     """
     Invokes the start of our extraction pipeline
