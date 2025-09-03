@@ -89,7 +89,7 @@ def delete_predications_hurting_type_constraints(relation_type_constraints: Rela
     for id_to_delete in preds_to_delete:
         values_to_delete.append(dict(predication_id=id_to_delete))
     PredicationToDelete.bulk_insert_values_into_table(session, values_to_delete, check_constraints=False)
-    subquery = session.query(PredicationToDelete.predication_id).subquery()
+    subquery = session.query(PredicationToDelete.predication_id)
     stmt = delete(Predication).where(Predication.id.in_(subquery))
     session.execute(stmt, execution_options=immutabledict({"synchronize_session": 'fetch'}))
     logging.debug('Committing...')
@@ -102,7 +102,7 @@ def delete_predications_hurting_type_constraints(relation_type_constraints: Rela
         for id_to_reorder in preds_to_reorder:
             values_to_reorder.append(dict(predication_id=id_to_reorder))
         PredicationToDelete.bulk_insert_values_into_table(session, values_to_reorder, check_constraints=False)
-        subquery = session.query(PredicationToDelete.predication_id).subquery()
+        subquery = session.query(PredicationToDelete.predication_id)
         pred_query = session.query(Predication).filter(Predication.id.in_(subquery)) \
             .yield_per(BULK_QUERY_CURSOR_COUNT)
         predication_values = []
@@ -128,7 +128,7 @@ def delete_predications_hurting_type_constraints(relation_type_constraints: Rela
         logging.info(f'Insert {len(predication_values)} reordered predications to database')
         Predication.bulk_insert_values_into_table(session, predication_values, check_constraints=False)
         logging.info(f'Deleting {len(preds_to_reorder)} old and wrongly ordered predications')
-        subquery = session.query(PredicationToDelete.predication_id).subquery()
+        subquery = session.query(PredicationToDelete.predication_id)
         stmt = delete(Predication).where(Predication.id.in_(subquery))
         session.execute(stmt, execution_options=immutabledict({"synchronize_session": 'fetch'}))
         logging.debug('Committing...')
