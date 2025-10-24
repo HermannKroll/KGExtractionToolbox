@@ -279,7 +279,8 @@ def retrieve_narrative_documents_from_database(session, document_ids: Set[int], 
                                                  publication_month=res.publication_month,
                                                  authors=res.authors,
                                                  journals=res.journals,
-                                                 publication_doi=res.publication_doi)
+                                                 publication_doi=res.publication_doi,
+                                                 document_id_original=res.document_id_original)
             doc2metadata[res.document_id] = metadata
 
         # Next query for extracted statements
