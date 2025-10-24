@@ -66,7 +66,9 @@ def narrative_document_bulk_load(path: Union[Path, str], collection: str, tagger
                                            journals=doc.metadata.journals,
                                            publication_year=doc.metadata.publication_year,
                                            publication_month=doc.metadata.publication_month,
-                                           publication_doi=doc.metadata.publication_doi))
+                                           publication_doi=doc.metadata.publication_doi,
+                                           document_id_original=doc.metadata.document_id_original,
+                                           ))
 
         if idx % ld.BULK_LOAD_COMMIT_AFTER == 0:
             DocumentMetadata.bulk_insert_values_into_table(session=session, values=metadata_to_insert)
