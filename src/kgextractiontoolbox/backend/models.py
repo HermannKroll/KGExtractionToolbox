@@ -117,12 +117,12 @@ class Document(Base, DatabaseTable):
     __table_args__ = (
         PrimaryKeyConstraint('collection', 'id', sqlite_on_conflict='IGNORE'),
     )
-    collection = Column(String)
+    collection = Column(String, index=True)
     id = Column(BigInteger)
     title = Column(String, nullable=False)
     abstract = Column(String, nullable=False)
     fulltext = Column(String)
-    source_id = Column(String, nullable=True)
+    source_id = Column(String, nullable=True, index=True)
     date_inserted = Column(DateTime, nullable=False, default=datetime.now)
 
     sections = relationship("DocumentSection", backref="document", passive_deletes="True")
