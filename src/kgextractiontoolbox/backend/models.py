@@ -124,6 +124,7 @@ class Document(Base, DatabaseTable):
     fulltext = Column(String)
     source_id = Column(String, nullable=True, index=True)
     date_inserted = Column(DateTime, nullable=False, default=datetime.now)
+    md5hash = Column(String, nullable=True)
 
     sections = relationship("DocumentSection", backref="document", passive_deletes="True")
 

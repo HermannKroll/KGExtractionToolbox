@@ -111,7 +111,7 @@ def iterate_over_all_documents_in_collection(session, collection: str, document_
         current_sec = next(sec_query, None)
 
     for res in doc_query:
-        t_doc = TaggedDocument(id=res.id, title=res.title, abstract=res.abstract, source_id=res.source_id)
+        t_doc = TaggedDocument(id=res.id, title=res.title, abstract=res.abstract, source_id=res.source_id, md5hash=res.md5hash)
 
         if consider_tag:
             while current_tag and t_doc.id == current_tag.document_id:
@@ -173,7 +173,7 @@ def retrieve_tagged_documents_from_database(session, document_ids: Set[int], doc
         for res in doc_query:
             if enable_range_mode and res.id not in document_ids_set:
                 continue
-            doc_results[res.id] = TaggedDocument(id=res.id, title=res.title, abstract=res.abstract, source_id=res.source_id)
+            doc_results[res.id] = TaggedDocument(id=res.id, title=res.title, abstract=res.abstract, source_id=res.source_id, md5hash=res.md5hash)
 
         # Next query the classification information
         classification_query = session.query(DocumentClassification)
@@ -254,6 +254,7 @@ def retrieve_narrative_documents_from_database(session, document_ids: Set[int], 
     doc_results = {d.id: NarrativeDocument(document_id=d.id,
                                            title=d.title,
                                            abstract=d.abstract,
+                                           md5hash=d.md5hash,
                                            tags=d.tags,
                                            classification=d.classification,
                                            sections=d.sections,

@@ -6,17 +6,19 @@ from typing import Union
 
 import kgextractiontoolbox.document.load_document as ld
 from kgextractiontoolbox.backend.database import Session
-from kgextractiontoolbox.backend.models import DocumentMetadata, Document
+from kgextractiontoolbox.backend.models import DocumentMetadata, Document, BULK_MAX_NO_OF_IN_VALUES
 from kgextractiontoolbox.document.count import count_documents
 from kgextractiontoolbox.document.extract import read_documents
 from kgextractiontoolbox.document.narrative_document import NarrativeDocument
 from kgextractiontoolbox.progress import Progress
+from kgextractiontoolbox.util.helpers import chunks
 
 
 def narrative_document_bulk_load(path: Union[Path, str], collection: str, tagger_mapping=None,
                                  logger=logging,
                                  artificial_document_ids: bool = False,
-                                 replace_existing=False):
+                                 replace_existing=False,
+                                 replace_if_changed=False):
     """
     Loads a set of narrative document documents from a JSON into our database
     :param path: to a json file or directory of json files
@@ -25,12 +27,13 @@ def narrative_document_bulk_load(path: Union[Path, str], collection: str, tagger
     :param logger: logging class
     :param artificial_document_ids: Forces to generate artificial document ids (e.g. for non-int ids)
     :param bool replace_existing: If true, replaces existing documents in the database
+    :param bool replace_if_changed: If true, replaces existing documents with new documents
     :return: None
     """
 
     # First call toolbox loading of document abstracts, tags, sections, etc
     ld.document_bulk_load(path, collection, tagger_mapping=tagger_mapping, logger=logger, ignore_tags=False,
-                          replace_existing=replace_existing,
+                          replace_existing=replace_existing, replace_if_changed=replace_if_changed,
                           artificial_document_ids=artificial_document_ids)
 
     # we need to load the translation table from source ids to artificial db ids
@@ -43,8 +46,34 @@ def narrative_document_bulk_load(path: Union[Path, str], collection: str, tagger
             if row.source_id:
                 doc_source_id2art_id[row.source_id] = row.id
 
-    # Load metadata stuff
+    # db session
     session = Session.get()
+
+    # in the replace if changed case, documents might not be deleted because the content has now changed
+    # however, the metadata could have changed, thats why we just delete the metadata here
+    if replace_if_changed:
+        docs_to_delete = set()
+        logger.info("Replace if changed is set, metadata of existing documents will be replaced.")
+        for idx, json_content in enumerate(read_documents(path)):
+            # if artificial document ids are generated, we need to set the generated id before loading from JSON
+            json_data = json.loads(json_content)
+            if artificial_document_ids:
+                docs_to_delete.add(doc_source_id2art_id[json_data["source_id"]])
+            else:
+                docs_to_delete.add(int(json_data["id"]))
+
+        if len(docs_to_delete) > 0:
+            logger.info(f"Deleting {len(docs_to_delete)} documents from {collection}...")
+            for ids_to_delete in chunks(list(docs_to_delete), BULK_MAX_NO_OF_IN_VALUES):
+                query = session.query(DocumentMetadata)
+                query = query.filter(DocumentMetadata.id.in_(ids_to_delete))
+                query.filter_by(document_collection=collection).delete()
+                session.commit()
+
+            logger.info("Deletion complete.")
+
+
+    # Load metadata stuff
     n_docs = count_documents(path)
     progress = Progress(n_docs, print_every=1000, text="Loading narrative information")
     metadata_to_insert = []
@@ -88,6 +117,8 @@ def main(args=None):
     parser.add_argument("--artificial_document_ids", action="store_true", help="generates artifical document ids")
     parser.add_argument("--replace_existing", action="store_true",
                         help="Replace existing documents if found in the database")
+    parser.add_argument("--replace_if_changed", action="store_true",
+                        help="Replace existing documents if found in the database and content has changed (md5hash comparison)")
     args = parser.parse_args(args)
 
     tagger_mapping = None
@@ -109,7 +140,7 @@ def main(args=None):
 
     narrative_document_bulk_load(args.input, args.collection, tagger_mapping,
                                  artificial_document_ids=args.artificial_document_ids,
-                                 replace_existing=args.replace_existing)
+                                 replace_existing=args.replace_existing, replace_if_changed=args.replace_if_changed)
 
 
 if __name__ == "__main__":

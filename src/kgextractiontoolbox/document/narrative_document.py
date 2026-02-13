@@ -94,7 +94,8 @@ class NarrativeDocument(TaggedDocument):
                  extracted_statements=None,
                  classification=None,
                  sections=None,
-                 source_id=None):
+                 source_id=None,
+                 md5hash=None):
         super().__init__(id=document_id, title=title, abstract=abstract, ignore_tags=False, source_id=source_id)
         if sections is None:
             sections = []
@@ -114,6 +115,7 @@ class NarrativeDocument(TaggedDocument):
         self.extracted_statements = extracted_statements
         self.classification = classification
         self.sections = sections
+        self.md5hash = md5hash
 
     def load_from_json(self, json_str: str, ignore_tags=False):
         super().load_from_json(json_str=json_str, ignore_tags=ignore_tags)

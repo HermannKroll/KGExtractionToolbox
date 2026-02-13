@@ -16,6 +16,7 @@ from kgextractiontoolbox.document.document import TaggedDocument
 from kgextractiontoolbox.document.extract import read_documents
 from kgextractiontoolbox.progress import print_progress_with_eta
 from kgextractiontoolbox.util.helpers import chunks
+from kgextractiontoolbox.util.md5 import get_md5hash_from_str
 
 BULK_LOAD_COMMIT_AFTER = 50000
 PRINT_ETA_EVERY_K_DOCUMENTS = 100
@@ -60,7 +61,7 @@ def insert_taggers(*tagger_list):
 
 
 def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, logger=logging, ignore_tags=True,
-                       artificial_document_ids=False, replace_existing=False):
+                       artificial_document_ids=False, replace_existing=False, replace_if_changed=False):
     """
     Bulk load a file in PubTator/JSON Format or a directory of PubTator/JSON files into the database.
     Iterate over PubTator/JSON documents and add Document, Tag and DocTaggedBy objects.
@@ -71,8 +72,11 @@ def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, 
     :param logging logger: a logging instance to be used
     :param artificial_document_ids: Forces to generate artificial document ids (e.g. for non-int ids)
     :param bool replace_existing: If true, replaces existing documents in the database
+    :param bool replace_if_changed: If true, replaces existing documents with new documents
     :return:
     """
+    if replace_existing and replace_if_changed:
+        raise ValueError("replace_existing and replace_if_changed cannot be used together")
 
     session = Session.get()
     if tagger_mapping is None:
@@ -87,36 +91,58 @@ def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, 
 
     logger.info('Retrieving document ids from database...')
     if artificial_document_ids:
-        query = session.query(Document.source_id)
+        if replace_if_changed:
+            query = session.query(Document.source_id, Document.md5hash)
+        else:
+            query = session.query(Document.source_id)
     else:
-        query = session.query(Document.id)
+        if replace_if_changed:
+            query = session.query(Document.id, Document.md5hash)
+        else:
+            query = session.query(Document.id)
 
     query = query.filter_by(collection=collection)
 
     db_doc_ids = set()
+    doc_id2md5hash = {}
     for r in session.execute(query):
         if artificial_document_ids:
             # take the source ids
-            db_doc_ids.add(r.source_id)
+            docid = r.source_id
         else:
             # take the DB id as it
-            db_doc_ids.add(r.id)
+            docid = r.id
+        # add doc id to set
+        db_doc_ids.add(docid)
+        if replace_if_changed:
+            doc_id2md5hash[docid] = r.md5hash
     logger.info('{} documents are already inserted'.format(len(db_doc_ids)))
     start_time = datetime.now()
 
-    if replace_existing:
-        logger.info("Replacing existing documents in the database...")
+    if replace_existing or replace_if_changed:
+        if replace_existing:
+            logger.info("Replacing existing documents in database...")
+        if replace_if_changed:
+            logger.info("Replacing existing documents in database if content has changed...")
         docs_to_delete = set()
         for document_content in read_documents(path):
             doc = TaggedDocument(document_content, ignore_tags=ignore_tags)
-            if artificial_document_ids and doc.source_id in db_doc_ids:
-                if not doc.source_id:
-                    raise ValueError(
-                        f'When using artificial doc ids, source id must be provided (missing for {doc.id})')
-                docs_to_delete.add(doc.source_id)
+            docid = doc.source_id if artificial_document_ids else doc.id
+            if docid is None:
+                raise ValueError(f'When using artificial doc ids, source id must be provided (missing for {doc.id})')
 
-            if not artificial_document_ids and doc.id in db_doc_ids:
-                docs_to_delete.add(doc.id)
+            if docid in db_doc_ids:
+                if replace_existing:
+                    docs_to_delete.add(docid)
+                if replace_if_changed:
+                    # compare MD5 hash and only delete if content has changed
+                    md5_new = get_md5hash_from_str(doc.get_text_content(sections=True))
+                    md5_db = doc_id2md5hash[docid]
+                    if md5_new != md5_db:
+                        docs_to_delete.add(docid)
+
+        if replace_if_changed:
+            logger.info(f'{len(docs_to_delete)} documents have changed and will be replaced.')
 
         if len(docs_to_delete) > 0:
             logger.info(f"Deleting {len(docs_to_delete)} documents from {collection}...")
@@ -165,7 +191,7 @@ def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, 
         if not doc.has_content():
             logger.warning(f"Document {collection} {doc.id} is not inserted into DB (no title and no abstract)")
 
-        # Add document if it's not already included
+        # Add documents if not already included
         if artificial_document_ids:
             if not doc.source_id:
                 raise ValueError(f'When using artificial doc ids, source id must be provided (missing for {doc.id})')
@@ -181,6 +207,7 @@ def document_bulk_load(path: Union[Path, str], collection, tagger_mapping=None, 
                 title=doc.title,
                 abstract=doc.abstract,
                 source_id=doc.source_id,
+                md5hash=get_md5hash_from_str(doc.get_text_content(sections=True)),
             ))
 
         if doc.classification:
@@ -264,6 +291,8 @@ def main(args=None):
     parser.add_argument("--artificial_document_ids", action="store_true", help="generates artificial document ids")
     parser.add_argument("--replace_existing", action="store_true",
                         help="Replace existing documents if found in the database")
+    parser.add_argument("--replace_if_changed", action="store_true",
+                        help="Replace existing documents if found in the database and content has changed (md5hash comparision)")
     args = parser.parse_args(args)
 
     tagger_mapping = None
@@ -284,8 +313,8 @@ def main(args=None):
                             level=logging.INFO)
 
     document_bulk_load(args.input, args.collection, tagger_mapping, ignore_tags=args.ignore_tags,
-                       artificial_document_ids=args.artificial_document_ids, replace_existing=args.replace_existing)
-
+                       artificial_document_ids=args.artificial_document_ids, replace_existing=args.replace_existing,
+                       replace_if_changed=args.replace_if_changed)
 
 if __name__ == "__main__":
     main()

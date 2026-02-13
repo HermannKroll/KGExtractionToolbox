@@ -118,7 +118,7 @@ class DocumentSection:
 class TaggedDocument:
 
     def __init__(self, from_str=None, spacy_nlp=None, ignore_tags=False, id=None, title=None, abstract=None,
-                 sections=False, source_id=None):
+                 sections=False, source_id=None, md5hash=None):
         """
         initialize a document document
         :param from_str: content of a document file or a document filename
@@ -130,6 +130,7 @@ class TaggedDocument:
         self.tags = []
         self.classification = {}
         self.sections: List[DocumentSection] = []
+        self.md5hash = md5hash
 
         if from_str:
             from_str = tools.read_if_path(from_str)
