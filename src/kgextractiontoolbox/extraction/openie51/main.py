@@ -6,7 +6,7 @@ from spacy.lang.en import English
 
 from kgextractiontoolbox.document.count import count_documents
 from kgextractiontoolbox.document.document import TaggedDocument
-from kgextractiontoolbox.document.extract import read_pubtator_documents
+from kgextractiontoolbox.document.extract import read_documents
 from kgextractiontoolbox.extraction.extraction_utils import filter_document_sentences_without_tags
 from kgextractiontoolbox.extraction.loading.load_openie_extractions import OPENIE_TUPLE
 from kgextractiontoolbox.extraction.openie51.oie5_server_controller import Oi5ServerController
@@ -32,7 +32,7 @@ def openie51_run(document_file, output, no_entity_filter=False, consider_section
     spacy_nlp.add_pipe("sentencizer")
     doc2sentences = {}
     if no_entity_filter:
-        for document_content in read_pubtator_documents(document_file):
+        for document_content in read_documents(document_file):
             doc = TaggedDocument(from_str=document_content, spacy_nlp=spacy_nlp, sections=consider_sections)
             if doc:
                 doc2sentences[doc.id] = [s.text for s in doc.sentence_by_id.values()]

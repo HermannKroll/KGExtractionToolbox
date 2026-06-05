@@ -64,7 +64,7 @@ class TaggedEntity:
 
     def __eq__(self, other):
         return self.document == other.document and self.start == other.start and self.end == other.end \
-               and self.text == other.text and self.ent_type == other.ent_type and self.ent_id == other.ent_id
+            and self.text == other.text and self.ent_type == other.ent_type and self.ent_id == other.ent_id
 
     def __hash__(self):
         return hash((self.start, self.end, self.text, self.ent_id))
@@ -118,7 +118,7 @@ class DocumentSection:
 class TaggedDocument:
 
     def __init__(self, from_str=None, spacy_nlp=None, ignore_tags=False, id=None, title=None, abstract=None,
-                 sections=False):
+                 sections=False, source_id=None, md5hash=None):
         """
         initialize a document document
         :param from_str: content of a document file or a document filename
@@ -126,15 +126,23 @@ class TaggedDocument:
         self.title = None
         self.abstract = None
         self.id = None
+        self.source_id = source_id
         self.tags = []
         self.classification = {}
         self.sections: List[DocumentSection] = []
+        self.md5hash = md5hash
 
         if from_str:
             from_str = tools.read_if_path(from_str)
             str_format = "pt" if re.match(r"\d", from_str[0]) else "json"
+            # if id is set via constructor, it will not be load from the document content
+            if id is not None:
+                self.id = id
+
             if str_format == "pt":
-                self.load_from_pubtator(pubtator_content=from_str, ignore_tags=ignore_tags)
+                if source_id:
+                    raise ValueError(f'Artificial document ids are not supported for PubTator files ({self.id})')
+                self.load_from_pubtator(document_content=from_str, ignore_tags=ignore_tags)
             elif str_format == "json":
                 self.load_from_json(json_str=from_str, ignore_tags=ignore_tags)
 
@@ -157,14 +165,14 @@ class TaggedDocument:
         if spacy_nlp:
             self._compute_nlp_indexes(spacy_nlp, sections=sections)
 
-    def load_from_pubtator(self, pubtator_content: str, ignore_tags=False):
+    def load_from_pubtator(self, document_content: str, ignore_tags=False):
         """
         Loads a TaggedDocument from a PubTator str
-        :param pubtator_content: the pubtator content
+        :param document_content: the pubtator content
         :param ignore_tags: should tags be ignored?
         :return: None
         """
-        match = CONTENT_ID_TIT_ABS.match(pubtator_content)
+        match = CONTENT_ID_TIT_ABS.match(document_content)
         if match:
             self.id, self.title, self.abstract = match.group(1, 2, 3)
             self.title = self.title.strip()
@@ -173,8 +181,8 @@ class TaggedDocument:
         else:
             self.id, self.title, self.abstract = None, None, None
 
-        if pubtator_content and not ignore_tags:
-            self.tags = [TaggedEntity(t) for t in TAG_LINE_NORMAL.findall(pubtator_content)]
+        if document_content and not ignore_tags:
+            self.tags = [TaggedEntity(t) for t in TAG_LINE_NORMAL.findall(document_content)]
             if not self.id and self.tags:
                 self.id = self.tags[0].document
 
@@ -186,7 +194,18 @@ class TaggedDocument:
         :return: None
         """
         doc_dict = json.loads(json_str)
-        self.id, self.title, self.abstract = doc_dict["id"], doc_dict.get("title"), doc_dict.get("abstract")
+        # if the document id has been set already, we do not load id
+        if self.id is None:
+            # id can be optional if a source id exists
+            self.id = doc_dict.get("id")
+
+
+        self.title, self.abstract = doc_dict.get("title"), doc_dict.get("abstract")
+        self.source_id = doc_dict.get("source_id")
+
+        if self.id is None and self.source_id is None:
+            raise ValueError(f'Document id OR source id are missing in {json_str}')
+
         if "tags" in doc_dict and not ignore_tags:
             self.tags = [
                 TaggedEntity(document=self.id,
@@ -239,7 +258,7 @@ class TaggedDocument:
                 ent_ids = ent_id.split('|')
                 # if we do not have a concrete explanation (then duplicate the original string)
                 if len(ent_ids) != len(ent_str_split):
-                    ent_str_split = [t.text for i in range(0, len(ent_ids))]
+                    ent_str_split = [t.text for _ in range(0, len(ent_ids))]
                 for e_id, e_str in zip(ent_ids, ent_str_split):
                     # find the new start and end
                     e_start = t.start + t.text.find(e_str)
@@ -316,9 +335,8 @@ class TaggedDocument:
 
         if not self.has_content():
             return
-           # raise ValueError(f'Cannot process document ({self.id}) without title or abstract')
-            # Indexes
-
+        # raise ValueError(f'Cannot process document ({self.id}) without title or abstract')
+        # Indexes
 
         sentence_idx = 0
         # iterate over all text elements (title, abstract, sec1 title, sec1 text, sec2 title, ...)
@@ -379,6 +397,8 @@ class TaggedDocument:
         out_dict = {
             "id": self.id
         }
+        if self.source_id:
+            out_dict["source_id"] = self.source_id
         if export_content:
             out_dict.update({
                 "title": self.title,

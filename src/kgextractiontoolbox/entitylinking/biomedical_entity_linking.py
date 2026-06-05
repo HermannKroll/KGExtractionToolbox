@@ -19,7 +19,6 @@ from kgextractiontoolbox.document.extract import collect_ids_from_dir
 from kgextractiontoolbox.document.load_document import document_bulk_load
 from kgextractiontoolbox.document.sanitize import sanitize
 from kgextractiontoolbox.entitylinking.entity_linking_config import Config
-from kgextractiontoolbox.entitylinking.tagging.base import BaseTagger
 from kgextractiontoolbox.entitylinking.tagging.external_base import ExternalTaggerBase
 from kgextractiontoolbox.entitylinking.tagging.gnormplus import GNormPlus
 from kgextractiontoolbox.entitylinking.tagging.taggerone import TaggerOne
@@ -157,7 +156,7 @@ def run_preprocess(input_file, collection, config, skip_load, tagger_one, gnormp
         sys.exit(-1)
 
     logger.info(f"Splitting up composite files to: {in_dir}...")
-    split_composites(ext_in_dir, in_dir, logger=logger)
+    split_composites(ext_in_dir, in_dir)
     logger.info("done. Sanitizing files...")
     ignored, sanitized = sanitize(in_dir, delete_mismatched=True)
     logger.info(f"{len(ignored)} files ignored because of wrong format or missing abstract")
@@ -205,8 +204,8 @@ def run_preprocess(input_file, collection, config, skip_load, tagger_one, gnormp
         processes = []
         output_paths = []
 
-        task_size_values = list([multiprocessing.Value("i", 0) for n in range(int(workers))])
-        progress_values = list([multiprocessing.Value("i", 0) for n in range(int(workers))])
+        task_size_values = list([multiprocessing.Value("i", 0) for _ in range(int(workers))])
+        progress_values = list([multiprocessing.Value("i", 0) for _ in range(int(workers))])
         mp_progress = MultiProcessProgress(task_size_values, progress_values, print_every_x_seconds=5,
                                            text="Tagging...")
 

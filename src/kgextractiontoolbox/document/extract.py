@@ -10,12 +10,12 @@ from kgextractiontoolbox.entitylinking.utils import get_document_id, DocumentErr
 
 
 # TODO: This method should be unit-tested because its used a lot
-def read_pubtator_documents(path, yield_paths=False):
+def read_documents(path, yield_paths=False):
     if os.path.isdir(path):
         for fn in os.listdir(path):
             if is_doc_file(fn):
                 abs_path = os.path.join(path, fn)
-                yield from read_pubtator_documents(abs_path, yield_paths)
+                yield from read_documents(abs_path, yield_paths)
     else:
         content = ""
         with open(path) as f:
@@ -48,10 +48,10 @@ def read_pubtator_documents(path, yield_paths=False):
 
 def read_tagged_documents(path, yield_paths=False):
     if yield_paths:
-        for path, content in read_pubtator_documents(path, yield_paths=True):
+        for path, content in read_documents(path, yield_paths=True):
             yield path, TaggedDocument(content)
     else:
-        for content in read_pubtator_documents(path):
+        for content in read_documents(path):
             yield TaggedDocument(content)
 
 
@@ -65,7 +65,7 @@ def extract_pubtator_docs(input_file, id_file, output, logger):
     logger.info('{} documents to extract...'.format(len(ids)))
     logger.info('processing input file...')
     with open(output, 'w') as f_out:
-        for document_content in read_pubtator_documents(input_file):
+        for document_content in read_documents(input_file):
             doc_id = DOCUMENT_ID.search(document_content)
             if int(doc_id.groups()[0]) in ids:
                 f_out.write(document_content + "\n")

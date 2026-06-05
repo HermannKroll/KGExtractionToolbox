@@ -10,7 +10,7 @@ from spacy.lang.en import English
 
 from kgextractiontoolbox.document.count import count_documents
 from kgextractiontoolbox.document.document import TaggedDocument
-from kgextractiontoolbox.document.extract import read_pubtator_documents
+from kgextractiontoolbox.document.extract import read_documents
 from kgextractiontoolbox.extraction.pathie.core import PathIEExtraction
 
 
@@ -26,6 +26,10 @@ def extract_based_on_co_occurrences_in_sentences(spacy_nlp, document_content, co
     """
     # initialize the document + create all nlp indexes by setting spacy nlp in sentence
     tagged_doc = TaggedDocument(document_content, spacy_nlp=spacy_nlp, sections=consider_sections)
+
+    # we can only extract statements if more than two statements are present
+    if len(tagged_doc.tags) < 2:
+        return []
 
     tuples = []
     # get the sentences
@@ -131,7 +135,7 @@ def run_co_occurrences_in_sentences(input_file, output, workers=1, consider_sect
     result_queue = multiprocessing.Queue()
     # init the task
     no_tasks = 0
-    for content in read_pubtator_documents(input_file):
+    for content in read_documents(input_file):
         task_queue.put(content)
         no_tasks += 1
 
@@ -150,7 +154,7 @@ def run_co_occurrences_in_sentences(input_file, output, workers=1, consider_sect
         writer.writerow(['document id', 'subject id', 'subject str', 'subject type', 'predicate',
                          'predicate lemmatized', 'object id', 'object str', 'object type',
                          'confidence', 'sentence'])
-        for p in processes:
+        for _ in processes:
             extracted_tuples = result_queue.get()
             for e_tuple in extracted_tuples:
                 writer.writerow([str(t) for t in e_tuple])

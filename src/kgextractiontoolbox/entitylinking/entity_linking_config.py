@@ -58,10 +58,6 @@ class Config:
         return os.path.join(self.gnorm_root, "GNormPlus.jar")
 
     @property
-    def dict_max_words(self):
-        return self.config["dict"]["max_words"]
-
-    @property
     def dict_split_by_slash(self):
         return self.config["dict"]["split_by_slash"].strip().lower() == "true"
 

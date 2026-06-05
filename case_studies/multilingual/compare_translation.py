@@ -6,7 +6,7 @@ from spacy.lang.en import English
 
 from kgextractiontoolbox.document.count import count_documents
 from kgextractiontoolbox.document.document import TaggedDocument
-from kgextractiontoolbox.document.extract import read_pubtator_documents
+from kgextractiontoolbox.document.extract import read_documents
 from kgextractiontoolbox.extraction.extraction_utils import filter_document_sentences_without_tags
 
 EN_ABSTRACT = "1"
@@ -43,7 +43,7 @@ def count_document_sentences(file: str):
     logging.info('{} documents counted'.format(doc_count))
 
     english_docs, translated_docs = [], []
-    for doc_content in read_pubtator_documents(file):
+    for doc_content in read_documents(file):
         doc = TaggedDocument(doc_content, spacy_nlp=spacy_nlp)
         if str(doc.id)[-1] == EN_ABSTRACT:
             english_docs.append(doc)

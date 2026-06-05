@@ -1,4 +1,3 @@
-import hashlib
 import json
 import logging
 import unicodedata
@@ -11,12 +10,13 @@ from sqlalchemy import Column, String, Integer, DateTime, ForeignKeyConstraint, 
     BigInteger, UniqueConstraint, Float, func, event, delete, insert
 from sqlalchemy.engine import Engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship, backref
+from sqlalchemy.orm import relationship
 
 from kgextractiontoolbox.document.regex import ILLEGAL_CHAR
 from kgextractiontoolbox.progress import print_progress_with_eta
 
 Base = declarative_base()
+BULK_MAX_NO_OF_IN_VALUES = 1000000
 BULK_INSERT_AFTER_K = 100000
 POSTGRES_COPY_LOAD_AFTER_K = 1000000
 
@@ -117,13 +117,14 @@ class Document(Base, DatabaseTable):
     __table_args__ = (
         PrimaryKeyConstraint('collection', 'id', sqlite_on_conflict='IGNORE'),
     )
-    collection = Column(String)
+    collection = Column(String, index=True)
     id = Column(BigInteger)
     title = Column(String, nullable=False)
     abstract = Column(String, nullable=False)
     fulltext = Column(String)
-
+    source_id = Column(String, nullable=True, index=True)
     date_inserted = Column(DateTime, nullable=False, default=datetime.now)
+    md5hash = Column(String, nullable=True)
 
     sections = relationship("DocumentSection", backref="document", passive_deletes="True")
 
@@ -171,6 +172,14 @@ class Document(Base, DatabaseTable):
         return ids
 
     @staticmethod
+    def get_source_document_ids_for_collection(session, collection: str) -> Set[int]:
+        query = session.query(Document.source_id).filter(Document.collection == collection)
+        ids = set()
+        for r in query:
+            ids.add(r.source_id)
+        return ids
+
+    @staticmethod
     def count_documents_in_collection(session, collection: str) -> int:
         return session.query(Document).filter(Document.collection == collection).count()
 
@@ -184,11 +193,21 @@ class Document(Base, DatabaseTable):
             document_id = q[0]
         return document_id
 
+    @staticmethod
+    def query_document_id_2_source_id_mapping(session, document_collection: str):
+        query = session.query(Document.id, Document.source_id)
+        query = query.filter(Document.collection == document_collection)
+        docid2sourceid = {}
+        for r in query:
+            docid2sourceid[int(r.id)] = r.source_id
+        return docid2sourceid
+
 
 class DocumentMetadata(Base, DatabaseTable):
     __tablename__ = 'document_metadata'
     __table_args__ = (
-        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'), ondelete='CASCADE'),
+        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'),
+                             ondelete='CASCADE'),
         PrimaryKeyConstraint('document_id', 'document_collection', sqlite_on_conflict='IGNORE')
     )
 
@@ -265,40 +284,12 @@ class Tag(Base, DatabaseTable):
         return Tag.create_pubtator(self.document_id, self.start, self.end, self.ent_str, self.ent_type, self.ent_id)
 
 
-class DocumentTranslation(Base, DatabaseTable):
-    __tablename__ = "document_translation"
-    __table_args__ = (
-        PrimaryKeyConstraint('document_id', 'document_collection', sqlite_on_conflict='IGNORE'),
-        UniqueConstraint('source_doc_id', 'document_collection', sqlite_on_conflict='IGNORE')
-    )
-    document_id = Column(BigInteger)
-    document_collection = Column(String)
-    source_doc_id = Column(String, nullable=False)
-    md5 = Column(String, nullable=False)
-    date_inserted = Column(DateTime, nullable=False, default=datetime.now)
-    source = Column(String)
-
-    @staticmethod
-    def text_to_md5_hash(text: str) -> str:
-        m = hashlib.md5()
-        m.update(text.encode())
-        return m.hexdigest()
-
-    @staticmethod
-    def get_document_id_2_source_id_mapping(session, document_collection: str):
-        query = session.query(DocumentTranslation.document_id, DocumentTranslation.source_doc_id)
-        query = query.filter(DocumentTranslation.document_collection == document_collection)
-        docid2sourceid = {}
-        for r in query:
-            docid2sourceid[int(r.document_id)] = r.source_doc_id
-        return docid2sourceid
-
-
 class DocumentClassification(Base, DatabaseTable):
     __tablename__ = "document_classification"
     __table_args__ = (
         PrimaryKeyConstraint('document_id', 'document_collection', 'classification', sqlite_on_conflict='IGNORE'),
-        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'), ondelete='CASCADE')
+        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'),
+                             ondelete='CASCADE')
     )
     document_id = Column(BigInteger, index=True)
     document_collection = Column(String, index=True)
@@ -321,7 +312,8 @@ class DocumentSection(Base, DatabaseTable):
     __tablename__ = "document_section"
     __table_args__ = (
         PrimaryKeyConstraint('document_id', 'document_collection', 'position', sqlite_on_conflict='IGNORE'),
-        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'), ondelete='CASCADE')
+        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'),
+                             ondelete='CASCADE')
     )
     document_id = Column(BigInteger)
     document_collection = Column(String)
@@ -333,7 +325,8 @@ class DocumentSection(Base, DatabaseTable):
 class Predication(Base, DatabaseTable):
     __tablename__ = "predication"
     __table_args__ = (
-        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'), ondelete='CASCADE'),
+        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'),
+                             ondelete='CASCADE'),
         ForeignKeyConstraint(('sentence_id',), ('sentence.id',)),
         PrimaryKeyConstraint('id', sqlite_on_conflict='IGNORE')
     )
@@ -493,13 +486,15 @@ class Sentence(Base, DatabaseTable):
 class DocProcessedByIE(Base, DatabaseTable):
     __tablename__ = "doc_processed_by_ie"
     __table_args__ = (
-        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'), ondelete='CASCADE'),
+        ForeignKeyConstraint(('document_id', 'document_collection'), ('document.id', 'document.collection'),
+                             ondelete='CASCADE'),
         PrimaryKeyConstraint('document_id', 'document_collection', 'extraction_type', sqlite_on_conflict='IGNORE')
     )
     document_id = Column(BigInteger)
     document_collection = Column(String)
     extraction_type = Column(String)
     date_inserted = Column(DateTime, nullable=False, default=datetime.now)
+
 
 class EntityResolverData(Base, DatabaseTable):
     __tablename__ = "entity_resolver_data"
@@ -521,6 +516,7 @@ class EntityResolverData(Base, DatabaseTable):
             return json.loads(rows[0].data)
         else:
             return {}
+
 
 @event.listens_for(Engine, "connect")
 def set_sqlite_pragma(dbapi_connection, connection_record):

@@ -39,7 +39,7 @@ def analyze_cluster_canonicalize_predicates_with_word2vec_model(model, predicate
         dist = pdist(X, metric="cosine")
         cluster_data = scipy.cluster.hierarchy.linkage(dist)
         labels = scipy.cluster.hierarchy.fcluster(cluster_data, t=t, criterion='distance') - 1
-        clusters = [[] for i in range(max(labels) + 1)]
+        clusters = [[] for _ in range(max(labels) + 1)]
 
         for i in range(len(labels)):
             clusters[labels[i]].append(predicates[i])

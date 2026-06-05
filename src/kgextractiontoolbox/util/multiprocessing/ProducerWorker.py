@@ -1,3 +1,4 @@
+import logging
 import multiprocessing
 from time import sleep
 
@@ -7,14 +8,6 @@ from kgextractiontoolbox.util.multiprocessing.WorkerProcess import WorkerProcess
 
 class ProducerWorker(WorkerProcess):
     def __init__(self, task_queue: multiprocessing.Queue, produce, no_workers: int, max_tasks: int = 1000, ):
-        """
-
-        :param task_queue:
-        :param produce:
-        :param max_tasks:
-        :param prepare:
-        :param shutdown:
-        """
         super().__init__()
 
         self.task_queue = task_queue
@@ -32,6 +25,7 @@ class ProducerWorker(WorkerProcess):
                     task = next(task_iter)
                     self.task_queue.put(task)
                 except StopIteration:
+                    logging.debug('Producer iteration finished - shutting down workers...')
                     for n in range(0, self.no_workers):
                         self.task_queue.put(SHUTDOWN_SIGNAL)
                     self.__running = False

@@ -8,13 +8,6 @@ from kgextractiontoolbox.util.multiprocessing.WorkerProcess import WorkerProcess
 
 class FileConsumerWorker(WorkerProcess):
     def __init__(self, result_queue: multiprocessing.Queue, out_path: str, no_workers):
-        """
-
-        :param result_queue:
-        :param consume: Callable, gets result and consumes it
-        :param prepare:
-        :param shutdown:
-        """
         super().__init__()
 
         self.result_queue = result_queue

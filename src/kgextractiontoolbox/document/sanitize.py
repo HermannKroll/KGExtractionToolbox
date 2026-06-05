@@ -5,14 +5,14 @@ from shutil import copy
 
 from kgextractiontoolbox.backend.models import Document
 from kgextractiontoolbox.document.document import TaggedDocument, get_doc_format, DocFormat
-from kgextractiontoolbox.document.extract import read_pubtator_documents, read_tagged_documents
+from kgextractiontoolbox.document.extract import read_documents, read_tagged_documents
 from kgextractiontoolbox.document.regex import ILLEGAL_CHAR
 
 
 def filter_and_sanitize(in_file: str, out_file: str, filter_ids, logger=logging, ignore_tags=True):
     os.makedirs(os.path.dirname(out_file), exist_ok=True)
     with open(out_file, "w+") as f:
-        for n, doc in enumerate(read_pubtator_documents(in_file)):
+        for n, doc in enumerate(read_documents(in_file)):
             try:
                 tdoc = TaggedDocument(doc, ignore_tags=ignore_tags)
             except:
@@ -22,7 +22,7 @@ def filter_and_sanitize(in_file: str, out_file: str, filter_ids, logger=logging,
                 f.write(Document.create_pubtator(tdoc.id, tdoc.title, tdoc.abstract) + "\n")
 
 
-def sanitize(input_dir_or_file, output_dir=None, delete_mismatched=False, logger=logging):
+def sanitize(input_dir_or_file, output_dir=None, delete_mismatched=False):
     """
     Removes all "|" characters from document files and cast out files lacking abstracts.
     :param input_dir_or_file: Input directory containing document files or single document file

@@ -14,7 +14,7 @@ from spacy.lang.en import English
 from kgextractiontoolbox.config import NLP_CONFIG
 from kgextractiontoolbox.document.count import count_documents
 from kgextractiontoolbox.document.document import TaggedDocument
-from kgextractiontoolbox.document.extract import read_pubtator_documents
+from kgextractiontoolbox.document.extract import read_documents
 from kgextractiontoolbox.extraction.extraction_utils import filter_document_sentences_without_tags
 from kgextractiontoolbox.progress import print_progress_with_eta
 
@@ -40,7 +40,7 @@ def openie_prepare_files(document_file, no_entity_filter=False, consider_section
     doc_count = count_documents(document_file)
     logging.info('counting files to process....')
     if no_entity_filter:
-        for document_content in read_pubtator_documents(document_file):
+        for document_content in read_documents(document_file):
             doc = TaggedDocument(from_str=document_content)
             if not doc or not doc.title or not doc.abstract:
                 amount_skipped_files += 1

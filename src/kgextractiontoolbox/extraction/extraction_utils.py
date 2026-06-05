@@ -8,23 +8,27 @@ from time import sleep
 from spacy.lang.en import English
 
 from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
-from kgextractiontoolbox.document.extract import read_pubtator_documents
+from kgextractiontoolbox.document.extract import read_documents
 from kgextractiontoolbox.progress import print_progress_with_eta
 
 
-def filter_document_content(pubtator_content: str, spacy_nlp, consider_sections=False):
+def filter_document_content(document_content: str, spacy_nlp, consider_sections=False):
     """
     Filter the content of a single document by removing all sentences which do not include two different tags
-    :param pubtator_content: the pubtator document as a str
+    :param document_content: the document content as a str
     :param spacy_nlp: ref to spacy nlp
     :param consider_sections: Should document sections be considered for text generation?
     :return: doc_id, a list of filtered sentences (str), a set of included tags
     """
-    tagged_doc = TaggedDocument(pubtator_content, spacy_nlp=spacy_nlp, sections=consider_sections)
+    tagged_doc = TaggedDocument(document_content, spacy_nlp=spacy_nlp, sections=consider_sections)
     doc_id = tagged_doc.id
     filtered_content = []
     tag_terms = set()
     tag_original_character_offset = 0
+
+    # we can only extract statements if more than two statements are present
+    if len(tagged_doc.tags) < 2:
+        return doc_id, filtered_content, tag_terms
 
     sorted_sentences = sorted(tagged_doc.sentence_by_id.keys())
     for sent in sorted_sentences:
@@ -65,9 +69,9 @@ def filter_document_sentences_without_tags(doc_len: int, input_file: str, spacy_
     doc2tags = dict()
     doc2sentences = dict()
     start_time = datetime.now()
-    for idx, pubtator_content in enumerate(read_pubtator_documents(input_file)):
+    for idx, document_content in enumerate(read_documents(input_file)):
         print_progress_with_eta('filtering documents...', idx, doc_len, start_time, print_every_k=100)
-        doc_id, filtered_content, tag_terms = filter_document_content(pubtator_content, spacy_nlp,
+        doc_id, filtered_content, tag_terms = filter_document_content(document_content, spacy_nlp,
                                                                       consider_sections=consider_sections)
         # skip empty documents
         if not filtered_content:
@@ -96,10 +100,10 @@ def filter_document_sentences_without_tags_parallelized_worker(tasks: multiproce
     spacy_nlp.add_pipe("sentencizer")
     while tasks.qsize() > 0:
         try:
-            pubtator_content = tasks.get(timeout=1)
-            if pubtator_content is None:
+            document_content = tasks.get(timeout=1)
+            if document_content is None:
                 continue
-            doc_id, filtered_content, tag_terms = filter_document_content(pubtator_content, spacy_nlp,
+            doc_id, filtered_content, tag_terms = filter_document_content(document_content, spacy_nlp,
                                                                           consider_sections=consider_sections)
             # skip empty documents
             if not filtered_content:
@@ -135,9 +139,9 @@ def filter_document_sentences_without_tags_parallelized(doc_len: int, input_file
         task_queue = multiprocessing.Queue()
 
         start_time = datetime.now()
-        for idx, pubtator_content in enumerate(read_pubtator_documents(input_file)):
+        for idx, document_content in enumerate(read_documents(input_file)):
             print_progress_with_eta('adding documents...', idx, doc_len, start_time, print_every_k=100)
-            task_queue.put(pubtator_content)
+            task_queue.put(document_content)
 
         logging.debug(f'Starting {worker_count} workers...')
         result_queue = multiprocessing.Queue()
@@ -150,7 +154,7 @@ def filter_document_sentences_without_tags_parallelized(doc_len: int, input_file
 
         logging.debug('Collecting results...')
         doc2sentences, doc2tags = dict(), dict()
-        for p in processes:
+        for _ in processes:
             task_doc2sentences, task_doc2tags = result_queue.get()
             doc2sentences.update(task_doc2sentences)
             doc2tags.update(task_doc2tags)

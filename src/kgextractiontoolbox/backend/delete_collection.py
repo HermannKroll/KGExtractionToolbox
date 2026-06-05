@@ -5,7 +5,7 @@ from sqlalchemy import delete
 
 from kgextractiontoolbox.backend.database import Session
 from kgextractiontoolbox.backend.models import Tag, Document, DocTaggedBy, DocProcessedByIE, Predication, Sentence, \
-    DocumentTranslation, DocumentSection, DocumentClassification, DocumentMetadata
+    DocumentSection, DocumentClassification, DocumentMetadata
 
 
 def delete_document_collection_from_database(document_collection: str):
@@ -26,9 +26,6 @@ def delete_document_collection_from_database(document_collection: str):
 
     logging.info('Deleting tag entries...')
     session.execute(delete(Tag).where(Tag.document_collection == document_collection))
-
-    logging.info('Deleting document translation entries...')
-    session.execute(delete(DocumentTranslation).where(DocumentTranslation.document_collection == document_collection))
 
     logging.info('Deleting document section entries...')
     session.execute(delete(DocumentSection).where(DocumentSection.document_collection == document_collection))

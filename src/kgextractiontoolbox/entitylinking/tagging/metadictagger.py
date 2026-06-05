@@ -28,8 +28,10 @@ class MetaDicTagger(dt.DictTagger):
         self.tag_types = set(self.tag_types).union(tagger.get_types())
 
     def prepare(self, resume=False):
+        self.dict_max_words = 0
         for tagger in self._sub_taggers:
             tagger.prepare()
+            self.dict_max_words = max(self.dict_max_words, max((len(norm.split()) for norm in tagger.desc_by_term), default=0))
             self._vocabs[tagger.tag_types[0]] = tagger.desc_by_term
 
     def generate_tag_lines(self, end, doc_id, start, term):

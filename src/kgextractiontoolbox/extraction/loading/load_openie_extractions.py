@@ -345,7 +345,8 @@ def clean_open_ie(doc_ids, openie_tuples: [OPENIE_TUPLE], collection,
 
 def load_openie_tuples(input_file: str, document_collection: str, entity_filter: OpenIEEntityFilterMode,
                        extraction_type: str = OPENIE_EXTRACTION, keep_original_predicate=False,
-                       filter_predicate_str=False, swap_passive_voice=False, keep_be_and_have=True):
+                       filter_predicate_str=False, swap_passive_voice=False, keep_be_and_have=True,
+                       cleaning_function=None):
     """
     Load OpenIE tuples from a TSV file
     :param input_file: the path to the tsv file
@@ -356,9 +357,13 @@ def load_openie_tuples(input_file: str, document_collection: str, entity_filter:
     :param filter_predicate_str: should the predicate str be cleaned to only keep verb phrases?
     :param swap_passive_voice: should passive voice be swapped to active voice?
     :param keep_be_and_have: should be and have predicates be kept?
+    :param cleaning_function: function to clean the extractions (takes a list of predications and must return another list)
     :return: None
     """
     doc_ids, openie_tuples = read_stanford_openie_input(input_file)
+    if cleaning_function:
+        logging.info('Applying cleaning function before loading...')
+        openie_tuples = cleaning_function(openie_tuples)
 
     logging.info('==' * 60)
     logging.info('Settings:')

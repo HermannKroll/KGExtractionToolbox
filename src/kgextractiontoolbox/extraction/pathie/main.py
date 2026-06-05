@@ -222,7 +222,7 @@ def pathie_process_corenlp_output_parallelized(out_corenlp_dir, amount_files, ou
             writer.writerow(['document id', 'subject id', 'subject str', 'subject type', 'predicate',
                              'predicate lemmatized', 'object id', 'object str', 'object type',
                              'confidence', 'sentence'])
-            for p in processes:
+            for _ in processes:
                 extracted_tuples = result_queue.get()
                 for e_tuple in extracted_tuples:
                     writer.writerow([str(t) for t in e_tuple])

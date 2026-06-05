@@ -1,12 +1,12 @@
 {
   "id": 0,
   "source_id": "PPN1",
-  "title": "Role of endothelin-1 in lung disease",
-  "abstract": "Endothelin-1 (ET-1) is a 21 amino acid peptide with diverse biological activity that has been implicated in numerous diseases. ET-1 is a potent mitogen regulator of smooth muscle tone, and inflammatory mediator that may play a key role in diseases of the airways, pulmonary circulation, and inflammatory lung diseases, both acute and chronic. This review will focus on the biology of ET-1 and its role in lung disease.",
+  "title": "endothelin-1 in lung disease",
+  "abstract": "is a 21 amino acid peptide with diverse biological activity that has been implicated in numerous diseases. ET-1 is a potent mitogen regulator of smooth muscle tone, and inflammatory mediator that may play a key role in diseases of the airways, pulmonary circulation, and inflammatory lung diseases, both acute and chronic. This review will focus on the biology of ET-1 and its role in lung disease.",
   "metadata": {
     "publication_year": 2001,
     "publication_month": 2,
-    "authors": "Fagan, Karen A | McMurtry, Ivan F | Rodman, David M",
+    "authors": "Fagan,  A | McMurtry, Ivan F | Rodman, David M",
     "journals": "Respir Res",
     "doi": "10.1186/rr44",
     "pubmed_id": "11686871",
@@ -17,12 +17,12 @@
     {
       "position": 0,
       "title": "Introduction",
-      "text": "ET-1, ET-2, and ET-3 are members of a peptide family that has been the subject of much interest in the past decade. Our laboratory and that of Highsmith identified this peptide vasoconstrictor secreted from endothelial cells [1,2,3] that was subsequently isolated, sequenced, cloned, and named by Yanagisawa in 1988 [4]. The many diverse and overlapping functions of these peptides have since implicated endothelins in both homeostatic mechanisms as well as diseases of the lungs. This review will focus on the role of endothelins (particularly ET-1), emphasizing the need to better understand endothelin biology and function in a wide variety of disorders including diseases of the airways and pulmonary vasculature, lung tumors, the acute respiratory distress syndrome, and fibrotic diseases (Table 1)."
+      "text": "ET-1, ET-2, and ET-3 are members of a  family that has been the subject of much interest in the past decade. Our laboratory and that of Highsmith identified this peptide vasoconstrictor secreted from endothelial cells [1,2,3] that was subsequently isolated, sequenced, cloned, and named by Yanagisawa in 1988 [4]. The many diverse and overlapping functions of these peptides have since implicated endothelins in both homeostatic mechanisms as well as diseases of the lungs. This review will focus on the role of endothelins (particularly ET-1), emphasizing the need to better understand endothelin biology and function in a wide variety of disorders including diseases of the airways and pulmonary vasculature, lung tumors, the acute respiratory distress syndrome, and fibrotic diseases (Table 1)."
     },
     {
       "position": 1,
       "title": "Endothelin biochemistry",
-      "text": "The endothelins are a family of 21 amino acid peptides, of which there are three distinct isoforms (ET-1, ET-2, and ET-3). The isoforms ET-2 and ET-3 differ from ET-1 by two and six amino acids, respectively, and share significant homology, especially at the carboxy terminus with sarafotoxins a-e (Fig. 1). Endothelin-1 is the most abundant isoform and has been best characterized. The lung has the highest levels of ET-1 secreted by endothelium, smooth muscle, airway epithelium, and a variety of other cells (Table 2). ET-1 also circulates in the plasma. In the normal lung, ET-1 mainly localizes to vascular endothelium, airway and vascular smooth muscle cells and, to a lesser degree, the epithelium. ET-2 has similar biologic functions as ET-1 and is found in the myocardium, kidney and placental tissues. ET-3 also circulates in plasma and is found in the central nervous system, gastrointestinal tract, lung, and kidney although the cellular source is not clear. The gene for ET-1 is located on chromosome 6, that for ET-2 on chromosome 1, and the gene for ET-3 on chromosome 20 [5]."
+      "text": "The endothelins are a family of 21 amino acid , of which there are three distinct isoforms (ET-1, ET-2, and ET-3). The isoforms ET-2 and ET-3 differ from ET-1 by two and six amino acids, respectively, and share significant homology, especially at the carboxy terminus with sarafotoxins a-e (Fig. 1). Endothelin-1 is the most abundant isoform and has been best characterized. The lung has the highest levels of ET-1 secreted by endothelium, smooth muscle, airway epithelium, and a variety of other cells (Table 2). ET-1 also circulates in the plasma. In the normal lung, ET-1 mainly localizes to vascular endothelium, airway and vascular smooth muscle cells and, to a lesser degree, the epithelium. ET-2 has similar biologic functions as ET-1 and is found in the myocardium, kidney and placental tissues. ET-3 also circulates in plasma and is found in the central nervous system, gastrointestinal tract, lung, and kidney although the cellular source is not clear. The gene for ET-1 is located on chromosome 6, that for ET-2 on chromosome 1, and the gene for ET-3 on chromosome 20 [5]."
     },
     {
       "position": 2,
@@ -122,12 +122,12 @@
     {
       "position": 21,
       "title": "Lung transplantation and rejection",
-      "text": "Several lines of evidence suggest the importance of ET-1 in lung allograft survival and rejection. The peptide has been implicated as an important factor in ischemia-reperfusion injury at the time of transplant as well as in acute and chronic rejection of the allograft."
+      "text": "Several lines of evidence suggest the of ET-1 in lung allograft survival and rejection. The peptide has been implicated as an important factor in ischemia-reperfusion injury at the time of transplant as well as in acute and chronic rejection of the allograft."
     },
     {
       "position": 22,
       "title": "Lung transplantation and rejection",
-      "text": "Circulating ET-1 is increased in humans undergoing lung transplant immediately following perfusion of the allograft. Plasma ET-1 increased threefold within minutes, remained high for 12 hours following transplantation, and declined to near normal levels within 24 hours [113]. This increase in ET-1 correlated with the increase in pulmonary vascular resistance occurring about 6 hours post-transplantation, suggesting that the release of ET-1 in the circulation may have mediated this event. ET-1 in BAL fluid from recipients of lung allografts is similarly increased several fold and remains elevated up to 2 years post-transplant [72,73]. In recipients of single lung transplants, ET-1 was increased 10-fold in BAL fluid from the transplanted lung compared with the native lung, suggesting that the increase in ET-1 was due to the graft and not the underlying disease requiring transplant [72]. ET-1 in BAL fluid did not, however, correlate with episodes of infection or rejection."
+      "text": "Circulating ET-1 is increased in human lung transplant immediately following perfusion of the allograft. Plasma ET-1 increased threefold within minutes, remained high for 12 hours following transplantation, and declined to near normal levels within 24 hours [113]. This increase in ET-1 correlated with the increase in pulmonary vascular resistance occurring about 6 hours post-transplantation, suggesting that the release of ET-1 in the circulation may have mediated this event. ET-1 in BAL fluid from recipients of lung allografts is similarly increased several fold and remains elevated up to 2 years post-transplant [72,73]. In recipients of single lung transplants, ET-1 was increased 10-fold in BAL fluid from the transplanted lung compared with the native lung, suggesting that the increase in ET-1 was due to the graft and not the underlying disease requiring transplant [72]. ET-1 in BAL fluid did not, however, correlate with episodes of infection or rejection."
     },
     {
       "position": 23,
@@ -157,7 +157,7 @@
     {
       "position": 28,
       "title": "Pulmonary malignancies",
-      "text": "ET-1 has been detected using immunohistochemistry and in situ hybridization in pulmonary adenocarcinomas and squamous cell tumors and, to a lesser extent, small cell and carcinoid tumors [133]. In situ hybridization also demonstrated a similar pattern of ET-1 mRNA expression in non-neuroendocrine tumors. ET-1 receptors have also been found in a variety of pulmonary tumor cell lines. ETA receptors were found in small cell tumors, adenocarcinomas and large cell tumors, while ETB receptors were expressed primarily in adenocarcinomas and small cell tumors [134]. ECE, which converts big ET-1 to ET-1, the committed step in ET-1 biosynthesis, was also found in human lung tumors but not in adjacent normal lung [135]. These findings, combined with the presence of ET-1 in lung tumors, suggest a possible autocrine loop that sustains and supports the growth of lung tumors. A recent study, however, suggested that, while ETA and ECE-1 were detectable in lung tumors, these genes were downregulated compared with normal bronchial epithelial cell lines [136]. It was proposed that the role of ET-1 in lung tumors is not that of an autocrine factor, but that of a paracrine growth factor to the stroma and vasculature surrounding the tumor allowing angiogenesis."
+      "text": "ET-1 has been detected using immunohistochemistry and in situ hybrion in pulmonary adenocarcinomas and squamous cell tumors and, to a lesser extent, small cell and carcinoid tumors [133]. In situ hybridization also demonstrated a similar pattern of ET-1 mRNA expression in non-neuroendocrine tumors. ET-1 receptors have also been found in a variety of pulmonary tumor cell lines. ETA receptors were found in small cell tumors, adenocarcinomas and large cell tumors, while ETB receptors were expressed primarily in adenocarcinomas and small cell tumors [134]. ECE, which converts big ET-1 to ET-1, the committed step in ET-1 biosynthesis, was also found in human lung tumors but not in adjacent normal lung [135]. These findings, combined with the presence of ET-1 in lung tumors, suggest a possible autocrine loop that sustains and supports the growth of lung tumors. A recent study, however, suggested that, while ETA and ECE-1 were detectable in lung tumors, these genes were downregulated compared with normal bronchial epithelial cell lines [136]. It was proposed that the role of ET-1 in lung tumors is not that of an autocrine factor, but that of a paracrine growth factor to the stroma and vasculature surrounding the tumor allowing angiogenesis."
     },
     {
       "position": 29,

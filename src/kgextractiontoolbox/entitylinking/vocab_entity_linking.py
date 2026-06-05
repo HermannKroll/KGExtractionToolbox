@@ -242,7 +242,7 @@ def main(arguments=None):
     task_queue = multiprocessing.Queue()
     result_queue = multiprocessing.Queue()
     producer = ProducerWorker(task_queue, generate_tasks, args.workers)
-    workers = [Worker(task_queue, result_queue, do_task) for n in range(args.workers)]
+    workers = [Worker(task_queue, result_queue, do_task) for _ in range(args.workers)]
     consumer = ConsumerWorker(result_queue, consume_task, args.workers, shutdown=shutdown_consumer)
 
     producer.start()

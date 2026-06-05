@@ -33,6 +33,16 @@ python src/kgextractiontoolbox/documents/load_document.py DOCUMENTS.json --colle
 
 ```
 
+### Artificial Document ids (If real IDs are not integers)
+We use integers as document ids for fast joining of large tables. 
+However, document ids in practice might not be integers. 
+We support to generate artificial integer ids if needed.
+When loading document data, just the **artificial_document_ids** flag.
+
+```
+python src/kgextractiontoolbox/documents/load_document.py DOCUMENTS.json --collection COLLECTION --artificial_document_ids
+```
+
 ### Document JSON Format
 Here is an example of our JSON format:
 ```

@@ -9,7 +9,7 @@ from kgextractiontoolbox.backend.models import DocumentClassification, Document
 from kgextractiontoolbox.backend.retrieve import iterate_over_all_documents_in_collection
 from kgextractiontoolbox.document import count
 from kgextractiontoolbox.document.document import TaggedDocument
-from kgextractiontoolbox.document.extract import read_pubtator_documents
+from kgextractiontoolbox.document.extract import read_documents
 from kgextractiontoolbox.document.load_document import document_bulk_load
 from kgextractiontoolbox.entitylinking.classifier import Classifier, BaseClassifier
 from kgextractiontoolbox.entitylinking.utils import init_preprocess_logger, init_sqlalchemy_logger
@@ -88,7 +88,7 @@ def perform_classification(classifier: BaseClassifier, document_collection: str,
 
     def generate_tasks():
         if input_file_given:
-            for doc in read_pubtator_documents(in_file):
+            for doc in read_documents(in_file):
                 t_doc = TaggedDocument(doc, ignore_tags=True)
                 if t_doc and t_doc.has_content():
                     yield t_doc
@@ -124,7 +124,7 @@ def perform_classification(classifier: BaseClassifier, document_collection: str,
     task_queue = multiprocessing.Queue()
     result_queue = multiprocessing.Queue()
     producer = ProducerWorker(task_queue, generate_tasks, workers, max_tasks=100000)
-    process_workers = [Worker(task_queue, result_queue, do_task) for n in range(workers)]
+    process_workers = [Worker(task_queue, result_queue, do_task) for _ in range(workers)]
     consumer = ConsumerWorker(result_queue, consume_task, workers)
 
     producer.start()

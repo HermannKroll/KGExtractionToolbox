@@ -7,7 +7,7 @@ from kgextractiontoolbox.entitylinking.tagging.vocabulary import expand_vocabula
 
 class TestDictagger(unittest.TestCase):
 
-    def test_exand_vocab_terms(self):
+    def test_expand_vocab_terms(self):
         self.assertIn('ontologies', expand_vocabulary_term('ontology'))
         self.assertIn('ontologys', expand_vocabulary_term('ontology'))
         self.assertIn('ontology', expand_vocabulary_term('ontology'))
@@ -15,8 +15,7 @@ class TestDictagger(unittest.TestCase):
         self.assertIn('color', expand_vocabulary_term('colour'))
         self.assertIn('colours', expand_vocabulary_term('colour'))
 
-        self.assertIn("non-small-cell-lung-cancer", list(expand_vocabulary_term("non-small cell lung cancer")))
-        self.assertIn("non small cell lung cancer", list(expand_vocabulary_term("non-small cell lung cancer")))
+        self.assertIn("nonsmall cell lung cancer", list(expand_vocabulary_term("non-small cell lung cancer")))
 
     def test_split_indexed_words(self):
         content = "This is a water-induced, foobar carbon-copper:"

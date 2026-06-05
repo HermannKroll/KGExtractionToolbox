@@ -1,16 +1,22 @@
-import itertools as it
 import os.path
 import re
 from abc import ABCMeta
 from collections import defaultdict
-from typing import List
+from typing import List, Set
 
 from kgextractiontoolbox.config import DICT_TAGGER_BLACKLIST
 from kgextractiontoolbox.document.document import TaggedDocument, TaggedEntity
 from kgextractiontoolbox.entitylinking.tagging.base import BaseTagger
 
 
-def get_n_tuples(in_list, n):
+def get_n_tuples(in_list: List[str], n: int):
+    """
+    This method takes a list of strings and returns a list of subsequent tuples.
+    We need that for generating candidates that are used for a lookup against our tagging vocabulary
+    :param in_list: a list of strings
+    :param n: n-subsequent tokens are used for the output list
+    :return: a generator of n-subsequent tuples as lists
+    """
     if n == 0:
         return []
     for i, element in enumerate(in_list):
@@ -21,6 +27,12 @@ def get_n_tuples(in_list, n):
 
 
 def clean_vocab_word_by_split_rules(word: str) -> str:
+    """
+    This method takes a word and returns a cleaned version of the word.
+    First character or last character are removed if they are no non-numerical non-alphabetic characters.
+    :param word: word
+    :return: a cleaned version of the word
+    """
     if word and re.match(r"[^\w]", word[0]):
         word = word[1:]
     if word and re.match(r"[^\w]", word[-1]):
@@ -28,7 +40,14 @@ def clean_vocab_word_by_split_rules(word: str) -> str:
     return word
 
 
-def split_indexed_words(content, split_by_slash=True):
+def split_indexed_words(content: str, split_by_slash: bool=True):
+    """
+    This method works like a tokenization. However, we need to control the tokenization procedure
+    to generate the correct token positions of the tagged entities in the end
+    :param content: textual content
+    :param split_by_slash: Control whether a token is also split by a slash
+    :return: a list of tokens
+    """
     words = content.split(' ')
     ind_words = []
     next_index_word = 0
@@ -60,6 +79,15 @@ def split_indexed_words(content, split_by_slash=True):
 
 
 class DictTagger(BaseTagger, metaclass=ABCMeta):
+    """
+    Base logic for our dictionary-based entity linking. This class
+    requires an entity vocabulary. Basically, the text is split into tokens.
+    This list is then joined by subsequent tokens. The joined words are used
+    to lookup whether they form an entity in our vocabulary.
+
+    This entity linking method ignores "-" by replacing the character in
+    the document text and in the vocabulary by a space.
+    """
     PROGRESS_BATCH = 10000
     __name__ = None
     __version__ = None
@@ -72,17 +100,27 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         self.desc_by_term = {}
         self.blacklist_file = blacklist_file
         self.clean_abbreviation_tags_function = DictTagger.clean_abbreviation_tags
+        self.dict_max_words = None
 
-    def get_types(self):
+    def get_types(self) -> List[str]:
+        """
+        Returns which entity types are tagged
+        :return: a list of tag types
+        """
         return self.tag_types
 
-    def get_blacklist_set(self):
+    def get_blacklist_set(self) -> Set[str]:
+        """
+        Loads a list of blacklisted words that are ignored when tagging
+        We provide a list of words like stopwords in our toolbox
+        :return: a set of ignored words
+        """
         if os.path.isfile(self.blacklist_file):
             with open(self.blacklist_file) as f:
                 blacklist = f.read().splitlines()
             blacklist_set = set()
             for s in blacklist:
-                s_lower = s.lower().strip()
+                s_lower = self.normalize_term(s)
                 blacklist_set.add(s_lower)
                 blacklist_set.add('{}s'.format(s_lower))
                 blacklist_set.add('{}e'.format(s_lower))
@@ -95,87 +133,97 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
 
     def tag_doc(self, in_doc: TaggedDocument, consider_sections=False) -> TaggedDocument:
         """
-        Generate tags for a TaggedDocument
+        Implements the tagging logic
         :param in_doc: document containing title+abstract to tag. Is modified by adding tags
         :param consider_sections: should fulltexts be considered?
         :return: the modified in_doc
         """
-        and_check_range = 5
-        connector_words = {"and", "or"}
+        # the logic requires to know how many subsequent tokens could form a match
+        # that is why we take the longest word in our vocabulary (defined by number of spaces)
+        if self.dict_max_words is None:
+            self.dict_max_words = max((len(norm.split()) for norm in self.desc_by_term), default=0)
+            self.logger.info(f'dict_max_words set to {self.dict_max_words}')
         abb_vocab = dict()
         out_doc = in_doc
-        pmid = in_doc.id
+        docid = in_doc.id
         tags = []
+        # loops over all text elements of a document (title, abstract, sections)
         for text_element, offset in in_doc.iterate_over_text_elements(sections=consider_sections):
-            content = text_element.lower()
+            # normalizes the text
+            content = self.normalize_term(text_element)
             # split into indexed single words
             ind_words = split_indexed_words(content, split_by_slash=self.config.dict_split_by_slash)
 
-            for spaces in range(self.config.dict_max_words):
+            # this loop generates all combinations of words that could form a candidate for a lookup
+            for spaces in range(self.dict_max_words):
+                # generate the words that are used for lookups
                 for word_tuple in get_n_tuples(ind_words, spaces + 1):
-                    hits = self.get_hits(word_tuple, pmid, offset=offset)
+                    # perform the lookup and generate the tagged entities
+                    hits = self.get_hits(word_tuple, docid, offset=offset)
                     tags += hits
 
+                    # if we allow to learn custom abbreviations
+                    # we can only learn one for the rest of the document if at least a single entity has been taggeed
                     if self.config.custom_abbreviations and hits:
                         words, indexes = zip(*word_tuple)
                         # only learn abbreviations from full entity mentions
                         term = " ".join(words)
                         if len(term) >= self.config.dict_min_full_tag_len:
+                            # Checks whether a user defines a custom abbreviations like Aspirin (ASA)
                             match = re.match(r" \(([^\(\)]*)\).*", content[indexes[-1] + len(words[-1]):])
                             if match:
                                 # strip the abbreviation
                                 abbreviation = match.groups()[0].strip()
+                                # learn the abbreviation for this document
                                 abb_vocab[abbreviation] = [(t.ent_type, t.ent_id) for t in hits]
 
-        if abb_vocab:
+        # if we learned some abbreviation, we have to tagg the document again
+        # this time by using our abbreviation vocabulary
+        if len(abb_vocab) > 0:
             for text_element, offset in in_doc.iterate_over_text_elements(sections=consider_sections):
                 content = text_element.lower()
                 # split into indexed single words
                 ind_words = split_indexed_words(content, split_by_slash=self.config.dict_split_by_slash)
-                for spaces in range(self.config.dict_max_words):
+                for spaces in range(self.dict_max_words):
                     for word_tuple in get_n_tuples(ind_words, spaces + 1):
-                        tags += self.get_hits(word_tuple, pmid, abb_vocab, offset=offset)
+                        tags += self.get_hits(word_tuple, docid, abb_vocab=abb_vocab, offset=offset)
 
+        # check if we need some cleaning here, e.g. take longest subsequences
         if self.config.dict_check_abbreviation:
             tags = self.clean_abbreviation_tags_function(tags, self.config.dict_min_full_tag_len)
 
+        # finally we determined all tags within this document
         out_doc.tags += tags
         # Apply custom logic if applicable
         self.custom_tag_filter_logic(out_doc)
 
+        # select original text without any normalization and lower casing
+        doc_text = out_doc.get_text_content(sections=consider_sections)
+        for t in out_doc.tags:
+            t.text = doc_text[t.start:t.end]
+
+        # return the output document
         return out_doc
 
-    def get_hits(self, word_tuple, pmid, abb_vocab=None, offset=0):
+    def get_hits(self, word_tuple, docid, abb_vocab=None, offset=0):
+        """
+        Generates the tagged entities
+        :param word_tuple: tuple of subsequent strings
+        :param docid: the current document id
+        :param abb_vocab: abbreviation vocabulary (can be none)
+        :param offset: the current offset position within the text
+        :return:
+        """
         words, indexes = zip(*word_tuple)
         term = " ".join(words)
         if not term:
             return []
         start = indexes[0] + offset
         end = indexes[-1] + len(words[-1]) + offset
-        hits = list(self.generate_tagged_entities(end, pmid, start, term, tmp_vocab=abb_vocab))
+        hits = list(self.generate_tagged_entities(end, docid, start, term, tmp_vocab=abb_vocab))
         return hits
 
     connector_words = {"and", "or"}
-
-    @staticmethod
-    def conjunction_product(token_seq, seperated=False):
-        """
-        split token_seq at last conn_word, return product of all sub token sequences. Exclude connector words.
-        :param seperated: return left_tuples, right_tuples instead of left_tuples+right_tuples
-        """
-        cwords_indexes = [n for n, (w, i) in enumerate(token_seq) if w in DictTagger.connector_words]
-
-        if not cwords_indexes:  # or max(cwords_indexes) in [0, len(token_seq)-1]:
-            return []
-        left = token_seq[:max(cwords_indexes)]
-        right = token_seq[max(cwords_indexes):]
-
-        left = [(w, i) for w, i in left if w not in DictTagger.connector_words]
-        right = [(w, i) for w, i in right if w not in DictTagger.connector_words]
-
-        left_tuples = [[]] + [t for n in range(0, len(left) + 1) for t in list(get_n_tuples(left, n))]
-        right_tuples = [[]] + [t for n in range(0, len(right) + 1) for t in list(get_n_tuples(right, n))]
-        yield from [(lt, rt) for lt, rt in it.product(left_tuples, right_tuples) if lt + rt]
 
     def _tag(self, in_file, out_file):
         with open(in_file) as f:
@@ -184,14 +232,16 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         with open(out_file, "w+") as f:
             f.write(str(result))
 
-    def generate_tag_lines(self, end, pmid, start, term):
-        hits = self._get_term(term)
-        # print(f"Found {hits} for '{term}'")
-        if hits:
-            for desc in hits:
-                yield pmid, start, end, term, self.tag_types[0], desc
-
-    def generate_tagged_entities(self, end, pmid, start, term, tmp_vocab=None):
+    def generate_tagged_entities(self, end, docid, start, term, tmp_vocab=None):
+        """
+        Generate the tagged entities
+        :param end: end position
+        :param docid: documennt id
+        :param start: start position
+        :param term: term to check
+        :param tmp_vocab: abbreviation vocabulary (can be none)
+        :return:
+        """
         hits = set()
         if tmp_vocab:
             tmp_hit = tmp_vocab.get(term)
@@ -203,9 +253,14 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
         # print(f"Found {hits} for '{term}'")
         if hits:
             for desc in hits:
-                yield TaggedEntity((pmid, start, end, term, self.tag_types[0], desc))
+                yield TaggedEntity((docid, start, end, term, self.tag_types[0], desc))
 
-    def _get_term(self, term):
+    def _get_term(self, term: str) -> [str]:
+        """
+        Returns matches of the term in our vocabulary
+        :param term: some string
+        :return: a list of matches
+        """
         hits = self.desc_by_term.get(term)
         return hits if hits else set()
 
@@ -236,10 +291,28 @@ class DictTagger(BaseTagger, metaclass=ABCMeta):
                 tags_cleaned.extend(tags)
         return tags_cleaned
 
+    @staticmethod
+    def normalize_term(term):
+        """
+        Normalizes a text by replacing all "-" characters by spaces
+        :param term:
+        :return:
+        """
+        return term.lower().replace('-', ' ')
+
     def prepare(self):
-        blacklist_set = self.get_blacklist_set()
-        self.desc_by_term = {k.lower().strip(): v for k, v in self.desc_by_term.items() if
-                             k.lower().strip() not in blacklist_set}
+        """
+        Prepares tagger (load backlisted terms plus prepares internal dictionary)
+        :return: None
+        """
+        blacklist = self.get_blacklist_set()
+        self.desc_by_term = {norm: v for k, v in self.desc_by_term.items()
+                             if (norm := self.normalize_term(k)) not in blacklist}
 
     def custom_tag_filter_logic(self, in_doc: TaggedDocument):
+        """
+        Allows to implement some custom tag filter logic
+        :param in_doc: the current input document
+        :return:
+        """
         pass

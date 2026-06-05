@@ -19,6 +19,7 @@ def export_predications_as_rdf(output_file: tp.Union[pl.Path, str], document_col
     :param output_file: the path to the output file
     :param document_collection: export statements for this document collection only (optional)
     :param export_metadata: if true metadata will also be extracted
+    :param check_relation_not_null: if true will check if relation is not null
     :return: None
     """
     session = Session.get()
@@ -86,6 +87,7 @@ def export_predications_as_tsv(output_file: str, document_collection=None, expor
     :param output_file: output filename
     :param document_collection: only export statements in this document collection (optional)
     :param export_metadata: if true metadata will also be extracted
+    :param check_relation_not_null: if true will check if relation is not null
     :return: None
     """
     session = Session.get()

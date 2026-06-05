@@ -1,7 +1,6 @@
 import json
 from kgextractiontoolbox.document.document import TaggedDocument
 
-
 class DocumentSentence:
 
     def __init__(self, sentence_id: str, text: str):
@@ -42,21 +41,30 @@ class StatementExtraction:
             "confidence": self.confidence
         }
 
+    def __str__(self):
+        return f'<{self.subject_id} ({self.subject_type}), {self.relation}, {self.object_id} ({self.object_type})>'
+
+    def __repr__(self):
+        return str(self)
+
+
 
 class NarrativeDocumentMetadata:
 
     def __eq__(self, other):
         return self.publication_year == other.publication_year and self.publication_month == other.publication_month \
             and self.authors == other.authors and self.journals == other.journals \
-            and self.publication_doi == other.publication_doi
+            and self.publication_doi == other.publication_doi \
+            and self.document_id_original == other.document_id_original
 
     def __init__(self, publication_year: int, publication_month: int, authors: str, journals: str,
-                 publication_doi: str):
+                 publication_doi: str, document_id_original: str):
         self.publication_year = publication_year
         self.publication_month = publication_month
         self.authors = authors
         self.journals = journals
         self.publication_doi = publication_doi
+        self.document_id_original = document_id_original
 
     def to_dict(self):
         """
@@ -73,7 +81,8 @@ class NarrativeDocumentMetadata:
                     publication_month=self.publication_month,
                     authors=self.authors,
                     journals=self.journals,
-                    doi=self.publication_doi)
+                    doi=self.publication_doi,
+                    document_id_original=self.document_id_original)
 
 
 class NarrativeDocument(TaggedDocument):
@@ -84,8 +93,10 @@ class NarrativeDocument(TaggedDocument):
                  sentences=None,
                  extracted_statements=None,
                  classification=None,
-                 sections=None):
-        super().__init__(id=document_id, title=title, abstract=abstract, ignore_tags=False)
+                 sections=None,
+                 source_id=None,
+                 md5hash=None):
+        super().__init__(id=document_id, title=title, abstract=abstract, ignore_tags=False, source_id=source_id)
         if sections is None:
             sections = []
         if classification is None:
@@ -104,6 +115,7 @@ class NarrativeDocument(TaggedDocument):
         self.extracted_statements = extracted_statements
         self.classification = classification
         self.sections = sections
+        self.md5hash = md5hash
 
     def load_from_json(self, json_str: str, ignore_tags=False):
         super().load_from_json(json_str=json_str, ignore_tags=ignore_tags)
@@ -114,7 +126,8 @@ class NarrativeDocument(TaggedDocument):
                                                       journals=md.get("journals", None),
                                                       publication_doi=md.get("doi", None),
                                                       publication_year=md.get("publication_year", None),
-                                                      publication_month=md.get("publication_month", None))
+                                                      publication_month=md.get("publication_month", None),
+                                                      document_id_original=md.get("document_id_original", None))
 
     def to_dict(self, export_content=True, export_tags=True, export_sections=True, export_classification=True):
         """
